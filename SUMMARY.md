@@ -1,7 +1,6 @@
 # Table of contents
 
 * [Initial page](README.md)
-* [Untitled](untitled.md)
 
 ## Domain Registry
 
@@ -12,6 +11,4 @@
 * [Domains management](domain-registry/domains-management/README.md)
   * [Registering and managing ownership](domain-registry/domains-management/registering-and-managing-ownership.md)
   * [Subdomains](domain-registry/domains-management/subdomains.md)
-
-## Records
 
