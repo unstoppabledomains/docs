@@ -13,5 +13,3 @@
   * [Registering and managing ownership](domain-registry/domains-management/registering-and-managing-ownership.md)
   * [Subdomains](domain-registry/domains-management/subdomains.md)
 
-## Records
-
