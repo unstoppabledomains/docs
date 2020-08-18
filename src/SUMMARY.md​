@@ -1,0 +1,15 @@
+# Table of contents
+
+* [Initial page](README.md)
+* [Table of contents](summary.md)
+
+## Domain Registry <a id="domain-registry-1"></a>
+
+* [Records](domain-registry-1/records/README.md)
+  * [Basic guide to resolving records](domain-registry-1/records/basic-guide-to-resolving-records.md)
+  * [Records management](domain-registry-1/records/records-management.md)
+  * [Reference](domain-registry-1/records/reference.md)
+* [Domains management](domain-registry-1/domains-management/README.md)
+  * [Registering and managing ownership](domain-registry-1/domains-management/registering-and-managing-ownership.md)
+  * [Subdomains](domain-registry-1/domains-management/subdomains.md)
+
