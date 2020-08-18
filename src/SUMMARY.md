@@ -1,8 +1,9 @@
 # Table of contents
 
 * [Initial page](README.md)
+* [Table of contents](summary.md)
 
-## Domain Registry
+## Domain Registry <a id="domain-registry"></a>
 
 * [Records](domain-registry/records/README.md)
   * [Basic guide to resolving records](domain-registry/records/basic-guide-to-resolving-records.md)
