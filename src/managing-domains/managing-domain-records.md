@@ -53,7 +53,7 @@ No other data transformation is required when converting a traditional DNS recor
 
 Crypto records do not have a domain name associated to them. That is why there is no feature of storing your subdomain records inside a parent domain. Example: `www.example.com` record can only be set inside a resolver of `www.example.com` but never inside `example.com`.
 
-A recommended way to display content in a browser for crypto domains is explained in [Browser Resolution How-to](https://github.com/unstoppabledomains/dot-crypto/blob/master/BROWSER_RESOLUTION_HOWTO.md)
+A recommended way to display content in a browser for crypto domains is explained in [Resolving Domains in a Browser](../browser-resolution/resolving-domains-in-a-browser)
 
 **TTL**
 
@@ -92,5 +92,5 @@ Distributed Web \(Dweb\) records are designed to allow one to configure a domain
 
 Record structure can be different based on the protocol. However, all protocols have a common `.hash` record used to reference a content in the distributed network. Example: `dns.ipfs.hash` for IPFS protocol.
 
-See [Resolving Domains in a Browser](../resolving-domains-in-a-browser.md) for an information how to interpret those records.
+See [Resolving Domains in a Browser](../browser-resolution/resolving-domains-in-a-browser.md) for an information how to interpret those records.
 

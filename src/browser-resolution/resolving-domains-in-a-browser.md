@@ -1,6 +1,6 @@
 # Resolving Domains in a Browser
 
-This document describes the recommended way to resolve blockchain domains within a classical HTTP Web Browser or a Dapp Browser. The document assumes that a reader has a basic understanding of Unstoppable domains resolution in general. See [Resolving Domain Records](domain-registry-essentials/resolving-domain-records.md).
+This document describes the recommended way to resolve blockchain domains within a classical HTTP Web Browser or a Dapp Browser. The document assumes that a reader has a basic understanding of Unstoppable domains resolution in general. See [Resolving Domain Records](../domain-registry-essentials/resolving-domain-records.md).
 
 ## End user features
 
@@ -20,7 +20,7 @@ Here are some of the end user scenarios that should give an idea which features 
 3. Then the browser resolves the domain and gets the content hash of a domain.
 4. Then the browser retrieves the content by the hash using a related protocol and displays the content
 
-![](.gitbook/assets/overview_read_dweb_website_from_ethereum_and_decentralized_network.png)
+![](../.gitbook/assets/overview_read_dweb_website_from_ethereum_and_decentralized_network.png)
 
 ### Domain Level Redirect
 
@@ -45,9 +45,9 @@ Here are some of the end user scenarios that should give an idea which features 
 * If network is not specified explicitly, it can be retrieved from the ethereum node URL.
 * If Registry Address is not specified, it can use a default for specified network
 
-![](.gitbook/assets/configure_dns_gateway.png)
+![](../.gitbook/assets/configure_dns_gateway.png)
 
-![](.gitbook/assets/configure_dweb_browser_settings%20%281%29.png)
+![](../.gitbook/assets/configure_dweb_browser_settings%20(1).png)
 
 ## Content Display Protocol
 
@@ -74,7 +74,7 @@ There are 2 possible gateways for each of the problem:
 
 See a description of how they work below
 
-![](.gitbook/assets/overview_dweb_website_via_dns_dweb_gateways.png)
+![](../.gitbook/assets/overview_dweb_website_via_dns_dweb_gateways.png)
 
 ### Distributed content gateway
 
@@ -82,7 +82,7 @@ A gateway is an HTTP Server that acts as a proxy between HTTP and distributed co
 
 1. Receive HTTP request to crypto domain \(like `http://example.crypto`\)
 2. Resolve a domain into crypto records
-3. Get the content based on [Resolution Algorithm](https://github.com/unstoppabledomains/dot-crypto/blob/master/BROWSER_RESOLUTION_HOWTO.md#resolution-algorithm)
+3. Get the content based on [Resolution Algorithm](browser-resolution-algorithm.md)
 4. Return the content to client via HTTP
 
 ### Resolution over DNS gateway
@@ -91,12 +91,12 @@ A gateway is a DNS Server that resolves not just traditional domains but also `.
 
 1. Receive a domain resolution request
 2. Resolve a domain using classical DNS system if is in classical TLD \(like `.com`\)
-3. Resolve a domain using [Resolution Algorithm](https://github.com/unstoppabledomains/dot-crypto/blob/master/BROWSER_RESOLUTION_HOWTO.md#resolution-algorithm) if it is in crypto TLD
-   * If a domain is set using DNS, transform [crypto DNS records](https://github.com/unstoppabledomains/dot-crypto/blob/master/ARCHITECTURE.md#dns-records) into classical records
+3. Resolve a domain using [Resolution Algorithm](browser-resolution-algorithm.md) if it is in crypto TLD
+   * If a domain is set using DNS, transform [crypto DNS records](../managing-domains/managing-domain-records.md#dns-records) into classical records
    * If a domain is set using distributed content
      * If client requests `A` record, resolve to [Distributed Content Gateway](https://github.com/unstoppabledomains/dot-crypto/blob/master/BROWSER_RESOLUTION_HOWTO.md#distributed-gateway) IP Address
      * If client requests `TXT` record, resolve to all crypto records in JSON encoded key-value format
 4. Send resolution to client
 
-![](.gitbook/assets/resolve_dweb_website_via_dns_gateway_and_dweb_gateway.png)
+![](../.gitbook/assets/resolve_dweb_website_via_dns_gateway_and_dweb_gateway.png)
 

@@ -1,8 +1,0 @@
-# Domains Ownership
-
-
-
-
-
-### 
-
