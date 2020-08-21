@@ -8,7 +8,7 @@ description: >-
 
 The essential part of the registry is to allow one to own a domain and associate records to it.
 
-Domain ownership is held in a form of [ERC721 token](https://eips.ethereum.org/EIPS/eip-721). A domain name is converted to an ERC721 token using a [Namehashing ](namehashing.md)algorithm. The records have a key-value form. **Multiple records with the same key are unsupported** at the low level and have to be simulated in higher level. See [Records Reference](https://github.com/unstoppabledomains/dot-crypto/blob/master/RECORDS_REFERENCE.md). An attempt to add a record that already exist on resolver will result in record value being overwritten.
+Domain ownership is held in a form of [ERC721 token](https://eips.ethereum.org/EIPS/eip-721). A domain name is converted to an ERC721 token using a [Namehashing ](namehashing.md)algorithm. The records have a key-value form. **Multiple records with the same key are unsupported** at the low level and have to be simulated in higher level. See [Records Reference](reference.md). An attempt to add a record that already exist on resolver will result in record value being overwritten.
 
 In addition to this, the registry design has a capability for flexible records managements that allows to implement any records management permission model. The flexibility is achieved by introducing a Resolver contract as a separated contract that can hold records and associating a domain with a single resolver contract address. Records can be associated to a domain ONLY via a Resolver contract. A single resolver can hold records for multiple domains.
 
