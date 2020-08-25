@@ -33,14 +33,14 @@ Here are some of the end user scenarios that should give an idea which features 
 
 1. Given a user that want to change its ETH provider service.
 2. When user goes to browser settings crypto domains section.
-3. User changes ethereum node URL from default to any other.
-4. User changes Registry Address for each support crypto registry.
-5. User changes network for ethereum node.
-6. User changes DNS gateway
-7. User changes Dweb gateway
-8. Then the browser uses new settings to make requests to ethereum blockchain
-9. If network is not specified explicitly, it can be retrieved from the ethereum node URL.
-10. If Registry Address is not specified, it can use a default for specified network
+   * User changes ethereum node URL from default to any other.
+   * User changes Registry Address for each support crypto registry.
+   * User changes network for ethereum node.
+   * User changes DNS gateway
+   * User changes Dweb gateway
+3. Then the browser uses new settings to make requests to ethereum blockchain
+   * If network is not specified explicitly, it can be retrieved from the ethereum node URL.
+   * If Registry Address is not specified, it can use a default for specified network
 
 ![](../.gitbook/assets/configure_dns_gateway.png)
 
