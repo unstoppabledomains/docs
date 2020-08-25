@@ -1,6 +1,6 @@
 # Introduction
 
-Unstoppable Domains is a service that provides blockchain domains that are assignable to users' cryptocurrency addresses and powered by Ethereum and Zilliqa blockchains. CNS and ZNS provide users full control of their domain names, which ensures permanent ownership, censorship resistance and decentralized access.
+Unstoppable Domains is a service providing blockchain domains that are assignable to users' cryptocurrency addresses and powered by Ethereum and Zilliqa blockchains. CNS and ZNS provide users full control of their domain names, which ensures permanent ownership, censorship resistance and decentralized access.
 
 ## Who This Documentation Is For
 
