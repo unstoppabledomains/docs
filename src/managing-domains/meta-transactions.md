@@ -62,7 +62,7 @@ const message = generateMessageToSign(
 
 Functions Reference:
 
-* `namehash` - [Namehashing Function](https://github.com/unstoppabledomains/dot-crypto/blob/master/ARCHITECTURE.md#namehashing) algorithm implementation
+* `namehash` - [Namehashing Function](../domain-registry-essentials/namehashing.md) algorithm implementation
 * `ethCallRpc` - Ethereum `eth_call` JSON RPC implementation
 * `encodeContractInterface` - [Solidity ABI](https://solidity.readthedocs.io/en/v0.7.0/abi-spec.html#argument-encoding) interface parameters encoder
 * `solidityKeccak256` - [Solidity ABI](https://solidity.readthedocs.io/en/v0.7.0/abi-spec.html#argument-encoding) parameters encoder

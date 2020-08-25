@@ -16,7 +16,7 @@ Records Management can be done via [Resolver methods](https://github.com/unstopp
 
 ### Main Records
 
-Records on top level are stored in a simple key-value mapping of string to string. Crypto registry doesn't forbid a user to assign any record to any value. However, there is a list of standard records that have a defined standard interpretation by clients. A full list of standardized records can be found in [Records Reference](https://github.com/unstoppabledomains/dot-crypto/blob/master/RECORDS_REFERENCE.md).
+Records on top level are stored in a simple key-value mapping of string to string. Crypto registry doesn't forbid a user to assign any record to any value. However, there is a list of standard records that have a defined standard interpretation by clients. A full list of standardized records can be found in [Records Reference](../domain-registry-essentials/reference.md).
 
 Standard record keys are split by namespaces with `.` used as a separator.
 
