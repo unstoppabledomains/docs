@@ -12,9 +12,9 @@ If none of `dweb` hash records is set, a browser should fall back to DNS resolut
 
 Generally browsers automatically add `http://` prefix for any domain in the address bar if the protocol is not specified explicitly by a user. In case of blockchain domain names \(assuming a browser supports many protocols\), it is preferred to determine a protocol only after resolving domain records.
 
-![](../.gitbook/assets/browser_resolution_algorithm.png)
+![](../.gitbook/assets/browser_resolution_algorithm%20%281%29.png)
 
-### Legacy Records Support
+## Legacy Records Support
 
 As of Q3 2020, most .crypto domains are configured using legacy record names for IPFS hash and redirect domain:
 

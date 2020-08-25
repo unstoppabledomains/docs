@@ -10,7 +10,7 @@ Meta transaction methods are bound to domain based nonce \(instead of [Account N
 
 A source code of signature validation can be found in [SignatureUtil.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/utils/SignatureUtil.sol)
 
-### **Meta transaction signature generation**
+## **Meta transaction signature generation**
 
 Meta transaction requires 2 signature: one passed as a method argument and one classical. Classical signature is generated in a standard way. Meta signature requires a domain owner \(or a person approved by owner\) to sign a special message formed from:
 

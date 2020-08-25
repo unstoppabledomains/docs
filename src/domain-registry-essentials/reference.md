@@ -1,10 +1,8 @@
 # Records Reference
 
-
-
 Records Reference is an overview of all standardized resolver record, that have a defined interpretation. Any other custom records are not forbidden to be set, however their interpretation remains custom to specific clients.
 
-### List of Records
+## List of Records
 
 | Domain Name | Description | Format | Example | Docs |
 | :--- | :--- | :--- | :--- | :--- |
@@ -25,6 +23,4 @@ Records Reference is an overview of all standardized resolver record, that have 
 | `dns.<RECORD>.ttl` | TTL setting for corresponding type of records | `\d+` | `164` | [Link](../managing-domains/managing-domain-records.md#dns-records) |
 | `ipfs.html.value` | Deprecated: use `dweb.ipfs.hash` instead. | `[0-9a-zA-Z]{46}` | `QmVaAtQbi3EtsfpKoLzALm6vXphdi2KjMgxEDKeGg6wHvK` | [Link](../browser-resolution/records.md) |
 | `ipfs.redirect_domain.value` | Deprecated: use `browser.redirect_url` instead. | [RFC-1738](https://tools.ietf.org/html/rfc1738) | `http://example.com/home.html` | [Link](../browser-resolution/records.md) |
-
-
 

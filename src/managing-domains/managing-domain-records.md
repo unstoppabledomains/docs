@@ -2,7 +2,7 @@
 
 Domain records can be managed via default public resolver. One can develop its own custom resolver with any management permissions defined.
 
-### Using Default Public Resolver
+## Using Default Public Resolver
 
 Default public resolver allows to manage all domain records for any address given a permission over domain as per [ERC721 "Transfer Mechanism"](https://eips.ethereum.org/EIPS/eip-721) section. These includes:
 
@@ -14,7 +14,7 @@ See ERC721 on how those permissions can be granted and revoked. Any records chan
 
 Records Management can be done via [Resolver methods](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/IResolver.sol).
 
-### Main Records
+## Main Records
 
 Records on top level are stored in a simple key-value mapping of string to string. Crypto registry doesn't forbid a user to assign any record to any value. However, there is a list of standard records that have a defined standard interpretation by clients. A full list of standardized records can be found in [Records Reference](../domain-registry-essentials/reference.md).
 
@@ -27,7 +27,7 @@ Main namespaces are:
 * `dweb.*` - records related to distributed content network protocols
 * `browser.*` - hint records for web browsers
 
-#### Crypto Payments Records
+### Crypto Payments Records
 
 One of essential feature of crypto domains is the ability to make specify a domain instead of a destination address for your crypto payment. Crypto Wallets that need this feature should revolve a domain to crypto address under the hook in the same way browser resolves a domain to IP address.
 
@@ -43,7 +43,7 @@ Example crypto records setup:
 | `crypto.BTC.address` | `bc1qkd4um2nn2uyzmsch5y86wsa2pfh8xl445lg9nv` |
 | `crypto.ZIL.address` | `zil1yu5u4hegy9v3xgluweg4en54zm8f8auwxu0xxc` |
 
-#### DNS records
+### DNS records
 
 Resolver records may contain classical DNS records besides other records. In order to distinguish those from other crypto records, the `dns.*` namespace is used. So DNS `A` corresponds to `dns.A` crypto record. Any [listed DNS record](https://en.wikipedia.org/wiki/List_of_DNS_record_types) described in RFC standards is supported. All record names must follow upper case naming convention.
 
@@ -53,7 +53,7 @@ No other data transformation is required when converting a traditional DNS recor
 
 Crypto records do not have a domain name associated to them. That is why there is no feature of storing your subdomain records inside a parent domain. Example: `www.example.com` record can only be set inside a resolver of `www.example.com` but never inside `example.com`.
 
-A recommended way to display content in a browser for crypto domains is explained in [Resolving Domains in a Browser](../browser-resolution/resolving-domains-in-a-browser)
+A recommended way to display content in a browser for crypto domains is explained in [Resolving Domains in a Browser](../browser-resolution/resolving-domains-in-a-browser.md)
 
 **TTL**
 
@@ -86,7 +86,7 @@ It is a common practice in DNS to have an authority of a subdomain delegated to 
 
 Therefore, authority configurations are not supported by crypto domains at the moment.
 
-#### Distributed Web records
+### Distributed Web records
 
 Distributed Web \(Dweb\) records are designed to allow one to configure a domain for distributed websites protocols like IPFS or Swarm. Such records are stored in `dweb.*` namespace. Each protocol has its own sub-namespace for its data using canonic name. Example: Swarm's protocol canonic name is `bzz` so its records are stored at `dns.bzz.*` namespace.
 
