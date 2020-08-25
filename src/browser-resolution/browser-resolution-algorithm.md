@@ -1,6 +1,6 @@
 # Browser Resolution Algorithm
 
-!\[Resolve Dweb website by direct reading from Ethereum and Decentralized network\]\(./documentation/diagrams/browser-resolution/Resolve DWeb website by direct reading from Ethereum and Decentralized network.png\)
+![](../.gitbook/assets/resolve_dweb_website_by_direct_reading_from_ethereum_and_decentralized_network.png)
 
 This section explains how different domain record configurations should be interpreted by browsers.
 
