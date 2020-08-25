@@ -1,15 +1,23 @@
 # Table of contents
 
-* [Initial page](README.md)
-* [Table of contents](summary.md)
+* [Introduction](README.md)
 
-## Domain Registry <a id="domain-registry"></a>
+## Domain Registry Essentials
 
-* [Records](domain-registry/records/README.md)
-  * [Basic guide to resolving records](domain-registry/records/basic-guide-to-resolving-records.md)
-  * [Records management](domain-registry/records/records-management.md)
-  * [Reference](domain-registry/records/reference.md)
-* [Domains management](domain-registry/domains-management/README.md)
-  * [Registering and managing ownership](domain-registry/domains-management/registering-and-managing-ownership.md)
-  * [Subdomains](domain-registry/domains-management/subdomains.md)
+* [General Overview](domain-registry-essentials/general-overview.md)
+* [Namehashing](domain-registry-essentials/namehashing.md)
+* [Resolving Domain Records](domain-registry-essentials/resolving-domain-records.md)
+* [Records Reference](domain-registry-essentials/reference.md)
+
+## Managing Domains
+
+* [Managing Domain Records](managing-domains/managing-domain-records.md)
+* [Meta Transactions](managing-domains/meta-transactions.md)
+* [Deploying Custom Resolver](managing-domains/deploying-custom-resolver.md)
+
+## Browser Resolution
+
+* [Resolving Domains in a Browser](browser-resolution/resolving-domains-in-a-browser.md)
+* [Records](browser-resolution/records.md)
+* [Browser Resolution Algorithm](browser-resolution/browser-resolution-algorithm.md)
 
