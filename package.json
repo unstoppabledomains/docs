@@ -1,0 +1,11 @@
+{
+  "name": "docs-gitbook",
+  "version": "1.0.0",
+  "repository": "git@github.com:unstoppabledomains/docs-gitbook.git",
+  "scripts": {
+    "check:links": "find . -type f -name '*.md' ! -path './node_modules/*' | xargs -l yarn markdown-link-check"
+  },
+  "devDependencies": {
+    "markdown-link-check": "^3.8.1"
+  }
+}

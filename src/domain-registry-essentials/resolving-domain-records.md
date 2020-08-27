@@ -30,7 +30,7 @@ Reference:
 
 See [Records Reference](reference.md) for more information on which specific records to query.
 
-### Record Value Validation
+## Record Value Validation
 
 Crypto resolver doesn't have any built-in record value validation when it is updated for two reasons:
 
@@ -41,7 +41,7 @@ Any domain management application must perform record format validation before s
 
 See [Records Reference](reference.md) for more information for the validator of each record.
 
-### Configuring Ethereum Network connection
+## Configuring Ethereum Network connection
 
 Domain Resolution Configuration at low level requires 3 configuration parameters:
 

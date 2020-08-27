@@ -20,7 +20,7 @@ Here are some of the end user scenarios that should give an idea which features 
 3. Then the browser resolves the domain and gets the content hash of a domain.
 4. Then the browser retrieves the content by the hash using a related protocol and displays the content
 
-![](../.gitbook/assets/overview_read_dweb_website_from_ethereum_and_decentralized_network%20%281%29.png)
+![](../.gitbook/assets/overview_read_dweb_website_from_ethereum_and_decentralized_network.png)
 
 ### Domain Level Redirect
 
@@ -33,18 +33,16 @@ Here are some of the end user scenarios that should give an idea which features 
 
 1. Given a user that want to change its ETH provider service.
 2. When user goes to browser settings crypto domains section.
-3. User changes ethereum node URL from default to any other.
-4. User changes Registry Address for each support crypto registry.
-5. User changes network for ethereum node.
-6. User changes DNS gateway
-7. User changes Dweb gateway
-8. Then the browser uses new settings to make requests to ethereum blockchain
-9. If network is not specified explicitly, it can be retrieved from the ethereum node URL.
-10. If Registry Address is not specified, it can use a default for specified network
+   * User changes ethereum node URL from default to any other.
+   * User changes Registry Address for each support crypto registry.
+   * User changes network for ethereum node.
+   * User changes DNS gateway
+   * User changes Dweb gateway
+3. Then the browser uses new settings to make requests to ethereum blockchain
+   * If network is not specified explicitly, it can be retrieved from the ethereum node URL.
+   * If Registry Address is not specified, it can use a default for specified network
 
-![](../.gitbook/assets/configure_dns_gateway%20%281%29.png)
-
-!\[\]\(../.gitbook/assets/configure\_dweb\_browser\_settings%20\(1\).png\)
+![](../.gitbook/assets/configure_dns_gateway.png)
 
 ## Content Display Protocol
 
@@ -71,7 +69,7 @@ There are 2 possible gateways for each of the problem:
 
 See a description of how they work below
 
-![](../.gitbook/assets/overview_dweb_website_via_dns_dweb_gateways%20%281%29.png)
+![](../.gitbook/assets/overview_dweb_website_via_dns_dweb_gateways.png)
 
 ### Distributed content gateway
 
@@ -95,5 +93,5 @@ A gateway is a DNS Server that resolves not just traditional domains but also `.
      * If client requests `TXT` record, resolve to all crypto records in JSON encoded key-value format
 4. Send resolution to client
 
-![](../.gitbook/assets/resolve_dweb_website_via_dns_gateway_and_dweb_gateway%20%281%29.png)
+![](../.gitbook/assets/resolve_dweb_website_via_dns_gateway_and_dweb_gateway.png)
 

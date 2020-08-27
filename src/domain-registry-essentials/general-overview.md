@@ -35,7 +35,7 @@ mapping (uint256 =>  mapping (string => string)) internal _records;
 
 Unstoppable Domains provides a default public resolver contract deployed at [0xb66DcE2DA6afAAa98F2013446dBCB0f4B0ab2842](https://etherscan.io/address/0xb66DcE2DA6afAAa98F2013446dBCB0f4B0ab2842). [Source Code](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Resolver.sol).
 
-### Registry Controllers
+## Registry Controllers
 
 At the moment when crypto registry was deployed, Ethereum platform had a limitation on the contract size. [Removing Contract Size Limit Issue](https://github.com/ethereum/EIPs/issues/1662).
 
@@ -43,7 +43,7 @@ In order to avoid that limitation, some registry methods are moved to Controller
 
 A list of controller contracts and their source can be found in [List of Contracts](https://github.com/unstoppabledomains/dot-crypto/blob/master/README.md#deployed-contracts)
 
-### Domains Minting and Hierarchy
+## Domains Minting and Hierarchy
 
 Registry comes with a pre-generated top level domain `crypto`. A process of making a new domain is referenced as "minting" in the source code and documentation. Generally any domain owner can mint a subdomain via [Registry\#mintChild](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Registry.sol#L79).
 
@@ -63,7 +63,7 @@ Example: transferring a subdomain `home.example.crypto` from previous example to
 transferFromChild(subdomainOwner, sldOwner, namehash('example.crypto'), 'home')
 ```
 
-`crypto` top level domain's owner is set to `0x0000000000000000000000000000000000000000000000000000000000000000` address that no one owns. So, the second level domains minting is done via a [MintingController.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/MintingController.sol) which is only allowed to mint non existing domains without any ability to control those domains after they are minted.
+`crypto` top level domain's owner is set to `0x0000000000000000000000000000000000000000000000000000000000000000` address that no one owns. So, the second level domains minting is done via a [MintingController.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/controllers/MintingController.sol) which is only allowed to mint non existing domains without any ability to control those domains after they are minted.
 
 The permanent ownership of second level domains is guaranteed as there is no fee for owning a domain and no permission to revoke the ownership at higher level. People wanting to propagate this permission model to subdomains \(e.g. converting them into zones\) can follow the same pattern for domains they own.
 
