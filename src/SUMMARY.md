@@ -18,6 +18,5 @@
 ## Browser Resolution
 
 * [Resolving Domains in a Browser](browser-resolution/resolving-domains-in-a-browser.md)
-* [Records](browser-resolution/records.md)
 * [Browser Resolution Algorithm](browser-resolution/browser-resolution-algorithm.md)
 

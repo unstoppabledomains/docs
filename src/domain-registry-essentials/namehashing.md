@@ -12,7 +12,7 @@ One can verify his implementation of namehashing algorithm using the following r
 | `www.example.crypto` | `0x3ae54ac25ccd63401d817b6d79a4a56ae7f79a332fe77a98fa0c9d10adf9b2a1` |
 | `a.b.c.crypto` | `0x353ea3e0449067382e0ea7934767470170dcfa9c49b1be0fe708adc4b1f9cf13` |
 
-### **Inverse namehashing**
+## Inverse namehashing
 
 Fundamentally namehashing is built to be a one way operation. However, crypto registry remembers all the domain names that were ever minted with their corresponding namehash: [source code](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Registry.sol#L17). That makes it possible to obtain an original domain name from a namehash via ETH RPC call to [Registry\#tokenURI](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Registry.sol#L51).
 
