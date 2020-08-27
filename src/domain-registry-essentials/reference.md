@@ -4,7 +4,7 @@ Records Reference is an overview of all standardized resolver record, that have 
 
 ## List of Records
 
-| Domain Name | Description | Format | Example | Docs |
+| Domain Name | Description | Docs | Format | Example |
 | :--- | :--- | :--- | :--- | :--- |
 | `crypto.ETH.address` | Ethereum Address to receive crypto payments | [Link](../managing-domains/managing-domain-records.md#crypto-payments-records) | `0x[0-9a-fA-F]{40}` | `0x0f4a10a4f46c288cea365fcf45cccf0e9d901b94` |
 | `crypto.BTC.address` | Bitcoin Address to receive crypto payments | [Link](../managing-domains/managing-domain-records.md#crypto-payments-records) | `[0-9a-zA-Z]{32}` | `1Nb7Mt1EqUqxxrAdmefUovS7aTgMUf2A6m` |
