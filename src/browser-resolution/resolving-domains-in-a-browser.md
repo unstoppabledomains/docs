@@ -87,9 +87,9 @@ A gateway is a DNS Server that resolves not just traditional domains but also `.
 1. Receive a domain resolution request
 2. Resolve a domain using classical DNS system if is in classical TLD \(like `.com`\)
 3. Resolve a domain using [Browser Resolution Algorithm](browser-resolution-algorithm.md) if it is in crypto TLD
-   * If a domain is set using DNS, transform [crypto DNS records](../managing-domains/managing-domain-records.md#dns-records) into classical records
+   * If a domain is set using DNS, transform [crypto DNS records](../browser-resolution/browser-resolution-algorithm.md#dns-records) into classical records
    * If a domain is set using distributed content
-     * If client requests `A` record, resolve to [Distributed Content Gateway](browser-resolution-algorithm.md#distributed-content-gateway) IP Address
+     * If client requests `A` record, resolve to [Distributed Content Gateway](resolving-domains-in-a-browser.md#distributed-content-gateway) IP Address
      * If client requests `TXT` record, resolve to all crypto records in JSON encoded key-value format
 4. Send resolution to client
 
