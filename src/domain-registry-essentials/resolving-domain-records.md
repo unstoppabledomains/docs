@@ -21,7 +21,7 @@ const values = ethcall(resolverAddress, "getMany", keys, tokenId);
 keys.forEach((k, i) => console.log(k, values[i]))
 ```
 
-![](../.gitbook/assets/provide_domain_records_via_proxy_reader_smart_contract_2.png)
+![](../.gitbook/images/provide_domain_records_via_proxy_reader_smart_contract.png)
 
 Reference:
 

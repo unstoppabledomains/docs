@@ -18,9 +18,9 @@ Here are some of the end user scenarios that should give an idea which features 
 1. Given a blockchain domain has an dweb content identifier record configured \(e.g. IPFS hash\).
 2. When user enters the domain name into a browser address bar.
 3. Then the browser resolves the domain and gets the content hash of a domain.
-4. Then the browser retrieves the content by the hash using a related protocol and displays the content
+4. Then the browser retrieves the content by the hash using a related protocol and displays the content.
 
-![](../.gitbook/assets/overview_read_dweb_website_from_ethereum_and_decentralized_network.png)
+![](../.gitbook/images/overview_read_dweb_website_from_ethereum_and_decentralized_network.png)
 
 ### Domain Level Redirect
 
@@ -69,7 +69,7 @@ There are 2 possible gateways for each of the problem:
 
 See a description of how they work below
 
-![](../.gitbook/assets/overview_dweb_website_via_dns_dweb_gateways.png)
+![](../.gitbook/images/overview_dweb_website_via_dns_dweb_gateways.png)
 
 ### Distributed content gateway
 
@@ -87,11 +87,11 @@ A gateway is a DNS Server that resolves not just traditional domains but also `.
 1. Receive a domain resolution request
 2. Resolve a domain using classical DNS system if is in classical TLD \(like `.com`\)
 3. Resolve a domain using [Browser Resolution Algorithm](browser-resolution-algorithm.md) if it is in crypto TLD
-   * If a domain is set using DNS, transform [crypto DNS records](../browser-resolution/browser-resolution-algorithm.md#dns-records) into classical records
+   * If a domain is set using DNS, transform [crypto DNS records](browser-resolution-algorithm.md#dns-records) into classical records
    * If a domain is set using distributed content
      * If client requests `A` record, resolve to [Distributed Content Gateway](resolving-domains-in-a-browser.md#distributed-content-gateway) IP Address
      * If client requests `TXT` record, resolve to all crypto records in JSON encoded key-value format
 4. Send resolution to client
 
-![](../.gitbook/assets/resolve_dweb_website_via_dns_gateway_and_dweb_gateway.png)
+![](../.gitbook/images/resolve_dweb_website_via_dns_gateway_and_dweb_gateway.png)
 
