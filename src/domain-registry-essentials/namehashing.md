@@ -1,6 +1,6 @@
 # Namehashing
 
-Namehashing is an algorithm that converts a domain name in a classical format \(like `www.example.crypto`\) to ERC721 token id. All .crypto ecosystem contracts accept domain name as a method argument in a form of ERC721 token. Namehashing is defined as a part of [EIP-137](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-137.md#namehash-algorithm) standard. [Example implementation](https://github.com/unstoppabledomains/resolution/blob/master/src/cns/namehash.ts) in JavaScript. See the standard for a text description of the algorithm.
+Namehashing is an algorithm that converts a domain name in a classical format \(like `www.example.crypto`\) to ERC721 token id. All .crypto ecosystem contracts accept domain name as a method argument in a form of ERC721 token. Namehashing is defined as a part of [EIP-137](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-137.md#namehash-algorithm) standard. See the standard for a text description of the algorithm.
 
 One can verify his implementation of namehashing algorithm using the following reference table:
 

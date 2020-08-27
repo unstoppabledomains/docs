@@ -63,7 +63,7 @@ Example: transferring a subdomain `home.example.crypto` from previous example to
 transferFromChild(subdomainOwner, sldOwner, namehash('example.crypto'), 'home')
 ```
 
-`crypto` top level domain's owner is set to `0x0000000000000000000000000000000000000000000000000000000000000000` address that no one owns. So, the second level domains minting is done via a [MintingController.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/MintingController.sol) which is only allowed to mint non existing domains without any ability to control those domains after they are minted.
+`crypto` top level domain's owner is set to `0x0000000000000000000000000000000000000000000000000000000000000000` address that no one owns. So, the second level domains minting is done via a [MintingController.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/controllers/MintingController.sol) which is only allowed to mint non existing domains without any ability to control those domains after they are minted.
 
 The permanent ownership of second level domains is guaranteed as there is no fee for owning a domain and no permission to revoke the ownership at higher level. People wanting to propagate this permission model to subdomains \(e.g. converting them into zones\) can follow the same pattern for domains they own.
 
