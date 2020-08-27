@@ -42,7 +42,7 @@ Here are some of the end user scenarios that should give an idea which features 
    * If network is not specified explicitly, it can be retrieved from the ethereum node URL.
    * If Registry Address is not specified, it can use a default for specified network
 
-![](../.gitbook/assets/configure_dns_gateway.png)
+![](../.gitbook/images/configure_dns_gateway.png)
 
 ## Content Display Protocol
 
