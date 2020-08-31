@@ -6,11 +6,11 @@ Resolving a domain requires a software to have access to ethereum network. For m
 
 The simplest way to resolve a domain with Ethereum JSON RPC is to make a readonly call to ProxyReader smart contract. ProxyReader provides an API that allows users to resolve domains making just one call, passing only keys of records and a domain namehash. Without ProxyReader it would require executing at least two calls: one to obtain a domain resolver address and another one to get the records themselves. With ProxyReader it all happens under the hood.
 
-An example in JavaScript to get two records
-(using [ethers library](https://www.npmjs.com/package/ethers)):
+An example in JavaScript of getting two records \(using [ethers library](https://www.npmjs.com/package/ethers)\):
 
 ```text
 const proxyReaderAddress = '0x7ea9Ee21077F84339eDa9C80048ec6db678642B1';
+// Partial ABI, just for the getMany function.
 const proxyReaderAbi = [
   'function getMany(string[] calldata keys, uint256 tokenId) external view returns (string[] memory)'
 ];
