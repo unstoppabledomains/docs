@@ -1,34 +1,44 @@
 # Resolving Domain Records
 
-Resolving a domain is a process of retrieving a domain records when the domain name and required record names are given. There is no limitation on who can read domain records on Registry side. Anyone having an access to Ethereum Node on the mainnet can resolve a domain.
+Resolving a domain is a process of retrieving a domain records when the domain name and required record names are given. There is no limitation on who can read domain records on Registry side. Anyone having access to Ethereum Node on the mainnet can resolve a domain.
 
-Resolving a domain requires a software to have an access to ethereum network. See [Configuring Ethereum Network connection](resolving-domain-records.md#configuring-ethereum-network-connection) for more information.
+Resolving a domain requires a software to have access to ethereum network. For more information, see [Configuring Ethereum Network connection](resolving-domain-records.md#configuring-ethereum-network-connection).
 
-In order to resolve a domain, one would require to make 2 `eth_call` ethereum JSON RPC method calls:
+The simplest way to resolve a domain with Ethereum JSON RPC is to make a readonly call to ProxyReader smart contract. ProxyReader provides an API that allows users to resolve domains making just one call, passing only keys of records and a domain namehash. Without ProxyReader it would require executing at least two calls: one to obtain a domain resolver address and another one to get the records themselves. With ProxyReader it all happens under the hood.
 
-1. Get resolver address via `Registry#resolverOf(tokenId)` where `tokenId` is a ERC721 token of a given domain
-2. Get record values via `Resolver#getMany(keys, tokenId)` where `keys` are record names.
-
-Pseudocode example in JavaScript:
+An example in JavaScript to get two records
+(using [ethers library](https://www.npmjs.com/package/ethers)):
 
 ```text
-const RegistryAddress = "0xD1E5b0FF1287aA9f9A268759062E4Ab08b9Dacbe";
-const domain = "example.crypto";
-const tokenId = namehash(domain)
-const keys = ["crypto.ETH.address", "crypto.BTC.address"];
-const resolverAddress = ethCall(RegistryAddress, "resolverOf", tokenId);
-const values = ethcall(resolverAddress, "getMany", keys, tokenId);
-keys.forEach((k, i) => console.log(k, values[i]))
-```
+const proxyReaderAddress = '0x7ea9Ee21077F84339eDa9C80048ec6db678642B1';
+const proxyReaderAbi = [
+  'function getMany(string[] calldata keys, uint256 tokenId) external view returns (string[] memory)'
+];
+const proxyReaderContract = new ethers.Contract(
+  proxyReaderAddress,
+  proxyReaderAbi,
+  provider,
+);
 
-![](../.gitbook/assets/provide_domain_records_via_proxy_reader_smart_contract.png)
+const domain = 'brad.crypto';
+const tokenId = namehash(domain);
+const keys = ['crypto.ETH.address', 'crypto.BTC.address'];
+
+const values = await proxyReaderContract.getMany(keys, tokenId);
+console.log(values);
+// [
+//   '0x8aaD44321A86b170879d7A244c1e8d360c99DdA8',
+//   'bc1q359khn0phg58xgezyqsuuaha28zkwx047c0c3y'
+// ]
+```
 
 Reference:
 
 * `namehash` - namehashing algorithm implementation. See [Namehashing](namehashing.md).
-* `echCall` - Ethereum JSON RPC implementation for `eth_call` method. See [Ethereum JSON RPC](https://eth.wiki/json-rpc/API#eth_call)
 
-See [Records Reference](reference.md) for more information on which specific records to query.
+![](../.gitbook/assets/provide_domain_records_via_proxy_reader_smart_contract.png)
+
+See [Records Reference](reference.md) for more information about the standardized records.
 
 ## Record Value Validation
 
