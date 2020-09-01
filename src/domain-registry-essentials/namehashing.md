@@ -21,11 +21,12 @@ Fundamentally namehashing is built to be a one way operation, unless one is poss
 Crypto registry remembers all the domain names that were ever minted with their corresponding namehash: [source code](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Registry.sol#L17). That makes it possible to obtain an original domain name from a namehash via ETH RPC call to [Registry\#tokenURI](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Registry.sol#L51).
 
 ### Public API
+
 There is a way to obtain domain information by namehash from APIs. In order to do this you need to call `https://unstoppabledomains.com/api/v1/{namehash}`
 
 Example:
 
-GET request: https://unstoppabledomains.com/api/v1/0x0f4a10a4f46c288cea365fcf45cccf0e9d901b945b9829ccdb54c10dc3cb7a6f
+GET request: [https://unstoppabledomains.com/api/v1/0x0f4a10a4f46c288cea365fcf45cccf0e9d901b945b9829ccdb54c10dc3cb7a6f](https://unstoppabledomains.com/api/v1/0x0f4a10a4f46c288cea365fcf45cccf0e9d901b945b9829ccdb54c10dc3cb7a6f)
 
 Response:
 ```
