@@ -8,7 +8,7 @@ This section describes resolving domain records with making calls to Ethereum sm
 *  [resolution-java](https://github.com/unstoppabledomains/resolution-java)
 *  [resolution-swift](https://github.com/unstoppabledomains/resolution-swift) _\(work in progress\)_
 
-Resolving a domain requires a software to have access to Ethereum network. For more information, see [Configuring Ethereum Network connection](resolving-domain-records.md#configuring-ethereum-network-connection).
+Resolving a domain requires software to have access to Ethereum network. For more information, see [Configuring Ethereum Network connection](resolving-domain-records.md#configuring-ethereum-network-connection).
 
 The simplest way to resolve a domain with Ethereum JSON RPC is to make a readonly call to ProxyReader smart contract. ProxyReader provides an API that allows users to resolve domains making just one call, passing only keys of records and a domain namehash. Without ProxyReader it would require executing at least two calls: one to obtain a domain resolver address and another one to get the records themselves. With ProxyReader it all happens under the hood.
 
