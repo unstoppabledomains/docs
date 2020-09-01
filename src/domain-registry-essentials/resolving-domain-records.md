@@ -2,11 +2,7 @@
 
 Resolving a domain is a process of retrieving a domain records when the domain name and required record names are given. There is no limitation on who can read domain records on Registry side. Anyone having access to Ethereum Node on the mainnet can resolve a domain.
 
-This section describes resolving domain records with making calls to Ethereum smart contracts, using Ethereum JSON RPC. For developers, who are interested in more high level solution, it might be more convenient to use resolution libraries instead. Unstoppable team supports the following libraries for domain resolution:
-
-*  [resolution.js](https://github.com/unstoppabledomains/resolution)
-*  [resolution-java](https://github.com/unstoppabledomains/resolution-java)
-*  [resolution-swift](https://github.com/unstoppabledomains/resolution-swift) _\(work in progress\)_
+This section describes resolving domain records with making calls to Ethereum smart contracts, using Ethereum JSON RPC. For developers, who are interested in more high level solution, it might be more convenient to use resolution libraries instead. See the [list of resolution libraries](https://github.com/unstoppabledomains/dot-crypto#resolution-libraries) supported by Unstoppable team.
 
 Resolving a domain requires software to have access to Ethereum network. For more information, see [Configuring Ethereum Network connection](resolving-domain-records.md#configuring-ethereum-network-connection).
 
