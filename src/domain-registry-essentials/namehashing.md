@@ -14,8 +14,11 @@ One can verify his implementation of namehashing algorithm using the following r
 
 ## Inverse namehashing
 
+Fundamentally namehashing is built to be a one way operation, unless one is possessing a dictionary of all namehashes and corresponding domains. There are a few methods that can perform invert operation this way.
+
 ### JSON RPC
-Fundamentally namehashing is built to be a one way operation. However, crypto registry remembers all the domain names that were ever minted with their corresponding namehash: [source code](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Registry.sol#L17). That makes it possible to obtain an original domain name from a namehash via ETH RPC call to [Registry\#tokenURI](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Registry.sol#L51).
+
+Crypto registry remembers all the domain names that were ever minted with their corresponding namehash: [source code](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Registry.sol#L17). That makes it possible to obtain an original domain name from a namehash via ETH RPC call to [Registry\#tokenURI](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Registry.sol#L51).
 
 ### Public API
 There is a way to obtain domain information by namehash from APIs. In order to do this you need to call `https://unstoppabledomains.com/api/v1/{namehash}`
