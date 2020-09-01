@@ -2,13 +2,19 @@
 
 Resolving a domain is a process of retrieving a domain records when the domain name and required record names are given. There is no limitation on who can read domain records on Registry side. Anyone having access to Ethereum Node on the mainnet can resolve a domain.
 
-Resolving a domain requires a software to have access to ethereum network. For more information, see [Configuring Ethereum Network connection](resolving-domain-records.md#configuring-ethereum-network-connection).
+This section describes resolving domain records with making calls to Ethereum smart contracts, using Ethereum JSON RPC. For developers, who are interested in more high level solution, it might be more convenient to use resolution libraries instead. Unstoppable team supports the following libraries for domain resolution:
+
+*  [resolution.js](https://github.com/unstoppabledomains/resolution)
+*  [resolution-java](https://github.com/unstoppabledomains/resolution-java)
+*  [resolution-swift](https://github.com/unstoppabledomains/resolution-swift) _\(work in progress\)_
+
+Resolving a domain requires a software to have access to Ethereum network. For more information, see [Configuring Ethereum Network connection](resolving-domain-records.md#configuring-ethereum-network-connection).
 
 The simplest way to resolve a domain with Ethereum JSON RPC is to make a readonly call to ProxyReader smart contract. ProxyReader provides an API that allows users to resolve domains making just one call, passing only keys of records and a domain namehash. Without ProxyReader it would require executing at least two calls: one to obtain a domain resolver address and another one to get the records themselves. With ProxyReader it all happens under the hood.
 
 An example in JavaScript of getting two records \(using [ethers library](https://www.npmjs.com/package/ethers)\):
 
-```text
+```javascript
 const proxyReaderAddress = '0x7ea9Ee21077F84339eDa9C80048ec6db678642B1';
 // Partial ABI, just for the getMany function.
 const proxyReaderAbi = [
