@@ -20,8 +20,6 @@ Here are some of the end user scenarios that should give an idea which features 
 3. Then the browser resolves the domain and gets the content hash of a domain.
 4. Then the browser retrieves the content by the hash using a related protocol and displays the content.
 
-![](../.gitbook/assets/overview_read_dweb_website_from_ethereum_and_decentralized_network.png)
-
 ### Domain Level Redirect
 
 1. Given a blockchain domain has a redirect url and IPFS hash configured, and a user's browser doesn't support IPFS protocol.
@@ -41,8 +39,6 @@ Here are some of the end user scenarios that should give an idea which features 
 3. Then the browser uses new settings to make requests to ethereum blockchain
    * If network is not specified explicitly, it can be retrieved from the ethereum node URL.
    * If Registry Address is not specified, it can use a default for specified network
-
-![](../.gitbook/assets/configure_dns_gateway.png)
 
 ## Content Display Protocol
 
@@ -69,8 +65,6 @@ There are 2 possible gateways for each of the problem:
 
 See a description of how they work below
 
-![](../.gitbook/assets/overview_dweb_website_via_dns_dweb_gateways.png)
-
 ### Distributed content gateway
 
 A gateway is an HTTP Server that acts as a proxy between HTTP and distributed content protocol. Basic functionality of such a gateway:
@@ -92,6 +86,4 @@ A gateway is a DNS Server that resolves not just traditional domains but also `.
      * If client requests `A` record, resolve to [Distributed Content Gateway](resolving-domains-in-a-browser.md#distributed-content-gateway) IP Address
      * If client requests `TXT` record, resolve to all crypto records in JSON encoded key-value format
 4. Send resolution to client
-
-![](../.gitbook/assets/resolve_dweb_website_via_dns_gateway_and_dweb_gateway.png)
 

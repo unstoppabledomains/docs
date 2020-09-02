@@ -1,7 +1,5 @@
 # Browser Resolution Algorithm
 
-![](../.gitbook/assets/resolve_dweb_website_by_direct_reading_from_ethereum_and_decentralized_network.png)
-
 This section explains how different domain record configurations should be interpreted by browsers.
 
 A browser can select a protocol it has a support for. If a domain is configured for multiple protocols, it should prioritize a protocol based on `browser.preferred_protocols` record that can be set to a list of the defined protocols.
@@ -11,8 +9,6 @@ If `browser.preferred_protocols` is not set, a browser should use the following 
 If none of `dweb` hash records is set, a browser should fall back to DNS resolution that is set within `dns.*` namespace.
 
 Generally browsers automatically add `http://` prefix for any domain in the address bar if the protocol is not specified explicitly by a user. In case of blockchain domain names \(assuming a browser supports many protocols\), it is preferred to determine a protocol only after resolving domain records.
-
-![](../.gitbook/assets/browser_resolution_algorithm.png)
 
 ## Records related to browser resolution
 
