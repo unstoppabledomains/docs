@@ -3,3 +3,6 @@ root: ./src/
 structure:
   readme: README.md
   summary: SUMMARY.md
+
+redirects:
+  domain-registry-essentials/general-overview: domain-registry-essentials/architecture-overview.md

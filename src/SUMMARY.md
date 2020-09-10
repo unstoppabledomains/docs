@@ -4,7 +4,7 @@
 
 ## Domain Registry Essentials
 
-* [General Overview](domain-registry-essentials/general-overview.md)
+* [Architecture Overview](domain-registry-essentials/architecture-overview.md)
 * [Namehashing](domain-registry-essentials/namehashing.md)
 * [Resolving Domain Records](domain-registry-essentials/resolving-domain-records.md)
 * [Records Reference](domain-registry-essentials/reference.md)
