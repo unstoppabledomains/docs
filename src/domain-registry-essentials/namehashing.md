@@ -1,8 +1,8 @@
 # Namehashing
 
-Namehashing is an algorithm that converts a domain name in a classical format \(like `www.example.crypto`\) to ERC721 token id. All .crypto ecosystem contracts accept domain name as a method argument in a form of ERC721 token. Namehashing is defined as a part of [EIP-137](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-137.md#namehash-algorithm) standard. See the standard for a text description of the algorithm.
+Namehashing is an algorithm that converts a domain name in a classical format \(like `www.example.crypto`\) to ERC721 token id. All .crypto ecosystem contracts accept a domain name as a method argument in the form of an ERC721 token. Namehashing is defined as a part of the [EIP-137](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-137.md#namehash-algorithm) standard. See the standard for a text description of the algorithm.
 
-One can verify his implementation of namehashing algorithm using the following reference table:
+One can verify his implementation of the namehashing algorithm using the following reference table:
 
 | Domain Name | ERC721 Token |
 | :--- | :--- |
@@ -14,15 +14,15 @@ One can verify his implementation of namehashing algorithm using the following r
 
 ## Inverse namehashing
 
-Fundamentally namehashing is built to be a one way operation, unless one is possessing a dictionary of all namehashes and corresponding domains. There are a few methods that can perform invert operation this way.
+Fundamentally namehashing is built to be a one-way operation unless one possesses a dictionary of all the namehashes and their corresponding domains. There are a few methods that can perform invert operation this way.
 
 ### JSON RPC
 
-Crypto registry remembers all the domain names that were ever minted with their corresponding namehash: [source code](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Registry.sol#L17). That makes it possible to obtain an original domain name from a namehash via ETH RPC call to [Registry\#tokenURI](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Registry.sol#L51).
+The .crypto registry remembers all the domain names that were ever minted with their corresponding namehash: [source code](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Registry.sol#L17). That makes it possible to obtain an original domain name from a namehash via ETH RPC call to [Registry\#tokenURI](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Registry.sol#L51).
 
 ### Public API
 
-There is a way to obtain domain information by namehash from APIs. In order to do this you need to call `https://unstoppabledomains.com/api/v1/{namehash}`
+There is a way to obtain domain information by namehash from APIs. To do this you need to call `https://unstoppabledomains.com/api/v1/{namehash}`
 
 Example:
 
