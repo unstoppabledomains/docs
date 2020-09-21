@@ -1,5 +1,9 @@
 # Introduction
 
+{% hint style="info" %}
+Unstoppable Domains has introduced a major documentation update. The old Website API documentation is still available at [apidocs.unstoppabledomains.com](https://apidocs.unstoppabledomains.com/).
+{% endhint %}
+
 Unstoppable Domains is a San Francisco-based company building domains on blockchains. These domains replace cryptocurrency addresses with human-readable names and are powered by the Ethereum and Zilliqa blockchains. CNS and ZNS provide users full control of their domain names, which ensures permanent ownership, censorship resistance, and decentralized access.
 
 ## Who This Documentation Is For
@@ -26,5 +30,5 @@ Developer guides contain examples of code, mostly written in JavaScript and Soli
 ### Other resources
 
 * JavaScript [@unstoppable/resolution](https://www.npmjs.com/package/@unstoppabledomains/resolution) library \[[github](https://github.com/unstoppabledomains/resolution)\]
-* [Legacy documentation](https://docs.unstoppabledomains.com/)
+* [Website API Reference](https://apidocs.unstoppabledomains.com/)
 
