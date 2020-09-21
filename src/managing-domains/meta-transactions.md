@@ -1,20 +1,20 @@
 # Meta Transactions
 
-Most Registry and Resolver methods have a [meta-transaction](https://docs.openzeppelin.com/learn/sending-gasless-transactions) support. Generally meta-transactions allow to separate a transaction signer address from a transaction funding address. So an address used to generate a meta-signature is used to check a permission for an operation and classical signer address is used to withdraw a transaction fee.
+Most Registry and Resolver methods have [meta-transaction](https://docs.openzeppelin.com/learn/sending-gasless-transactions) support. Generally, meta-transactions allow you to separate a transaction signer address from a transaction funding address. An address used to generate a meta-signature is used to check permission for an operation and a classical signer address is used to withdraw a transaction fee.
 
-For each management method, there is a method with meta-transaction support that has `For` suffix at the end. Example: `resetFor` is a meta-transaction version of `reset`. This method has an additional `signature` argument as a last parameter beside all original parameters. A meta-transaction method checks the permission for a domain against the address that generated the signature argument, unlike base method that checks it against Solidity `_sender` keyword.
+For each management method, there is a method with meta-transaction support that has `For` suffix at the end. Example: `resetFor` is a meta-transaction version of `reset`. This method has an additional `signature` argument as the last parameter beside all original parameters. A meta-transaction method checks the permission for a domain against the address that generated the signature argument, unlike the base method that checks it against the Solidity `_sender` keyword.
 
-Note that a meta-transaction version of a function of the Registry can be implemented in controller contract but not registry itself. See [Registry Controllers](https://github.com/unstoppabledomains/dot-crypto/blob/master/ARCHITECTURE.md#registry-controllers).
+Note that a meta-transaction version of a function of the Registry can be implemented in a controller contract but not the registry itself. See [Registry Controllers](https://github.com/unstoppabledomains/dot-crypto/blob/master/ARCHITECTURE.md#registry-controllers).
 
-Meta transaction methods are bound to domain based nonce \(instead of [Account Nonce](https://ethereum.stackexchange.com/questions/27432/what-is-nonce-in-ethereum-how-does-it-prevent-double-spending) of traditional transactions\). It protects from [Double-spending](https://en.wikipedia.org/wiki/Double-spending) in the same way as account based nonce in traditional transactions.
+Meta transaction methods are bound to domain-based nonce \(instead of the [Account Nonce](https://ethereum.stackexchange.com/questions/27432/what-is-nonce-in-ethereum-how-does-it-prevent-double-spending) of traditional transactions\). It protects from [Double-spending](https://en.wikipedia.org/wiki/Double-spending) in the same way as an account-based nonce in traditional transactions.
 
-A source code of signature validation can be found in [SignatureUtil.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/util/SignatureUtil.sol)
+The source code of signature validation can be found in [SignatureUtil.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/util/SignatureUtil.sol)
 
 ## **Meta transaction signature generation**
 
-Meta transaction requires 2 signature: one passed as a method argument and one classical. Classical signature is generated in a standard way. Meta signature requires a domain owner \(or a person approved by owner\) to sign a special message formed from:
+A meta transaction requires 2 signatures: one passed as a method argument and one classical. A classical signature is generated in a standard way. A meta signature requires a domain owner \(or a person approved by the owner\) to sign a special message formed from:
 
-* Domain based meta-transaction nonce
+* Domain-based meta-transaction nonce
 * [Function Selector](https://solidity.readthedocs.io/en/v0.7.0/abi-spec.html#function-selector) of the original method
 * Original Method parameters \(the one without signature\)
 
