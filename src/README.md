@@ -26,5 +26,5 @@ Developer guides contain examples of code, mostly written in JavaScript and Soli
 ### Other resources
 
 * JavaScript [@unstoppable/resolution](https://www.npmjs.com/package/@unstoppabledomains/resolution) library \[[github](https://github.com/unstoppabledomains/resolution)\]
-* [Legacy documentation](https://docs.unstoppabledomains.com/)
+* [Website API Reference](https://apidocs.unstoppabledomains.com/)
 
