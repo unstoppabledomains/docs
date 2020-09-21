@@ -20,7 +20,7 @@ Every CNS domain represents an [ERC-721](https://eips.ethereum.org/EIPS/eip-721)
 
 ## Smart Contract Architecture
 
-The two central components of CNS are Registry and Resolver smart contracts. Resolver can be thought of as a map (or dictionary) of domain names to a set of domain records, and Registry - as a map of domain names to an owner address and a Resolver address.
+The two central components of CNS are Registry and Resolver smart contracts. Resolver can be thought of as a map \(or dictionary\) of domain names to a set of domain records, and Registry - as a map of domain names to an owner address and a Resolver address.
 
 There's only one official instance of the Registry smart contract deployed in the Ethereum Mainnet, but there are many versions of Resolver smart contracts. The relationship between Registry and Resolver can be described as one-to-many: for each domain, there might be a different resolver; though in practice majority of domains are managed by the same instance (having the same address) of the latest version of the Resolver smart contract. Updates to our Resolver smart contract are incremental and non-breaking, meaning that we add new features without disrupting the work of existing domains that haven't got updated.
 
@@ -45,7 +45,7 @@ As domains are identified by a namehash, we also store a domain name, apart from
 
 Registry smart contract implements a set of methods allowing to mint new domains, subdomains, and manage ownership.
 
-Accounts that are allowed to mint second-level domains (like 'alice.crypto') are called whitelisted minters. Whitelisted minters are limited to only minting new domains. They can't control domain ownership (e.g. approve or transfer a domain to another owner) and they can't control domain records. Whitelisted minters are operated by Unstoppable Domains.
+Accounts that are allowed to mint second-level domains \(like 'alice.crypto'\) are called whitelisted minters. Whitelisted minters are limited to only minting new domains. They can't control domain ownership \(e.g. approve or transfer a domain to another owner\) and they can't control domain records. Whitelisted minters are operated by Unstoppable Domains.
 
 A domain owner or an operator may perform the following operations with their domains:
 
