@@ -20,3 +20,8 @@
 * [Resolving Domains in a Browser](browser-resolution/resolving-domains-in-a-browser.md)
 * [Browser Resolution Algorithm](browser-resolution/browser-resolution-algorithm.md)
 
+---
+
+* [Website API Reference](https://apidocs.unstoppabledomains.com/)
+* [JavaScript Resolution Library](https://github.com/unstoppabledomains/resolution)
+
