@@ -20,7 +20,7 @@ Here are some of the end-user scenarios that should give an idea which features 
 3. Then the browser resolves the domain and gets the content hash of a domain.
 4. Then the browser retrieves the content by the hash using a related protocol and displays the content.
 
-![](../.gitbook/assets/overview_read_dweb_website_from_Ethereum_and_decentralized_network.png)
+![](../.gitbook/assets/overview_read_dweb_website_from_ethereum_and_decentralized_network.png)
 
 ### Domain-Level Redirect
 
