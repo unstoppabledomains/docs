@@ -7,7 +7,6 @@ Unstoppable Domains Documentation is hosted by [GitBook](https://www.gitbook.com
 
 **General rules:**
 
-- Make pull requests to `docs/dev` branch.
 - Try to follow [Google developer documentation style guide](https://developers.google.com/style).
 
 **Tips for external contributors:**
@@ -17,5 +16,4 @@ space and link your fork when setting up [GitHub integration](https://docs.gitbo
 
 **Tips for Unstoppable team:**
 
-If your changes affect documentation pages, and you want to preview them at our [private mirror space](https://app.gitbook.com/@unstoppable-domains/s/unstoppable-docs-mirror/),
-prefix a branch name with `docs/` (for example, `docs/fix-summary`). 
+Branch previews are available at [private mirror space](https://app.gitbook.com/@unstoppable-domains/s/unstoppable-docs-mirror/).

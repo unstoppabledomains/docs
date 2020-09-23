@@ -1,0 +1,35 @@
+name: Deploy to Live Documentation
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_message:
+        description: "Commit message"
+        required: true
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source repo
+        uses: actions/checkout@v2
+        with:
+          path: 'origin-repo'
+      - name: Checkout target repo
+        uses: actions/checkout@v2
+        with:
+          repository: 'unstoppabledomains/live-docs'
+          path: 'target-repo'
+          ssh-key: ${{ secrets.LIVE_DOCS_DEPLOY_KEY }}
+      - name: Copy mirrored files
+        run: |
+          rm -rf target-repo/src
+          cp -R origin-repo/src target-repo/.
+          rm -f target-repo/.gitbook.yaml
+          cp origin-repo/.gitbook.yaml target-repo/.
+      - name: Commit and push
+        run: |
+          cd target-repo
+          git add -A
+          git -c "user.name=CI" -c "user.email=docs-ci@unstoppabledomains.com" commit -m "${{ github.event.inputs.commit_message }}"
+          git push
