@@ -1,7 +1,11 @@
 # Unstoppable Domains Documentation
 
-Unstoppable Domains Documentation is hosted by [GitBook](https://www.gitbook.com/) and currently can be accessed at
-[app.gitbook.com/@unstoppable-domains/s/unstoppable-domains](https://app.gitbook.com/@unstoppable-domains/s/unstoppable-domains/).
+[![Unstoppable Domains Documentation](https://img.shields.io/badge/docs-unstoppabledomains.com-blue)](https://docs.unstoppabledomains.com/)
+
+Unstoppable Domains Documentation is hosted by [GitBook](https://www.gitbook.com/) and can be accessed at
+[docs.unstoppabledomains.com](https://docs.unstoppabledomains.com/).
+
+The live version of the documentation is synced with [docs-live repository](https://github.com/unstoppabledomains/live-docs).
 
 ## Contributing
 
