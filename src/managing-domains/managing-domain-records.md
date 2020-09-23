@@ -66,15 +66,15 @@ import "./Owned.sol";
 
 contract CustomResolver is Owned {
   mapping (string => string) internal _records;
-  
+
   function set(string memory key, string memory value) public onlyOwner {
-    _records[key] = value;    
+    _records[key] = value;
   }
-  
+
   function get(string memory key, uint256 /* unused tokenId */) public returns (string memory) {
     return _records[key];
   }
-  
+
   // ...
   // Rest of the IResolver.sol methods
   // ...
@@ -82,7 +82,7 @@ contract CustomResolver is Owned {
 
 ```
 
-This smart contract will read from the same set of records every time, allowing for efficient updating of multiple domains at once.
+This smart contract will read from the same set of records every time, allowing for efficient updating of multiple domains at once. See more in [Deploying Custom Resolvers](./deploying-custom-resolver.md).
 
 ### Presets
 
