@@ -5,7 +5,7 @@
 Unstoppable Domains Documentation is hosted by [GitBook](https://www.gitbook.com/) and can be accessed at
 [docs.unstoppabledomains.com](https://docs.unstoppabledomains.com/).
 
-The live version of the documentation is synced with [docs-live repository](https://github.com/unstoppabledomains/live-docs).
+The live version of the documentation is synced with [live-docs repository](https://github.com/unstoppabledomains/live-docs).
 
 ## Contributing
 
