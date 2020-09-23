@@ -1,13 +1,16 @@
 # Unstoppable Domains Documentation
 
-Unstoppable Domains Documentation is hosted by [GitBook](https://www.gitbook.com/) and currently can be accessed at
-[app.gitbook.com/@unstoppable-domains/s/unstoppable-domains](https://app.gitbook.com/@unstoppable-domains/s/unstoppable-domains/).
+[![Unstoppable Domains Documentation](https://img.shields.io/badge/docs-unstoppabledomains.com-blue)](https://docs.unstoppabledomains.com/)
+
+Unstoppable Domains Documentation is hosted by [GitBook](https://www.gitbook.com/) and can be accessed at
+[docs.unstoppabledomains.com](https://docs.unstoppabledomains.com/).
+
+The live version of the documentation is synced with [live-docs repository](https://github.com/unstoppabledomains/live-docs).
 
 ## Contributing
 
 **General rules:**
 
-- Make pull requests to `docs/dev` branch.
 - Try to follow [Google developer documentation style guide](https://developers.google.com/style).
 
 **Tips for external contributors:**
@@ -17,5 +20,4 @@ space and link your fork when setting up [GitHub integration](https://docs.gitbo
 
 **Tips for Unstoppable team:**
 
-If your changes affect documentation pages, and you want to preview them at our [private mirror space](https://app.gitbook.com/@unstoppable-domains/s/unstoppable-docs-mirror/),
-prefix a branch name with `docs/` (for example, `docs/fix-summary`). 
+Branch previews are available at the [private development space](https://app.gitbook.com/@unstoppable-domains/s/unstoppable-docs-dev/).
