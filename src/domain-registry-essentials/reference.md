@@ -1,6 +1,6 @@
 # Records Reference
 
-Records Reference is an overview of all standardized resolver record, that have a defined interpretation. Any other custom records are not forbidden to be set, however their interpretation remains custom to specific clients.
+Records Reference is an overview of all standardized resolver record, that have a defined interpretation. Any other custom records are not forbidden to be set, however their interpretation remains custom to specific clients. See [Resolving Domain Records](resolving-domain-records.md) and [Architecture Overview Resolver](architecture-overview.md#resolver) for more information on domain records.
 
 ## List of Records
 
