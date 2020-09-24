@@ -12,10 +12,10 @@ Standard record keys are split by namespaces with `.` used as a separator.
 
 Main namespaces are:
 
-- `crypto.*` - records related to crypto payments
-- `dns.*` - DNS records
-- `dweb.*` - records related to distributed content network protocols
-- `browser.*` - hint records for web browsers
+* `crypto.*` - records related to crypto payments
+* `dns.*` - DNS records
+* `dweb.*` - records related to distributed content network protocols
+* `browser.*` - hint records for web browsers
 
 ### Crypto Payments Records
 
@@ -27,8 +27,8 @@ Some tickers of very popular crypto currencies are not yet standardized. Example
 
 Example crypto records setup:
 
-| Key                  | Value                                        |
-| :------------------- | :------------------------------------------- |
+| Key | Value |
+| :--- | :--- |
 | `crypto.ETH.address` | `0xD1E5b0FF1287aA9f9A268759062E4Ab08b9Dacbe` |
 | `crypto.BTC.address` | `bc1qkd4um2nn2uyzmsch5y86wsa2pfh8xl445lg9nv` |
 | `crypto.ZIL.address` | `zil1yu5u4hegy9v3xgluweg4en54zm8f8auwxu0xxc` |
@@ -39,13 +39,11 @@ Example crypto records setup:
 
 The default Unstoppable resolver allows users to manage all domain records for any address given a permission over domain utilizing the [ERC721 "Transfer Mechanism"](https://eips.ethereum.org/EIPS/eip-721). This enables a subset of addresses to manage the domain on your behalf. By default we give the permission to do this to every address that can already transfer ownership of the domain. These include:
 
-- Owner address of a domain
-- Approved address for a domain
-- Owner's operator addresses
+* Owner address of a domain
+* Approved address for a domain
+* Owner's operator addresses
 
 This enables Users to enable smart contract applications and other users to manage one or all of the domains, while still retaining primary ownership of their domain. These smart contracts can be programed in such a way that they only change specified records. An Oracle Integration works in this way. Here is an example Flow:
-
-<!-- Put a diagram here later -->
 
 1. Users grant operator access to all of their domains to the Oracle Contract.
 2. Oracle detects an event off chain.
@@ -59,7 +57,7 @@ What is important about this model is you can delegate trust to change records t
 
 Resolvers can be made with custom logic. For example users with a large amount of domains might want to deploy a custom `Owned` resolver contract. See [EIP-173](https://eips.ethereum.org/EIPS/eip-173). Where there is only one set of records, and only the owner can set them.
 
-```solidity
+```text
 pragma solidity ^0.7.0;
 
 import "./Owned.sol";
@@ -79,10 +77,9 @@ contract CustomResolver is Owned {
   // Rest of the IResolver.sol methods
   // ...
 }
-
 ```
 
-This smart contract will read from the same set of records every time, allowing for efficient updating of multiple domains at once. See more in [Deploying Custom Resolvers](./deploying-custom-resolver.md).
+This smart contract will read from the same set of records every time, allowing for efficient updating of multiple domains at once. See more in [Deploying Custom Resolvers](deploying-custom-resolver.md).
 
 ### Presets
 
@@ -94,9 +91,10 @@ This nested structure allows users to configure domains on the un-enumerable Eth
 
 Currently `reset` and `reconfigure` are the only methods exposed on this version of resolver.
 
-- The `reset` method clears the domain's records by setting the preset on the domain to the timestamp when the transaction was mined e.g. `blockchain.timestamp`.
-- The `reconfigure` method first `reset`'s the domain then configures a new set of records.
+* The `reset` method clears the domain's records by setting the preset on the domain to the timestamp when the transaction was mined e.g. `blockchain.timestamp`.
+* The `reconfigure` method first `reset`'s the domain then configures a new set of records.
 
 ### Pre-configuring Records
 
 The Default Resolver allows the Unstoppable Minting EOAs to mint and preconfigure domains in one step. This `preconfigure` method only lets the Minting EOAs configure unowned domains not names already minted to the CNS Registry.
+

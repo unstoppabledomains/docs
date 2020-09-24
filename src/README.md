@@ -20,16 +20,17 @@ Developer guides contain examples of code, mostly written in JavaScript and Soli
 
 ### Navigating
 
-- If you want an understanding of how **Unstoppable Domains work, its architecture and capabilities**, check out [General Overview](domain-registry-essentials/architecture-overview.md).
-- If you're a **developer** interested in **resolving records for cryptocurrency payments**, check out [Resolving Domain Records](domain-registry-essentials/resolving-domain-records.md).
-- If you're a **developer** interested in **how to resolve our domains in browser**, check out [Resolving Domains in a Browser](browser-resolution/resolving-domains-in-a-browser.md).
+* If you want an understanding of how **Unstoppable Domains work, its architecture and capabilities**, check out [General Overview](domain-registry-essentials/architecture-overview.md).
+* If you're a **developer** interested in **resolving records for cryptocurrency payments**, check out [Resolving Domain Records](domain-registry-essentials/resolving-domain-records.md).
+* If you're a **developer** interested in **how to resolve our domains in browser**, check out [Resolving Domains in a Browser](browser-resolution/resolving-domains-in-a-browser.md).
 
 ### Specs
 
-- [Records Reference](domain-registry-essentials/reference.md)
-- [Browser Resolution Algorithm](browser-resolution/browser-resolution-algorithm.md)
+* [Records Reference](domain-registry-essentials/reference.md)
+* [Browser Resolution Algorithm](browser-resolution/browser-resolution-algorithm.md)
 
 ### Other resources
 
-- JavaScript [@unstoppable/resolution](https://www.npmjs.com/package/@unstoppabledomains/resolution) library \[[github](https://github.com/unstoppabledomains/resolution)\]
-- [Website API Reference](https://apidocs.unstoppabledomains.com/)
+* JavaScript [@unstoppable/resolution](https://www.npmjs.com/package/@unstoppabledomains/resolution) library \[[github](https://github.com/unstoppabledomains/resolution)\]
+* [Website API Reference](https://apidocs.unstoppabledomains.com/)
+
