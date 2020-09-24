@@ -22,7 +22,7 @@ Developer guides contain examples of code, mostly written in JavaScript and Soli
 
 - If you want an understanding of how **Unstoppable Domains work, its architecture and capabilities**, check out [General Overview](domain-registry-essentials/architecture-overview.md).
 - If you're a **developer** interested in **resolving records for cryptocurrency payments**, check out [Resolving Domain Records](domain-registry-essentials/resolving-domain-records.md).
-- If you're a **developer** interested in **how to resolve our domains in the browser**, check out [Resolving Domains in a Browser](browser-resolution/resolving-domains-in-a-browser.md).
+- If you're a **developer** interested in **how to resolve our domains in a browser**, check out [Resolving Domains in a Browser](browser-resolution/resolving-domains-in-a-browser.md).
 
 ### Specs
 

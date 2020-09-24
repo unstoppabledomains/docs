@@ -19,7 +19,7 @@ Main namespaces are:
 
 ### Crypto Payments Records
 
-One essential feature of blockchain domains is the ability to specify a domain instead of a destination address for your crypto payment. Cryptocurrency wallets that need this feature should resolve a domain to crypto address under the hook in the same way the browser resolves a domain to IP address.
+One essential feature of blockchain domains is the ability to specify a domain instead of a destination address for your crypto payment. Cryptocurrency wallets that need this feature should resolve a domain to crypto address under the hook in the same way a browser resolves a domain to IP address.
 
 All crypto addresses are stored within `crypto.*` namespace. Each currency address is stored as `crypto.<TICKER>.address` record. Example: Bitcoin address is stored in `crypto.BTC.address`. Addresses are stored in plain text format according to an address space standard established by each currency. The currency's namespace can contain additional currency-specific attributes to facilitate payment delivery. Example: [Ripple Destination Tag](https://xrpl.org/source-and-destination-tags.html). However, key names for those attributes are not yet standardized. Please contact [Unstoppable Domains Support](mailto:support@unstoppabledomains.com) if you need such attributes to be added to the standard.
 
