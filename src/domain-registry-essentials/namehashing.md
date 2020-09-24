@@ -4,13 +4,13 @@ Namehashing is an algorithm that converts a domain name in a classical format \(
 
 One can verify his implementation of the namehash algorithm using the following reference table:
 
-| Domain Name          | ERC721 Token                                                         |
-| :------------------- | :------------------------------------------------------------------- |
-| `.`                  | `0x0000000000000000000000000000000000000000000000000000000000000000` |
-| `crypto`             | `0x0f4a10a4f46c288cea365fcf45cccf0e9d901b945b9829ccdb54c10dc3cb7a6f` |
-| `example.crypto`     | `0xd584c5509c6788ad9d9491be8ba8b4422d05caf62674a98fbf8a9988eeadfb7e` |
+| Domain Name | ERC721 Token |
+| :--- | :--- |
+| `.` | `0x0000000000000000000000000000000000000000000000000000000000000000` |
+| `crypto` | `0x0f4a10a4f46c288cea365fcf45cccf0e9d901b945b9829ccdb54c10dc3cb7a6f` |
+| `example.crypto` | `0xd584c5509c6788ad9d9491be8ba8b4422d05caf62674a98fbf8a9988eeadfb7e` |
 | `www.example.crypto` | `0x3ae54ac25ccd63401d817b6d79a4a56ae7f79a332fe77a98fa0c9d10adf9b2a1` |
-| `a.b.c.crypto`       | `0x353ea3e0449067382e0ea7934767470170dcfa9c49b1be0fe708adc4b1f9cf13` |
+| `a.b.c.crypto` | `0x353ea3e0449067382e0ea7934767470170dcfa9c49b1be0fe708adc4b1f9cf13` |
 
 ## Reverse Lookup
 
@@ -49,3 +49,4 @@ Response:
   "records": {}
 }
 ```
+

@@ -28,9 +28,9 @@ A nonce is simply a transaction counter for each token. This prevents replay att
 
 A meta transaction requires 2 signatures: one passed as a method argument and one classical. A classical signature is generated in a standard way. A meta signature requires a domain owner \(or a person approved by the owner\) to sign a special message formed from:
 
-- Domain based meta-transaction nonce
-- [Function Selector](https://solidity.readthedocs.io/en/v0.7.0/abi-spec.html#function-selector) of the original method
-- Original Method parameters \(the one without signature\)
+* Domain based meta-transaction nonce
+* [Function Selector](https://solidity.readthedocs.io/en/v0.7.0/abi-spec.html#function-selector) of the original method
+* Original Method parameters \(the one without signature\)
 
 Example Signature generation for a `reset` method call for a domain:
 
@@ -76,7 +76,8 @@ const message = generateMessageToSign(
 
 Functions Reference:
 
-- `namehash` - [Namehashing Function](../domain-registry-essentials/namehashing.md) algorithm implementation
-- `ethCallRpc` - Ethereum `eth_call` JSON RPC implementation
-- `encodeContractInterface` - [Solidity ABI](https://solidity.readthedocs.io/en/v0.7.0/abi-spec.html#argument-encoding) interface parameters encoder
-- `solidityKeccak256` - [Solidity ABI](https://solidity.readthedocs.io/en/v0.7.0/abi-spec.html#argument-encoding) parameters encoder
+* `namehash` - [Namehashing Function](../domain-registry-essentials/namehashing.md) algorithm implementation
+* `ethCallRpc` - Ethereum `eth_call` JSON RPC implementation
+* `encodeContractInterface` - [Solidity ABI](https://solidity.readthedocs.io/en/v0.7.0/abi-spec.html#argument-encoding) interface parameters encoder
+* `solidityKeccak256` - [Solidity ABI](https://solidity.readthedocs.io/en/v0.7.0/abi-spec.html#argument-encoding) parameters encoder
+

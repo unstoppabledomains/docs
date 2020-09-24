@@ -60,7 +60,7 @@ A browser may support any subset of traditional or distributed protocols that wo
 
 ## Gateway to simplify the integration
 
-While it is possible to resolve a domain via a call to ETH RPC and support distributed content protocols in a browser, it might be easier to make those calls via gateways using protocols already supported by all browsers: HTTP and DNS. A gateway may simplify the integration to a browser but comes at the downside of decreased decentralization (if the gateway is hosted by a third party) or a more complex user experience (if the gateway is hosted by the user).
+While it is possible to resolve a domain via a call to ETH RPC and support distributed content protocols in a browser, it might be easier to make those calls via gateways using protocols already supported by all browsers: HTTP and DNS. A gateway may simplify the integration to a browser but comes at the downside of decreased decentralization \(if the gateway is hosted by a third party\) or a more complex user experience \(if the gateway is hosted by the user\).
 
 There are 2 possible gateways for each of the problem:
 
