@@ -22,13 +22,17 @@ Every CNS domain represents an [ERC-721](https://eips.ethereum.org/EIPS/eip-721)
 
 The two central components of CNS are Registry and Resolver smart contracts. Resolver can be thought of as a _map_ \(or _dictionary_\) of domain names to a set of records, and Registry - as a _map_ of domain names to an owner address and a Resolver address.
 
-There's only one official instance of the Registry smart contract deployed in the Ethereum Mainnet, but there are many versions of Resolver smart contracts. The relationship between Registry and Resolver can be described as one-to-many: for each domain, there might be a different resolver; though in practice majority of domains are managed by the same instance \(having the same address\) of the latest version of the Resolver smart contract. Updates to our Resolver smart contract are incremental and non-breaking, meaning that we add new features without disrupting the work of existing domains that haven't got updated.
+There's only one official instance of the Registry smart contract deployed in the Ethereum Mainnet, but there are many versions of Resolver smart contracts. The relationship between Registry and Resolver can be described as follows: Registry stores many domains, and each domain has a Resolver address record. This assumes that every domain might have a different resolver, though in practice majority of domains is managed by the same instance \(having the same address\) of the latest version of Resolver smart contract.
+
+{% hint style="info" %}
+Updates to our Resolver smart contract are incremental and non-breaking, meaning that we add new features without disrupting the work of existing domains that haven't got updated. Any Resolver smart contract must implement [IResolver interface](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/IResolver.sol), which defines the basic set of functionality and guarantees compatibility between different implementations.
+{% endhint %}
 
 As mentioned, every domain represents an ERC-721 non-fungible token. Every ERC-721 token is identified by a unique number, which is called a token identifier. To make domains identifiable, we use a process called [Namehashing](namehashing.md). This process is irreversible: one can calculate a namehash of a domain having its name, but it's impossible to restore a domain name from a namehash.
 
 Here's an example of "example.crypto" namehash: `0xd584c5509c6788ad9d9491be8ba8b4422d05caf62674a98fbf8a9988eeadfb7e`
 
-### Visialization
+### Visualization
 
 Here is a map to help visualize how the CNS Registry and Resolvers interact.
 
@@ -128,4 +132,3 @@ In general, there are two types of transactions that the Transaction Processor t
 Delegating CNS transactions is not necessarily coupled with the Transaction Processor. It's possible to execute any write operation that supports Meta Transactions from any Ethereum account, given that a domain owner provides a signature for such a call.
 
 If you are interested in technical details of delegating transactions in CNS, check out the [Meta Transactions](../managing-domains/meta-transactions.md) page.
-
