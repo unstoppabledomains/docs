@@ -15,19 +15,71 @@ For information about crypto payments, see [Managing Domain Records](../managing
 
 #### crypto.ETH.address
 
-Ethereum Address to receive crypto payments
+Ethereum Address to receive crypto payments.
 
 | Format | Example |
 | :--- | :--- |
 | `0x[0-9a-fA-F]{40}` | `0x0f4a10a4f46c288cea365fcf45cccf0e9d901b94` |
 
-### Browser resolution
+#### crypto.BTC.address
+
+Bitcoin Address to receive crypto payments.
+
+| Format | Example |
+| :--- | :--- |
+| `[0-9a-zA-Z]{32}` | `0x0f4a10a4f46c288cea365fcf45cccf0e9d901b94` |
+
+#### crypto.<TICKER>.address
+
+Crypto currency address of the ticker.
+
+## Browser resolution
+
+Browser resolution is described in the [Browser Resolution Algorithm](../browser-resolution/browser-resolution-algorithm.md) article.
+
+#### browser.preferred_protocols
+
+Protocols that browser should prioritize to display content for.
+
+| Format | Example |
+| :--- | :--- |
+| JSON serialized array | `["ipfs","http"]` |
+
+#### browser.redirect_url
+
+An URL where a browser should redirect a person if no other resolution method found.
+
+| Format | Example |
+| :--- | :--- |
+| [RFC-1738](https://tools.ietf.org/html/rfc1738) | `http://example.com/home.html` |
 
 ### DWeb records
 
+For more details, see [Browser Resolution Algorithm - DWeb Records](../browser-resolution/browser-resolution-algorithm.md#distributed-web-records).
+
+#### dweb.ipfs.hash
+
+IPFS network content hash.
+
+| Format | Example |
+| :--- | :--- |
+| `[0-9a-zA-Z]{46}` | `QmVaAtQbi3EtsfpKoLzALm6vXphdi2KjMgxEDKeGg6wHvK` |
+
+#### dweb.bzz.hash
+
+Swarm network content hash.
+
+TODO: example
+
+#### dweb.<PROTOCOL>.hash
+
+Any other distributed content network content hash.
+
 ### DNS records
 
-## List of Records
+For more details, see [Browser Resolution Algorithm - DNS Records](../browser-resolution/browser-resolution-algorithm.md#dns-records).
+
+### Deprecated records
 
 | Domain Name | Description | Docs | Format | Example |
 | :--- | :--- | :--- | :--- | :--- |
