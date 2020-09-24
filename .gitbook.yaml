@@ -6,3 +6,4 @@ structure:
 
 redirects:
   domain-registry-essentials/general-overview: domain-registry-essentials/architecture-overview.md
+  domain-registry-essentials/reference: domain-registry-essentials/records-reference.md

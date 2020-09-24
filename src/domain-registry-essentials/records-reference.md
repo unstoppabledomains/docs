@@ -1,6 +1,30 @@
 # Records Reference
 
-Records Reference is an overview of all standardized resolver records that have a defined interpretation. Other custom records are allowed to be set. However, their interpretation remains custom to specific clients. See [Resolving Domain Records](resolving-domain-records.md) and [Architecture Overview Resolver](architecture-overview.md#resolver) for more information on domain records.
+This page contains an overview of all standardized resolver records. The reference is divided into sections, grouping records by their namespaces and use-cases:
+* [Crypto payments](records-reference.md#crypto-payments)
+* [Browser resolution](records-reference.md#browser-resolution)
+  * [DWeb records](records-reference.md#dweb-records)
+  * [DNS records](records-reference.md#dns-records)
+  
+Developers may also set custom records for the domains. Domain records are stored as a key-value dictionary by Resolvers and are not validated on the smart-contract level. For more details, check out [Architecture Overview](architecture-overview.md#resolver).
+
+## Crypto payments
+
+For information about crypto payments, see [Managing Domain Records](../managing-domains/managing-domain-records.md#crypto-payments-records).
+
+#### crypto.ETH.address
+
+Ethereum Address to receive crypto payments
+
+| Format | Example |
+| :--- | :--- |
+| `0x[0-9a-fA-F]{40}` | `0x0f4a10a4f46c288cea365fcf45cccf0e9d901b94` |
+
+## Browser resolution
+
+### DWeb records
+
+### DNS records
 
 ## List of Records
 
