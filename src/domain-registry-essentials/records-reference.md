@@ -29,7 +29,7 @@ Bitcoin Address to receive crypto payments.
 | :--- | :--- |
 | `[0-9a-zA-Z]{32}` | `0x0f4a10a4f46c288cea365fcf45cccf0e9d901b94` |
 
-#### crypto.<TICKER>.address
+#### crypto.\<TICKER\>.address
 
 Crypto currency address of the ticker.
 
@@ -71,7 +71,7 @@ Swarm network content hash.
 
 TODO: example
 
-#### dweb.<PROTOCOL>.hash
+#### dweb.\<PROTOCOL\>.hash
 
 Any other distributed content network content hash.
 
