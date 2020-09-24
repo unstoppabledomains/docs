@@ -1,12 +1,12 @@
 # Resolving Domain Records
 
-Resolving a domain is a process of retrieving a domain records when the domain name and required record names are given. There is no limitation on who can read domain records on Registry side. Anyone having access to Ethereum Node on the mainnet can resolve a domain.
+Resolving a domain is a process of retrieving a domain's records when the domain name and required record names are given. There is no limitation on who can read domain records on the Registry side. Anyone having access to the Ethereum Node on the mainnet can resolve a domain.
 
-This section describes resolving domain records with making calls to Ethereum smart contracts, using Ethereum JSON RPC. For developers, who are interested in more high level solution, it might be more convenient to use resolution libraries instead. See the [list of resolution libraries](https://github.com/unstoppabledomains/dot-crypto#resolution-libraries) supported by Unstoppable team.
+This section describes resolving domain records with making calls to Ethereum smart contracts, using Ethereum JSON RPC. For developers, who are interested in a more high-level solution, it might be more convenient to use resolution libraries instead. See the [list of resolution libraries](https://github.com/unstoppabledomains/dot-crypto#resolution-libraries) supported by the Unstoppable team.
 
-Resolving a domain requires software to have access to Ethereum network. For more information, see [Configuring Ethereum Network connection](resolving-domain-records.md#configuring-ethereum-network-connection).
+Resolving a domain requires software to have access to the Ethereum network. For more information, see [Configuring Ethereum Network connection](resolving-domain-records.md#configuring-ethereum-network-connection).
 
-The simplest way to resolve a domain with Ethereum JSON RPC is to make a readonly call to ProxyReader smart contract. ProxyReader provides an API that allows users to resolve domains making just one call, passing only keys of records and a domain namehash. Without ProxyReader it would require executing at least two calls: one to obtain a domain resolver address and another one to get the records themselves. With ProxyReader it all happens under the hood.
+The simplest way to resolve a domain with Ethereum JSON RPC is to make a read-only call to ProxyReader smart contract. ProxyReader provides an API that allows users to resolve domains making just one call, passing only keys of records and a domain namehash. Without ProxyReader it would require executing at least two calls: one to obtain a domain resolver address and another one to get the records themselves. With ProxyReader it all happens under the hood.
 
 An example in JavaScript of getting two records \(using [ethers library](https://www.npmjs.com/package/ethers)\):
 
@@ -47,23 +47,23 @@ See [Records Reference](reference.md) for more information about the standardize
 Crypto resolver doesn't have any built-in record value validation when it is updated for two reasons:
 
 * Any validation would require additional gas to be paid
-* Solidity is special purpose programming language that doesn't have any built-in data validation tools like Regular Expressions
+* Solidity is a special-purpose programming language that doesn't have any built-in data validation tools like Regular Expressions
 
-Any domain management application must perform record format validation before submitting a transaction. However, there is no guarantee that all management application will do it correctly. That is why records must be validated when domain is resolved too.
+Any domain management application must perform record format validation before submitting a transaction. However, there is no guarantee that all management applications will do it correctly. That is why records must be validated when the domain is resolved too.
 
 See [Records Reference](reference.md) for more information for the validator of each record.
 
 ## Configuring Ethereum Network connection
 
-Domain Resolution Configuration at low level requires 3 configuration parameters:
+Domain Resolution Configuration at a low level requires 3 configuration parameters:
 
 1. Ethereum JSON RPC provider
 2. Ethereum CHAIN ID
 3. Crypto Registry Contract Address
 
-Ethereum JSON RPC provider is an API implementing Ethereum JSON RPC standard. Usually, it is given in a form of HTTP API end point. However, other forms may exist in case when ethereum node is launched locally. Unstoppable domains recommends [Cloudflare Ethereum Gateway](https://developers.cloudflare.com/distributed-web/ethereum-gateway) an ethereum node service provider.
+Ethereum JSON RPC provider is an API implementing the Ethereum JSON RPC standard. Usually, it is given in a form of an HTTP API endpoint. However, other forms may exist in the case when the Ethereum node is launched locally. Unstoppable Domains recommends [Cloudflare Ethereum Gateway](https://developers.cloudflare.com/distributed-web/ethereum-gateway) an Ethereum node service provider.
 
-Ethereum CHAIN ID is an ID of ethereum network a node is connected to. Each RPC provider can only be connected to one network. There is only one production network with CHAIN ID equal to `1` and called `mainnet`. Other networks are only used for testing purposes of different kinds. See [EIP-155](https://eips.ethereum.org/EIPS/eip-155) for more information. CHAIN ID of an ethereum node can be determined by calling [net version method](https://eth.wiki/json-rpc/API#net_version) on JSON RPC which should be used as a default when only JSON RPC provider is given.
+Ethereum CHAIN ID is an ID of the Ethereum network a node is connected to. Each RPC provider can only be connected to one network. There is only one production network with CHAIN ID equal to `1` and called `mainnet`. Other networks are only used for testing purposes of different kinds. See [EIP-155](https://eips.ethereum.org/EIPS/eip-155) for more information. CHAIN ID of an Ethereum node can be determined by calling the [net version method](https://eth.wiki/json-rpc/API#net_version) on JSON RPC which should be used as a default when only JSON RPC provider is given.
 
 Crypto Registry Contract Address is an actual address of a contract deployed. There is only one production registry address on the mainnet: [0xD1E5b0FF1287aA9f9A268759062E4Ab08b9Dacbe](https://etherscan.io/address/0xD1E5b0FF1287aA9f9A268759062E4Ab08b9Dacbe). This address should be used as a default for production configuration.
 
