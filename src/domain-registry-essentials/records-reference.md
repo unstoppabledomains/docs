@@ -27,7 +27,7 @@ Bitcoin Address to receive crypto payments.
 
 | Format | Example |
 | :--- | :--- |
-| `[0-9a-zA-Z]{32}` | `0x0f4a10a4f46c288cea365fcf45cccf0e9d901b94` |
+| [Address - Bitcoin Wiki](https://en.bitcoin.it/wiki/Address#:~:text=A%20Bitcoin%20address%2C%20or%20simply,by%20any%20user%20of%20Bitcoin.) | `1Nb7Mt1EqUqxxrAdmefUovS7aTgMUf2A6m` |
 
 #### crypto.&lt;TICKER&gt;.address
 
@@ -69,7 +69,9 @@ IPFS network content hash.
 
 Swarm network content hash.
 
-TODO: example
+| Format | Example |
+| :--- | :--- |
+| `[0-9a-f]{64}` | `d1f25a870a7bb7e5d526a7623338e4e9b8399e76df8b634020d11d969594f24a` |
 
 ### DNS records
 
