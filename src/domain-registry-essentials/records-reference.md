@@ -13,7 +13,7 @@ Developers may also set custom records for the domains. Domain records are store
 
 For information about crypto payments, see [Managing Domain Records - Crypto Payments Records](../managing-domains/managing-domain-records.md#crypto-payments-records).
 
-#### crypto.ETH.address
+#### `crypto.ETH.address`
 
 Ethereum Address to receive crypto payments.
 
@@ -21,7 +21,7 @@ Ethereum Address to receive crypto payments.
 | :--- | :--- |
 | `0x[0-9a-fA-F]{40}` | `0x0f4a10a4f46c288cea365fcf45cccf0e9d901b94` |
 
-#### crypto.BTC.address
+#### `crypto.BTC.address`
 
 Bitcoin Address to receive crypto payments.
 
@@ -29,7 +29,7 @@ Bitcoin Address to receive crypto payments.
 | :--- | :--- |
 | [Address - Bitcoin Wiki](https://en.bitcoin.it/wiki/Address#:~:text=A%20Bitcoin%20address%2C%20or%20simply,by%20any%20user%20of%20Bitcoin.) | `1Nb7Mt1EqUqxxrAdmefUovS7aTgMUf2A6m` |
 
-#### crypto.&lt;TICKER&gt;.address
+#### `crypto.<TICKER>.address`
 
 Crypto currency address of the ticker.
 
@@ -37,7 +37,7 @@ Crypto currency address of the ticker.
 
 Browser resolution is described in the [Browser Resolution Algorithm](../browser-resolution/browser-resolution-algorithm.md) article.
 
-#### browser.preferred\_protocols
+#### `browser.preferred_protocols`
 
 Protocols that browser should prioritize to display content for.
 
@@ -45,7 +45,7 @@ Protocols that browser should prioritize to display content for.
 | :--- | :--- |
 | JSON serialized array | `["ipfs","http"]` |
 
-#### browser.redirect\_url
+#### `browser.redirect_url`
 
 An URL where a browser should redirect a person if no other resolution method found.
 
@@ -57,7 +57,7 @@ An URL where a browser should redirect a person if no other resolution method fo
 
 For more details, see [Browser Resolution Algorithm - DWeb Records](../browser-resolution/browser-resolution-algorithm.md#distributed-web-records).
 
-#### dweb.ipfs.hash
+#### `dweb.ipfs.hash`
 
 IPFS network content hash.
 
@@ -65,7 +65,7 @@ IPFS network content hash.
 | :--- | :--- |
 | `[0-9a-zA-Z]{46}` | `QmVaAtQbi3EtsfpKoLzALm6vXphdi2KjMgxEDKeGg6wHvK` |
 
-#### dweb.bzz.hash
+#### `dweb.bzz.hash`
 
 Swarm network content hash.
 
@@ -77,7 +77,7 @@ Swarm network content hash.
 
 For more details, see [Browser Resolution Algorithm - DNS Records](../browser-resolution/browser-resolution-algorithm.md#dns-records).
 
-#### dns.ttl
+#### `dns.ttl`
 
 Default TTL setting for all DNS records.
 
@@ -85,7 +85,7 @@ Default TTL setting for all DNS records.
 | :--- | :--- |
 | `\d+` | `128` |
 
-#### dns.A
+#### `dns.A`
 
 DNS A record IP addresses.
 
@@ -93,7 +93,7 @@ DNS A record IP addresses.
 | :--- | :--- |
 | JSON serialized array | `["10.0.0.1","10.0.0.2"]` |
 
-#### dns.A.ttl
+#### `dns.A.ttl`
 
 TTL setting for all A records.
 
@@ -101,7 +101,7 @@ TTL setting for all A records.
 | :--- | :--- |
 | `\d+` | `128` |
 
-#### dns.CNAME
+#### `dns.CNAME`
 
 DNS CNAME record IP addresses.
 
@@ -109,7 +109,7 @@ DNS CNAME record IP addresses.
 | :--- | :--- |
 | JSON serialized array | `["example.com."]` |
 
-#### dns.CNAME.ttl
+#### `dns.CNAME.ttl`
 
 TTL setting for all CNAME records.
 
@@ -117,15 +117,15 @@ TTL setting for all CNAME records.
 | :--- | :--- |
 | `\d+` | `128` |
 
-#### dns.&lt;RECORD&gt;
+#### `dns.<RECORD>`
 
-Specified DNS record values..
+Specified DNS record values.
 
 | Format | Example |
 | :--- | :--- |
 | JSON serialized array | `["example.com."]` |
 
-#### dns.&lt;RECORD&gt;.ttl
+#### `dns.<RECORD>.ttl`
 
 TTL setting for corresponding type of records.
 
@@ -135,7 +135,7 @@ TTL setting for corresponding type of records.
 
 ### Deprecated records
 
-#### ipfs.html.value
+#### `ipfs.html.value`
 
 Deprecated: use `dweb.ipfs.hash` instead.
 
@@ -143,7 +143,7 @@ Deprecated: use `dweb.ipfs.hash` instead.
 | :--- | :--- |
 | `[0-9a-zA-Z]{46}` | `QmVaAtQbi3EtsfpKoLzALm6vXphdi2KjMgxEDKeGg6wHvK` |
 
-#### ipfs.redirect\_domain.value
+#### `ipfs.redirect_domain.value`
 
 Deprecated: use `browser.redirect_url` instead.
 
