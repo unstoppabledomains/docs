@@ -20,4 +20,4 @@ space and link your fork when setting up [GitHub integration](https://docs.gitbo
 
 **Tips for Unstoppable team:**
 
-Branch previews are available at the [private development space](https://app.gitbook.com/@unstoppable-domains/s/unstoppable-docs-dev/).
+Branch previews are available at the [development GitBook space](https://app.gitbook.com/@unstoppable-domains/s/unstoppable-docs-dev/).
