@@ -47,7 +47,7 @@ Protocols that browser should prioritize to display content for.
 
 #### `browser.redirect_url`
 
-An URL where a browser should redirect a person if no other resolution method found.
+A fallback URL, to which a user will be redirected if no other resolution method is supported.
 
 | Format | Example |
 | :--- | :--- |
