@@ -7,11 +7,11 @@ This page contains an overview of all standardized resolver records. The referen
   * [DWeb records](records-reference.md#dweb-records)
   * [DNS records](records-reference.md#dns-records)
 
-Developers may also set custom records for the domains. Domain records are stored as a key-value dictionary by Resolvers and are not validated on the smart-contract level. For more details, check out [Architecture Overview](architecture-overview.md#resolver).
+Developers may also set custom records for the domains. Domain records are stored as a key-value dictionary by Resolvers and are not validated on the smart-contract level. For more details, check out [Architecture Overview](architecture-overview.md#resolver) and [Managing Domain Records](../managing-domains/managing-domain-records.md).
 
 ## Crypto payments
 
-For information about crypto payments, see [Managing Domain Records](../managing-domains/managing-domain-records.md#crypto-payments-records).
+For information about crypto payments, see [Managing Domain Records - Crypto Payments Records](../managing-domains/managing-domain-records.md#crypto-payments-records).
 
 #### crypto.ETH.address
 
@@ -141,10 +141,11 @@ Deprecated: use `dweb.ipfs.hash` instead.
 | :--- | :--- |
 | `[0-9a-zA-Z]{46}` | `QmVaAtQbi3EtsfpKoLzALm6vXphdi2KjMgxEDKeGg6wHvK` |
 
-#### ipfs.redirect_domain.value
+#### ipfs.redirect\_domain.value
 
 Deprecated: use `browser.redirect_url` instead.
 
 | Format | Example |
 | :--- | :--- |
 | [RFC-1738](https://tools.ietf.org/html/rfc1738) | `http://example.com/home.html` |
+
