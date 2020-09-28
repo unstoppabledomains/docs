@@ -70,7 +70,7 @@ Users can set one trusted operator per owned domain and one operator for their w
 
 Resolver is a smart contract that, as its name suggests, is used for resolving domains and storing domain records. This is where domain owners store their data, such as crypto wallet addresses or IPFS records, to make a domain resolvable in the decentralized web.
 
-The underlying data structure of Resolver can be described as a map of domain namehashes to key-value dictionaries of records. Such a structure gives users the flexibility to store arbitrary records, even those that aren't specified by the [Records Reference](reference.md). Though in practice the data structure is a bit more complicated than that, if you're interested in implementation details, see [Resolver.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Resolver.sol).
+The underlying data structure of Resolver can be described as a map of domain namehashes to key-value dictionaries of records. Such a structure gives users the flexibility to store arbitrary records, even those that aren't specified by the [Records Reference](records-reference.md). Though in practice the data structure is a bit more complicated than that, if you're interested in implementation details, see [Resolver.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Resolver.sol).
 
 Resolvers allow domain owners and approved operators to edit records of their owned domains. In addition to that, Resolver provides an interface for getting standardized records, making it easier to access general information about domains.
 
@@ -132,3 +132,4 @@ In general, there are two types of transactions that the Transaction Processor t
 Delegating CNS transactions is not necessarily coupled with the Transaction Processor. It's possible to execute any write operation that supports Meta Transactions from any Ethereum account, given that a domain owner provides a signature for such a call.
 
 If you are interested in technical details of delegating transactions in CNS, check out the [Meta Transactions](../managing-domains/meta-transactions.md) page.
+

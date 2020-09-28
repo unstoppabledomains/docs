@@ -26,7 +26,7 @@ Developer guides contain examples of code, mostly written in JavaScript and Soli
 
 ### Specs
 
-* [Records Reference](domain-registry-essentials/reference.md)
+* [Records Reference](domain-registry-essentials/records-reference.md)
 * [Browser Resolution Algorithm](browser-resolution/browser-resolution-algorithm.md)
 
 ### Other resources

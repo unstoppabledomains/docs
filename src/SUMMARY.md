@@ -7,7 +7,7 @@
 * [Architecture Overview](domain-registry-essentials/architecture-overview.md)
 * [Namehashing](domain-registry-essentials/namehashing.md)
 * [Resolving Domain Records](domain-registry-essentials/resolving-domain-records.md)
-* [Records Reference](domain-registry-essentials/reference.md)
+* [Records Reference](domain-registry-essentials/records-reference.md)
 
 ## Managing Domains
 

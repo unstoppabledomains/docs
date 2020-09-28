@@ -40,7 +40,7 @@ Reference:
 
 ![](../.gitbook/assets/provide_domain_records_via_proxy_reader_smart_contract.png)
 
-See [Records Reference](reference.md) for more information about the standardized records.
+See [Records Reference](records-reference.md) for more information about the standardized records.
 
 ## Record Value Validation
 
@@ -51,7 +51,7 @@ Crypto resolver doesn't have any built-in record value validation when it is upd
 
 Any domain management application must perform record format validation before submitting a transaction. However, there is no guarantee that all management applications will do it correctly. That is why records must be validated when the domain is resolved too.
 
-See [Records Reference](reference.md) for more information for the validator of each record.
+See [Records Reference](records-reference.md) for more information for the validator of each record.
 
 ## Configuring Ethereum Network connection
 
