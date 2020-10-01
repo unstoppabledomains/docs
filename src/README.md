@@ -31,7 +31,7 @@ Developer guides contain examples of code, mostly written in JavaScript and Soli
 
 ### Other resources
 
-* JavaScript [@unstoppable/resolution](https://www.npmjs.com/package/@unstoppabledomains/resolution) library \[[github](https://github.com/unstoppabledomains/resolution)\]
+* JavaScript [@unstoppabledomains/resolution](https://www.npmjs.com/package/@unstoppabledomains/resolution) library \[[github](https://github.com/unstoppabledomains/resolution)\]
 * Java [com.unstoppabledomains.resolution](https://search.maven.org/artifact/com.unstoppabledomains.resolution/resolution/1.1.0/jar) library \[[github](https://github.com/unstoppabledomains/resolution-java)\]
 * Swift [UnstoppableDomainsResolution](https://cocoapods.org/pods/UnstoppableDomainsResolution) library \[[github](https://github.com/unstoppabledomains/resolution-swift)\]
 * [Website API Reference](https://apidocs.unstoppabledomains.com/)
