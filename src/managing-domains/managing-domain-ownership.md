@@ -32,6 +32,12 @@ safeTransferFrom(address from, address to, uint256 tokenId, bytes _data)
 
 If one of these methods is called, both an approved operator and a Resolution address for a domain get reset.
 
+{% hint style="info" %}
+**Note:** the current implementation of transferring only resets a Resolver address, but doesn't reset records stored by a Resolver smart contract. It means that after setting a new Resolver address for a transferred domain, if the Resolver address matches the previous one, a new domain owner will get Resolution settings of a previous owner.
+
+After receiving a domain, along with setting a Resolver address, [`reconfigure`](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Resolver.sol) method should be called, which resets all previous records.
+{% endhint %}
+
 Registry smart contract also implements `setOwner` function, which is not a part of the ERC-721 standard:
 
 ```sol
@@ -39,12 +45,6 @@ setOwner(address to, uint256 tokenId)
 ```
 
 `setOwner` keeps a Resolver address and resets an approved operator. This method makes it possible to preconfigure a domain with certain records and transfer it to another owner, keeping all resolution settings.
-
-{% hint style="info" %}
-**Note:** the current implementation of transferring only resets a Resolver address, but doesn't reset records stored by a Resolver smart contract. It means that after setting a new Resolver address for a transferred domain, if the Resolver address matches the previous one, a new domain owner will get Resolution settings of a previous owner.
-
-After receiving a domain, along with setting a Resolver address, [`reconfigure`](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Resolver.sol) method should be called, which resets all previous records.
-{% endhint %}
 
 ## Setting an operator
 
