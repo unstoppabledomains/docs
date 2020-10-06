@@ -24,4 +24,5 @@
 
 * [Website API Reference](https://apidocs.unstoppabledomains.com/)
 * [JavaScript Resolution Library](https://github.com/unstoppabledomains/resolution)
-
+* [Java Resolution Library](https://github.com/unstoppabledomains/resolution-java)
+* [Swift Resolution Library](https://github.com/unstoppabledomains/resolution-swift)
