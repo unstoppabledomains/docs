@@ -44,9 +44,9 @@ Here are some of the end-user scenarios that should give an idea which features 
 
 ![](../.gitbook/assets/configure_dns_gateway.png)
 
-## Content display protocol
+## Hypermedia protocol
 
-In addition to base browser content display protocols like `http`, blockchain domains can also be configured for distributed content protocols like `ipfs`. Here is the list of content display protocols that can be associated with a crypto domain:
+In addition to base browser hypermedia protocols like `http`, blockchain domains can also be configured for distributed content protocols like `ipfs`. Here is the list of hypermedia protocols that can be associated with a crypto domain:
 
 * Traditional
   * HTTP

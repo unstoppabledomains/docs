@@ -20,7 +20,7 @@ All records related to browser resolution are stored within these namespaces:
 
 * `dns.*` - for traditional DNS records
 * `dweb.*` - for distributed content records
-* `browser.*` - hint records to help browser determine a preferred content display method
+* `browser.*` - hint records to help browser determine a preferred hypermedia protocol
 
 If you are looking for a way to get records associated with a domain, see [Resolving domain records](../domain-registry-essentials/resolving-domain-records.md).
 
