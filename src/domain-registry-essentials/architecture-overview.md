@@ -53,7 +53,9 @@ Registry smart contract implements a set of methods allowing to mint new domains
 
 Accounts that are allowed to mint second-level domains \(like 'alice.crypto'\) are called whitelisted minters. Whitelisted minters are limited to only minting new domains. They can't control domain ownership \(e.g. approve or transfer a domain to another owner\) and they can't control domain records. Whitelisted minters are operated by Unstoppable Domains.
 
-A domain owner or an operator may perform the following operations with their domains:
+Registry smart contract doesn't have an admin, which means that no entity can transfer or manage user domains without their permission. 
+
+A domain owner may perform the following operations with their domains:
 
 * Transfer ownership
 * Set a new resolver
@@ -68,7 +70,7 @@ Resolver is a smart contract that, as its name suggests, is used for resolving d
 
 The underlying data structure of Resolver can be described as a map of domain namehashes to key-value dictionaries of records. Such a structure gives users the flexibility to store arbitrary records, even those that aren't specified by the [Records Reference](records-reference.md). Though in practice the data structure is a bit more complicated than that, if you're interested in implementation details, see [Resolver.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Resolver.sol).
 
-Resolvers allow domain owners and approved operators to edit records of their owned domains. In addition to that, Resolver provides an interface for getting standardized records, making it easier to access general information about domains.
+Resolvers allow domain owners, approved addresses and operators to edit records of their owned domains. In addition to that, Resolver provides an interface for getting standardized records, making it easier to access general information about domains.
 
 ### Auxiliary smart contracts
 
