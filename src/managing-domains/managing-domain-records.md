@@ -1,12 +1,12 @@
-# Managing Domain Records
+# Managing domain records
 
 Domain records can be managed via the default public resolver, or one can develop a custom resolver with any management permissions defined.
 
 ![](../.gitbook/assets/Record-Architecture.svg)
 
-## Resolver Record Types
+## Resolver record types
 
-Records on the top-level are stored in a simple key-value pair mapping string to string. CNS doesn't forbid a user to assign any record to any value. However, there is a list of standard records that have a defined standard interpretation by clients. A full list of standardized records can be found in the [Records Reference](../domain-registry-essentials/records-reference.md).
+Records on the top-level are stored in a simple key-value pair mapping string to string. CNS doesn't forbid a user to assign any record to any value. However, there is a list of standard records that have a defined standard interpretation by clients. A full list of standardized records can be found in the [Records reference](../domain-registry-essentials/records-reference.md).
 
 Standard record keys are split by namespaces with a `.` used as a separator.
 
@@ -17,7 +17,7 @@ Main namespaces are:
 * `dweb.*` - records related to distributed content network protocols
 * `browser.*` - hint records for web browsers
 
-### Crypto Payments Records
+### Crypto payments records
 
 One essential feature of blockchain domains is the ability to specify a domain instead of a destination address for your crypto payment. Cryptocurrency wallets that need this feature should resolve a domain to crypto address under the hook in the same way a browser resolves a domain to IP address.
 
@@ -33,9 +33,9 @@ Example crypto records setup:
 | `crypto.BTC.address` | `bc1qkd4um2nn2uyzmsch5y86wsa2pfh8xl445lg9nv` |
 | `crypto.ZIL.address` | `zil1yu5u4hegy9v3xgluweg4en54zm8f8auwxu0xxc` |
 
-## Resolver Administrative Patterns
+## Resolver administrative patterns
 
-### Default Resolvers' Record Ownership Style
+### Default resolvers' record ownership style
 
 The default Unstoppable resolver allows users to manage all domain records for any address given a permission over domain utilizing the [ERC721 "Transfer Mechanism"](https://eips.ethereum.org/EIPS/eip-721). This enables a subset of addresses to manage the domain on your behalf. By default we give the permission to do this to every address that can already transfer ownership of the domain. These include:
 
@@ -53,7 +53,7 @@ See ERC721 on how those permissions can be granted and revoked. Any records chan
 
 What is important about this model is you can delegate trust to change records to smart contracts. This enables users to interact with applications that could store keys and other information on a domain. Making the domains a metadata repository or cross application identifier.
 
-### Alternative Ownership Styles
+### Alternative ownership styles
 
 Resolvers can be made with custom logic. For example users with a large amount of domains might want to deploy a custom `Owned` resolver contract. See [EIP-173](https://eips.ethereum.org/EIPS/eip-173). Where there is only one set of records, and only the owner can set them.
 
@@ -79,7 +79,7 @@ contract CustomResolver is Owned {
 }
 ```
 
-This smart contract will read from the same set of records every time, allowing for efficient updating of multiple domains at once. See more in [Deploying Custom Resolvers](deploying-custom-resolver.md).
+This smart contract will read from the same set of records every time, allowing for efficient updating of multiple domains at once. See more in [Deploying custom resolvers](deploying-custom-resolver.md).
 
 ### Presets
 
@@ -94,7 +94,7 @@ Currently `reset` and `reconfigure` are the only methods exposed on this version
 * The `reset` method clears the domain's records by setting the preset on the domain to the timestamp when the transaction was mined e.g. `blockchain.timestamp`.
 * The `reconfigure` method first `reset`'s the domain then configures a new set of records.
 
-### Pre-configuring Records
+### Pre-configuring records
 
 The Default Resolver allows the Unstoppable Minting EOAs to mint and preconfigure domains in one step. This `preconfigure` method only lets the Minting EOAs configure unowned domains not names already minted to the CNS Registry.
 

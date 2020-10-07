@@ -1,4 +1,4 @@
-# Resolving Domain Records
+# Resolving domain records
 
 Resolving a domain is a process of retrieving a domain's records when the domain name and required record names are given. There is no limitation on who can read domain records on the Registry side. Anyone having access to the Ethereum Node on the mainnet can resolve a domain.
 
@@ -40,9 +40,9 @@ Reference:
 
 ![](../.gitbook/assets/provide_domain_records_via_proxy_reader_smart_contract.png)
 
-See [Records Reference](records-reference.md) for more information about the standardized records.
+See [Records reference](records-reference.md) for more information about the standardized records.
 
-## Record Value Validation
+## Record value validation
 
 Crypto resolver doesn't have any built-in record value validation when it is updated for two reasons:
 
@@ -51,11 +51,11 @@ Crypto resolver doesn't have any built-in record value validation when it is upd
 
 Any domain management application must perform record format validation before submitting a transaction. However, there is no guarantee that all management applications will do it correctly. That is why records must be validated when the domain is resolved too.
 
-See [Records Reference](records-reference.md) for more information for the validator of each record.
+See [Records reference](records-reference.md) for more information for the validator of each record.
 
-## Configuring Ethereum Network connection
+## Configuring Ethereum network connection
 
-Domain Resolution Configuration at a low level requires 3 configuration parameters:
+Domain resolution configuration at a low level requires 3 configuration parameters:
 
 1. Ethereum JSON RPC provider
 2. Ethereum CHAIN ID

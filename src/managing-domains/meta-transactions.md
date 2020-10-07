@@ -1,4 +1,4 @@
-# Meta Transactions
+# Meta transactions
 
 Most Registry and Resolver methods have meta-transaction support. Generally, meta-transactions allow users to sign messages to control their domains that are then submitted to the registry by a different party. This enables Unstoppable to submit transactions on behalf of users so that the user can still manage their domains in a self-custodial capacity without any gas.
 
@@ -12,7 +12,7 @@ Note that the meta-transaction versions of Registry functions are implemented in
 
 The source code of signature validation can be found in [SignatureUtil.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/util/SignatureUtil.sol)
 
-## Token Nonce
+## Token nonce
 
 Meta transaction methods are bound to names via their nonce \(instead of [Account Nonce](https://ethereum.stackexchange.com/questions/27432/what-is-nonce-in-ethereum-how-does-it-prevent-double-spending) of traditional transactions\). It protects from [Double-spending](https://en.wikipedia.org/wiki/Double-spending) in the same way as an account-based nonce in traditional transactions.
 
@@ -24,7 +24,7 @@ A nonce is simply a transaction counter for each token. This prevents replay att
 
 ![](../.gitbook/assets/Nonces.svg)
 
-## **Meta transaction signature generation**
+## Meta transaction signature generation
 
 A meta transaction requires 2 signatures: one passed as a method argument and one classical. A classical signature is generated in a standard way. A meta signature requires a domain owner \(or a person approved by the owner\) to sign a special message formed from:
 

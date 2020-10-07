@@ -1,4 +1,4 @@
-# Browser Resolution Algorithm
+# Browser resolution algorithm
 
 ![](../.gitbook/assets/resolve_dweb_website_by_direct_reading_from_ethereum_and_decentralized_network.png)
 
@@ -22,7 +22,7 @@ All records related to browser resolution are stored within these namespaces:
 * `dweb.*` - for distributed content records
 * `browser.*` - hint records to help browser determine a preferred content display method
 
-If you are looking for a way to get records associated with a domain, see [Resolving Domain Records](../domain-registry-essentials/resolving-domain-records.md).
+If you are looking for a way to get records associated with a domain, see [Resolving domain records](../domain-registry-essentials/resolving-domain-records.md).
 
 ### DNS records
 
@@ -34,7 +34,7 @@ No other data transformation is required when converting a traditional DNS recor
 
 Crypto records do not have a domain name associated with them. That is why there is no feature for storing your subdomain records inside a parent domain. Example: `www.example.com` record can only be set inside a resolver of `www.example.com` but never inside `example.com`.
 
-A recommended way to display content in a browser for crypto domains is explained in [Resolving Domains in a Browser](resolving-domains-in-a-browser.md).
+A recommended way to display content in a browser for crypto domains is explained in [Resolving domains in a browser](resolving-domains-in-a-browser.md).
 
 #### **TTL**
 
@@ -73,9 +73,9 @@ Distributed Web \(Dweb\) records are designed to allow one to configure a domain
 
 Record structure can be different based on the protocol. However, all protocols have a common `.hash` record used to reference content in the distributed network. Example: `dns.ipfs.hash` for IPFS protocol.
 
-See [Resolving Domains in a Browser](resolving-domains-in-a-browser.md) for information on how to interpret those records.
+See [Resolving domains in a browser](resolving-domains-in-a-browser.md) for information on how to interpret those records.
 
-### Legacy Records Support
+### Legacy records support
 
 As of Q3 2020, most .crypto domains are configured using legacy record names for IPFS hash and redirect domain:
 

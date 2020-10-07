@@ -6,7 +6,7 @@ Unstoppable Domains has introduced a major documentation update. The old Website
 
 Unstoppable Domains is a San Francisco-based company building domains on blockchains. These domains replace cryptocurrency addresses with human-readable names and are powered by the Ethereum and Zilliqa blockchains. CNS and ZNS provide users full control of their domain names, which ensures permanent ownership, censorship resistance, and decentralized access.
 
-By utilizing a Self Custody paradigm for domain ownership Unstoppable Domains removes the centralized nature of traditional domain. Once a user controls their domain, every action must user initiated. Transferring and configuring records will always be able to be done by the user without Unstoppable Domain's interference. This is in contrast with the current security model for DNS witch allows TLDs to control their subdomains at will. See the [Architecture Overview](domain-registry-essentials/architecture-overview.md) for more.
+By utilizing a Self Custody paradigm for domain ownership Unstoppable Domains removes the centralized nature of traditional domain. Once a user controls their domain, every action must user initiated. Transferring and configuring records will always be able to be done by the user without Unstoppable Domain's interference. This is in contrast with the current security model for DNS witch allows TLDs to control their subdomains at will. See the [Architecture overview](domain-registry-essentials/architecture-overview.md) for more.
 
 ## Who This Documentation Is For
 
@@ -20,19 +20,19 @@ Developer guides contain examples of code, mostly written in JavaScript and Soli
 
 ### Navigating
 
-* If you want an understanding of how **Unstoppable Domains work, its architecture and capabilities**, check out [General Overview](domain-registry-essentials/architecture-overview.md).
-* If you're a **developer** interested in **resolving records for cryptocurrency payments**, check out [Resolving Domain Records](domain-registry-essentials/resolving-domain-records.md).
-* If you're a **developer** interested in **how to resolve our domains in a browser**, check out [Resolving Domains in a Browser](browser-resolution/resolving-domains-in-a-browser.md).
+* If you want an understanding of how **Unstoppable Domains work, its architecture and capabilities**, check out [Architecture overview](domain-registry-essentials/architecture-overview.md).
+* If you're a **developer** interested in **resolving records for cryptocurrency payments**, check out [Resolving domain records](domain-registry-essentials/resolving-domain-records.md).
+* If you're a **developer** interested in **how to resolve our domains in a browser**, check out [Resolving domains in a browser](browser-resolution/resolving-domains-in-a-browser.md).
 
 ### Specs
 
-* [Records Reference](domain-registry-essentials/records-reference.md)
-* [Browser Resolution Algorithm](browser-resolution/browser-resolution-algorithm.md)
+* [Records reference](domain-registry-essentials/records-reference.md)
+* [Browser resolution algorithm](browser-resolution/browser-resolution-algorithm.md)
 
 ### Other resources
 
 * JavaScript [@unstoppabledomains/resolution](https://www.npmjs.com/package/@unstoppabledomains/resolution) library \[[github](https://github.com/unstoppabledomains/resolution)\]
 * Java [com.unstoppabledomains.resolution](https://search.maven.org/artifact/com.unstoppabledomains.resolution/resolution/1.1.0/jar) library \[[github](https://github.com/unstoppabledomains/resolution-java)\]
 * Swift [UnstoppableDomainsResolution](https://cocoapods.org/pods/UnstoppableDomainsResolution) library \[[github](https://github.com/unstoppabledomains/resolution-swift)\]
-* [Website API Reference](https://apidocs.unstoppabledomains.com/)
+* [Website API reference](https://apidocs.unstoppabledomains.com/)
 

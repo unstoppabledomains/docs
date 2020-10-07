@@ -1,4 +1,4 @@
-# Deploying Custom Resolver
+# Deploying custom resolver
 
 Deploying a custom resolver is a way to implement a flexible permission model over domain records. This may include:
 
