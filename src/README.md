@@ -8,11 +8,11 @@ Unstoppable Domains is a San Francisco-based company building domains on blockch
 
 By utilizing a Self Custody paradigm for domain ownership Unstoppable Domains removes the centralized nature of traditional domains. Once a user controls their domain, every action must be user-initiated. Transferring and configuring records will always be able to be done by the user without Unstoppable Domain's interference. This is in contrast with the current security model for DNS witch allows TLDs to control their subdomains at will. See the [Architecture overview](domain-registry-essentials/architecture-overview.md) for more.
 
-## Who This Documentation Is For
+## Who this documentation is for
 
 This documentation is written for different audiences and is useful for developers and non-developers alike. For those beginning their journey with Unstoppable Domains, we introduce the concept of how CNS domains work. For developers, we have guides and reference documentation explaining how to resolve and manage domains.
 
-## How To Read This Documentation
+## How to read this documentation
 
 In general, it is assumed that a reader has a basic understanding of traditional domains and how blockchain works. Some developer topics will require familiarity with Solidity language. Sections that require knowledge of specific concepts contain links to resources and prerequisites, including both external ones and references to our documentation.
 
