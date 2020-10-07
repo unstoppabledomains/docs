@@ -8,7 +8,7 @@ Meta-transactions work by having users sign function calls along with a nonce. S
 
 Concretely `resetFor` is a meta-transaction version of reset. This method has an additional `signature` argument as the last parameter beside all the original parameters.
 
-Note that the meta-transaction versions of Registry functions are implemented in the controller contract, not in the registry itself. See [Deployed Smart Contracts](https://github.com/unstoppabledomains/dot-crypto#deployed-smart-contracts-addresses).
+Note that the meta-transaction versions of Registry functions are implemented in the [SignatureController.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/controllers/SignatureController.sol) contract, not in the registry itself.
 
 The source code of signature validation can be found in [SignatureUtil.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/util/SignatureUtil.sol)
 

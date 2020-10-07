@@ -12,6 +12,7 @@
 ## Managing Domains
 
 * [Managing Domain Records](managing-domains/managing-domain-records.md)
+* [Managing Domain Ownership](managing-domains/managing-domain-ownership.md)
 * [Meta Transactions](managing-domains/meta-transactions.md)
 * [Deploying Custom Resolver](managing-domains/deploying-custom-resolver.md)
 
