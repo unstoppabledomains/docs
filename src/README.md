@@ -4,9 +4,9 @@
 Unstoppable Domains has introduced a major documentation update. The old Website API documentation is still available at [apidocs.unstoppabledomains.com](https://apidocs.unstoppabledomains.com/).
 {% endhint %}
 
-Unstoppable Domains is a San Francisco-based company building domains on blockchains. These domains replace cryptocurrency addresses with human-readable names and are powered by the Ethereum and Zilliqa blockchains. CNS and ZNS provide users full control of their domain names, which ensures permanent ownership, censorship resistance, and decentralized access.
+Unstoppable Domains is a San Francisco-based company building domains on blockchains. These domains replace cryptocurrency addresses with human-readable names and are powered by the Ethereum and Zilliqa blockchains. CNS and ZNS provide users with full control of their domain names, which ensures permanent ownership, censorship resistance, and decentralized access.
 
-By utilizing a Self Custody paradigm for domain ownership Unstoppable Domains removes the centralized nature of traditional domain. Once a user controls their domain, every action must user initiated. Transferring and configuring records will always be able to be done by the user without Unstoppable Domain's interference. This is in contrast with the current security model for DNS witch allows TLDs to control their subdomains at will. See the [Architecture overview](domain-registry-essentials/architecture-overview.md) for more.
+By utilizing a Self Custody paradigm for domain ownership Unstoppable Domains removes the centralized nature of traditional domains. Once a user controls their domain, every action must be user-initiated. Transferring and configuring records will always be able to be done by the user without Unstoppable Domain's interference. This is in contrast with the current security model for DNS witch allows TLDs to control their subdomains at will. See the [Architecture overview](domain-registry-essentials/architecture-overview.md) for more.
 
 ## Who This Documentation Is For
 
