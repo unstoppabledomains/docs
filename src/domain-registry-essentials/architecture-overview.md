@@ -1,9 +1,3 @@
----
-description: >-
-  This section explains the components of crypto registry, its core design
-  principles, and permission model.
----
-
 # Architecture Overview
 
 This section introduces the basic principles of CNS - Crypto Name Service. We don't attempt to give a deep technical explanation of them, but rather make a high-level overview so that every reader can get an idea of how CNS works. It is assumed that a reader has a basic understanding of Ethereum smart contracts and [ERC-721 token standard](https://eips.ethereum.org/EIPS/eip-721).
@@ -22,13 +16,15 @@ Every CNS domain represents an [ERC-721](https://eips.ethereum.org/EIPS/eip-721)
 
 The two central components of CNS are Registry and Resolver smart contracts. Resolver can be thought of as a _map_ \(or _dictionary_\) of domain names to a set of records, and Registry - as a _map_ of domain names to an owner address and a Resolver address.
 
+![A simplified illustration of the relation between Registry and Resolver smart contracts](../.gitbook/assets/registry_resolver_relation.svg)
+
 There's only one official instance of the Registry smart contract deployed in the Ethereum Mainnet, but there are many versions of Resolver smart contracts. The relationship between Registry and Resolver can be described as follows: Registry stores many domains, and each domain has a Resolver address record. This assumes that every domain might have a different resolver, though in practice majority of domains is managed by the same instance \(having the same address\) of the latest version of Resolver smart contract.
 
 {% hint style="info" %}
 Updates to our Resolver smart contract are incremental and non-breaking, meaning that we add new features without disrupting the work of existing domains that haven't got updated. Any Resolver smart contract must implement [IResolver interface](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/IResolver.sol), which defines the basic set of functionality and guarantees compatibility between different implementations.
 {% endhint %}
 
-As mentioned, every domain represents an ERC-721 non-fungible token. Every ERC-721 token is identified by a unique number, which is called a token identifier. To make domains identifiable, we use a process called [Namehashing](namehashing.md). This process is irreversible: one can calculate a namehash of a domain having its name, but it's impossible to restore a domain name from a namehash.
+As mentioned, every domain represents an ERC-721 non-fungible token. Every ERC-721 token is identified by a unique number, which is called `tokenId`. To make domains identifiable, we use a process called [Namehashing](namehashing.md).
 
 Here's an example of "example.crypto" namehash: `0xd584c5509c6788ad9d9491be8ba8b4422d05caf62674a98fbf8a9988eeadfb7e`
 
@@ -40,7 +36,7 @@ Here is a map to help visualize how the CNS Registry and Resolvers interact.
 
 ### Registry
 
-Registry is the most essential smart contract in CNS. This is the contract that defines ownership rules, how domains are minted, provides ERC-721 token metadata, and stores a list of all domains with information about them.
+Registry is the most essential smart contract in CNS. This is the contract that defines ownership rules, how domains are minted, provides [ERC-721 token metadata](https://docs.openzeppelin.com/contracts/2.x/api/token/erc721#IERC721Metadata), and stores a list of all domains with information about them.
 
 Registry stores the following data about each domain:
 
@@ -57,14 +53,16 @@ Registry smart contract implements a set of methods allowing to mint new domains
 
 Accounts that are allowed to mint second-level domains \(like 'alice.crypto'\) are called whitelisted minters. Whitelisted minters are limited to only minting new domains. They can't control domain ownership \(e.g. approve or transfer a domain to another owner\) and they can't control domain records. Whitelisted minters are operated by Unstoppable Domains.
 
-A domain owner or an operator may perform the following operations with their domains:
+Registry smart contract doesn't have an admin, which means that no entity can transfer or manage user domains without their permission. 
+
+A domain owner may perform the following operations with their domains:
 
 * Transfer ownership
 * Set a new resolver
 * Mint a new subdomain
 * Burn a domain
 
-Users can set one trusted operator per owned domain and one operator for their whole account, allowing managing every owned domain.
+Users can set one approved address per owned domain and many operators, that can manage their domains. For more details, see [Managing Domain Ownership](../managing-domains/managing-domain-ownership.md).
 
 ### Resolver
 
@@ -72,19 +70,19 @@ Resolver is a smart contract that, as its name suggests, is used for resolving d
 
 The underlying data structure of Resolver can be described as a map of domain namehashes to key-value dictionaries of records. Such a structure gives users the flexibility to store arbitrary records, even those that aren't specified by the [Records Reference](records-reference.md). Though in practice the data structure is a bit more complicated than that, if you're interested in implementation details, see [Resolver.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Resolver.sol).
 
-Resolvers allow domain owners and approved operators to edit records of their owned domains. In addition to that, Resolver provides an interface for getting standardized records, making it easier to access general information about domains.
+Resolvers allow domain owners, approved addresses and operators to edit records of their owned domains. In addition to that, Resolver provides an interface for getting standardized records, making it easier to access general information about domains.
 
 ### Auxiliary smart contracts
 
 Registry and Resolver smart contracts are not the only ones that compose Unstoppable Domains architecture. If you want to see the full list of CNS smart contracts with the links to their deployed instances and source code, see [Deployed Smart Contract Addresses](https://github.com/unstoppabledomains/dot-crypto#deployed-smart-contracts-addresses). The following sections describe smart contracts that are used for optimizing the resolution process and minting subdomains, which are other essential parts for understanding how CNS works.
 
-#### Proxy Reader
+#### ProxyReader
 
 Proxy Reader is a smart contract that is used by our resolution libraries to resolve domains. Normally, it would take at least two queries to Ethereum blockchain to resolve a domain: users would call Registry, to learn a domain's Resolver address, and then they would make a call to Resolver, to read records themselves. Proxy Reader provides users a way to make just one call to get the information they need.
 
 If you're interested in how the resolution process works in more detail, check out [Resolving Domain Records](resolving-domain-records.md).
 
-#### Minting Controller
+#### MintingController
 
 Minting Controller is a smart contract that is allowed to mint second-level domains. The deployed version of the Registry smart contract allows only Minting Controller to mint domains. This smart contract is used by Whitelisted Minter as a proxy, which is the actual smart contract that gets called by minter accounts.
 
