@@ -9,6 +9,7 @@ Registry is the central smart contract, which stores all CNS domains. Implementi
 **Source code:** [contracts/Registry.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Registry.sol)
 
 | Network | Contract address |
+| :--- | :--- |
 | Mainnet | [0xD1E5b0FF1287aA9f9A268759062E4Ab08b9Dacbe](https://etherscan.io/address/0xd1e5b0ff1287aa9f9a268759062e4ab08b9dacbe) |
 
 ### Resolver
@@ -18,6 +19,7 @@ Resolver is the smart contract that stores domain records and provides methods f
 **Source code:** [contracts/Resolver.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Resolver.sol)
 
 | Network | Contract address |
+| :--- | :--- |
 | Mainnet | [0xb66DcE2DA6afAAa98F2013446dBCB0f4B0ab2842](https://etherscan.io/address/0xb66DcE2DA6afAAa98F2013446dBCB0f4B0ab2842) |
 
 **Legacy Mainnet Resolvers:**
@@ -31,6 +33,7 @@ ProxyReader provides an interface, that allows users to fetch information about 
 **Source code:** [contracts/ProxyReader.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/ProxyReader.sol)
 
 | Network | Contract address |
+| :--- | :--- |
 | Mainnet | [0x7ea9Ee21077F84339eDa9C80048ec6db678642B1](https://etherscan.io/address/0x7ea9Ee21077F84339eDa9C80048ec6db678642B1) |
 
 ### SignatureController
@@ -40,6 +43,7 @@ SignatureController allows any account to submit management transactions on beha
 **Source code:** [contracts/controllers/SignatureController.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/controllers/SignatureController.sol)
 
 | Network | Contract address |
+| :--- | :--- |
 | Mainnet | [0x82EF94294C95aD0930055f31e53A34509227c5f7](https://etherscan.io/address/0x82EF94294C95aD0930055f31e53A34509227c5f7) |
 
 ### DomainZoneController
@@ -49,6 +53,7 @@ DomainZoneController provides the functionality that allows owners of a domain z
 **Source code:** [contracts/controllers/DomainZoneController.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/controllers/DomainZoneController.sol)
 
 | Network | Contract address |
+| :--- | :--- |
 | Mainnet | [0xeA70777e28E00E81f58b8921fC47F78B8a72eFE7](https://etherscan.io/address/0xeA70777e28E00E81f58b8921fC47F78B8a72eFE7) |
 
 ### FreeRegistrar
@@ -64,6 +69,7 @@ WhitelistedMinter defines an interface for minting second-level domains. This sm
 **Source code:** [contracts/util/WhitelistedMinter.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/util/WhitelistedMinter.sol)
 
 | Network | Contract address |
+| :--- | :--- |
 | Mainnet | [0xd3fF3377b0ceade1303dAF9Db04068ef8a650757](https://etherscan.io/address/0xd3fF3377b0ceade1303dAF9Db04068ef8a650757) |
 
 ## Registry controllers
@@ -77,6 +83,7 @@ MintingController is a smart contract that is allowed to mint second-level domai
 **Source code:** [contracts/controllers/MintingController.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/controllers/MintingController.sol)
 
 | Network | Contract address |
+| :--- | :--- |
 | Mainnet | [0xb0EE56339C3253361730F50c08d3d7817ecD60Ca](https://etherscan.io/address/0xb0EE56339C3253361730F50c08d3d7817ecD60Ca) |
 
 ### URIPrefixController
@@ -86,6 +93,7 @@ URIPrefixController enables Unstoppable Domains team to edit the token URI prefi
 **Source code:** [contracts/controllers/URIPrefixController.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/controllers/URIPrefixController.sol)
 
 | Network | Contract address |
+| :--- | :--- |
 | Mainnet | [0x09B091492759737C03da9dB7eDF1CD6BCC3A9d91](https://etherscan.io/address/0x09B091492759737C03da9dB7eDF1CD6BCC3A9d91) |
 
 ## Interfaces
@@ -96,60 +104,71 @@ The following interfaces can be used as a guidance to the minimal implementation
 
 IRegistry interface declares all the Registry events and methods (both read and write ones).
 
-**Source code:** [contracts/IRegistry.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/IRegistry.sol)<br/>
+**Source code:** [contracts/IRegistry.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/IRegistry.sol)
+
 **Implemented by:**
-- [Registry](./cns-smart-contracts.md#registry)
+* [Registry](./cns-smart-contracts.md#registry)
 
 ### IRegistryReader
 
 IRegistryReader interface declares only read-only Registry methods.
 
-**Source code:** [contracts/IRegistryReader.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/IRegistryReader.sol)<br/>
+**Source code:** [contracts/IRegistryReader.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/IRegistryReader.sol)
+
 **Implemented by:**
-- [Registry](./cns-smart-contracts.md#registry)
-- [ProxyReader](./cns-smart-contracts.md#proxyreader)
+* [Registry](./cns-smart-contracts.md#registry)
+* [ProxyReader](./cns-smart-contracts.md#proxyreader)
 
 ### IResolver
 
 IResolver interface declares the minimal set of Resolver methods that are used for configuring domain records.
 
-**Source code:** [contracts/IResolver.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/IResolver.sol)<br/>
+**Source code:** [contracts/IResolver.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/IResolver.sol)
+
 **Implemented by:**
-- [Resolver](./cns-smart-contracts.md#resolver)
+* [Resolver](./cns-smart-contracts.md#resolver)
 
 ### IResolverReader
 
 IResolverReader interface declares the set of Resolver methods that can are used for reading Resolver records.
 
-**Source code:** [contracts/IResolverReader.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/IResolverReader.sol)<br/>
+**Source code:** [contracts/IResolverReader.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/IResolverReader.sol)
+
 **Implemented by:**
-- [Resolver](./cns-smart-contracts.md#resolver)
-- [ProxyReader](./cns-smart-contracts.md#proxyreader)
+* [Resolver](./cns-smart-contracts.md#resolver)
+* [ProxyReader](./cns-smart-contracts.md#proxyreader)
 
 ### IDataReader
 
 IDataReader interface declares the methods that are unique to the ProxyReader smart contract, which return combined data from the Registry and Resolver contracts.
 
-**Source code:** [contracts/IDataReader.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/IDataReader.sol)<br/>
+**Source code:** [contracts/IDataReader.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/IDataReader.sol)
+
 **Implemented by:**
-- [ProxyReader](./cns-smart-contracts.md#proxyreader)
+* [ProxyReader](./cns-smart-contracts.md#proxyreader)
 
 ## Other
 
-### LinkTokenMock ?
+### BulkWhitelistedRole
 
-### BulkWhitelistedRole +
+### ControllerRole
 
-### ControllerRole +
+### ERC677Receiver
 
-### ERC677Receiver ?
+For twitter verification
 
-### MultiSend ?
+### MultiSend
 
-### RelayTest ?
+### SignatureUtil
 
-### SignatureUtil +
+### Migrations
 
-### Simple ?
+## Tests
 
-### Migrations ?
+### LinkTokenMock
+
+### RelayTest
+
+### Simple
+
+Smart contract for tests, that checks that we can transfer only to smart contracts
