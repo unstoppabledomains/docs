@@ -72,21 +72,11 @@ The underlying data structure of Resolver can be described as a map of domain na
 
 Resolvers allow domain owners, approved addresses and operators to edit records of their owned domains. In addition to that, Resolver provides an interface for getting standardized records, making it easier to access general information about domains.
 
-### Auxiliary smart contracts
-
-Registry and Resolver smart contracts are not the only ones that compose Unstoppable Domains architecture. If you want to see the full list of CNS smart contracts with the links to their deployed instances and source code, see [Deployed Smart Contract Addresses](https://github.com/unstoppabledomains/dot-crypto#deployed-smart-contracts-addresses). The following sections describe smart contracts that are used for optimizing the resolution process and minting subdomains, which are other essential parts for understanding how CNS works.
-
 #### ProxyReader
 
 ProxyReader is a smart contract that is used by our resolution libraries to resolve domains. Normally, it would take at least two queries to Ethereum blockchain to resolve a domain: users would call Registry, to learn a domain's Resolver address, and then they would make a call to Resolver, to read records themselves. ProxyReader provides users with a way to make just one call to get the information they need.
 
 If you're interested in how the resolution process works in more detail, check out [Resolving domain records](resolving-domain-records.md).
-
-#### MintingController
-
-Minting Controller is a smart contract that is allowed to mint second-level domains. The deployed version of the Registry smart contract allows only Minting Controller to mint domains. This smart contract is used by Whitelisted Minter as a proxy, which is the actual smart contract that gets called by minter accounts.
-
-The mentioned contracts are operated by Unstoppable Domains and don't have any methods that can be executed by a third party.
 
 ## Domain hierarchy and ownership
 
