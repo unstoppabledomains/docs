@@ -8,6 +8,7 @@
 * [Namehashing](domain-registry-essentials/namehashing.md)
 * [Resolving domain records](domain-registry-essentials/resolving-domain-records.md)
 * [Records reference](domain-registry-essentials/records-reference.md)
+* [CNS smart contracts](domain-registry-essentials/cns-smart-contracts.md)
 
 ## Managing domains
 
