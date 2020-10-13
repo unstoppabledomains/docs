@@ -258,16 +258,16 @@ There are several smart contracts that are used for testing purposes, without be
 
 The LinkTokenMock smart contract is used for testing [TwitterValidationOperator](./cns-smart-contracts.md#resolver).
 
-**Source code:** [contracts/test-utils/LinkTokenMock.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/test-utils/LinkTokenMock.sol)
+**Source code:** [contracts/test-helpers/LinkTokenMock.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/test-helpers/LinkTokenMock.sol)
 
 ### RelayTest
 
 RelayTest is used for testing relaying functionality for [Meta transactions](../managing-domains/meta-transactions.md).
 
-**Source code:** [contracts/test-utils/RelayTest.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/test-utils/RelayTest.sol)
+**Source code:** [contracts/test-helpers/RelayTest.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/test-helpers/RelayTest.sol)
 
 ### Simple
 
 The Simple smart contract is used for testing the validations that check smart contracts for being valid ERC-721 receivers.
 
-**Source code:** [contracts/test-utils/Simple.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/test-utils/Simple.sol)
+**Source code:** [contracts/test-helpers/Simple.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/test-helpers/Simple.sol)
