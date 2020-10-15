@@ -5,9 +5,9 @@ CNS is built on Ethereum and comprises a bundle of Solidity smart contracts. The
 This page is divided into sections, grouping contracts by the following categories:
 * [User-facing contracts](./cns-smart-contracts.md#user-facing-contracts)
 * [Registry controllers](./cns-smart-contracts.md#registry-controllers)
-* [Interfaces](./cns-smart-contracts.md#registry-controllers)
-* [Utility contracts](./cns-smart-contracts.md#registry-controllers)
-* [Test smart contracts](./cns-smart-contracts.md#registry-controllers)
+* [Interfaces](./cns-smart-contracts.md#interfaces)
+* [Utility contracts](./cns-smart-contracts.md#utility-contracts)
+* [Test smart contracts](./cns-smart-contracts.md#test-smart-contracts)
 
 ## User-facing contracts
 
@@ -203,7 +203,6 @@ ERC677Receiver interface declares an ERC-677 method for receiving smart contract
 **Source code:** [contracts/util/ERC677Receiver.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/util/ERC677Receiver.sol)
 
 **Implemented by:**
-* [ProxyReader](./cns-smart-contracts.md#proxyreader)
 * [TwitterValidationOperator.sol](./cns-smart-contracts.md#twittervalidationoperator)
 
 ## Utility contracts
@@ -256,7 +255,7 @@ There are several smart contracts that are used for testing purposes, without be
 
 ### LinkTokenMock
 
-The LinkTokenMock smart contract is used for testing [TwitterValidationOperator](./cns-smart-contracts.md#resolver).
+The LinkTokenMock smart contract is used for testing [TwitterValidationOperator](./cns-smart-contracts.md#twittervalidationoperator).
 
 **Source code:** [contracts/test-helpers/LinkTokenMock.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/test-helpers/LinkTokenMock.sol)
 

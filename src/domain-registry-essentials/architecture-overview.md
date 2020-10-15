@@ -53,7 +53,7 @@ Registry smart contract implements a set of methods allowing to mint new domains
 
 Accounts that are allowed to mint second-level domains \(like 'alice.crypto'\) are called whitelisted minters. Whitelisted minters are limited to only minting new domains. They can't control domain ownership \(e.g. approve or transfer a domain to another owner\) and they can't control domain records. Whitelisted minters are operated by Unstoppable Domains.
 
-Registry smart contract doesn't have an admin, which means that no entity can transfer or manage user domains without their permission. 
+Registry smart contract doesn't have an admin, which means that no entity can transfer or manage user domains without their permission.
 
 A domain owner may perform the following operations with their domains:
 
@@ -72,7 +72,7 @@ The underlying data structure of Resolver can be described as a map of domain na
 
 Resolvers allow domain owners, approved addresses and operators to edit records of their owned domains. In addition to that, Resolver provides an interface for getting standardized records, making it easier to access general information about domains.
 
-#### ProxyReader
+### ProxyReader
 
 ProxyReader is a smart contract that is used by our resolution libraries to resolve domains. Normally, it would take at least two queries to Ethereum blockchain to resolve a domain: users would call Registry, to learn a domain's Resolver address, and then they would make a call to Resolver, to read records themselves. ProxyReader provides users with a way to make just one call to get the information they need.
 
