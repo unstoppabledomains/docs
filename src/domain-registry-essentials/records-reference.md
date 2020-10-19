@@ -107,7 +107,7 @@ DNS CNAME record IP addresses.
 
 | Format | Example |
 | :--- | :--- |
-| JSON serialized array | `["example.com."]` |
+| JSON serialized array | `["10.0.0.1"]` |
 
 #### `dns.CNAME.ttl`
 
@@ -123,7 +123,7 @@ Specified DNS record values.
 
 | Format | Example |
 | :--- | :--- |
-| JSON serialized array | `["example.com."]` |
+| JSON serialized array | `["10.0.0.1"]` |
 
 #### `dns.<RECORD>.ttl`
 
