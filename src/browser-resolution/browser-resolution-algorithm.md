@@ -38,7 +38,7 @@ A recommended way to display content in a browser for crypto domains is explaine
 
 #### **TTL**
 
-Records TTL can be set for all records or individual types of records. TTL for all records can be set in `dns.ttl`. TTL for individual record type can be set in `dns.<RECORD>.ttl`. If `ttl` for individual record type is not set, a default `dns.ttl` needs to be applied.
+Records TTL can be set for all records or individual types of records. TTL for all records can be set in `dns.ttl`. TTL for individual record type can be set in `dns.<RECORD>.ttl`. If `ttl` for individual record type is not set, a default `dns.ttl` needs to be applied. If `dns.ttl` record is not set, the client is recommended to use `300` \(5 minutes\) as a default value.
 
 Example crypto records setup:
 
@@ -59,7 +59,7 @@ Should be transformed into the following DNS records:
 | AAAA | 2a00:1450:401b:805::200e | 128 |
 | MX | 10 aspmx.example.com. | 128 |
 
-TTL for individual records of the same type is currently unsupported due to the necessity to change the record value format and increased gas cost. Setting `dns.ttl` instead of TTL for individual records is recommended due to higher gas efficiency.
+TTL for individual records of the same type is currently unsupported due to the necessity to change the record value format and increased gas cost and their deprecated status according to [RFC-2181](https://tools.ietf.org/html/rfc2181#section-5.2). Setting `dns.ttl` instead of TTL for individual records is recommended due to higher gas efficiency.
 
 #### **Authority responses**
 
