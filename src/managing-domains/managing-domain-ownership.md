@@ -6,14 +6,14 @@ Entities that can control domains are defined by the ERC-721 standard:
 
 * **Owner.** This is a direct owner of a domain, which has full control in managing domain ownership and records.
 * **Operator.** Registry allows any user to set their operators, that can control all domains owned by a user. There can be multiple operators per user.
-* **Approved address.** A domain owner can set an approved address, that can control one particular domain. ERC-721 allows only one approved address per token (domain).
+* **Approved address.** A domain owner can set an approved address, that can control one particular domain. ERC-721 allows only one approved address per token \(domain\).
 
 There are five basic operations that affect domain ownership:
 
 * **Minting.** When a domain is first created, an initial domain owner is assigned. Minting domains is a separate topic on its own and won't be covered in this article.
 * **Transferring.** There are two possible ways of transferring a domain: the one that keeps resolution settings, and the one that resets them.
-* **Setting an operator.** Registry allows setting one operator per domain which has equal privileges with a domain owner.
-* **Setting an approved address.** This operation allows other Ethereum address to control all domains owned by a caller.
+* **Setting an operator.** This operation allows to set an operator - other Ethereum address to control all domains owned by a caller.
+* **Setting an approved address.** Registry allows setting one approved address per domain, which has equal privileges with a domain owner.
 * **Burning.** Burns a domain, clearing all associated metadata and Resolver settings.
 
 This article covers all the Registry methods that can be used for managing domain ownership.
@@ -24,7 +24,7 @@ Methods that change a direct owner of a domain can be called by either a domain 
 
 Registry smart contract supports the following ERC-721 functions for transferring:
 
-```sol
+```solidity
 transferFrom(address from, address to, uint256 tokenId)
 
 safeTransferFrom(address from, address to, uint256 tokenId)
@@ -42,7 +42,7 @@ After receiving a domain, along with setting a Resolver address, [`reconfigure`]
 
 Registry smart contract also implements `setOwner` function, which is not a part of the ERC-721 standard:
 
-```sol
+```solidity
 setOwner(address to, uint256 tokenId)
 ```
 
@@ -52,7 +52,7 @@ setOwner(address to, uint256 tokenId)
 
 Any Ethereum address can set multiple operators, allowing them to manage domains that a caller owns directly. This is an operation defined by ERC-721:
 
-```sol
+```solidity
 setApprovalForAll(address to, bool approved)
 ```
 
@@ -60,7 +60,7 @@ setApprovalForAll(address to, bool approved)
 
 An approved address can be set by either a domain owner or an operator. This method is defined by ERC-721 as well:
 
-```sol
+```solidity
 approve(address to, uint256 tokenId)
 ```
 
@@ -70,6 +70,7 @@ Approved addresses have equal rights as domain owners and operators, being able 
 
 Registry smart contract supports "burning" operation. After burning, a domain becomes available for minting again.
 
-```sol
+```solidity
 burn(tokenId)
 ```
+
