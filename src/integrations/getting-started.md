@@ -1,4 +1,4 @@
-# Intergrations Getting Started
+# Integrations Getting Started
 
 Unstoppable provides multiple ways to integrate. Unstoppable recommends preferred ways for each type of integration.
 
