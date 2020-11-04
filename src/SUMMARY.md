@@ -22,6 +22,9 @@
 * [Resolving domains in a browser](browser-resolution/resolving-domains-in-a-browser.md)
 * [Browser resolution algorithm](browser-resolution/browser-resolution-algorithm.md)
 
+## Integrations
+* [Getting Started](integrations/getting-started.md)
+
 ---
 
 * [Website API reference](https://apidocs.unstoppabledomains.com/)
