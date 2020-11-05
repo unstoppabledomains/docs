@@ -23,7 +23,7 @@
 * [Browser resolution algorithm](browser-resolution/browser-resolution-algorithm.md)
 
 ## Integrations
-* [Getting Started](integrations/getting-started.md)
+* [Getting started](integrations/getting-started.md)
 
 ---
 
