@@ -23,7 +23,7 @@ Developer guides contain examples of code, mostly written in JavaScript and Soli
 * If you want an understanding of how **Unstoppable Domains work, its architecture and capabilities**, check out [Architecture overview](domain-registry-essentials/architecture-overview.md).
 * If you're a **developer** interested in **resolving records for cryptocurrency payments**, check out [Resolving domain records](domain-registry-essentials/resolving-domain-records.md).
 * If you're a **developer** interested in **how to resolve our domains in a browser**, check out [Resolving domains in a browser](browser-resolution/resolving-domains-in-a-browser.md).
-* If you're a **developer** interested in **integrating** your product with Unstoppable, check out [Integrations Getting Started](integrations/getting-started.md).  
+* If you're a **developer** interested in **integrating your product with Unstoppable**, check out the [Getting started](integrations/getting-started.md) guide for integrators.  
 
 ### Specs
 

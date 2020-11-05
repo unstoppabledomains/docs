@@ -2,9 +2,9 @@
 
 Unstoppable Domains supports developer integrations covering three main use cases. Those use cases are:
 
-1. Domain Resolution
-2. Domain Management
-3. Domain Reselling
+1. Domain resolution
+2. Domain management
+3. Domain reselling
 
 ![](../.gitbook/assets/integrations_decision_framework.svg)
 
@@ -18,9 +18,9 @@ To make domain resolution easier, we've written libraries for web, Android, and 
 
 ### Domain Resolution Libraries
 
-- [JavaScript Resolution library](https://github.com/unstoppabledomains/resolution)
-- [Java Resolution library](https://github.com/unstoppabledomains/resolution-java)
-- [Swift Resolution library](https://github.com/unstoppabledomains/resolution-swift)
+- [JavaScript resolution library](https://github.com/unstoppabledomains/resolution)
+- [Java resolution library](https://github.com/unstoppabledomains/resolution-java)
+- [Swift resolution library](https://github.com/unstoppabledomains/resolution-swift)
 
 ### Access Domain Metadata Directly
 
