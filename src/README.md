@@ -1,39 +1,43 @@
 # Introduction
 
 {% hint style="info" %}
-Unstoppable Domains has introduced a major documentation update. The old Website API documentation is still available at [apidocs.unstoppabledomains.com](https://apidocs.unstoppabledomains.com/).
+Unstoppable Domains has introduced a major documentation update. The old Website API documentation is available at [apidocs.unstoppabledomains.com](https://apidocs.unstoppabledomains.com/).
 {% endhint %}
 
-Unstoppable Domains is a San Francisco-based company building domains on blockchains. These domains replace cryptocurrency addresses with human-readable names and are powered by the Ethereum and Zilliqa blockchains. CNS and ZNS provide users with full control of their domain names, which ensures permanent ownership, censorship resistance, and decentralized access.
+Unstoppable Domains is a San Francisco-based company building blockchain-based domains. These domains replace cryptocurrency addresses with human-readable names and are powered by the Ethereum and Zilliqa blockchains.
 
-By utilizing a Self Custody paradigm for domain ownership Unstoppable Domains removes the centralized nature of traditional domains. Once a user controls their domain, every action must be user-initiated. Transferring and configuring records will always be able to be done by the user without Unstoppable Domain's interference. This is in contrast with the current security model for DNS witch allows TLDs to control their subdomains at will. See the [Architecture overview](domain-registry-essentials/architecture-overview.md) for more.
+Unstoppable Domains are decentralized. This makes them, in a word, unstoppable. Once a user purchases a domain, they have absolute control over that domain. Domains can be transferred, updated, and linked to other services completely without Unstoppable Domains' involvement. Unstoppable Domains cannot deactivate, change, or transfer a domain's records without a user's permission.
 
-## Who this documentation is for
+This approach stands in stark contrast to traditional domain systems where takedowns and seizures are a fact of life. This is a bold approach, but we believe complete decentralization is the only way to guarantee censorshop resistance, unrevokable access, and permanent ownership for our users.
 
-This documentation is written for different audiences and is useful for developers and non-developers alike. For those beginning their journey with Unstoppable Domains, we introduce the concept of how CNS domains work. For developers, we have guides and reference documentation explaining how to resolve and manage domains.
+See the [Architecture overview](domain-registry-essentials/architecture-overview.md) for more detail on our Crypto and Zilliqa Name Services (CNS and ZNS, respectively).
 
-## How to read this documentation
+## Who This Documentation Is For
 
-In general, it is assumed that a reader has a basic understanding of traditional domains and how blockchain works. Some developer topics will require familiarity with Solidity language. Sections that require knowledge of specific concepts contain links to resources and prerequisites, including both external ones and references to our documentation.
+This documentation is both an educational and a technical resource. We hope it will be equally useful for both technical and non-technical readers. First-time readers may want to start with our overview of [how CNS domains work](TK). Those building an integration may want to start with our guides and documentation for [resolving and managing domains](TK).
 
-Developer guides contain examples of code, mostly written in JavaScript and Solidity. The choice of the JavaScript language was motivated by the fact that the most mature libraries of our ecosystem are built with JavaScript and we assume that this language is available for the majority of our technical readers, so they can get the examples working without much effort.
+## How to Read This Documentation
 
-### Navigating
+To get the most out of this docummentation, we recommend a basic familiarity with how traditional domains and blockchain systems work. For some topics, developers should be familiar with the Solidity smart contract language. Sections that require knowledge of specific concepts contain links to resources and prerequisites. These include both external resources and references to our documentation.
 
-* If you want an understanding of how **Unstoppable Domains work, its architecture and capabilities**, check out [Architecture overview](domain-registry-essentials/architecture-overview.md).
-* If you're a **developer** interested in **resolving records for cryptocurrency payments**, check out [Resolving domain records](domain-registry-essentials/resolving-domain-records.md).
-* If you're a **developer** interested in **how to resolve our domains in a browser**, check out [Resolving domains in a browser](browser-resolution/resolving-domains-in-a-browser.md).
-* If you're a **developer** interested in **integrating your product with Unstoppable**, check out the [Getting started](integrations/getting-started.md) guide for integrators.  
+Most of our code examples are written in JavaScript and, of course, Solidity. If you are developing in Java or Swift, our language-specific [resolution libraries](https://github.com/unstoppabledomains?q=resolution) may be helpful in translating the examples.
 
-### Specs
+### Quick Reference
 
-* [Records reference](domain-registry-essentials/records-reference.md)
-* [Browser resolution algorithm](browser-resolution/browser-resolution-algorithm.md)
+- **How Unstoppable Domains work** — [Architecture Overview](domain-registry-essentials/architecture-overview.md).
+- **How to resolve records for payments** — [Resolving Domain Records](domain-registry-essentials/resolving-domain-records.md)
+- **How to resolve domains in a browser** — [Resolving Domains in a Browser](browser-resolution/resolving-domains-in-a-browser.md).
+- **How to integrate your product with Unstoppable** — [Getting Started with an Integration](integrations/getting-started.md)
 
-### Other resources
+### Technical Specificiations
 
-* JavaScript [@unstoppabledomains/resolution](https://www.npmjs.com/package/@unstoppabledomains/resolution) library \[[github](https://github.com/unstoppabledomains/resolution)\]
-* Java [com.unstoppabledomains.resolution](https://search.maven.org/artifact/com.unstoppabledomains.resolution/resolution/1.1.0/jar) library \[[github](https://github.com/unstoppabledomains/resolution-java)\]
-* Swift [UnstoppableDomainsResolution](https://cocoapods.org/pods/UnstoppableDomainsResolution) library \[[github](https://github.com/unstoppabledomains/resolution-swift)\]
-* [Website API reference](https://apidocs.unstoppabledomains.com/)
+- [Records reference](domain-registry-essentials/records-reference.md)
+- [Browser resolution algorithm](browser-resolution/browser-resolution-algorithm.md)
 
+### Other Resources
+
+- [Website API reference](https://apidocs.unstoppabledomains.com/)
+- Resolution Libraries
+  - JavaScript [\[library\]](https://www.npmjs.com/package/@unstoppabledomains/resolution), [\[github\]](https://github.com/unstoppabledomains/resolution)
+  - Java [\[library\]](https://search.maven.org/artifact/com.unstoppabledomains.resolution/resolution/1.1.0/jar), [\[github\]](https://github.com/unstoppabledomains/resolution-java)
+  - Swift [\[library\]](https://cocoapods.org/pods/UnstoppableDomainsResolution), [\[github\]](https://github.com/unstoppabledomains/resolution-swift)
