@@ -54,7 +54,7 @@ Since domains are identified by a namehash we also explicitly store the domain's
 
 Accounts that are allowed to mint second-level domains (e.g.: `alice.crypto`) are called whitelisted minters. Whitelisted minters are only permitted to mint new domains. They can't control domain ownership (e.g. approve or transfer a domain to another owner) and they can't change domain records. Whitelisted minters are operated by Unstoppable Domains.
 
-`Registry`'s smart contract was designed without an admin. This means that no entity can manage or transfer a user's domains without thier permission — even Unstoppable Domains.
+`Registry`'s smart contract was designed without an admin. This means that no entity can manage or transfer a user's domains without their permission — even Unstoppable Domains.
 
 Domain owners can:
 
@@ -90,7 +90,7 @@ For more information on how the resolution process works read [Resolving Domain 
 
 Domain ownership can take many forms in CNS.
 
-A domain can be owned by both an external addres (one that is accessed with a private key) or an internal address (i.e.: a smart contract). Managing domains with smart contracts opens up many new ways to structure ownership. For example, domain management could be governed by a multi-signature wallet or it could be equally shared among a group of administrators. These are two simple examples but there are many more possibilities. If it can be expressed in Ethereum smart contracts, it can own a domain.
+A domain can be owned by both an external address (one that is accessed with a private key) or an internal address (i.e.: a smart contract). Managing domains with smart contracts opens up many new ways to structure ownership. For example, domain management could be governed by a multi-signature wallet or it could be equally shared among a group of administrators. These are two simple examples but there are many more possibilities. If it can be expressed in Ethereum smart contracts, it can own a domain.
 
 Subdomains are subject to the same set of rules as second-level domains in CNS. Subdomains can be transferred or burned by both a direct owner and a domain zone owner (i.e. parent domain owner). Only a direct domain owner can set a `Resolver` address and manage domain records.
 
