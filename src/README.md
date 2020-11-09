@@ -8,17 +8,17 @@ Unstoppable Domains is a San Francisco-based company building blockchain-based d
 
 Unstoppable Domains are decentralized. This makes them, in a word, unstoppable. Once a user purchases a domain, they have absolute control over that domain. Domains can be transferred, updated, and linked to other services completely without Unstoppable Domains' involvement. Unstoppable Domains cannot deactivate, change, or transfer a domain's records without a user's permission.
 
-This approach stands in stark contrast to traditional domain systems where takedowns and seizures are a fact of life. This is a bold approach, but we believe complete decentralization is the only way to guarantee censorshop resistance, unrevokable access, and permanent ownership for our users.
+This approach stands in stark contrast to traditional domain systems where takedowns and seizures are a fact of life. This is a bold approach, but we believe complete decentralization is the only way to guarantee censorship resistance, irrevocable access, and permanent ownership for our users.
 
 See the [Architecture overview](domain-registry-essentials/architecture-overview.md) for more detail on our Crypto and Zilliqa Name Services (CNS and ZNS, respectively).
 
 ## Who This Documentation Is For
 
-This documentation is both an educational and a technical resource. We hope it will be equally useful for both technical and non-technical readers. First-time readers may want to start with our overview of [how CNS domains work](TK). Those building an integration may want to start with our guides and documentation for [resolving and managing domains](TK).
+This documentation is both an educational and a technical resource. We hope it will be equally useful for both technical and non-technical readers. First-time readers may want to start with our overview of [how CNS domains work](domain-registry-essentials/cns-smart-contracts.md). Those building an integration may want to start with our guides and documentation for [resolving and managing domains](domain-registry-essentials/resolving-domain-records.md).
 
 ## How to Read This Documentation
 
-To get the most out of this docummentation, we recommend a basic familiarity with how traditional domains and blockchain systems work. For some topics, developers should be familiar with the Solidity smart contract language. Sections that require knowledge of specific concepts contain links to resources and prerequisites. These include both external resources and references to our documentation.
+To get the most out of this documentation, we recommend a basic familiarity with how traditional domains and blockchain systems work. For some topics, developers should be familiar with the Solidity smart contract language. Sections that require knowledge of specific concepts contain links to resources and prerequisites. These include both external resources and references to our documentation.
 
 Most of our code examples are written in JavaScript and, of course, Solidity. If you are developing in Java or Swift, our language-specific [resolution libraries](https://github.com/unstoppabledomains?q=resolution) may be helpful in translating the examples.
 
@@ -29,7 +29,7 @@ Most of our code examples are written in JavaScript and, of course, Solidity. If
 - **How to resolve domains in a browser** — [Resolving Domains in a Browser](browser-resolution/resolving-domains-in-a-browser.md).
 - **How to integrate your product with Unstoppable** — [Getting Started with an Integration](integrations/getting-started.md)
 
-### Technical Specificiations
+### Technical Specifications
 
 - [Records reference](domain-registry-essentials/records-reference.md)
 - [Browser resolution algorithm](browser-resolution/browser-resolution-algorithm.md)

@@ -66,7 +66,7 @@ function generateMessageToSign(
 
 const message = generateMessageToSign(
   contractAddress,
-  signagureContractAddress,
+  signatureContractAddress,
   methodName,
   methodParams,
   tokenId,
