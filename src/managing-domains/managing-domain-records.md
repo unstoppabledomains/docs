@@ -1,12 +1,12 @@
-# Managing Domain Records
+# Managing domain records
 
 Domain records can be managed via the default public resolver, or one can develop a custom resolver with any management permissions defined.
 
 ![](../.gitbook/assets/Record-Architecture.svg)
 
-## Resolver Record Types
+## Resolver record types
 
-Records on the top-level are stored in a simple key-value pair mapping string to string. CNS (Crypto Name Service) doesn't prohibit a user from assigning any record to any value. However, there is a list of standard records that have a defined standard interpretation by clients. A full list of standardized records can be found in the [Records Reference](../domain-registry-essentials/records-reference.md).
+Records on the top-level are stored in a simple key-value pair mapping string to string. CNS (Crypto Name Service) doesn't prohibit a user from assigning any record to any value. However, there is a list of standard records that have a defined standard interpretation by clients. A full list of standardized records can be found in the [Records reference](../domain-registry-essentials/records-reference.md).
 
 Standard record keys are split by namespaces with a `.` used as a separator.
 
@@ -17,7 +17,7 @@ The main namespaces are:
 - `dweb.*` — Records related to distributed content network protocols
 - `browser.*` — Hint records for web browsers
 
-### Crypto Payment Records
+### Crypto payment records
 
 One essential feature of blockchain domains is the ability to specify a human-readable name instead of a destination address for your crypto payment. Cryptocurrency wallets that use this feature will resolve a domain to an underlying crypto address in the same way a browser resolves a domain to IP address.
 
@@ -27,9 +27,9 @@ All crypto addresses are stored within the `crypto.*` namespace. Each currency a
 
 Addresses are stored in plain text format according to an address space standard established by each currency. The currency's namespace can contain additional currency-specific attributes to facilitate payment delivery.
 
-> Example: [Ripple Destination Tag](https://xrpl.org/source-and-destination-tags.html).
+> Example: [Ripple destination tag](https://xrpl.org/source-and-destination-tags.html).
 
-However, key names for those attributes are not yet standardized. Please contact [Unstoppable Domains Support](mailto:support@unstoppabledomains.com) if you need such attributes to be added to the standard.
+However, key names for those attributes are not yet standardized. Please contact [Unstoppable Domains support](mailto:support@unstoppabledomains.com) if you need such attributes to be added to the standard.
 
 Some tickers of very popular cryptocurrencies are not yet standardized. Example: `LINK` for [
   
@@ -43,9 +43,9 @@ Example crypto records setup:
 | `crypto.BTC.address` | `bc1qkd4um2nn2uyzmsch5y86wsa2pfh8xl445lg9nv` |
 | `crypto.ZIL.address` | `zil1yu5u4hegy9v3xgluweg4en54zm8f8auwxu0xxc` |
 
-## Resolver Administrative Patterns
+## Resolver administrative patterns
 
-### Default Resolvers Ownership Style
+### Default Resolvers ownership style
 
 The default Unstoppable resolver allows users to manage all domain records for any address given a permission over domain with the [ERC721 "Transfer Mechanism"](https://eips.ethereum.org/EIPS/eip-721). This enables a subset of addresses to manage the domain on your behalf. By default we give the permission to do this to every address that can already transfer ownership of the domain. These include:
 
@@ -63,7 +63,7 @@ See ERC-721 on how those permissions can be granted and revoked. Any records cha
 
 This enables users to interact with applications that could store keys and other information on a domain — making the domains a metadata repository or cross application identifier.
 
-### Alternative Ownership Styles
+### Alternative ownership styles
 
 Resolvers can be made with custom logic. For example, users with a large amount of domains might want to deploy a custom `Owned` resolver contract. See [EIP-173](https://eips.ethereum.org/EIPS/eip-173). Where there is only one set of records, and only the owner can set them.
 

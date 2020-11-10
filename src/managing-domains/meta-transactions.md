@@ -12,9 +12,9 @@ Note that the meta-transaction versions of `Registry` functions are implemented 
 
 The source code for signature validation can be found in [SignatureUtil.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/util/SignatureUtil.sol)
 
-## Token Nonce
+## Token nonce
 
-Meta transaction methods are bound to names via their nonce (instead of [Account Nonce](https://ethereum.stackexchange.com/questions/27432/what-is-nonce-in-ethereum-how-does-it-prevent-double-spending) of traditional transactions). It protects from [Double-spending](https://en.wikipedia.org/wiki/Double-spending) in the same way as an account-based nonce in traditional transactions.
+Meta transaction methods are bound to names via their nonce (instead of [Account nonce](https://ethereum.stackexchange.com/questions/27432/what-is-nonce-in-ethereum-how-does-it-prevent-double-spending) of traditional transactions). It protects from [Double-spending](https://en.wikipedia.org/wiki/Double-spending) in the same way as an account-based nonce in traditional transactions.
 
 The example below shows how replay attacks can be used to exploit domains:
 
@@ -24,12 +24,12 @@ A nonce is simply a transaction counter for each token. This prevents replay att
 
 ![](../.gitbook/assets/Nonces.svg)
 
-## Meta Transaction Signature Generation
+## Meta transaction signature generation
 
 A meta transaction requires 2 signatures: one passed as a method argument and one classical. A classical signature is generated in a standard way. A meta signature requires a domain owner (or a person approved by the owner) to sign a special message formed from:
 
 - A domain based meta-transaction nonce
-- A [Function Selector](https://solidity.readthedocs.io/en/v0.7.0/abi-spec.html#function-selector) of the original method
+- A [Function selector](https://solidity.readthedocs.io/en/v0.7.0/abi-spec.html#function-selector) of the original method
 - The original method parameters (the one without signature)
 
 Example signature generation for a `reset` method call for a domain:
@@ -76,7 +76,7 @@ const message = generateMessageToSign(
 
 Functions Reference:
 
-* `namehash` — [Namehashing Function](../domain-registry-essentials/namehashing.md) algorithm implementation
+* `namehash` — [Namehashing gunction](../domain-registry-essentials/namehashing.md) algorithm implementation
 * `ethCallRpc` — Ethereum `eth_call` JSON RPC implementation
 * `encodeContractInterface` — [Solidity ABI](https://solidity.readthedocs.io/en/v0.7.0/abi-spec.html#argument-encoding) interface parameters encoder
 * `solidityKeccak256` — [Solidity ABI](https://solidity.readthedocs.io/en/v0.7.0/abi-spec.html#argument-encoding) parameters encoder

@@ -1,10 +1,10 @@
-# Resolving Domain Records
+# Resolving domain records
 
 Resolving a domain is a process of retrieving a domain's records when the domain name and required record names are given. There are no limits to who can read domain records on the `Registry` side. Anyone with access to a mainnet Ethereum Node can resolve a domain.
 
 This section describes resolving domain records by making calls to Ethereum smart contracts using the Ethereum JSON RPC. For developers who would prefer a more straightforward solution, it might be more convenient to use the [resolution libraries](https://github.com/unstoppabledomains?q=resolution) that Unstoppable Domains maintains.
 
-To resolve a domain, your software must have access to the Ethereum network. For more information, see [Configuring an Ethereum Network Connection](resolving-domain-records.md#configuring--an-ethereum-network-connection).
+To resolve a domain, your software must have access to the Ethereum network. For more information, see [Configuring an ethereum network connection](resolving-domain-records.md#configuring--an-ethereum-network-connection).
 
 The simplest way to resolve a domain with Ethereum JSON RPC is to make a read-only call to `ProxyReader` smart contract. `ProxyReader` provides an API that allows users to resolve domains making just one call by passing only keys of records and a domain namehash. Without `ProxyReader` it would require executing at least two calls: one to obtain a domain resolver address and another one to get the records themselves. With `ProxyReader` it all happens under the hood.
 
@@ -42,7 +42,7 @@ Reference:
 
 See [Records reference](records-reference.md) for more information about the standardized records.
 
-## Record Value Validation
+## Record value validation
 
 `Resolver` doesn't have built-in record value validation when it is updated for two reasons:
 
@@ -53,7 +53,7 @@ Any domain management application should perform record format validation before
 
 See [Records Reference](records-reference.md) for more information for the validator of each record.
 
-## Configuring an Ethereum Network Connection
+## Configuring an Ethereum network connection
 
 Domain resolution configuration at a low level requires 3 configuration parameters:
 

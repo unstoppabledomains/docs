@@ -1,6 +1,6 @@
-# CNS Smart Contracts
+# CNS smart contracts
 
-Crypto Name Service (CNS) is built on Ethereum and is effectively a bundle of Solidity smart contracts. Their source code is hosted in the [dot-crypto repository](https://github.com/unstoppabledomains/dot-crypto) and maintained by the Unstoppable Domains team. This page lists the smart contracts from that repository and gives a brief description of each along links to the source code and deployment addresses. For high-level details about how CNS works, see [Architecture Overview](architecture-overview.md).
+Crypto Name Service (CNS) is built on Ethereum and is effectively a bundle of Solidity smart contracts. Their source code is hosted in the [dot-crypto repository](https://github.com/unstoppabledomains/dot-crypto) and maintained by the Unstoppable Domains team. This page lists the smart contracts from that repository and gives a brief description of each along with links to the source code and deployment addresses. For high-level details about how CNS works, see [Architecture overview](architecture-overview.md).
 
 This page is divided into sections, grouping contracts by the following categories:
 
@@ -16,7 +16,7 @@ This section lists all the smart contracts that users can directly interact with
 
 ### Registry
 
-`Registry` is the central smart contract, which stores all CNS domains. Implementing the ERC-721 non-fungible token standard, `Registry` defines domain ownership rules. It stores owner and `Resolver` addresses. For more details, see [Architecture Overview - Registry](architecture-overview.md#registry).
+`Registry` is the central smart contract, which stores all CNS domains. Implementing the ERC-721 non-fungible token standard, `Registry` defines domain ownership rules. It stores owner and `Resolver` addresses. For more details, see [Architecture overview - Registry](architecture-overview.md#registry).
 
 | Network | Contract address |
 | :--- | :--- |
@@ -26,7 +26,7 @@ This section lists all the smart contracts that users can directly interact with
 
 ### Resolver
 
-`Resolver` is the smart contract that stores domain records and provides methods for domain resolution. For more details, see [Architecture Overview - Resolver](architecture-overview.md#resolver).
+`Resolver` is the smart contract that stores domain records and provides methods for domain resolution. For more details, see [Architecture overview - Resolver](architecture-overview.md#resolver).
 
 | Network | Contract address |
 | :--- | :--- |
@@ -41,7 +41,7 @@ This section lists all the smart contracts that users can directly interact with
 
 ### ProxyReader
 
-`ProxyReader` provides an interface that allows users to fetch information about domains from both `Registry` and `Resolver` smart contracts in one call. For more details, see [Architecture Overview - ProxyReader](architecture-overview.md#proxyreader).
+`ProxyReader` provides an interface that allows users to fetch information about domains from both `Registry` and `Resolver` smart contracts in one call. For more details, see [Architecture overview - ProxyReader](architecture-overview.md#proxyreader).
 
 | Network | Contract address |
 | :--- | :--- |
@@ -181,7 +181,7 @@ The `IDataReader` interface declares the methods that are unique to the `ProxyRe
 
 ### IMintingController
 
-The `IMintingController` interface declares a set of methods for minting which both `MintingController` and `WhitelistedMinter` implement.
+The `IMintingController` interface declares a set of methods for minting, which both `MintingController` and `WhitelistedMinter` implement.
 
 **Source code:** [contracts/controllers/IMintingController.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/controllers/IMintingController.sol)
 
@@ -263,7 +263,7 @@ The `MultiSend` smart contract is used internally by the Unstoppable Domains tea
 
 ### Migrations
 
-The [Truffle Migrations](https://www.trufflesuite.com/docs/truffle/getting-started/running-migrations) smart contract.
+The [Truffle migrations](https://www.trufflesuite.com/docs/truffle/getting-started/running-migrations) smart contract.
 
 **Source code:** [contracts/Migrations.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Migrations.sol)
 

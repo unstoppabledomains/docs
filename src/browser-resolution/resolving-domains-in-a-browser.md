@@ -1,10 +1,10 @@
-# Resolving Domains in a Browser
+# Resolving domains in a browser
 
-This document describes how to resolve blockchain domains using a traditional HTTP Web Browser or a Dapp Browser. The document assumes that a reader has a basic understanding of Unstoppable domains resolution. See [Resolving Domain Records](../domain-registry-essentials/resolving-domain-records.md).
+This document describes how to resolve blockchain domains using a traditional HTTP Web Browser or a Dapp Browser. The document assumes that a reader has a basic understanding of Unstoppable domains resolution. See [Resolving domain records](../domain-registry-essentials/resolving-domain-records.md).
 
-## End-user Features
+## End-user features
 
-### HTTP Website Browsing
+### HTTP website browsing
 
 ```gherkin
 Given a blockchain domain has a DNS record configured.
@@ -13,7 +13,7 @@ Then the browser resolves the domain and gets the specified DNS records.
 Then the browser requests and displays the content using DNS protocol and HTTP protocol.
 ```
 
-### Distributed Website Browsing
+### Distributed website browsing
 
 ```gherkin
 Given a blockchain domain has a dweb content identifier record configured (e.g.: an IPFS hash).
@@ -24,7 +24,7 @@ Then the browser retrieves the content by the hash using a related protocol and 
 
 ![](../.gitbook/assets/overview_read_dweb_website_from_ethereum_and_decentralized_network.png)
 
-### Domain-level Redirect
+### Domain-level redirect
 
 ```gherkin
 Given a blockchain domain has both a redirect URL and IPFS hash configured, and the user's browser doesn't support IPFS protocol.
@@ -33,7 +33,7 @@ Then the browser resolves the domain and gets both the redirect URL and IPFS has
 Then browser redirects the user to the redirect URL because the IPFS protocol is not supported.
 ```
 
-### Resolution Configuration
+### Resolution configuration
 
 ```gherkin
 Given a user wants to change ETH provider services.
@@ -50,7 +50,7 @@ Then the browser uses new settings to make requests to Ethereum blockchain
 
 ![](../.gitbook/assets/configure_dns_gateway.png)
 
-## Hypermedia Protocol
+## Hypermedia protocol
 
 In addition to base browser hypermedia protocols like `http`, blockchain domains can also be configured for distributed content protocols like `ipfs`. These hypermedia protocols can be associated with a crypto domain:
 
@@ -77,25 +77,25 @@ See a description of how they work below
 
 ![](../.gitbook/assets/overview_dweb_website_via_dns_dweb_gateways.png)
 
-### Distributed Content Gateway
+### Distributed content gateway
 
 A gateway is an HTTP Server that acts as a proxy between HTTP and a distributed content protocol. Basic functionality of such a gateway:
 
 1. Receive HTTP request to a blockchain domain (like `http://example.crypto`)
 2. Resolve the domain into crypto records
-3. Get the content based on [Browser Resolution Algorithm](browser-resolution-algorithm.md)
+3. Get the content based on [Browser resolution algorithm](browser-resolution-algorithm.md)
 4. Return the content to the client via HTTP
 
-### Resolution Over DNS Gateway
+### Resolution over DNS gateway
 
 A gateway is a DNS Server that resolves not just traditional domains but also `.crypto` domains. Basic functionality of such a gateway:
 
 1. Receive a domain resolution request
 2. Resolve a domain using classical DNS system if is in classical TLD (like `.com`)
-3. Resolve a domain using [Browser Resolution Algorithm](browser-resolution-algorithm.md) if it is in crypto TLD
-   - If a domain is set using DNS, transform [Crypto DNS Records](browser-resolution-algorithm.md#dns-records) into classical records
+3. Resolve a domain using [Browser resolution algorithm](browser-resolution-algorithm.md) if it is in crypto TLD
+   - If a domain is set using DNS, transform [Crypto DNS records](browser-resolution-algorithm.md#dns-records) into classical records
    - If a domain is set using distributed content
-     - If the client requests `A` record, resolve to [Distributed Content Gateway](resolving-domains-in-a-browser.md#distributed-content-gateway) IP Address
+     - If the client requests `A` record, resolve to [Distributed content gateway](resolving-domains-in-a-browser.md#distributed-content-gateway) IP Address
      - If the client requests a `TXT` record, resolve to all crypto records in JSON encoded key-value format
 4. Send resolution to client
 

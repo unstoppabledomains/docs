@@ -9,7 +9,7 @@ This page contains an overview of all standardized `Resolver` records. The refer
 
 Developers may also set custom records for the domains. Domain records are stored as a key-value dictionary by `Resolvers` and are not validated on the smart-contract level. For more details, read [Architecture Overview](architecture-overview.md#resolver) and [Managing Domain Records](../managing-domains/managing-domain-records.md).
 
-## Cryptocurrency Payments
+## Cryptocurrency payments
 
 For information about crypto payments, see [Managing Domain Records - Cryptocurrency Payment Records](../managing-domains/managing-domain-records.md#crypto-payments-records).
 
@@ -33,7 +33,7 @@ Bitcoin Address to receive cryptocurrency payments.
 
 Cryptocurrency address of the ticker.
 
-## Browser Resolution
+## Browser resolution
 
 Browser resolution is described in the [Browser Resolution Algorithm](../browser-resolution/browser-resolution-algorithm.md) page.
 

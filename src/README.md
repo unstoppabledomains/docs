@@ -12,29 +12,29 @@ This approach stands in stark contrast to traditional domain systems where taked
 
 See the [Architecture overview](domain-registry-essentials/architecture-overview.md) for more detail on our Crypto and Zilliqa Name Services (CNS and ZNS, respectively).
 
-## Who This Documentation Is For
+## Who this documentation is for
 
 This documentation is both an educational and a technical resource. We hope it will be equally useful for both technical and non-technical readers. First-time readers may want to start with our overview of [how CNS domains work](domain-registry-essentials/cns-smart-contracts.md). Those building an integration may want to start with our guides and documentation for [resolving and managing domains](domain-registry-essentials/resolving-domain-records.md).
 
-## How to Read This Documentation
+## How to read this documentation
 
 To get the most out of this documentation, we recommend a basic familiarity with how traditional domains and blockchain systems work. For some topics, developers should be familiar with the Solidity smart contract language. Sections that require knowledge of specific concepts contain links to resources and prerequisites. These include both external resources and references to our documentation.
 
 Most of our code examples are written in JavaScript and, of course, Solidity. If you are developing in Java or Swift, our language-specific [resolution libraries](https://github.com/unstoppabledomains?q=resolution) may be helpful in translating the examples.
 
-### Quick Reference
+### Quick reference
 
-- **How Unstoppable Domains work** — [Architecture Overview](domain-registry-essentials/architecture-overview.md).
-- **How to resolve records for payments** — [Resolving Domain Records](domain-registry-essentials/resolving-domain-records.md)
-- **How to resolve domains in a browser** — [Resolving Domains in a Browser](browser-resolution/resolving-domains-in-a-browser.md).
-- **How to integrate your product with Unstoppable** — [Getting Started with an Integration](integrations/getting-started.md)
+- **How Unstoppable Domains work** — [Architecture overview](domain-registry-essentials/architecture-overview.md).
+- **How to resolve records for payments** — [Resolving domain records](domain-registry-essentials/resolving-domain-records.md)
+- **How to resolve domains in a browser** — [Resolving domains in a browser](browser-resolution/resolving-domains-in-a-browser.md).
+- **How to integrate your product with Unstoppable** — [Getting started with an integration](integrations/getting-started.md)
 
-### Technical Specifications
+### Technical specifications
 
 - [Records reference](domain-registry-essentials/records-reference.md)
 - [Browser resolution algorithm](browser-resolution/browser-resolution-algorithm.md)
 
-### Other Resources
+### Other resources
 
 - [Website API reference](https://apidocs.unstoppabledomains.com/)
 - Resolution Libraries

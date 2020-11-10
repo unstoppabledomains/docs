@@ -12,7 +12,7 @@ To verify an implementation of the namehash algorithm, use the following referen
 | `www.example.crypto` | `0x3ae54ac25ccd63401d817b6d79a4a56ae7f79a332fe77a98fa0c9d10adf9b2a1` |
 | `a.b.c.crypto` | `0x353ea3e0449067382e0ea7934767470170dcfa9c49b1be0fe708adc4b1f9cf13` |
 
-## Reverse Lookup
+## Reverse lookup
 
 Fundamentally, namehashing is a one-way operation. It recursively hashes the labels using the SHA-256 hash function.
 

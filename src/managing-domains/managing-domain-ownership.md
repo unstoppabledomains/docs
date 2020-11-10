@@ -39,7 +39,7 @@ safeTransferFrom(address from, address to, uint256 tokenId, bytes _data)
 If one of these methods is called, both an approved operator and a Resolution address for a domain be reset.
 
 {% hint style="info" %}
-**Note:** the current implementation of transferring only resets a `Resolver` address, but doesn't reset records stored by a `Resolver` smart contract. This means that after setting a new `Resolver` address for a transferred domain, if the `Resolver` address matches the previous one, a new domain owner will resolve to the `Resolution` settings of the previous owner.
+**Note:** the current implementation of transferring only resets a `Resolver` address, but doesn't reset records stored by a `Resolver` smart contract. In other words, the records stored on a domain won't automatically reset when an ownership transfer occurs. A transferred domain could still point to a previous owner's addresses.
 
 After receiving a domain, along with setting a `Resolver` address, the [`reconfigure`](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Resolver.sol) method should be called, which resets all previous records.
 {% endhint %}
