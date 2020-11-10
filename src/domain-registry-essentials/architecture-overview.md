@@ -47,7 +47,7 @@ This flow describes how the CNS `Registry` and `Resolvers` interact.
 - Domain name
 
 {% hint style="info" %}
-Since domains are identified by a namehash we also explicitly store the domain's name. This allows users who only know a namehash to look up a record by its name.
+Since domains are identified by a namehash we also explicitly store the domain's name. This allows users who only know a namehash to look up a record by its name (name to namehash, namehash to record).
 {% endhint %}
 
 `Registry`'s smart contract includes a set of methods for minting new domains, creating new subdomains, and managing ownership.
