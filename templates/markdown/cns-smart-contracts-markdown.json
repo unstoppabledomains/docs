@@ -1,0 +1,15 @@
+{
+    "build": "src/domain-registry-essentials/cns-smart-contracts.md",
+    "files": [
+        "templates/contracts/TwitterValidationOperator.md",
+        "templates/contracts/ProxyReader.md",
+        "templates/contracts/Resolver.md",
+        "templates/contracts/DomainZoneController.md",
+        "templates/contracts/URIPrefixController.md",
+        "templates/contracts/WhitelistedMinter.md",
+        "templates/contracts/MintingController.md",
+        "templates/contracts/SignatureController.md",
+        "templates/contracts/Registry.md",
+        "templates/cns-smart-contracts-template.md"
+    ]
+}
