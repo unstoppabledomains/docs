@@ -1,21 +1,21 @@
 # Records reference
 
-This page contains an overview of all standardized resolver records. The reference is divided into sections, grouping records by their namespaces and use-cases:
+This page contains an overview of all standardized `Resolver` records. The reference is divided into sections, grouping records by their namespaces and use-cases:
 
-* [Crypto payments](records-reference.md#crypto-payments)
-* [Browser resolution](records-reference.md#browser-resolution)
-  * [DWeb records](records-reference.md#dweb-records)
-  * [DNS records](records-reference.md#dns-records)
+- [Crypto payments](records-reference.md#crypto-payments)
+- [Browser resolution](records-reference.md#browser-resolution)
+  - [DWeb records](records-reference.md#dweb-records)
+  - [DNS records](records-reference.md#dns-records)
 
-Developers may also set custom records for the domains. Domain records are stored as a key-value dictionary by Resolvers and are not validated on the smart-contract level. For more details, check out [Architecture overview](architecture-overview.md#resolver) and [Managing domain records](../managing-domains/managing-domain-records.md).
+Developers may also set custom records for the domains. Domain records are stored as a key-value dictionary by `Resolvers` and are not validated on the smart-contract level. For more details, read [Architecture Overview](architecture-overview.md#resolver) and [Managing Domain Records](../managing-domains/managing-domain-records.md).
 
-## Crypto payments
+## Cryptocurrency payments
 
-For information about crypto payments, see [Managing domain records - Crypto payments records](../managing-domains/managing-domain-records.md#crypto-payments-records).
+For information about crypto payments, see [Managing Domain Records - Cryptocurrency Payment Records](../managing-domains/managing-domain-records.md#crypto-payments-records).
 
 #### `crypto.ETH.address`
 
-Ethereum Address to receive crypto payments.
+Ethereum Address to receive cryptocurrency payments.
 
 | Format | Example |
 | :--- | :--- |
@@ -23,7 +23,7 @@ Ethereum Address to receive crypto payments.
 
 #### `crypto.BTC.address`
 
-Bitcoin Address to receive crypto payments.
+Bitcoin Address to receive cryptocurrency payments.
 
 | Format | Example |
 | :--- | :--- |
@@ -31,11 +31,11 @@ Bitcoin Address to receive crypto payments.
 
 #### `crypto.<TICKER>.address`
 
-Crypto currency address of the ticker.
+Cryptocurrency address of the ticker.
 
 ## Browser resolution
 
-Browser resolution is described in the [Browser resolution algorithm](../browser-resolution/browser-resolution-algorithm.md) article.
+Browser resolution is described in the [Browser Resolution Algorithm](../browser-resolution/browser-resolution-algorithm.md) page.
 
 #### `browser.preferred_protocols`
 
@@ -55,7 +55,7 @@ A fallback URL, to which a user will be redirected if no other resolution method
 
 ### DWeb records
 
-For more details, see [Browser resolution algorithm - DWeb Records](../browser-resolution/browser-resolution-algorithm.md#distributed-web-records).
+For more details, read [Browser Resolution Algorithm - DWeb Records](../browser-resolution/browser-resolution-algorithm.md#distributed-web-records).
 
 #### `dweb.ipfs.hash`
 
@@ -75,7 +75,7 @@ Swarm network content hash.
 
 ### DNS records
 
-For more details, see [Browser resolution algorithm - DNS Records](../browser-resolution/browser-resolution-algorithm.md#dns-records).
+For more details, see [Browser Resolution Algorithm - DNS Records](../browser-resolution/browser-resolution-algorithm.md#dns-records).
 
 #### `dns.ttl`
 

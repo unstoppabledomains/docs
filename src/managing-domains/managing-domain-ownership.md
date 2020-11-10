@@ -4,25 +4,29 @@ Management of second-level domains is performed via the [Registry smart contract
 
 Entities that can control domains are defined by the ERC-721 standard:
 
-* **Owner.** This is a direct owner of a domain, which has full control in managing domain ownership and records.
-* **Operator.** Registry allows any user to set their operators, that can control all domains owned by a user. There can be multiple operators per user.
-* **Approved address.** A domain owner can set an approved address, that can control one particular domain. ERC-721 allows only one approved address per token \(domain\).
+- **Owner.** This is a direct owner of a domain, which has full control in managing domain ownership and records.
+- **Operator.** Operators can control all domains owned by a user. There can be multiple operators per user.
+- **Approved address.** A domain owner can set an approved address that can control one particular domain. ERC-721 allows only one approved address per token (i.e.: domain).
 
 There are five basic operations that affect domain ownership:
 
-* **Minting.** When a domain is first created, an initial domain owner is assigned. Minting domains is a separate topic on its own and won't be covered in this article.
-* **Transferring.** There are two possible ways of transferring a domain: the one that keeps resolution settings, and the one that resets them.
-* **Setting an operator.** This operation allows to set an operator - other Ethereum address to control all domains owned by a caller.
-* **Setting an approved address.** Registry allows setting one approved address per domain, which has equal privileges with a domain owner.
-* **Burning.** Burns a domain, clearing all associated metadata and Resolver settings.
+- **Minting.** When a domain is first created, an initial domain owner is assigned.
+- **Transferring.** There are two possible ways to transfer a domain: one that keeps resolution settings, and one that resets them.
+- **Setting an operator.** Operators are other Ethereum addresses, which can control all domains owned by a caller.
+- **Setting an approved address.** Crypto Name Service (CNS) allows setting one approved address per domain, which has equal privileges with a domain owner.
+- **Burning.** Burns a domain, clearing all associated metadata and `Resolver` settings.
 
-This article covers all the Registry methods that can be used for managing domain ownership.
+This article covers all the `Registry` methods that can be used for managing domain ownership.
+
+## Minting
+
+Minting domains is a complex topic and won't be covered on this page.
 
 ## Transferring
 
-Methods that change a direct owner of a domain can be called by either a domain owner, an operator or an approved address.
+Methods that change a direct owner of a domain can be called by either a domain owner, an operator, or an approved address.
 
-Registry smart contract supports the following ERC-721 functions for transferring:
+The `Registry` smart contract supports the following ERC-721 functions for transferring:
 
 ```solidity
 transferFrom(address from, address to, uint256 tokenId)
@@ -32,23 +36,23 @@ safeTransferFrom(address from, address to, uint256 tokenId)
 safeTransferFrom(address from, address to, uint256 tokenId, bytes _data)
 ```
 
-If one of these methods is called, both an approved operator and a Resolution address for a domain get reset.
+If one of these methods is called, both an approved operator and a Resolution address for a domain be reset.
 
 {% hint style="info" %}
-**Note:** the current implementation of transferring only resets a Resolver address, but doesn't reset records stored by a Resolver smart contract. It means that after setting a new Resolver address for a transferred domain, if the Resolver address matches the previous one, a new domain owner will get Resolution settings of a previous owner.
+**Note:** the current implementation of transferring only resets a `Resolver` address, but doesn't reset records stored by a `Resolver` smart contract. In other words, the records stored on a domain won't automatically reset when an ownership transfer occurs. A transferred domain could still point to a previous owner's addresses.
 
-After receiving a domain, along with setting a Resolver address, [`reconfigure`](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Resolver.sol) method should be called, which resets all previous records.
+After receiving a domain, along with setting a `Resolver` address, the [`reconfigure`](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Resolver.sol) method should be called, which resets all previous records.
 {% endhint %}
 
-Registry smart contract also implements `setOwner` function, which is not a part of the ERC-721 standard:
+The `Registry` smart contract also implements the `setOwner` function, which is not a part of the ERC-721 standard:
 
 ```solidity
 setOwner(address to, uint256 tokenId)
 ```
 
-`setOwner` keeps a Resolver address and resets an approved operator. This method makes it possible to preconfigure a domain with certain records and transfer it to another owner, keeping all resolution settings.
+`setOwner` keeps a `Resolver` address and resets an approved operator. This method makes it possible to preconfigure a domain with certain records and transfer it to another owner, keeping all resolution settings.
 
-## Setting an operator
+## Setting an Operator
 
 Any Ethereum address can set multiple operators, allowing them to manage domains that a caller owns directly. This is an operation defined by ERC-721:
 
@@ -56,7 +60,7 @@ Any Ethereum address can set multiple operators, allowing them to manage domains
 setApprovalForAll(address to, bool approved)
 ```
 
-## Setting an approved address
+## Setting an Approved Address
 
 An approved address can be set by either a domain owner or an operator. This method is defined by ERC-721 as well:
 
@@ -68,9 +72,8 @@ Approved addresses have equal rights as domain owners and operators, being able 
 
 ## Burning
 
-Registry smart contract supports "burning" operation. After burning, a domain becomes available for minting again.
+The `Registry` smart contract supports "burning" operations. After burning, a domain becomes available for minting again.
 
 ```solidity
 burn(tokenId)
 ```
-
