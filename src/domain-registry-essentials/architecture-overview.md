@@ -118,7 +118,7 @@ CNS allows users to delegate transaction execution to accounts that aren't domai
 
 `Registry` and `Resolver` smart contracts implement methods that use [Meta Transactions](../managing-domains/meta-transactions.md). One use-case for meta transactions is delegating (gas-using) blockchain calls to other accounts. This allows domain owners to keep their domains and funds on separate accounts or even have someone else pay their transaction fees.
 
-Unstoppable Domains uses this delegation feature to operate an internal transaction processor. Our transaction processor makes it possible fo users to mint and manage their domains without having to worry about their wallet's balance. Under the hood, the transaction processor is a queue-based job processor that sends transactions from Unstoppable Domains-owned accounts.
+Unstoppable Domains uses this delegation feature to operate an internal transaction processor. Our transaction processor makes it possible for users to mint and manage their domains without having to worry about their wallet's balance. Under the hood, the transaction processor is a queue-based job processor that sends transactions from Unstoppable Domains-owned accounts.
 
 On behalf of our users, our transaction processor generally handles:
 
@@ -131,5 +131,4 @@ On behalf of our users, our transaction processor generally handles:
 
 CNS transaction delegation does not depend on Unstoppable Domains' transaction processor. As long as the domain owner provides a valid signature, write operations can be performed by any Ethereum account.
 
-To learn more about the technical details of delegating transactions in CNS, read our [Meta transactions](../managing-domains/meta-transactions.md) page.
-
+To learn more about the technical details of delegating transactions in CNS, read our [Meta Transactions](../managing-domains/meta-transactions.md) page.
