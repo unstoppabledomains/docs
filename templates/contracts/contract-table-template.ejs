@@ -1,0 +1,29 @@
+<table>
+    <th>Network</th>
+    <th>Contract address</th>
+
+    <% for (var i = 0; i < rows.length; i++) {%>
+    <tr>
+        <td><%= rows[i].network %></td>
+        <td><a href="https://etherscan.io/address/<%= rows[i].address %>"><%= rows[i].address %></a></td>
+    </tr>
+    <%}%>
+</table>
+ <% if (hasLegacyAddresses) { %>
+    <table>
+        <th>Network</th>
+        <th>Legacy addresses</th>
+        <% for (var i = 0; i < rows.length; i++) {%>
+        <% if(rows[i].legacyAddresses.length === 0) { continue; }%>
+        <tr>
+            <td><%= rows[i].network %></td>
+            <% var legacyAddresses = rows[i].legacyAddresses; %>
+            <td><% for (var j = 0; j < legacyAddresses.length; j++) {%><a
+                    href="https://etherscan.io/address/<%= legacyAddresses[j] %>"><%= legacyAddresses[j]%>
+                </a>
+                <%}%>
+            </td>
+        </tr>
+        <%}%>
+    </table>
+    <% } %>

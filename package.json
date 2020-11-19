@@ -3,9 +3,17 @@
   "version": "1.0.0",
   "repository": "git@github.com:unstoppabledomains/docs-gitbook.git",
   "scripts": {
-    "check:links": "find . -type f -name '*.md' ! -path './node_modules/*' | xargs -l yarn markdown-link-check"
+    "check:links": "find . -type f -name '*.md' ! -path './node_modules/*' ! -path './templates/*' | xargs -l yarn markdown-link-check",
+    "render:cns-contracts": "ts-node ./templates/cns-smart-contracts-renderer.ts"
   },
   "devDependencies": {
-    "markdown-link-check": "^3.8.1"
+    "@types/ejs": "^3.0.5",
+    "@types/node": "^14.14.6",
+    "dot-crypto": "https://github.com/unstoppabledomains/dot-crypto.git",
+    "ejs": "^3.1.5",
+    "markdown-include": "^0.4.3",
+    "markdown-link-check": "^3.8.1",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.5"
   }
 }
