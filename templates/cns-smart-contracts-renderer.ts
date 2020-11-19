@@ -24,9 +24,9 @@ type Row = {
     legacyAddresses: string[],
 }
 
-renderContractAddresses();
+void renderContractAddresses();
 
-function renderContractAddresses() {
+async function renderContractAddresses() {
     console.log('Rendering [' + FileToRender + ']');
     console.log('From template [' + TemplateToRender + ']');
 
@@ -35,7 +35,7 @@ function renderContractAddresses() {
     for (let contract of getContracts()) {
         generateContractTables(contract, filesToInclude);
     }
-    compileContractTables(filesToInclude);
+    await compileContractTables(filesToInclude);
     console.log('Done');
 }
 
@@ -43,7 +43,8 @@ function getContracts(): Set<string> {
     let contractSet = new Set<string>();
 
     Object.keys(NetworkConfigJson.networks).forEach(id => {
-        Object.keys(NetworkConfigJson.networks[id].contracts).forEach(contract => contractSet.add(contract));
+        const networkContracts = NetworkConfigJson.networks[id as keyof typeof NetworkConfigJson.networks].contracts;
+        Object.keys(networkContracts).forEach(contract => contractSet.add(contract));
     });
     return contractSet;
 }
@@ -53,28 +54,25 @@ function generateContractTables(contractName: string, filesToInclude: string[]) 
     let contractHasLegacyAddresses: boolean = false;
 
     for (const id of Object.keys(NetworkConfigJson.networks)) {
-        let contract = NetworkConfigJson.networks[id].contracts[contractName];
+        const networkContracts = NetworkConfigJson.networks[id as keyof typeof NetworkConfigJson.networks].contracts;
+        let contract = networkContracts[contractName as keyof typeof networkContracts];
         if (!contract) {
             continue;
         }
         let legacyAddresses = contract.legacyAddresses;
         contractHasLegacyAddresses = contractHasLegacyAddresses || legacyAddresses.length > 0;
 
-        rows.push(convertContractToRow(id, contract));
+        rows.push({
+            network: Networks[Number(id)],
+            address: contract.address,
+            legacyAddresses: contract.legacyAddresses,
+        });
     }
     let contractTable = Ejs
         .render(CotractTableTemplate, { rows, hasLegacyAddresses: contractHasLegacyAddresses })
         .replace(/(^[ \t]*\n)/gm, ''); // remove new lines to render .md table properly
 
     saveContractTable(contractName, contractTable, filesToInclude);
-}
-
-function convertContractToRow(networkId: string, contract): Row {
-    return <Row>{
-        network: Networks[networkId],
-        address: contract.address,
-        legacyAddresses: contract.legacyAddresses,
-    };
 }
 
 function saveContractTable(contractName: string, contractTable: string, filesToInclude: string[]) {
@@ -84,9 +82,9 @@ function saveContractTable(contractName: string, contractTable: string, filesToI
     console.log('Contract table saved: ' + filename)
 }
 
-function compileContractTables(files: string[]) {
+async function compileContractTables(files: string[]) {
     saveMarkdown(files);
-    MarkdownInclude.compileFiles(MarkdownFile);
+    await MarkdownInclude.compileFiles(MarkdownFile);
 }
 
 function saveMarkdown(files: string[]) {

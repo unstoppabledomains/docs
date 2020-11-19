@@ -6,7 +6,7 @@
       "es6"
     ],
     "strict": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "strictPropertyInitialization": false,
     "resolveJsonModule": true,
     "esModuleInterop": true,
@@ -15,6 +15,7 @@
     "rootDirs": [
       "src"
     ],
+    "typeRoots": ["node_modules/@types", "./@types"]
   },
   "include": [
     "src"
