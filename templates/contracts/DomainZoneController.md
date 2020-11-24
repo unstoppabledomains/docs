@@ -7,7 +7,6 @@
     </tr>
     <tr>
         <td>Rinkeby</td>
-        <td><a href="https://etherscan.io/address/0x6f8F96A566663C1d4fEe70edD37E9b62Fe39dE5D">0x6f8F96A566663C1d4fEe70edD37E9b62Fe39dE5D</a></td>
+        <td><a href="https://rinkeby.etherscan.io/address/0x6f8F96A566663C1d4fEe70edD37E9b62Fe39dE5D">0x6f8F96A566663C1d4fEe70edD37E9b62Fe39dE5D</a></td>
     </tr>
 </table>
- 
