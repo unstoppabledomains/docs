@@ -27,10 +27,10 @@ This section lists all the smart contracts that users can directly interact with
     </tr>
     <tr>
         <td>Rinkeby</td>
-        <td><a href="https://etherscan.io/address/0xAad76bea7CFEc82927239415BB18D2e93518ecBB">0xAad76bea7CFEc82927239415BB18D2e93518ecBB</a></td>
+        <td><a href="https://rinkeby.etherscan.io/address/0xAad76bea7CFEc82927239415BB18D2e93518ecBB">0xAad76bea7CFEc82927239415BB18D2e93518ecBB</a></td>
     </tr>
 </table>
- 
+
 
 **Source code:** [contracts/Registry.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Registry.sol)
 
@@ -47,24 +47,23 @@ This section lists all the smart contracts that users can directly interact with
     </tr>
     <tr>
         <td>Rinkeby</td>
-        <td><a href="https://etherscan.io/address/0x95AE1515367aa64C462c71e87157771165B1287A">0x95AE1515367aa64C462c71e87157771165B1287A</a></td>
+        <td><a href="https://rinkeby.etherscan.io/address/0x95AE1515367aa64C462c71e87157771165B1287A">0x95AE1515367aa64C462c71e87157771165B1287A</a></td>
     </tr>
 </table>
-    <table>
-        <th>Network</th>
-        <th>Legacy addresses</th>
-        <tr>
-            <td>Mainnet</td>
-            <td><a
-                    href="https://etherscan.io/address/0xa1cac442be6673c49f8e74ffc7c4fd746f3cbd0d">0xa1cac442be6673c49f8e74ffc7c4fd746f3cbd0d
-                </a>
-                <a
-                    href="https://etherscan.io/address/0x878bc2f3f717766ab69c0a5f9a6144931e61aed3">0x878bc2f3f717766ab69c0a5f9a6144931e61aed3
-                </a>
+</br>
+<table>
+    <th>Network</th>
+    <th>Legacy addresses</th>
+    <tr>
+        <td>Mainnet</td>
+           <td><a 
+                    href="https://etherscan.io/address/0xa1cac442be6673c49f8e74ffc7c4fd746f3cbd0d">0xa1cac442be6673c49f8e74ffc7c4fd746f3cbd0d</a>
+               <a 
+                    href="https://etherscan.io/address/0x878bc2f3f717766ab69c0a5f9a6144931e61aed3">0x878bc2f3f717766ab69c0a5f9a6144931e61aed3</a>
             </td>
-        </tr>
-    </table>
-    
+    </tr>
+</table>
+
 
 **Source code:** [contracts/Resolver.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Resolver.sol)
 
@@ -81,21 +80,21 @@ This section lists all the smart contracts that users can directly interact with
     </tr>
     <tr>
         <td>Rinkeby</td>
-        <td><a href="https://etherscan.io/address/0x3A2e74CF832cbA3d77E72708d55370119E4323a6">0x3A2e74CF832cbA3d77E72708d55370119E4323a6</a></td>
+        <td><a href="https://rinkeby.etherscan.io/address/0x3A2e74CF832cbA3d77E72708d55370119E4323a6">0x3A2e74CF832cbA3d77E72708d55370119E4323a6</a></td>
     </tr>
 </table>
-    <table>
-        <th>Network</th>
-        <th>Legacy addresses</th>
-        <tr>
-            <td>Mainnet</td>
-            <td><a
-                    href="https://etherscan.io/address/0x7ea9Ee21077F84339eDa9C80048ec6db678642B1">0x7ea9Ee21077F84339eDa9C80048ec6db678642B1
-                </a>
+</br>
+<table>
+    <th>Network</th>
+    <th>Legacy addresses</th>
+    <tr>
+        <td>Mainnet</td>
+           <td><a 
+                    href="https://etherscan.io/address/0x7ea9Ee21077F84339eDa9C80048ec6db678642B1">0x7ea9Ee21077F84339eDa9C80048ec6db678642B1</a>
             </td>
-        </tr>
-    </table>
-    
+    </tr>
+</table>
+
 
 **Source code:** [contracts/ProxyReader.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/ProxyReader.sol)
 
@@ -112,10 +111,10 @@ This section lists all the smart contracts that users can directly interact with
     </tr>
     <tr>
         <td>Rinkeby</td>
-        <td><a href="https://etherscan.io/address/0x66a5e3e2C27B4ce4F46BBd975270BE154748D164">0x66a5e3e2C27B4ce4F46BBd975270BE154748D164</a></td>
+        <td><a href="https://rinkeby.etherscan.io/address/0x66a5e3e2C27B4ce4F46BBd975270BE154748D164">0x66a5e3e2C27B4ce4F46BBd975270BE154748D164</a></td>
     </tr>
 </table>
- 
+
 
 **Source code:** [contracts/controllers/SignatureController.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/controllers/SignatureController.sol)
 
@@ -132,10 +131,10 @@ This section lists all the smart contracts that users can directly interact with
     </tr>
     <tr>
         <td>Rinkeby</td>
-        <td><a href="https://etherscan.io/address/0x6f8F96A566663C1d4fEe70edD37E9b62Fe39dE5D">0x6f8F96A566663C1d4fEe70edD37E9b62Fe39dE5D</a></td>
+        <td><a href="https://rinkeby.etherscan.io/address/0x6f8F96A566663C1d4fEe70edD37E9b62Fe39dE5D">0x6f8F96A566663C1d4fEe70edD37E9b62Fe39dE5D</a></td>
     </tr>
 </table>
- 
+
 
 **Source code:** [contracts/controllers/DomainZoneController.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/controllers/DomainZoneController.sol)
 
@@ -158,10 +157,10 @@ This section lists all the smart contracts that users can directly interact with
     </tr>
     <tr>
         <td>Rinkeby</td>
-        <td><a href="https://etherscan.io/address/0xbcB32f13f90978a9e059E8Cb40FaA9e6619d98e7">0xbcB32f13f90978a9e059E8Cb40FaA9e6619d98e7</a></td>
+        <td><a href="https://rinkeby.etherscan.io/address/0xbcB32f13f90978a9e059E8Cb40FaA9e6619d98e7">0xbcB32f13f90978a9e059E8Cb40FaA9e6619d98e7</a></td>
     </tr>
 </table>
- 
+
 
 **Source code:** [contracts/util/WhitelistedMinter.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/util/WhitelistedMinter.sol)
 
@@ -178,10 +177,10 @@ This section lists all the smart contracts that users can directly interact with
     </tr>
     <tr>
         <td>Rinkeby</td>
-        <td><a href="https://etherscan.io/address/0x1CB337b3b208dc29a6AcE8d11Bb591b66c5Dd83d">0x1CB337b3b208dc29a6AcE8d11Bb591b66c5Dd83d</a></td>
+        <td><a href="https://rinkeby.etherscan.io/address/0x1CB337b3b208dc29a6AcE8d11Bb591b66c5Dd83d">0x1CB337b3b208dc29a6AcE8d11Bb591b66c5Dd83d</a></td>
     </tr>
 </table>
- 
+
 
 **Source code:** [contracts/operators/TwitterValidationOperator.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/operators/TwitterValidationOperator.sol)
 
@@ -202,10 +201,10 @@ The deployed version of the `Registry` smart contract only allows `MintingContro
     </tr>
     <tr>
         <td>Rinkeby</td>
-        <td><a href="https://etherscan.io/address/0x51765307AeB3Df2E647014a2C501d5324212467c">0x51765307AeB3Df2E647014a2C501d5324212467c</a></td>
+        <td><a href="https://rinkeby.etherscan.io/address/0x51765307AeB3Df2E647014a2C501d5324212467c">0x51765307AeB3Df2E647014a2C501d5324212467c</a></td>
     </tr>
 </table>
- 
+
 
 **Source code:** [contracts/controllers/MintingController.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/controllers/MintingController.sol)
 
@@ -222,10 +221,10 @@ The deployed version of the `Registry` smart contract only allows `MintingContro
     </tr>
     <tr>
         <td>Rinkeby</td>
-        <td><a href="https://etherscan.io/address/0xe1d2e4B9f0518CA5c803073C3dFa886470627237">0xe1d2e4B9f0518CA5c803073C3dFa886470627237</a></td>
+        <td><a href="https://rinkeby.etherscan.io/address/0xe1d2e4B9f0518CA5c803073C3dFa886470627237">0xe1d2e4B9f0518CA5c803073C3dFa886470627237</a></td>
     </tr>
 </table>
- 
+
 
 **Source code:** [contracts/controllers/URIPrefixController.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/controllers/URIPrefixController.sol)
 
