@@ -54,11 +54,11 @@ This section lists all the smart contracts that users can directly interact with
 
 **Source code:** [contracts/controllers/DomainZoneController.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/controllers/DomainZoneController.sol)
 
-### FreeRegistrar
+### FreeMinter
 
-`FreeRegistrar` is a contract that can be used for allowing any user to freely mint a domain belonging to a subdomain zone.
+`FreeMinter` is a contract that can be used for allowing any user to freely mint a test domain with `udtestdev-` prefix.
 
-**Source code:** [contracts/controllers/FreeRegistrar.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/controllers/FreeRegistrar.sol)
+**Source code:** [contracts/controllers/FreeRegistrar.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/util/FreeMinter.sol)
 
 ### WhitelistedMinter
 
