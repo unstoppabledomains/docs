@@ -12,7 +12,7 @@ To prevent abuse, we ask that developers cover the cost of minting and transferr
 - [MetaMask](https://metamask.io/) or any wallet with [WalletConnect](https://walletconnect.org/wallets) support
 - Ether on your Ethereum wallet to pay transaction fees
 
-To calculate the transaction fee you'd like to target you can use services like [ETH Gas Station](https://ethgasstation.info/calculatorTxV.php). The average transaction gas usage to mint and transfer a new domains is around 180,000 gwei.
+To calculate the transaction fee you'd like to target you can use services like [ETH Gas Station](https://ethgasstation.info/calculatorTxV.php). The average transaction gas usage to mint and transfer a new domains is around 180,000 gas.
 
 ## Get a domain
 
@@ -33,7 +33,7 @@ To calculate the transaction fee you'd like to target you can use services like 
 
 ![](../.gitbook/assets/integrations/get-test-domain/step-4.png)
 
-**IMPORTANT: If transaction takes more gas than expected (more than 200,000 gwei to call the claim method) or fails, that domain name may be already claimed. Double check it's available and [contact us](https://discord.gg/b6ZVxSZ9Hn) if you continue to have problems.**
+**IMPORTANT: If transaction takes more gas than expected (more than 200,000 gas to call the claim method) or fails, that domain name may be already claimed. Double check it's available and [contact us](https://discord.gg/b6ZVxSZ9Hn) if you continue to have problems.**
 
 ![](../.gitbook/assets/integrations/get-test-domain/step-4-1.png)
 
