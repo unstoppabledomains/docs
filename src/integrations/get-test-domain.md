@@ -22,8 +22,10 @@ To calculate the transaction fee you'd like to target you can use services like 
 
 - Connect your wallet
 
+   - Connect
 ![](../.gitbook/assets/integrations/get-test-domain/step-2.png)
-<br>  
+ 
+   - Choose
 ![](../.gitbook/assets/integrations/get-test-domain/step-2-1.png)
 
 - Pick the suffix you'd like to use for the domain and press the “Write” button to start the transaction
