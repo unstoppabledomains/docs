@@ -1,3 +1,4 @@
+[comment]: <> (This is an auto-generated table with CNS smart-contract addresses)
 <table>
     <th>Network</th>
     <th>Contract address</th>
