@@ -16,7 +16,7 @@ The live version of the documentation is synced with [live-docs repository](http
 **Working with templates and auto-generated pieces:**
 
 ###### Files that shouldn't be edited directly (follow described flow instead): 
-- cns-smart-contracts.md:
+- src/domain-registry-essentials/cns-smart-contracts.md:
 	1. Edit *templates/cns-smart-contracts-template.md*
 	2. Run `render:cns-contracts`
 
@@ -24,15 +24,11 @@ The live version of the documentation is synced with [live-docs repository](http
 
 Contract addresses are pulled from [network-config.json](https://github.com/unstoppabledomains/dot-crypto/blob/master/src/network-config/network-config.json "network-config.json") contained in [dot-crypto](https://github.com/unstoppabledomains/dot-crypto).
 
-- To fetch new config run `render:cns-contracts`. 
-- If you need to add a new Contract:
-
-	1. Create temlate for the target doc with the pattern of ``<target-doc-name>-temaplte.md`` and put it in a */template* folder.
-	2. Inside of a template insert `#include "templates/contracts/<YourContractName>.md"` where you want to add your table.
-	3. Generate tables & render the template using the following commands:
-		- `render:cns-contracts` for *cns-smart-contracts.md*
-		- Or define your own for other files.
-	4. Update following sections of this README: *"Files that shouldn't be edited directly"* and *"Generate tables & render the template using following commands"*.
+- To fetch new config for existing contracts run `render:cns-contracts`. 
+- If you need to add a new contract:
+	1. Inside of the template insert `#include "templates/contracts/<YourContractName>.md"` where you want to add your table.
+	2. Generate tables & compile the template using:
+		- `render:cns-contracts` to render *src/domain-registry-essentials/cns-smart-contracts.md*
 
 **Tips for external contributors:**
 
