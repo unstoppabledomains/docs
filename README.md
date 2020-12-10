@@ -17,8 +17,8 @@ The live version of the documentation is synced with [live-docs repository](http
 
 ###### Files that shouldn't be edited directly (follow described flow instead): 
 - src/domain-registry-essentials/cns-smart-contracts.md:
-	1. Edit *templates/cns-smart-contracts-template.md*
-	2. Run `render:cns-contracts`
+	1. Edit *templates/cns-smart-contracts-template.md*;
+	2. Run `render:cns-contracts`.
 
 ###### Auto-generated smart-contract address tables:
 
@@ -26,9 +26,9 @@ Contract addresses are pulled from [network-config.json](https://github.com/unst
 
 - To fetch new config for existing contracts run `render:cns-contracts`. 
 - If you need to add a new contract:
-	1. Inside of the template insert `#include "templates/contracts/<YourContractName>.md"` where you want to add your table.
+	1. Inside of the template insert `#include "templates/contracts/<YourContractName>.md"` where you want to add your table;
 	2. Generate tables & compile the template using:
-		- `render:cns-contracts` to render *src/domain-registry-essentials/cns-smart-contracts.md*
+		- `render:cns-contracts` to render *src/domain-registry-essentials/cns-smart-contracts.md*.
 
 **Tips for external contributors:**
 
