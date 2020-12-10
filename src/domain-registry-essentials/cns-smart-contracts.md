@@ -1,3 +1,4 @@
+[comment]: <> (! Note: Do not modify src/domain-registry-essentials/cns-smart-contracts.md directly. Edit templates/cns-smart-contracts-template.md instead following rules from README)
 # CNS smart contracts
 
 Crypto Name Service (CNS) is built on Ethereum and is effectively a bundle of Solidity smart contracts. Their source code is hosted in the [dot-crypto repository](https://github.com/unstoppabledomains/dot-crypto) and maintained by the Unstoppable Domains team. This page lists the smart contracts from that repository and gives a brief description of each along with links to the source code and deployment addresses. For high-level details about how CNS works, see [Architecture overview](architecture-overview.md).
@@ -18,6 +19,7 @@ This section lists all the smart contracts that users can directly interact with
 
 `Registry` is the central smart contract, which stores all CNS domains. Implementing the ERC-721 non-fungible token standard, `Registry` defines domain ownership rules. It stores owner and `Resolver` addresses. For more details, see [Architecture overview - Registry](architecture-overview.md#registry).
 
+[comment]: <> (This is an auto-generated table with CNS smart-contract addresses)
 <table>
     <th>Network</th>
     <th>Contract address</th>
@@ -38,6 +40,7 @@ This section lists all the smart contracts that users can directly interact with
 
 `Resolver` is the smart contract that stores domain records and provides methods for domain resolution. For more details, see [Architecture overview - Resolver](architecture-overview.md#resolver).
 
+[comment]: <> (This is an auto-generated table with CNS smart-contract addresses)
 <table>
     <th>Network</th>
     <th>Contract address</th>
@@ -71,6 +74,7 @@ This section lists all the smart contracts that users can directly interact with
 
 `ProxyReader` provides an interface that allows users to fetch information about domains from both `Registry` and `Resolver` smart contracts in one call. For more details, see [Architecture overview - ProxyReader](architecture-overview.md#proxyreader).
 
+[comment]: <> (This is an auto-generated table with CNS smart-contract addresses)
 <table>
     <th>Network</th>
     <th>Contract address</th>
@@ -102,6 +106,7 @@ This section lists all the smart contracts that users can directly interact with
 
 `SignatureController` allows any account to submit management transactions on behalf of a token owner if an owner provides a signature for that call.
 
+[comment]: <> (This is an auto-generated table with CNS smart-contract addresses)
 <table>
     <th>Network</th>
     <th>Contract address</th>
@@ -122,6 +127,7 @@ This section lists all the smart contracts that users can directly interact with
 
 `DomainZoneController` allows owners of a domain zone to mint subdomains. These subdomains can be managed only by the domain zone owners. For more details, see [Architecture Overview - Alternative Ownership Models](architecture-overview.md#alternative-ownership-models).
 
+[comment]: <> (This is an auto-generated table with CNS smart-contract addresses)
 <table>
     <th>Network</th>
     <th>Contract address</th>
@@ -148,6 +154,7 @@ This section lists all the smart contracts that users can directly interact with
 
 `WhitelistedMinter` defines an interface for minting second-level domains. This smart contract is primarily used by the Unstoppable Domains team, but its interface also supports delegating minting process to other parties via [Meta Transactions](../managing-domains/meta-transactions.md). All calls to `WhitelistedMinter` are proxied to the `Registry` via the [MintingController](cns-smart-contracts.md#mintingcontroller) smart contract.
 
+[comment]: <> (This is an auto-generated table with CNS smart-contract addresses)
 <table>
     <th>Network</th>
     <th>Contract address</th>
@@ -168,6 +175,7 @@ This section lists all the smart contracts that users can directly interact with
 
 `TwitterValidationOperator` is used when initiating Chainlink verification requests to link domain records with Twitter usernames.
 
+[comment]: <> (This is an auto-generated table with CNS smart-contract addresses)
 <table>
     <th>Network</th>
     <th>Contract address</th>
@@ -192,6 +200,7 @@ The Unstoppable Domains team reserves the right to mint second-level domains and
 
 The deployed version of the `Registry` smart contract only allows `MintingController` to mint second-level domains. This smart contract is used by [WhitelistedMinter](cns-smart-contracts.md#whitelistedminter) as a proxy.
 
+[comment]: <> (This is an auto-generated table with CNS smart-contract addresses)
 <table>
     <th>Network</th>
     <th>Contract address</th>
@@ -212,6 +221,7 @@ The deployed version of the `Registry` smart contract only allows `MintingContro
 
 `URIPrefixController` enables the Unstoppable Domains team to edit the token URI prefix.
 
+[comment]: <> (This is an auto-generated table with CNS smart-contract addresses)
 <table>
     <th>Network</th>
     <th>Contract address</th>
