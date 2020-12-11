@@ -1,4 +1,4 @@
-[comment]: <> (This is an auto-generated table with CNS smart-contract addresses)
+[comment]: <> (This is an auto-generated table with CNS smart-contract addresses. See README for more info.)
 <table>
     <th>Network</th>
     <th>Contract address</th>

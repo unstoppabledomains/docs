@@ -16,7 +16,8 @@ To calculate the transaction fee you'd like to target you can use services like 
 
 ## Get a domain
 
--  Open the domain request Smart Contract using [Etherscan](https://etherscan.io/address/0x1fC985cAc641ED5846b631f96F35d9b48Bc3b834#writeContract)
+- Open the domain request Smart Contract using [Etherscan](https://etherscan.io/address/0x1fC985cAc641ED5846b631f96F35d9b48Bc3b834#writeContract)  
+- To get a test domain on testnet find Smart Contract address in [reference table](../domain-registry-essentials/cns-smart-contracts.md#freeminter)      
 
 ![](../.gitbook/assets/integrations/get-test-domain/step-1.png)
 

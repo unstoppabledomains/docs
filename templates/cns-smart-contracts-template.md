@@ -59,7 +59,9 @@ This section lists all the smart contracts that users can directly interact with
 
 `FreeMinter` is a contract that can be used for allowing any user to freely mint a test domain with `udtestdev-` prefix.
 
-**Source code:** [contracts/controllers/FreeRegistrar.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/util/FreeMinter.sol)
+**Source code:** [contracts/controllers/FreeMinter.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/util/FreeMinter.sol)  
+
+#include "templates/contracts/FreeMinter.md"
 
 ### WhitelistedMinter
 

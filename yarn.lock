@@ -196,7 +196,7 @@ diff@^4.0.1:
 
 "dot-crypto@https://github.com/unstoppabledomains/dot-crypto.git":
   version "1.1.0"
-  resolved "https://github.com/unstoppabledomains/dot-crypto.git#a744cc0d13d58af550a8881380e585ef1f8f9755"
+  resolved "https://github.com/unstoppabledomains/dot-crypto.git#51621857870282d085f3461c9a22ca9aafd9269b"
 
 ecc-jsbn@~0.1.1:
   version "0.1.2"
