@@ -72,9 +72,9 @@ Therefore, authority configurations are not supported by blockchain domains at t
 
 ### Distributed web records
 
-Distributed Web (Dweb) records allow configuring a domain for distributed website protocols like IPFS or Swarm. These records are stored in the `dweb.*` namespace. Each protocol has its own sub-namespace for its data using a canonical name. Example: Swarm's protocol canonic name is `bzz` so its records are stored at `dns.bzz.*` namespace.
+Distributed Web (Dweb) records allow configuring a domain for distributed website protocols like IPFS or Swarm. These records are stored in the `dweb.*` namespace. Each protocol has its own sub-namespace for its data using a canonical name. Example: Swarm's protocol canonic name is `bzz` so its records are stored at `dweb.bzz.*` namespace.
 
-Record structure can be different based on the protocol. However, all protocols have a common `.hash` record used to reference content in the distributed network. Example: `dns.ipfs.hash` for IPFS protocol.
+Record structure can be different based on the protocol. However, all protocols have a common `.hash` record used to reference content in the distributed network. Example: `dweb.ipfs.hash` for IPFS protocol.
 
 See [Resolving domains in a browser](resolving-domains-in-a-browser.md) for information on how to interpret those records.
 
