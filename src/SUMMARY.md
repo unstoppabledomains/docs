@@ -21,6 +21,7 @@
 
 - [Resolving domains in a browser](browser-resolution/resolving-domains-in-a-browser.md)
 - [Browser resolution algorithm](browser-resolution/browser-resolution-algorithm.md)
+- [Browser resolution test domains](browser-resolution/test-domains.md)
 
 ## Integrations
 
