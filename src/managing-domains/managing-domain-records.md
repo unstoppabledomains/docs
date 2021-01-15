@@ -31,17 +31,19 @@ Addresses are stored in plain text format according to an address space standard
 
 However, key names for those attributes are not yet standardized. Please contact [Unstoppable Domains support](mailto:support@unstoppabledomains.com) if you need such attributes to be added to the standard.
 
-Some tickers of very popular cryptocurrencies are not yet standardized. Example: `LINK` for [
-  
-](https://coinmarketcap.com/currencies/chainlink). A standardized list of tickers can be found in [SLIP-0044](https://github.com/satoshilabs/slips/blob/master/slip-0044.md). However, a more extended list of conventional tickers is available at [cripti/cryptocurrencies](https://github.com/crypti/cryptocurrencies/blob/master/cryptocurrencies.json).
+Some tickers of very popular cryptocurrencies are not yet standardized. Example: `LINK` for [Chainlink](https://coinmarketcap.com/currencies/chainlink). A standardized list of tickers can be found in [SLIP-0044](https://github.com/satoshilabs/slips/blob/master/slip-0044.md). However, a more extended list of conventional tickers is available at [cripti/cryptocurrencies](https://github.com/crypti/cryptocurrencies/blob/master/cryptocurrencies.json).
 
 Example crypto records setup:
 
 | Key | Value |
 | :--- | :--- |
-| `crypto.ETH.address` | `0xD1E5b0FF1287aA9f9A268759062E4Ab08b9Dacbe` |
-| `crypto.BTC.address` | `bc1qkd4um2nn2uyzmsch5y86wsa2pfh8xl445lg9nv` |
-| `crypto.ZIL.address` | `zil1yu5u4hegy9v3xgluweg4en54zm8f8auwxu0xxc` |
+| `crypto.ETH.address`                | `0xD1E5b0FF1287aA9f9A268759062E4Ab08b9Dacbe` |
+| `crypto.BTC.address`                | `bc1qkd4um2nn2uyzmsch5y86wsa2pfh8xl445lg9nv` |
+| `crypto.ZIL.address`                | `zil1yu5u4hegy9v3xgluweg4en54zm8f8auwxu0xxc` |
+| `crypto.USDT.version.ERC20.address` | `0x8aaD44321A86b170879d7A244c1e8d360c99DdA8` |
+| `crypto.USDT.version.TRON.address`  | `THG9jVSMfKEbg4vYTYWjmLRyga3CKZdDsk`         |
+
+`USDT` presents on multiple chains and key format is slightly different. More details can be found in the [Records Reference section](../domain-registry-essentials/records-reference.md)    
 
 ## Resolver administrative patterns
 

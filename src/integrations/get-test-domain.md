@@ -7,17 +7,23 @@ To make integrations easier, Unstoppable Domains allows developers to request a 
 
 To prevent abuse, we ask that developers cover the cost of minting and transferring these domains to their wallets. **Unstoppable Domains does not make any money from issuing test domains.**
 
-## Requirements
+You can get your test domains on the Unstoppable Website Faucet or by direct smart contract calling using Etherscan.  
+
+## Get a domain using Unstoppable Website faucet
+[Claim your domain](https://unstoppabledomains.com/developers)  
+
+## Get a domain using Etherscan
+### Requirements
 
 - [MetaMask](https://metamask.io/) or any wallet with [WalletConnect](https://walletconnect.org/wallets) support
 - Ether on your Ethereum wallet to pay transaction fees
 
 To calculate the transaction fee you'd like to target you can use services like [ETH Gas Station](https://ethgasstation.info/calculatorTxV.php). The average transaction gas usage to mint and transfer a new domains is around 180,000 gas.
 
-## Get a domain
+### Get a domain
 
-- Open the domain request Smart Contract using [Etherscan](https://etherscan.io/address/0x1fC985cAc641ED5846b631f96F35d9b48Bc3b834#writeContract)  
-- To get a test domain on testnet find Smart Contract address in [reference table](../domain-registry-essentials/cns-smart-contracts.md#freeminter)      
+- Open the domain request Smart Contract using [Etherscan](https://etherscan.io/address/0x1fC985cAc641ED5846b631f96F35d9b48Bc3b834#writeContract)
+- To get a test domain on testnet find Smart Contract address in [reference table](../domain-registry-essentials/cns-smart-contracts.md#freeminter)
 
 ![](../.gitbook/assets/integrations/get-test-domain/step-1.png)
 
@@ -37,6 +43,6 @@ To calculate the transaction fee you'd like to target you can use services like 
 
 ![](../.gitbook/assets/integrations/get-test-domain/step-4-1.png)
 
-That's it! You're the new proud owner of a `.crypto` test domain. Happy hacking!
+That's it! You're the new proud owner of a `udtestdev-<name>.crypto` test domain. Happy hacking!
 
 If you have any questions, we're ready and willing to help on our developer [Discord Community](https://discord.gg/b6ZVxSZ9Hn).
