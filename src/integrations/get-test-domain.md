@@ -5,7 +5,7 @@ To make integrations easier, Unstoppable Domains allows developers to request a 
 - `udtestdev-freedomainisawesome.crypto`
 - `udtestdev-test-wallet-integration.crypto`
 
-To prevent abuse, we ask that developers cover the cost of minting and transferring these domains to their wallets. **Unstoppable Domains does not make any money from issuing test domains.**
+To prevent abuse, we ask that developers cover the cost of minting and transferring these domains to their wallets. **Unstoppable Domains does not make any money from issuing test domains.** You can mint a test domain [here](https://unstoppabledomains.com)
 
 ## Requirements
 
@@ -16,8 +16,8 @@ To calculate the transaction fee you'd like to target you can use services like 
 
 ## Get a domain
 
-- Open the domain request Smart Contract using [Etherscan](https://etherscan.io/address/0x1fC985cAc641ED5846b631f96F35d9b48Bc3b834#writeContract)  
-- To get a test domain on testnet find Smart Contract address in [reference table](../domain-registry-essentials/cns-smart-contracts.md#freeminter)      
+- Open the domain request Smart Contract using [Etherscan](https://etherscan.io/address/0x1fC985cAc641ED5846b631f96F35d9b48Bc3b834#writeContract)
+- To get a test domain on testnet find Smart Contract address in [reference table](../domain-registry-essentials/cns-smart-contracts.md#freeminter)
 
 ![](../.gitbook/assets/integrations/get-test-domain/step-1.png)
 
