@@ -34,4 +34,5 @@
 - [JavaScript Resolution library](https://github.com/unstoppabledomains/resolution)
 - [Java Resolution library](https://github.com/unstoppabledomains/resolution-java)
 - [Swift Resolution library](https://github.com/unstoppabledomains/resolution-swift)
+- [Discord community](https://discord.com/invite/b6ZVxSZ9Hn)
 
