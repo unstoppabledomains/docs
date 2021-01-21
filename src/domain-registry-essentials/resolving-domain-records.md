@@ -4,17 +4,17 @@ Resolving a domain is a process of retrieving a domain's records when the domain
 
 This section describes resolving domain records by making calls to Ethereum smart contracts using the Ethereum JSON RPC. For developers who would prefer a more straightforward solution, it might be more convenient to use the [resolution libraries](https://github.com/unstoppabledomains?q=resolution) that Unstoppable Domains maintains.
 
-To resolve a domain, your software must have access to the Ethereum network. For more information, see [Configuring an ethereum network connection](resolving-domain-records.md#configuring--an-ethereum-network-connection).
+To resolve a domain, your software must have access to the Ethereum network. For more information, see [Configuring an ethereum network connection](#configuring-an-ethereum-network-connection).
 
 The simplest way to resolve a domain with Ethereum JSON RPC is to make a read-only call to `ProxyReader` smart contract. `ProxyReader` provides an API that allows users to resolve domains making just one call by passing only keys of records and a domain namehash. Without `ProxyReader` it would require executing at least two calls: one to obtain a domain resolver address and another one to get the records themselves. With `ProxyReader` it all happens under the hood.
 
 An example in JavaScript of getting two records (using [ethers library](https://www.npmjs.com/package/ethers)):
 
 ```javascript
-const proxyReaderAddress = '0x7ea9Ee21077F84339eDa9C80048ec6db678642B1';
+const proxyReaderAddress = "0x7ea9Ee21077F84339eDa9C80048ec6db678642B1";
 // Partial ABI, just for the getMany function.
 const proxyReaderAbi = [
-  'function getMany(string[] calldata keys, uint256 tokenId) external view returns (string[] memory)',
+  "function getMany(string[] calldata keys, uint256 tokenId) external view returns (string[] memory)",
 ];
 const proxyReaderContract = new ethers.Contract(
   proxyReaderAddress,
@@ -22,9 +22,9 @@ const proxyReaderContract = new ethers.Contract(
   provider
 );
 
-const domain = 'brad.crypto';
+const domain = "brad.crypto";
 const tokenId = namehash(domain);
-const keys = ['crypto.ETH.address', 'crypto.BTC.address'];
+const keys = ["crypto.ETH.address", "crypto.BTC.address"];
 
 const values = await proxyReaderContract.getMany(keys, tokenId);
 console.log(values);

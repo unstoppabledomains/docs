@@ -11,13 +11,6 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "outDir": "build",
-    "rootDirs": [
-      "src"
-    ],
     "typeRoots": ["node_modules/@types", "./@types"]
   },
-  "include": [
-    "src"
-  ]
 }
