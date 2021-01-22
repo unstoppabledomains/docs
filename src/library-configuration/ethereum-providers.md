@@ -10,6 +10,18 @@ Javascript:
 import Resolution from "@unstoppabledomains/resolution";
 ```
 
+Java:
+
+```java
+import com.unstoppabledomains.resolution.Resolution
+```
+
+Swift:
+
+```swift
+import UnstoppableDomainsResolution
+```
+
 ### Infura
 
 [Infura]("https://infura.io") is a popular Ethereum node service. Obtaining an API key is free and only requires creating an account.
@@ -31,13 +43,37 @@ const resolution = new Resolution({
 const resolution = Resolution.infura(infuraApiKey, "mainnet");
 ```
 
+Java:
+
+```java
+String infuraApiKey = INFURA_PROJECT_ID;
+
+DomainResolution resolution = Resolution.builder()
+                .chainId(NamingServiceType.ENS, Network.ROPSTEN)
+                .infura(NamingServiceType.ENS, infuraApiKey)
+                .infura(NamingServiceType.CNS, Network.MAINNET, infuraApiKey)
+                .build();
+```
+
+Swift:
+
+```swift
+let infuraApiKey = INFURA_PROJECT_ID
+
+guard let resolution = try? Resolution(providerUrl: "https://mainnet.infura.io/v3/" + infuraApiKey, network: "mainnet") else {
+  print ("Init of Resolution instance with custom parameters failed...")
+  return
+}
+```
+
 ### Web3Provider
 
-Connect a web3Provider. You may already have one available in your application from wallets like Metamask and WalletConnect.
+Connect a web3 provider. You may already have one available in your application from wallets like Metamask and WalletConnect.
 
 Javascript:
 
 ```javascript
+// if web3rovider is attached to window
 const web3Provider = window.ethereum;
 
 // web3 0.x version provider
@@ -49,7 +85,7 @@ const resolution = Resolution.fromWeb3Version1Provider(web3Provider);
 
 ### EthersProvider
 
-Connect a provider from [ethers.js]('https://www.npmjs.com/package/ethers')
+Connect a ethers provider from [ethers.js]('https://www.npmjs.com/package/ethers')
 
 Javascript:
 
