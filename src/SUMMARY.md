@@ -27,6 +27,7 @@
 
 - [Getting started](integrations/getting-started.md)
 - [Get test domain](integrations/get-test-domain.md)
+- [Resolve .zil domain](guides/resolve-zil-domain.md)
 
 ---
 
