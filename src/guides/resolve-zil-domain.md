@@ -89,7 +89,6 @@ function namehash(domain) {
         domain
           .split('.')
           .reverse()
-          .filter(label => label),
       )
       .reduce((parent, label) =>
         childhash(parent, label),
