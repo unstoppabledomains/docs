@@ -24,7 +24,7 @@ touch index.html index.js
 
 Let's create a blank HTML page. We have connected our empty index.js as well as a CDN library of [**js-sha256**](https://www.npmjs.com/package/js-sha256) for future namehashing step.
 
-```markup
+```html
 <!DOCTYPE html>
 <html lang="en">
     <head>
