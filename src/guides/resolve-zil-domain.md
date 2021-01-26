@@ -2,7 +2,7 @@
 description: Simplest step-by-step guide on how to resolve .zil domain
 ---
 
-# .zil Integration
+# Resolve a .zil domain
 
 In order to resolve a .zil domain, we will need to satisfy three steps below
 
