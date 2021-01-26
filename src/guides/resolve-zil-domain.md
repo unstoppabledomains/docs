@@ -22,7 +22,7 @@ cd unstoppable-zil-resolution
 touch index.html index.js
 ```
 
-Let's use some blank HTML page. We have connected our empty index.js as well as a CDN library of [**js-sha256**](https://www.npmjs.com/package/js-sha256?utm_source=cdnjs&utm_medium=cdnjs_link&utm_campaign=cdnjs_library) for future namehashing step.
+Let's create a blank HTML page. We have connected our empty index.js as well as a CDN library of [**js-sha256**](https://www.npmjs.com/package/js-sha256) for future namehashing step.
 
 ```markup
 <!DOCTYPE html>
