@@ -1,27 +1,80 @@
 ---
-description: >-
-  This tutorial will teach you how to make a JSON RPC call to our Zilliqa smart
-  contract to get various records as well as owner address of a domain owner.
+description: Simplest step-by-step guide on how to resolve .zil domain
 ---
 
-# Resolving .zil domain
+# .zil Integration
 
-## Steps to resolve unstoppable domain
+In order to resolve a .zil domain, we will need to satisfy three steps below
 
-In order to fetch any data from the Zilliqa blockchain you will need to do the following:
+* Get a namehash of a domain
+* Get resolver contract address from a domain
+* Query resolver contract to fetch the records
 
-1. Get a namehash of a domain
-2. Get resolver and owner addresses
-3. Get the contract sub-state related to your domain
+Let's visualize the resolution process using some of the simplest tools web developer has: knowledge of HTML and js.
 
-### Namehashing
+### Initialize the project folder
 
-Namehashing is an algorithm that converts a domain name in a classical format \(like www.example.crypto\) to ERC-721 token id. This process is described  in more details over  [here](https://docs.unstoppabledomains.com/domain-registry-essentials/namehashing)
+As has been said above all we need is to create a folder and two files index.html and index.js respectively
 
-```typescript
-import hash from 'hash.js';
+```text
+mkdir unstoppable-zil-resolution
+cd unstoppable-zil-resolution
+touch index.html index.js
+```
 
-function namehash(domain: string): string {
+Let's use some blank HTML page. We have connected our empty index.js as well as a CDN library of [**js-sha256**](https://www.npmjs.com/package/js-sha256?utm_source=cdnjs&utm_medium=cdnjs_link&utm_campaign=cdnjs_library) for future namehashing step.
+
+```markup
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Basic .zil integration</title>
+    </head>
+    <body>
+
+      <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js" 
+        integrity="sha512-szJ5FSo9hEmXXe7b5AUVtn/WnL8a5VofnFeYC2i2z03uS2LhAch7ewNLbl5flsEmTTimMN0enBZg/3sQ+YOSzQ==" 
+        crossorigin="anonymous"></script>
+
+      <script src="index.js"></script>
+    </body>
+</html>
+```
+
+Don't forget to add an input field and a button that will trigger the resolution process
+
+```markup
+      <input id="input" />
+      <button onclick="resolve()">Resolve</button>
+```
+
+#### As for our index.js file
+
+We are going to put some basic code to capture the text from the input field and print it in our console
+
+```javascript
+// <!-------> Resolving domain <!------->
+async function resolve() {
+  const userInput = document.getElementById("input").value;
+  console.log({ domain: userInput });
+}
+```
+
+### Taking a namehash
+
+Namehashing is an algorithm that converts a domain name in a classical format \(like www.example.crypto\) to a token id that Zilliqa contract can understand. To do so we need to split the domain by "." character to get each label and then reduce the label's array with a sha256 hashing of an accumulator and next label starting from the end. 
+
+For the purposes of keeping this tutorial short, instead of going into the details of this process, we are going to use the namehash function with some adaptation to the hashing library
+
+{% hint style="info" %}
+Don't forget to add the js-sha256 library to the project in order to use the sha256 function. 
+{% endhint %}
+
+```javascript
+// <!-------> Namehashing functions <!------->
+function namehash(domain) {
     const parent =
       '0000000000000000000000000000000000000000000000000000000000000000';
     return '0x' + [parent]
@@ -36,168 +89,150 @@ function namehash(domain: string): string {
       );
   }
 
-function childhash( parent: string, label: string): string {
+function childhash( parent, label) {
     parent = parent.replace(/^0x/, '');
-    return sha256(parent + sha256(label), 'hex',);
+    return shaWrapper(parent + shaWrapper(label), "hex");
   }
 
-function sha256(message: string, inputEnc?: 'hex') {
-    return hash.sha256()
-      .update(message, inputEnc)
-      .digest('hex');
+function shaWrapper(msg, inputEnc) {
+  if (inputEnc === "hex") {
+    var res = [];
+    msg = msg.replace(/[^a-z0-9]+/ig, '');
+      if (msg.length % 2 !== 0)
+        msg = '0' + msg;
+    for (var i = 0; i < msg.length; i += 2)
+        res.push(parseInt(msg[i] + msg[i + 1], 16));
+    return sha256(res);
   }
+  return sha256(msg);
+}
 ```
 
-In more simplistic human words we are hashing all of the labels of the domain with the accumulated hash of its parents in order to get a unique ERC-721 token id. 
+{% hint style="info" %}
+namehash takes a string domain, splits it by the '.' and then applies a childhash function to each of the combined with the previous results
+{% endhint %}
 
-### Getting resolver and owner addresses
+{% hint style="info" %}
+shaWrapper function is needed to convert the string into an array of hex values. This step is required when we concatenate sha256 of accumulated results with the sha256 of the next label. 
 
-In order to get the desirable addresses, we would need a Zilliqa registry contract address 
+Some hashing libraries like`hash.js`has the functionality to take input as a hex value instead of a character string. In this case, the shaWrapper function can be omitted. 
+{% endhint %}
 
-| Zilliqa registry contract address | Zilliqa API url |
+Below you can find a table of some examples for namehashing
+
+| "" | 0x0000000000000000000000000000000000000000000000000000000000000000 |
 | :--- | :--- |
-| 0x9611c53BE6D1b32058b2747bdeCECed7e1216793 | https://api.zilliqa.com/ |
+| zil | 0x9915d0456b878862e822e2361da37232f626a2e47505c8795134a95d36138ed3 |
+| brad.zil | 0x5fc604da00f502da70bfbc618088c0ce468ec9d18d05540935ae4118e8f50787 |
 
-Next, we are going to make a post API call to Zilliqa API with the parameters of our request
+### Getting resolver address
 
-{% api-method method="post" host="https://api.zilliqa.com" path="/" %}
-{% api-method-summary %}
-​Fetch owner and resolver addresses
-{% endapi-method-summary %}
+Our next step is to fetch two very important addresses attached to every unstoppable domain: **owner address** and **resolver contract address**
 
-{% api-method-description %}
-For params, you will need to pass an array containing three values  
+In order to do so, we will make a post api call to zilliqa with specific parameters.
+
+```javascript
+const ZILLIQA_API = "https://api.zilliqa.com/";
+
+async function fetchZilliqa(params) {
+  const body = {
+    method: "GetSmartContractSubState",
+    id: "1",
+    jsonrpc: "2.0",
+    params
+  };
+
+  return await fetch(ZILLIQA_API, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(body)
+  }).then(res => res.json());
+}
+```
+
+The only parameter that is going to be changed is the params field which is nothing else but a simple array with strictly 3 arguments: **contract address**, **contract field name**, **state key**
+
+Let's update our resolve function and use the **fetchZilliqa** function with the following params
+
+```javascript
+const UD_REGISTRY_CONTRACT = "9611c53BE6d1b32058b2747bdeCECed7e1216793";
+
+async function resolve() {
+  const userInput = document.getElementById("input").value;
+  const hash = namehash(userInput);
   
-\* contractAddress  -&gt;  **"0x9611c53BE6d1b32058b2747bdeCECed7e1216793"**  
-\* contractField -&gt; **"records"**  
-\* Array of keys -&gt; **\[ namehash\(domain\) \]**
-{% endapi-method-description %}
+  const contractAddresses = 
+    await fetchZilliqa([UD_REGISTRY_CONTRACT, "records", [hash]]);
+  const [ownerAddress, resolverAddress] = 
+    contractAddresses.result.records[hash].arguments;
+  
+  ...
+}
+```
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-headers %}
-{% api-method-parameter name="Content-Type" type="string" required=true %}
-application/json
-{% endapi-method-parameter %}
-{% endapi-method-headers %}
-
-{% api-method-body-parameters %}
-{% api-method-parameter name="params" type="array" required=true %}
-Array of params, order is importand!  
-contractAddress, contractField, \[keys\]
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="method" type="string" required=true %}
-"GetSmartContractSubState"
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="id" type="string" required=true %}
-"1"
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="jsonrpc" type="string" required=true %}
-"2.0"
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-You can find owner address in result.records.nodehash.arguments as a first argument and resolver address as a second argument
-{% endapi-method-response-example-description %}
+Calling fetchZilliqa with namehash of brad.zil returns us the following:
 
 ```javascript
 {
-"id":"1",
-"jsonrpc":"2.0",
-"result":{
-    "records":{
-        "0x08ab2ffa92966738c881a37d0d97f168d2e076d24639921762d0985ebaa62e31":{
-            "argtypes":[],
-            "arguments":[
-                "0xcea21f5a6afc11b3a4ef82e986d63b8b050b6910",
-                "0x34bbdee3404138430c76c2d1b2d4a2d223a896df"
+id: "1"
+jsonrpc: "2.0"
+result: {
+    records: {
+        0x5fc604da00f502da70bfbc618088c0ce468ec9d18d05540935ae4118e8f50787: {
+            argtypes: [],
+            arguments: [
+                "0x2d418942dce1afa02d0733a2000c71b371a6ac07",
+                "0xdac22230adfe4601f00631eae92df6d77f054891"
             ],
-            "constructor":"Record"
+            constructor: "Record"
         }
     }
 }
+}
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
-
-### Get the resolver contract substate
-
-Resolver contract is the one who contains all possible records that has been stored under the domain, so all what we need to do is to repeat the api call with slightly different **params** and a different **contractAddress**.
 
 {% hint style="info" %}
-Every field should stay the same, only params are allowed to be changed for a successfull call
+Order is very important, as the first address in the arguments array is the owner address and the second one is a resolver contract address
 {% endhint %}
 
-{% api-method method="post" host="https://api.zilliqa.com" path="/" %}
-{% api-method-summary %}
-Fetch domain records
-{% endapi-method-summary %}
+{% hint style="warning" %}
+Make sure to display your user an appropriate error if an owner address is not set. This means that the domain is not registered under any user and is free to be taken. 
+{% endhint %}
 
-{% api-method-description %}
-For params you will need to pass an array containing three values:  
-  
-\* contractAddress -&gt; **resolverContract address from the previous step  
-\*** contractField -&gt; **records  
-\*** array of keys -&gt; **\[ \] empty array**
-{% endapi-method-description %}
+### Fetching the domain records
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-headers %}
-{% api-method-parameter name="Content-type" type="string" required=true %}
-application/json
-{% endapi-method-parameter %}
-{% endapi-method-headers %}
+As the last step we are going to make use of fetchZilliqa again, only this time we will change our params to contain the resolver address and for the state key we will pass an empty array
 
-{% api-method-body-parameters %}
-{% api-method-parameter name="params" type="string" required=true %}
-Array of params, order is importand!  
-contractAddress, contractField, \[keys\]
-{% endapi-method-parameter %}
+```javascript
+const records = await fetchZilliqa([
+    resolverAddress.replace("0x", ""),
+    "records",
+    []
+  ]);
+  console.log(records.result.records);
+```
 
-{% api-method-parameter name="method" type="string" required=true %}
-"GetSmartContractSubState"
-{% endapi-method-parameter %}
+{% hint style="danger" %}
+**It is very important to remove the leading 0x from the contract address**
+{% endhint %}
 
-{% api-method-parameter name="id" type="string" required=true %}
-"1"
-{% endapi-method-parameter %}
+We should get an object printed on our console with all the keys registered under the domain.
 
-{% api-method-parameter name="jsonrpc" type="string" required=true %}
-"2.0"
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
-```typescript
+```javascript
 {
-"id":"1",
-"jsonrpc":"2.0",
-"result":{
-    "records":{
-        "crypto.ETH.address":"0xe7474D07fD2FA286e7e0aa23cd107F8379085037",
-        "ipfs.html.value":"QmQ38zzQHVfqMoLWq2VeiMLHHYki9XktzXxLYTWXt8cydu",
-        "whois.email.value":"jeyhunt@gmail.com"
-        }
-    }
+"crypto.BCH.address": "qrq4sk49ayvepqz7j7ep8x4km2qp8lauvcnzhveyu6",
+"crypto.BTC.address": "1EVt92qQnaLDcmVFtHivRJaunG2mf2C3mB",
+"crypto.DASH.address": "XnixreEBqFuSLnDSLNbfqMH1GsZk7cgW4j",
+"crypto.ETH.address": "0x45b31e01AA6f42F0549aD482BE81635ED3149abb",
+"crypto.LTC.address": "LetmswTW3b7dgJ46mXuiXMUY17XbK29UmL",
+"crypto.XMR.address": "447d7TVFkoQ57k3jm3wGKoEAkfEym59mK96Xw5yWamDNFGaLKW5wL2qK5RMTDKGSvYfQYVN7dLSrLdkwtKH3hwbSCQCu26d",
+"crypto.ZEC.address": "t1h7ttmQvWCSH1wfrcmvT4mZJfGw2DgCSqV",
+"crypto.ZIL.address": "zil1yu5u4hegy9v3xgluweg4en54zm8f8auwxu0xxj",
+"ipfs.html.value": "QmVaAtQbi3EtsfpKoLzALm6vXphdi2KjMgxEDKeGg6wHuK",
+"ipfs.redirect_domain.value": "www.unstoppabledomains.com",
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+
+Congratulation, you have successfully resolved a .zil domain using nothing but some HTML and js. 
