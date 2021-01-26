@@ -79,7 +79,6 @@ Don't forget to add the js-sha256 library to the project in order to use the sha
 {% endhint %}
 
 ```javascript
-// <!-------> Namehashing functions <!------->
 function namehash(domain) {
     const parent =
       '0000000000000000000000000000000000000000000000000000000000000000';
