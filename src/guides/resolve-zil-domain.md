@@ -27,27 +27,25 @@ Let's use some blank HTML page. We have connected our empty index.js as well as 
 ```markup
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Basic .zil integration</title>
-    </head>
-    <body>
-
-      <script 
-        src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js" 
-        integrity="sha512-szJ5FSo9hEmXXe7b5AUVtn/WnL8a5VofnFeYC2i2z03uS2LhAch7ewNLbl5flsEmTTimMN0enBZg/3sQ+YOSzQ==" 
-        crossorigin="anonymous"></script>
-
-      <script src="index.js"></script>
-    </body>
+  <head>
+      <meta charset="utf-8">
+      <title>Basic .zil integration</title>
+  </head>
+  <body>
+    <script 
+      src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js" 
+      integrity="sha512-szJ5FSo9hEmXXe7b5AUVtn/WnL8a5VofnFeYC2i2z03uS2LhAch7ewNLbl5flsEmTTimMN0enBZg/3sQ+YOSzQ==" 
+      crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+  </body>
 </html>
 ```
 
 Don't forget to add an input field and a button that will trigger the resolution process
 
 ```markup
-      <input id="input" />
-      <button onclick="resolve()">Resolve</button>
+  <input id="input" />
+  <button onclick="resolve()">Resolve</button>
 ```
 
 #### As for our index.js file
@@ -67,17 +65,13 @@ async function resolve() {
 Namehashing is an algorithm that converts a domain name in a classical format \(like example.crypto\) to a token id that Zilliqa contract can understand. 
 
 {% hint style="warning" %}
-It is important to know the difference between Zilliqa namehashing and [ERC-721](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-137.md#namehash-algorithm) which is a part of [EIP-137](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-137.md).
+It is important to know the difference between Zilliqa namehashing and [EIP-137](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-137.md#namehash-algorithm).
 In ZIL we use **sha256 from SHA-2**, instead of **keccak256** which is used across Ethereum chain
 {% endhint %}
 
 To do so we need to split the domain by "." character to get each label and then reduce the label's array with a sha256 hashing of an accumulator and next label starting from the end. 
 
 For the purposes of keeping this tutorial short, instead of going into the details of this process, we are going to use the namehash function with some adaptation to the hashing library
-
-{% hint style="info" %}
-Don't forget to add the js-sha256 library to the project in order to use the sha256 function. 
-{% endhint %}
 
 ```javascript
 // <!-------> Namehashing functions <!------->
@@ -121,7 +115,7 @@ namehash takes a string domain, splits it by the '.' and then applies a childhas
 {% hint style="info" %}
 shaWrapper function is needed to convert the string into an array of hex values. This step is required when we concatenate sha256 of accumulated results with the sha256 of the next label. 
 
-Some hashing libraries like`hash.js`has the functionality to take input as a hex value instead of a character string. In this case, the shaWrapper function can be omitted. 
+Some hashing libraries like `hash.js` has the functionality to take input as a hex value instead of a character string. In this case, the shaWrapper function can be omitted. 
 {% endhint %}
 
 Below you can find a table of some examples for namehashing
@@ -182,20 +176,20 @@ Calling fetchZilliqa with namehash of brad.zil returns us the following:
 
 ```javascript
 {
-id: "1"
-jsonrpc: "2.0"
-result: {
+  id: "1"
+  jsonrpc: "2.0"
+  result: {
     records: {
-        0x5fc604da00f502da70bfbc618088c0ce468ec9d18d05540935ae4118e8f50787: {
-            argtypes: [],
-            arguments: [
-                "0x2d418942dce1afa02d0733a2000c71b371a6ac07",
-                "0xdac22230adfe4601f00631eae92df6d77f054891"
-            ],
-            constructor: "Record"
-        }
+      0x5fc604da00f502da70bfbc618088c0ce468ec9d18d05540935ae4118e8f50787: {
+        argtypes: [],
+          arguments: [
+              "0x2d418942dce1afa02d0733a2000c71b371a6ac07",
+              "0xdac22230adfe4601f00631eae92df6d77f054891"
+          ],
+        constructor: "Record"
+      }
     }
-}
+  }
 }
 ```
 
