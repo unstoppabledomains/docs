@@ -67,7 +67,7 @@ Namehashing is an algorithm that converts a domain name in a classical format \(
 
 {% hint style="warning" %}
 It is important to know the difference between Zilliqa namehashing and [ERC-721](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-137.md#namehash-algorithm) which is a part of [EIP-137](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-137.md).
-In ZIL we use **sha256 from SHA-2**, instead of **keccak256** which is used across Ethereum chain
+In ZIL we use **sha256 from SHA-2**, instead of **keccak256**, which is used across Ethereum.
 {% endhint %}
 
 To do so we need to split the domain by "." character to get each label and then reduce the label's array with a sha256 hashing of an accumulator and next label starting from the end. 
