@@ -1,5 +1,5 @@
 ---
-description: Simplest step-by-step guide on how to resolve .zil domain
+description: A step-by-step guide on how to resolve .zil domains
 ---
 
 # Resolve a .zil domain
