@@ -72,7 +72,7 @@ In ZIL we use **sha256 from SHA-2**, instead of **keccak256**, which is used acr
 
 To do so we need to split the domain by "." character to get each label and then reduce the label's array with a sha256 hashing of an accumulator and next label starting from the end. 
 
-For the purposes of keeping this tutorial short, instead of going into the details of this process, we are going to use the namehash function with some adaptation to the hashing library
+For the purposes of keeping this tutorial short, instead of going into the details of this process, we are going to use the namehash function with some adaptation to the hashing library.
 
 {% hint style="info" %}
 Don't forget to add the js-sha256 library to the project in order to use the sha256 function. 
