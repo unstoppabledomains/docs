@@ -55,7 +55,6 @@ Don't forget to add an input field and a button that will trigger the resolution
 We are going to put some basic code to capture the text from the input field and print it in our console
 
 ```javascript
-// <!-------> Resolving domain <!------->
 async function resolve() {
   const userInput = document.getElementById("input").value;
   console.log({ domain: userInput });
