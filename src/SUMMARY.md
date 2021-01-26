@@ -27,7 +27,7 @@
 
 - [Getting started](integrations/getting-started.md)
 - [Get test domain](integrations/get-test-domain.md)
-- [Resolve .crypto domain](integrations/resolve-crypto-domain.md)
+- [Resolve .crypto domain](guides/resolve-crypto-domain.md)
 ---
 
 - [Website API reference](https://apidocs.unstoppabledomains.com/)
