@@ -64,7 +64,7 @@ async function resolve() {
 
 ### Taking a namehash
 
-Namehashing is an algorithm that converts a domain name in a classical format \(like www.example.crypto\) to a token id that Zilliqa contract can understand. 
+Namehashing is an algorithm that converts a domain name in a classical format \(like example.crypto\) to a token id that Zilliqa contract can understand. 
 
 {% hint style="warning" %}
 It is important to know the difference between Zilliqa namehashing and [ERC-721](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-137.md#namehash-algorithm) which is a part of [EIP-137](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-137.md).
