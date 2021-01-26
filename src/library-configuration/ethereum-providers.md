@@ -24,7 +24,7 @@ import UnstoppableDomainsResolution
 
 ### Infura
 
-[Infura]("https://infura.io") is a popular Ethereum node service. Obtaining an API key is free and only requires creating an account.
+[Infura](https://infura.io/) is a popular Ethereum node service. Obtaining an API key is free and only requires creating an account.
 
 Javascript:
 
@@ -85,7 +85,7 @@ const resolution = Resolution.fromWeb3Version1Provider(web3Provider);
 
 ### EthersProvider
 
-Connect a ethers provider from [ethers.js]('https://www.npmjs.com/package/ethers')
+Connect a ethers provider from [ethers.js](https://npmjs.com/package/ethers)
 
 Javascript:
 
