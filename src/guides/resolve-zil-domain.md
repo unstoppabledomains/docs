@@ -6,6 +6,8 @@ description: Simplest step-by-step guide on how to resolve .zil domain
 
 ## Plan
 
+![Demo](.gitbook/assets/demozil.gif)
+
 In order to resolve a .zil domain, we will need to satisfy three steps below
 * [Get a namehash of a domain](resolve-zil-domain.md#taking-a-namehash)
 * [Get resolver contract address from a domain](resolve-zil-domain.md#getting-resolver-address)
