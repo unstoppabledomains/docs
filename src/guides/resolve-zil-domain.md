@@ -4,6 +4,8 @@ description: Simplest step-by-step guide on how to resolve .zil domain
 
 # Resolve a .zil domain
 
+## Where can I get .zil domain?
+The most simpliest way is to go to [our homepage](https://www.unstoppabledomains.com) and buy one for yourself
 ## Plan
 
 ![Demo](../.gitbook/assets/demozil.gif)
