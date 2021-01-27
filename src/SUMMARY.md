@@ -27,12 +27,7 @@
 
 - [Getting started](integrations/getting-started.md)
 - [Get test domain](integrations/get-test-domain.md)
-
----
-
-## Library configuration
-
-- [Ethereum providers](library-configuration/ethereum-providers.md)
+- [Library configuration](integrations/library-configuration.md)      
 
 ---
 
