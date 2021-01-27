@@ -27,6 +27,7 @@
 
 - [Getting started](integrations/getting-started.md)
 - [Get test domain](integrations/get-test-domain.md)
+- [Library configuration](integrations/library-configuration.md)      
 
 ---
 
@@ -35,4 +36,3 @@
 - [Java Resolution library](https://github.com/unstoppabledomains/resolution-java)
 - [Swift Resolution library](https://github.com/unstoppabledomains/resolution-swift)
 - [Discord community](https://discord.com/invite/b6ZVxSZ9Hn)
-

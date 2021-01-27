@@ -61,7 +61,7 @@ Domain resolution configuration at a low level requires 3 configuration paramete
 - Ethereum CHAIN ID
 - Crypto Registry Contract Address
 
-Ethereum JSON RPC provider is an API implementing the Ethereum JSON RPC standard. Usually, it is given in a form of an HTTP API endpoint. However, other forms may exist if the Ethereum node is launched locally. Unstoppable Domains recommends the [Cloudflare Ethereum Gateway](https://developers.cloudflare.com/distributed-web/ethereum-gateway), an Ethereum node service provider.
+Ethereum JSON RPC provider is an API implementing the Ethereum JSON RPC standard. Usually, it is given in a form of an HTTP API endpoint. However, other forms may exist if the Ethereum node is launched locally. Unstoppable Domains recommends the [Cloudflare Ethereum Gateway](https://developers.cloudflare.com/distributed-web/ethereum-gateway), an Ethereum node service provider. To learn more about providers, see [Nodes and client](https://ethereum.org/en/developers/docs/nodes-and-clients/) and [Nodes as a service](https://ethereum.org/en/developers/docs/nodes-and-clients/nodes-as-a-service/)
 
 Ethereum CHAIN ID is an ID of the Ethereum network a node is connected to. Each RPC provider can only be connected to one network. There is only one production network with CHAIN ID equal to `1` and called `mainnet`. Other networks are only used for testing purposes. See [EIP-155](https://eips.ethereum.org/EIPS/eip-155) for more information. CHAIN ID of an Ethereum node can be determined by calling the [net version method](https://eth.wiki/json-rpc/API#net_version) on JSON RPC which should be used as a default when only JSON RPC provider is given.
 
