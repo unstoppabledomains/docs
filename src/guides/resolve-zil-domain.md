@@ -1,8 +1,8 @@
 ---
-description: Simplest step-by-step guide on how to resolve .zil domain
+description: A step-by-step guide on how to resolve .zil domains
 ---
 
-# .zil Integration
+# Resolve a .zil domain
 
 In order to resolve a .zil domain, we will need to satisfy three steps below
 
@@ -22,9 +22,9 @@ cd unstoppable-zil-resolution
 touch index.html index.js
 ```
 
-Let's use some blank HTML page. We have connected our empty index.js as well as a CDN library of [**js-sha256**](https://www.npmjs.com/package/js-sha256?utm_source=cdnjs&utm_medium=cdnjs_link&utm_campaign=cdnjs_library) for future namehashing step.
+Let's create a blank HTML page. We have connected our empty index.js as well as a CDN library of [**js-sha256**](https://www.npmjs.com/package/js-sha256) for future namehashing step.
 
-```markup
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -53,7 +53,6 @@ Don't forget to add an input field and a button that will trigger the resolution
 We are going to put some basic code to capture the text from the input field and print it in our console
 
 ```javascript
-// <!-------> Resolving domain <!------->
 async function resolve() {
   const userInput = document.getElementById("input").value;
   console.log({ domain: userInput });
@@ -71,10 +70,9 @@ In ZIL we use **sha256 from SHA-2**, instead of **keccak256** which is used acro
 
 To do so we need to split the domain by "." character to get each label and then reduce the label's array with a sha256 hashing of an accumulator and next label starting from the end. 
 
-For the purposes of keeping this tutorial short, instead of going into the details of this process, we are going to use the namehash function with some adaptation to the hashing library
+For the purposes of keeping this tutorial short, instead of going into the details of this process, we are going to use the namehash function with some adaptation to the hashing library.
 
 ```javascript
-// <!-------> Namehashing functions <!------->
 function namehash(domain) {
     const parent =
       '0000000000000000000000000000000000000000000000000000000000000000';
@@ -233,6 +231,27 @@ We should get an object printed on our console with all the keys registered unde
 "ipfs.html.value": "QmVaAtQbi3EtsfpKoLzALm6vXphdi2KjMgxEDKeGg6wHuK",
 "ipfs.redirect_domain.value": "www.unstoppabledomains.com",
 }
+```
+
+Lets display the results on our main page:
+
+```javascript
+  const mainContainer = document.getElementById('main');
+
+  const ownerRecord = document.createElement('span');
+  ownerRecord.innerHTML = `ownerAddress: ${ownerAddress}`;
+
+  const resolverRecord = document.createElement('span');
+  resolverRecord.innerHTML = `resolverAddress: ${resolverAddress}`;
+
+  mainContainer.appendChild(ownerRecord);
+  mainContainer.appendChild(resolverRecord);
+
+  Object.entries(records.result.records).map(([key, value]) => {
+    const recordSpan = document.createElement('span');
+    recordSpan.innerHTML = `${key} : ${value}`;
+    mainContainer.appendChild(recordSpan);
+  });
 ```
 
 Congratulation, you have successfully resolved a .zil domain using nothing but some HTML and js. 
