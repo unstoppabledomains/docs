@@ -52,7 +52,7 @@ const resolution = Resolution.fromWeb3Version1Provider(web3Provider);
 
 ### Ethers provider
 
-Connect a provider from [ethers.js]('https://www.npmjs.com/package/ethers')
+Connect a provider from [ethers.js](https://www.npmjs.com/package/ethers)
 
 ```javascript
 import Resolution from "@unstoppabledomains/resolution";
