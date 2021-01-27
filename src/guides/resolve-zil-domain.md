@@ -23,6 +23,16 @@ mkdir unstoppable-zil-resolution
 cd unstoppable-zil-resolution
 npm init
 npm install hash.js
+touch index.ts index.html
+
+
+.
+├── README.md
+├── index.html
+├── index.ts
+├── node_modules
+├── package.json
+
 ```
 
 Now open **package.json** and configure run scripts for us
