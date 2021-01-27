@@ -22,6 +22,8 @@ cd unstoppable-zil-resolution
 touch index.html index.js
 ```
 
+#### index.html
+
 Let's create a blank HTML page. We have connected our empty index.js as well as a CDN library of [**js-sha256**](https://www.npmjs.com/package/js-sha256) for future namehashing step.
 
 ```html
@@ -29,7 +31,7 @@ Let's create a blank HTML page. We have connected our empty index.js as well as 
 <html lang="en">
   <head>
       <meta charset="utf-8">
-      <title>Basic .zil integration</title>
+      <title>Resolve .zil domain</title>
   </head>
   <body>
     <script 
@@ -41,14 +43,33 @@ Let's create a blank HTML page. We have connected our empty index.js as well as 
 </html>
 ```
 
-Don't forget to add an input field and a button that will trigger the resolution process
+Don't forget to add an input field and a button that will trigger the resolution process, as well as a div container to hold the results
 
-```markup
-  <input id="input" />
-  <button onclick="resolve()">Resolve</button>
+```html
+  <!-- index.html -->
+<body>
+  <div id="main" style="
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  ">
+    <input id="input" />
+    <button onclick="resolve()">Resolve</button>
+    <div id="records" style="
+      display: flex;
+      flex-direction: column;
+    "></div>
+  </div>
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js" 
+        integrity="sha512-szJ5FSo9hEmXXe7b5AUVtn/WnL8a5VofnFeYC2i2z03uS2LhAch7ewNLbl5flsEmTTimMN0enBZg/3sQ+YOSzQ==" 
+        crossorigin="anonymous">
+    </script>
+    <script src="index.js"></script>
+</body>
 ```
 
-#### As for our index.js file
+#### index.js
 
 We are going to put some basic code to capture the text from the input field and print it in our console
 
@@ -232,6 +253,8 @@ We should get an object printed on our console with all the keys registered unde
 "ipfs.redirect_domain.value": "www.unstoppabledomains.com",
 }
 ```
+For reference to standa
+
 
 Lets display the results on our main page:
 
@@ -253,5 +276,9 @@ Lets display the results on our main page:
     mainContainer.appendChild(recordSpan);
   });
 ```
+
+### Playground
+{% embed url="https://codepen.io/johnnyjumper/pen/PoGMJJm" %}
+
 
 Congratulation, you have successfully resolved a .zil domain using nothing but some HTML and js. 
