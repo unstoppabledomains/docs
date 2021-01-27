@@ -6,7 +6,7 @@ description: Simplest step-by-step guide on how to resolve .zil domain
 
 ## Plan
 
-![Demo](.gitbook/assets/demozil.gif)
+![Demo](../.gitbook/assets/demozil.gif)
 
 In order to resolve a .zil domain, we will need to satisfy three steps below
 * [Get a namehash of a domain](resolve-zil-domain.md#taking-a-namehash)
@@ -310,7 +310,7 @@ function displayResolution(resolution: Resolution) {
 
 We should see something like following on successful resolution
 
-![Screenshot](.gitbook/assets/screen-shot-2021-01-26-at-10.33.11-pm.png)
+![Screenshot](../.gitbook/assets/screen-shot-2021-01-26-at-10.33.11-pm.png)
 
 ### Error handling
 
@@ -413,4 +413,4 @@ _You  can check it with the domain: **paulalcock.zil**_
 
 By this moment you can successfully resolve any .zil domain and show an appropriate error message for your users.
 
-![Example without BTC address](.gitbook/assets/screen-shot-2021-01-26-at-10.53.37-pm.png)
+![Example without BTC address](../.gitbook/assets/screen-shot-2021-01-26-at-10.53.37-pm.png)
