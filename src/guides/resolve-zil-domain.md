@@ -296,7 +296,9 @@ Make sure to display your user an appropriate error if an owner address is not s
 
 ## Fetching the domain records
 
-As the last step we are going to make use of fetchZilliqa again, only this time we will change our params to contain the **resolver address** and for the state keys we will pass an empty array
+After we verified that domain has owner address and got it's resolver contract address we are going to query the second one again for it's records.
+
+Make use of fetchZilliqa again, only this time change params to contain the **resolver address** and for the state keys we will pass an empty array
 
 ```typescript
 // index.ts resolve function
@@ -309,7 +311,8 @@ const records = await fetchZilliqa([
 ```
 
 {% hint style="danger" %}
-**It is very important to remove the leading 0x from the contract address**
+**It is very important to remove the leading 0x from the contract address
+Otherwise the contract won't be found and you will get an error**
 {% endhint %}
 
 We should get an object printed on our console with all the keys registered under the domain. Let's test it out with domain _**brad.zil**_**.** As the result, you should get something similar to the following 
