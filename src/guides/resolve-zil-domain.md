@@ -391,11 +391,12 @@ function displayError(message, cleanDom) {
 ```
 
 Errors that can happen are 
-
-* **Domain is not registered** -&gt; Happens when we couldn't get the owner address
-* **Domain is not supported** -&gt; When we trying to resolve a domain that doesn't end with .zil
-* **Domain is not configured** -&gt; It is possible the owner has claimed the domain but the resolver contract wasn't configured \(meaning it has the owner address and doesn't have the resolver address attached\) 
-* **Record is not found** -&gt; This can be useful if you are querying domain for specific records and it is null
+| Error | Thrown when |
+| :--- | :--- |
+| **Domain is not registered** | We couldn't get the owner address |
+| **Domain is not supported** | We are trying to resolve a domain that doesn't ends with .zil |
+| **Domain is not configured** | It is possible that owner address exists while resolver address is set to `0x00000000000000000000000000000000` |
+| **Record is not found** | This can be useful if you are querying domain for specific records like `crypto.BTC.address` and domain doesn't have it configured |
 
 Although any string can be stored as a key under the domain, Unstoppable domains [standardized some of the keys](https://docs.unstoppabledomains.com/domain-registry-essentials/records-reference) across many applications.   
 
