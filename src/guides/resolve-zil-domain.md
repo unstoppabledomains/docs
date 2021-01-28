@@ -336,28 +336,23 @@ We should get an object printed on our console with all the keys registered unde
 
 We are not going to do anything fancy, only create a span element for each of the records containing key and value as well as owner address and resolver address. 
 
-```typescript
-// index.ts
+#### index.js
+```javascript
 function cleanDOM(parent) {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   }
 }
 
-type Resolution = {
-  resolverAddress: string,
-  ownerAddress: string,
-  records: {
-    [key in string]: string}
-  };
 
-function displayResolution(resolution: Resolution) {
+function displayResolution(resolution) {
   const {ownerAddress, resolverAddress, records} = resolution;
   const mainContainer = document.getElementById('records');
-
   cleanDOM(mainContainer);
+
   const ownerRecord = document.createElement('span');
   ownerRecord.innerHTML = `ownerAddress: ${ownerAddress}`;
+
   const resolverRecord = document.createElement('span');
   resolverRecord.innerHTML = `resolverAddress: ${resolverAddress}`;
 
@@ -380,9 +375,9 @@ We should see something like following on successful resolution
 
 Now that we have made a successful call let's deal with all possible errors that could happen during the resolution. For this purposes, we are going to create a function that will place an error in our records div
 
-```typescript
-// index.ts
-function displayError(message: string, cleanDom?: boolean) {
+#### index.js
+```javascript
+function displayError(message, cleanDom) {
   const mainContainer = document.getElementById('records');
   if (cleanDom) {
     cleanDOM(mainContainer);
@@ -406,21 +401,50 @@ Although any string can be stored as a key under the domain, Unstoppable domains
 
 For the record is not found error message we are going to check if the domain has a BTC address and if not we will show the error without cleaning the entire DOM  
 
-```typescript
-type Resolution = {
-  resolverAddress: string,
-  ownerAddress: string,
-  records: {
-    [key in string]: string}
-  };
+#### index.js resolve function
+```javascript
 
-function displayResolution(resolution: Resolution) {
+async function resolve() {
+  const userInput = (document.getElementById("input")).value;
+  if (!userInput.endsWith(".zil")) {
+    displayError('domain is not supported');
+    return ;
+  }
+
+  const hash = namehash(userInput);  
+  const contractAddresses = await fetchZilliqa([UD_REGISTRY_CONTRACT_ADDRESS, "records", [hash]]);
+  console.log(contractAddresses);
+  if (contractAddresses.result == null) {
+    displayError('domain is not registered', true);
+    return ;
+  }
+  console.log(contractAddresses);
+  const [ownerAddress, resolverAddress] = await contractAddresses.result.records[hash].arguments;
+
+  if (resolverAddress === "0x0000000000000000000000000000000000000000") {
+    displayError('domain is not configured', true);
+    return ;
+  }
+
+  const records = await fetchZilliqa([
+    resolverAddress.replace("0x", ""),
+    "records",
+    []
+  ]).then(data => (data.result.records));
+  
+  displayResolution({resolverAddress, ownerAddress, records});
+}
+```
+#### index.js display resolution function
+```javascript
+function displayResolution(resolution) {
   const {ownerAddress, resolverAddress, records} = resolution;
   const mainContainer = document.getElementById('records');
-  
   cleanDOM(mainContainer);
+
   const ownerRecord = document.createElement('span');
   ownerRecord.innerHTML = `ownerAddress: ${ownerAddress}`;
+
   const resolverRecord = document.createElement('span');
   resolverRecord.innerHTML = `resolverAddress: ${resolverAddress}`;
 
@@ -436,36 +460,6 @@ function displayResolution(resolution: Resolution) {
   if (!records['crypto.BTC.address']) {
     displayError('crypto.BTC.address: Record is not found', false);
   }
-}
-
-async function resolve() {
-  const userInput = (<HTMLInputElement>document.getElementById("input")).value;
-  if (!userInput.endsWith(".zil")) {
-    displayError('domain is not supported');
-    return ;
-  }
-
-  const hash = namehash(userInput);  
-  const contractAddresses = await fetchZilliqa([UD_REGISTRY_CONTRACT, "records", [hash]]);
-  
-  if (contractAddresses.result == null) {
-    displayError('domain is not registered', true);
-    return ;
-  }
-  const [ownerAddress, resolverAddress] = await contractAddresses.result.records[hash].arguments;
-
-  if (resolverAddress === "0x0000000000000000000000000000000000000000") {
-    displayError('domain is not configured', true);
-    return ;
-  }
-
-  const records = await fetchZilliqa([
-    resolverAddress.replace("0x", ""),
-    "records",
-    []
-  ]).then(data => (data.result.records));
-  
-  displayResolution({resolverAddress, ownerAddress, records});
 }
 ```
 
