@@ -264,8 +264,7 @@ async function resolve() {
   
 }
 ```
-
-Calling fetchZilliqa with namehash of _**brad.zil**_ returns us the following:
+**fetchZilliqa("brad.zil")** returns following:
 
 ```javascript
 {
@@ -311,8 +310,7 @@ const records = await fetchZilliqa([
 ```
 
 {% hint style="danger" %}
-**It is very important to remove the leading 0x from the contract address
-Otherwise the contract won't be found and you will get an error**
+**It is very important to remove the leading 0x from the contract address, requirement of Zilliqa Blockchain API**
 {% endhint %}
 
 We should get an object printed on our console with all the keys registered under the domain. Let's test it out with domain _**brad.zil**_**.** As the result, you should get something similar to the following 
@@ -398,9 +396,9 @@ Errors that can happen are
 | **Domain is not configured** | It is possible that owner address exists while resolver address is set to `0x00000000000000000000000000000000` |
 | **Record is not found** | This can be useful if you are querying domain for specific records like `crypto.BTC.address` and domain doesn't have it configured |
 
-Although any string can be stored as a key under the domain, Unstoppable domains [standardized some of the keys](https://docs.unstoppabledomains.com/domain-registry-essentials/records-reference) across many applications.   
+Although any string can be stored as a key under the domain, Unstoppable domains has [standardized some of the keys](domain-registry-essentials/records-reference.md) across many applications.   
 
-For the record is not found error message we are going to check if the domain has a BTC address and if not we will show the error without cleaning the entire DOM  
+For the **record is not found** error message we are going to check if the domain has a BTC address and if not we will show the error without cleaning the entire DOM  
 
 #### index.js resolve function
 ```javascript
@@ -470,6 +468,12 @@ If domain doesn't have a resolver address it will be set as **"0x000000000000000
 _You  can check it with the domain: **paulalcock.zil**_
 {% endhint %}
 
-By this moment you can successfully resolve any .zil domain and show an appropriate error message for your users.
+By this moment you can successfully resolve any .zil domain and show an appropriate error message for your users. 
+
+Use defined earlier `yarn dev` to kickstart the dev server and play with the app or build your app for future release `yarn build`
+
+You can check out the source code from [github](https://github.com/unstoppable-domains-integrations/zil-Integration)
+
+[![Get help on Discord](https://img.shields.io/badge/Get%20help%20on-Discord-blueviolet)](https://discord.gg/b6ZVxSZ9Hn)
 
 ![Example without BTC address](../.gitbook/assets/screen-shot-2021-01-26-at-10.53.37-pm.png)
