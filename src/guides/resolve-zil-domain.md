@@ -10,7 +10,7 @@ The most simpliest way is to go to [Unstoppable Domains website](https://www.uns
 
 ![Demo](../.gitbook/assets/demozil.gif)
 
-
+* [Initialize the project folder](resolve-zil-domain.md#initialize-the-project-folder)
 * [Get a namehash of a domain](resolve-zil-domain.md#taking-a-namehash)
 * [Get resolver contract address from a domain](resolve-zil-domain.md#getting-resolver-address)
 * [Query resolver contract to fetch the records](resolve-zil-domain.md#fetching-the-domain-records)
@@ -73,7 +73,9 @@ Resulted **package.json** should look like this
 }
 ```
 
-As our next step, let's create a blank HTML page. Create **index.html**, feel free to use the following code
+As our next step, let's open our HTML page and add some boilerplate code.
+
+#### index.html
 
 ```markup
 <!DOCTYPE html>
@@ -100,16 +102,38 @@ As our next step, let's create a blank HTML page. Create **index.html**, feel fr
 </html>
 ```
 
-Shortly it is blank html document with a single div element in the body. It contains input for the user, button to trigger the resolution, and another div for displaying the results
+<sup>Shortly it is simple html document with a single div element in the body. It contains input field for our user, button to trigger the resolution, and another div for displaying the results</sup>
 
 ### Add some javascript
 
-Create file index.ts. We are going to define and attach a function to our HTML button under `code id="button"` 
+Create file **index.js**. Let's import our hash library for future encoding and defines some constants. 
 
-```typescript
-// index.ts
+**ZILLIQA_API** is an official zilliqa endpoint which serves us an entry point to zilliqa blockchain.
+**UD_REGISTRY_CONTRACT_ADDRESS** Very self-explanatory.
+
+What is registry contract will be discussed later in the guide.
+
+#### index.js
+```javascript
+import hash from 'hash.js';
+
+const ZILLIQA_API = "https://api.zilliqa.com/";
+const UD_REGISTRY_CONTRACT_ADDRESS = "9611c53BE6d1b32058b2747bdeCECed7e1216793";
+
+```
+
+Next, we need to define and attach a function **resolve** to our HTML button under `id="button"`.
+
+We start writing this function by simply taking our input from the text field and preparing to handle incorrect domain. We will comeback for [error handling](resolve-zil-domain.md#error-handling) later  
+
+{% hint style="warning" %}
+Any domain that doesn't ends with **.zil** is out of scope of this article.
+{% endhint }
+
+#### index.js
+```javascript
 async function resolve() {
-  const userInput = (<HTMLInputElement>document.getElementById("input")).value;
+  const userInput = (document.getElementById("input")).value;
   if (!userInput.endsWith(".zil") {
     // placeholder for future error handling
     return ;
@@ -121,17 +145,17 @@ document.getElementById("button").addEventListener('click', () => resolve());
 
 ## Taking a namehash
 
-Namehashing is an algorithm that tokenize your domain name in a manner that Zilliqa contract can understand.
+Namehashing is an algorithm that tokenize your domain name in a way that Zilliqa smart contract can understand.
 
 {% hint style="warning" %}
-It is essential to know the difference between Zilliqa namehashing and [EIP-137](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-137.md#namehash-algorithm). In ZIL we use **sha256 from SHA-2**, instead of **keccak256** which is used across the Ethereum chain
+It is essential to know the difference between Zilliqa namehashing and [EIP-137](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-137.md#namehash-algorithm). In ZIL we use **sha256 from SHA-2**, instead of **keccak256** which is used across the Ethereum
 {% endhint %}
 
 To tokenize our domain we need to split it by the "." character into separate labels, reverse the array, and reduce it to a single hash using a childhash function. Childhash function generates a hash of the current label, concatenates it with the parent, and hashes the result as a hex value. As our first parent, we take a string of **64 zeros**
 
+#### index.js
 ```javascript
-// index.ts
-function namehash(domain: string) {
+function namehash(domain) {
   const parent =
     '0000000000000000000000000000000000000000000000000000000000000000';
   return '0x' + [parent]
@@ -145,13 +169,13 @@ function namehash(domain: string) {
     );
 }
 
-function childhash(parentHash: string, label: string): string {
+function childhash(parentHash, label) {
     parentHash = parentHash.replace(/^0x/, '');
     const labelHash = sha256(label)
     return sha256(parentHash + labelHash, "hex");
 }
 
-function sha256(message: string, inputEnc?: "hex"): string {
+function sha256(message, inputEnc) {
   return hash.sha256()
     .update(message, inputEnc)
     .digest('hex');
@@ -179,8 +203,6 @@ While the owner's address is pretty self-explanatory, the resolver contract addr
 Bellow is the function to make a JSON-RPC POST API request to Zilliqa blockchain using their gateway.
 
 ```typescript
-// index.ts
-const ZILLIQA_API = "https://api.zilliqa.com/";
 
 async function fetchZilliqa(params: [string, string, string[]]) {
   const body = {
@@ -205,8 +227,6 @@ The only parameter that is going to be changed is the params field which is noth
 Let's update our resolve function and use the **fetchZilliqa** function with the following params
 
 ```typescript
-// index.ts
-const UD_REGISTRY_CONTRACT = "9611c53BE6d1b32058b2747bdeCECed7e1216793";
 
 async function resolve() {
   const userInput = document.getElementById("input").value;
@@ -216,7 +236,7 @@ async function resolve() {
   }
   const hash = namehash(userInput);
   const contractAddresses = 
-    await fetchZilliqa([UD_REGISTRY_CONTRACT, "records", [hash]]);
+    await fetchZilliqa([UD_REGISTRY_CONTRACT_ADDRESS, "records", [hash]]);
     
   if (contractAddress.result === null) {
     // placeholder for future error handeling
