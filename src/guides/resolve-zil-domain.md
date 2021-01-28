@@ -5,12 +5,12 @@ description: Simplest step-by-step guide on how to resolve .zil domain
 # Resolve a .zil domain
 
 ## Where can I get .zil domain?
-The most simpliest way is to go to [our homepage](https://www.unstoppabledomains.com) and buy one for yourself
-## Plan
+The most simpliest way is to go to [Unstoppable Domains website](https://www.unstoppabledomains.com) and buy one for yourself
+## Table of contents
 
 ![Demo](../.gitbook/assets/demozil.gif)
 
-In order to resolve a .zil domain, we will need to satisfy three steps below
+
 * [Get a namehash of a domain](resolve-zil-domain.md#taking-a-namehash)
 * [Get resolver contract address from a domain](resolve-zil-domain.md#getting-resolver-address)
 * [Query resolver contract to fetch the records](resolve-zil-domain.md#fetching-the-domain-records)
