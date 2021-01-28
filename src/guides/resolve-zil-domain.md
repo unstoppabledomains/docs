@@ -18,20 +18,26 @@ The most simpliest way is to go to [Unstoppable Domains website](https://www.uns
 * [Error handling](resolve-zil-domain.md#error-handling)
 
 ## Initialize the project folder
+#### Dependencies
+We are going to build the project using [parcel.js](https://parceljs.org/), a very intuitive and simple bundler for fast development
 
-We are going to build the project using [parcel.js](https://parceljs.org/) as it allows us to include cryptographic library [hash.js](https://www.npmjs.com/package/hash.js/v/1.1.7) for encoding the domain in the future and typescript supports from the start. For now, let's open a terminal and initialize the project.
+For this project we will need [hash.js](https://www.npmjs.com/package/hash.js/v/1.1.7) for taking sha256 of a domain name
 
-```text
+
+```shell
 npm install -g add parcel-bundler
+
 mkdir unstoppable-zil-resolution
 cd unstoppable-zil-resolution
+
 npm init
 npm install hash.js
+
 touch index.ts index.html
 
 
+Your resulting folder structure should look like this
 .
-├── README.md
 ├── index.html
 ├── index.ts
 ├── node_modules
@@ -39,16 +45,35 @@ touch index.ts index.html
 
 ```
 
-Now open **package.json** and configure run scripts for us
+#### Pakage.json
+
+Now open **package.json** and configure some scripts.
+
+As has been said above, this project is built by utilizing parcel.js. One of the features of which is a development server already prepared for us. We can use it by calling ```parcel <entry file>```
+
+We also need to add a browserslist due to [babel technology](https://flaviocopes.com/parcel-regeneratorruntime-not-defined/) that is used by parcel. 
+
+Resulted **package.json** should look like this
 
 ```javascript
+  {
+  "name": "unstoppable-resolution",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "hash.js": "^1.1.7"
+  },
   "scripts": {
     "dev": "parcel index.html",
     "build": "parcel build index.html"
-  }
+  },
+  "browserslist": [
+    "since 2017-06"
+  ]
+}
 ```
 
-As our next step, let's create a blank HTML page. Create **index.html** and use the following code.
+As our next step, let's create a blank HTML page. Create **index.html**, feel free to use the following code
 
 ```markup
 <!DOCTYPE html>
@@ -75,11 +100,9 @@ As our next step, let's create a blank HTML page. Create **index.html** and use 
 </html>
 ```
 
-{% hint style="info" %}
-Take notice of this line `code <script src="./index.ts"></script>.` Parcel package will automatically convert this line to the js bundle it generates from our code.
-{% endhint %}
+Shortly it is blank html document with a single div element in the body. It contains input for the user, button to trigger the resolution, and another div for displaying the results
 
-### **Create** ~~**index.js**~~  **index.ts**
+### Add some javascript
 
 Create file index.ts. We are going to define and attach a function to our HTML button under `code id="button"` 
 
@@ -98,7 +121,7 @@ document.getElementById("button").addEventListener('click', () => resolve());
 
 ## Taking a namehash
 
-Namehashing is an algorithm that converts a domain name in a classical format \(like example.crypto\) to a token id that Zilliqa contract can understand.
+Namehashing is an algorithm that tokenize your domain name in a manner that Zilliqa contract can understand.
 
 {% hint style="warning" %}
 It is essential to know the difference between Zilliqa namehashing and [EIP-137](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-137.md#namehash-algorithm). In ZIL we use **sha256 from SHA-2**, instead of **keccak256** which is used across the Ethereum chain
