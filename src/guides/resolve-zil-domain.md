@@ -2,13 +2,11 @@
 description: Simplest step-by-step guide on how to resolve .zil domain
 ---
 
-# Resolve a .zil domain
-
-## Where can I get .zil domain?
-The most simpliest way is to go to [Unstoppable Domains website](https://www.unstoppabledomains.com) and buy one for yourself
-## Table of contents
+# How to integrate .zil resolution from scratch
 
 ![Demo](../.gitbook/assets/demozil.gif)
+
+## Table of contents
 
 * [Initialize the project folder](resolve-zil-domain.md#initialize-the-project-folder)
 * [Get a namehash of a domain](resolve-zil-domain.md#taking-a-namehash)
@@ -18,11 +16,13 @@ The most simpliest way is to go to [Unstoppable Domains website](https://www.uns
 * [Error handling](resolve-zil-domain.md#error-handling)
 
 ## Initialize the project folder
-#### Dependencies
-We are going to build the project using [parcel.js](https://parceljs.org/), a very intuitive and simple bundler for fast development
 
-For this project we will need [hash.js](https://www.npmjs.com/package/hash.js/v/1.1.7) for taking sha256 of a domain name
+#### Install dependencies
 
+First, install the project's two dependencies:
+
+1. [parcel.js](https://parceljs.org/) — A simple bundler for fast development
+2. [hash.js](https://www.npmjs.com/package/hash.js/v/1.1.7) — For taking sha256 hashes of a domain name
 
 ```shell
 npm install -g add parcel-bundler
@@ -34,9 +34,11 @@ npm init
 npm install hash.js
 
 touch index.ts index.html
+```
 
+Your folder structure should look like this.
 
-Your resulting folder structure should look like this
+```
 .
 ├── index.html
 ├── index.ts
@@ -45,18 +47,19 @@ Your resulting folder structure should look like this
 
 ```
 
-#### Pakage.json
+#### Create `package.json`
 
-Now open **package.json** and configure some scripts.
+Next, open `package.json` to configure your build scripts.
 
-As has been said above, this project is built by utilizing parcel.js. One of the features of which is a development server already prepared for us. We can use it by calling ```parcel <entry file>```
+As mentioned above, this project uses `parcel.js`. One of the features of which is a built in development server. We can activate this server by calling `parcel <entry file>`
 
-We also need to add a browserslist due to [babel technology](https://flaviocopes.com/parcel-regeneratorruntime-not-defined/) that is used by parcel. 
+Parcel also requires us to add a `browserlist` due to its [babel technology](https://flaviocopes.com/parcel-regeneratorruntime-not-defined/).
 
-Resulted **package.json** should look like this
+The resulting `package.json` file should look like this.
 
 ```javascript
-  {
+// package.json
+{
   "name": "unstoppable-resolution",
   "version": "0.1.0",
   "private": true,
@@ -73,68 +76,74 @@ Resulted **package.json** should look like this
 }
 ```
 
+#### Create `index.html`
+
 As our next step, let's open our HTML page and add some boilerplate code.
 
-#### index.html
-
-```markup
+```html
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Basic .zil integration</title>
-    </head>
-    <body>
-      <div id="main" style="
+
+<head>
+  <meta charset="utf-8">
+  <title>Basic .zil integration</title>
+</head>
+
+<body>
+  <div id="main" style="
         display: flex;
         flex-direction: column;
         height: 100vh;
       ">
-        <input id="input" />
-        <button id="button">Resolve</button>
-        
-        <div id="records" style="display: flex; flex-direction: column;">
+    <input id="input" />
+    <button id="button">Resolve</button>
 
-        </div>
-      </div>
-      <script src="./index.ts"></script>
-  </body>
+    <div id="records" style="display: flex; flex-direction: column;">
+
+    </div>
+  </div>
+  <script src="./index.ts"></script>
+</body>
+
 </html>
 ```
 
-<sup>Shortly it is simple html document with a single div element in the body. It contains input field for our user, button to trigger the resolution, and another div for displaying the results</sup>
+<sup>This is a simple html document with a single div element in the body. It contains input field for our user, a button to trigger the resolution, and another div where we'll display the results.</sup>
 
-### Add some javascript
+### Add javascript to handle our button press and resolution
 
-Create file _index.js_, import our hash library for future encoding, and define some constants. 
+In this section, we'll create a new file, `index.js`, import our hash library for future encoding, and define two constants. 
 
 | constant | description |
 | :--- | :--- |
-| **ZILLIQA_API** | an official zilliqa endpoint which serves us an entry point to zilliqa blockchain |
+| **ZILLIQA_API** | an official Zilliqa endpoint which serves us an entry point to the Zilliqa blockchain |
 | **UD_REGISTRY_CONTRACT_ADDRESS** | Registry address of UD without _0x_ prefix |
 
+We'll discuss the registry contract address later in this guide.
 
-What is registry contract is going to be discussed later in this guide.
+#### Create `index.js`
 
-#### index.js
 ```javascript
+// index.js
 import hash from 'hash.js';
 
 const ZILLIQA_API = "https://api.zilliqa.com/";
 const UD_REGISTRY_CONTRACT_ADDRESS = "9611c53BE6d1b32058b2747bdeCECed7e1216793";
-
 ```
 
-Next, we need to define and attach a function **resolve** to our HTML button under `id="button"`.
+Next, we need to define and attach a function `resolve` to our HTML button under `id="button"`.
 
-We start writing this function by simply taking our input from the text field and preparing to handle incorrect domain. We will comeback for [error handling](resolve-zil-domain.md#error-handling) later  
+We start writing this function by simply taking our input from the text field and preparing to handle an incorrect domain. We will revisit [error handling](resolve-zil-domain.md#error-handling) later in this guide.
 
 {% hint style="warning" %}
-Any domain that doesn't ends with **.zil** is out of scope of this article.
+Any domain that does not end with `.zil` is out of scope for this guide.
 {% endhint }
 
-#### index.js
+#### Add .zil resolution
+
 ```javascript
+// index.js
 import hash from 'hash.js';
 
 const ZILLIQA_API = "https://api.zilliqa.com/";
@@ -144,7 +153,7 @@ async function resolve() {
   const userInput = (document.getElementById("input")).value;
   if (!userInput.endsWith(".zil") {
     // placeholder for future error handling
-    return ;
+    return;
   }
 }
 
@@ -153,24 +162,26 @@ document.getElementById("button").addEventListener('click', () => resolve());
 
 ## Taking a namehash
 
-Namehashing is an algorithm that tokenize your domain name in a way that Zilliqa smart contract can understand.
+Namehashing is an algorithm that tokenizes your domain name in a way that a Zilliqa smart contract can understand.
 
 {% hint style="warning" %}
-It is essential to know the difference between Zilliqa namehashing and [EIP-137](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-137.md#namehash-algorithm). In ZIL we use **sha256 from SHA-2**, instead of **keccak256** which is used across the Ethereum
+It is essential to know the difference between Zilliqa namehashing and [EIP-137](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-137.md#namehash-algorithm). Zilliqa uses **sha256 from SHA-2**, instead of **keccak256** which is more commonly used in Ethereum.
 {% endhint %}
 
-To tokenize our domain we need to split it by the "." character into separate labels, reverse the array, and reduce it to a single hash using a childhash function. Childhash function generates a hash of the current label, concatenates it with the parent, and hashes the result as a hex value. As our first parent, we take a string of **64 zeros**
+To tokenize our domain we need to split it by the "." character into separate labels, reverse the array, and reduce it to a single hash using a childhash function. Childhash generates a hash of the current label, concatenates it with the parent, and hashes the result as a hex value. For our first parent, we'll take a string of **64 zeros**.
 
-#### index.js
+#### Adding a namehash
+
 ```javascript
+// index.js
 function namehash(domain) {
   const parent =
     '0000000000000000000000000000000000000000000000000000000000000000';
   return '0x' + [parent]
     .concat(
       domain
-        .split('.')
-        .reverse()
+      .split('.')
+      .reverse()
     )
     .reduce((parent, label) =>
       childhash(parent, label),
@@ -178,9 +189,9 @@ function namehash(domain) {
 }
 
 function childhash(parentHash, label) {
-    parentHash = parentHash.replace(/^0x/, '');
-    const labelHash = sha256(label)
-    return sha256(parentHash + labelHash, "hex");
+  parentHash = parentHash.replace(/^0x/, '');
+  const labelHash = sha256(label)
+  return sha256(parentHash + labelHash, "hex");
 }
 
 function sha256(message, inputEnc) {
@@ -190,7 +201,7 @@ function sha256(message, inputEnc) {
 }
 ```
 
-Below you can find a table of some examples for namehashing
+Sample namehash outputs
 
 | domain | namehash |
 | :--- | :--- |
@@ -198,23 +209,25 @@ Below you can find a table of some examples for namehashing
 | zil | 0x9915d0456b878862e822e2361da37232f626a2e47505c8795134a95d36138ed3 |
 | brad.zil | 0x5fc604da00f502da70bfbc618088c0ce468ec9d18d05540935ae4118e8f50787 |
 
-## Getting resolver address
+## Getting the resolver address
 
-Our next step is to fetch two very important addresses attached to every unstoppable domain: **owner address** and **resolver contract address**. We can get them by querying [Unstoppable domain registry contract](https://viewblock.io/zilliqa/address/zil1jcgu2wlx6xejqk9jw3aaankw6lsjzeunx2j0jz)
+Our next step is to fetch two very important addresses attached to every Unstoppable Domain: the **owner address** and the **resolver contract address**. We can get them by querying the Unstoppable Domains [registry contract](https://viewblock.io/zilliqa/address/zil1jcgu2wlx6xejqk9jw3aaankw6lsjzeunx2j0jz)
 
-While the owner's address is pretty self-explanatory, the resolver contract address requires some explanation. All unstoppable domains are located across 2 main smart contracts: **Registry** and **Resolver**
+The owner's address, as expected, is the address that owns a domain. The resolver contract address requires a little more explanation. All unstoppable domains are stored using two main smart contracts: a **Registry** contract and a **Resolver** contract.
 
 | contract | explanation |
 | :--- | :--- |
-| Registry contract | Stores owner address and resolver contract address if deployed |
+| Registry contract | Stores the owner's address and a resolver contract address |
 | Resolver contract | Stores all records attached to the domain, such as BTC address or an IPFS website |
 
-So in order to get the BTC address from the domain we will need to query for domain's resolver contract first and after query resolver contract for records.
+So, in order to get the BTC address from a domain we will need two queries. One to check the registry for the appropriate resolver address. And one to check the resolver for the records.
 
-Let's write a function to make a JSON-RPC POST API request to Zilliqa blockchain using their gateway. The function is going to take an array of parameters that we want to send and make an post call to the zilliqa api.
+Let's write a function to make a JSON-RPC POST API request to the Zilliqa blockchain using their gateway. This function will take an array of parameters that we want to send and make a POST call to the Zilliqa API.
 
-#### index.js
+#### Fetch the contract addresses
+
 ```javascript
+// index.js
 async function fetchZilliqa(params) {
   const body = {
     method: "GetSmartContractSubState",
@@ -233,35 +246,39 @@ async function fetchZilliqa(params) {
 }
 ```
 
-Parameters that we are going to be send are 
+The parameters we need to send are 
 
-* **contract address** we want to query,
-* **contract field name** we will use string `records`,
-* **contract state keys** array of strings, in our case namehash of the domain is the only value in the array, 
+* The **contract address** we want to query,
+* The **contract field name** we will use string `records`,
+* The **contract state keys** array of strings, in our case namehash of the domain is the only value in the array, 
 
 Let's update our resolve function and use the **fetchZilliqa** function
 
-#### index.js
+#### Adding address resolution
+
 ```javascript
+// index.js
 async function resolve() {
   const userInput = document.getElementById("input").value;
   if (!userInput.endsWith(".zil") {
-    // placeholder for future error handeling
-    return ;
+    // placeholder for future error handling
+    return;
   }
 
   const hash = namehash(userInput);
-  const registryState = 
+  const registryState =
     await fetchZilliqa([UD_REGISTRY_CONTRACT_ADDRESS, "records", [hash]]);
-    
+
   if (contractAddress.result === null) {
-    // placeholder for future error handeling
-    return ;
+    // placeholder for future error handling
+    return;
   }
-  const [ownerAddress, resolverAddress] = 
-    registryState.result.records[hash].arguments;
-  console.log({ownerAddress, resolverAddress});
-  
+  const [ownerAddress, resolverAddress] =
+  registryState.result.records[hash].arguments; console.log({
+    ownerAddress,
+    resolverAddress
+  });
+
 }
 ```
 **fetchZilliqa("brad.zil")** returns following:
@@ -272,32 +289,32 @@ async function resolve() {
   jsonrpc: "2.0",
   result: {
     records: {
-        0x5fc604da00f502da70bfbc618088c0ce468ec9d18d05540935ae4118e8f50787: {
-            argtypes: [],
-            arguments: [
-                "0x2d418942dce1afa02d0733a2000c71b371a6ac07",
-                "0xdac22230adfe4601f00631eae92df6d77f054891"
-            ],
-            constructor: "Record"
-        }
+      0x5fc604da00f502da70bfbc618088c0ce468ec9d18d05540935ae4118e8f50787: {
+        argtypes: [],
+        arguments: [
+          "0x2d418942dce1afa02d0733a2000c71b371a6ac07",
+          "0xdac22230adfe4601f00631eae92df6d77f054891"
+        ],
+        constructor: "Record"
+      }
     }
   }
 }
 ```
 
 {% hint style="info" %}
-Order is very important, as the first address in the arguments array is the owner address and the second one is a resolver contract address
+Order is very important, as the first address in the arguments array is the owner address and the second one is a resolver contract address.
 {% endhint %}
 
 {% hint style="warning" %}
-Make sure to display your user an appropriate error if an owner address is not set. This means that the domain is not registered under any user and is free to be taken. 
+Make sure to display an appropriate error to your users if an owner address is not set. This means that the domain is not registered under any user and is available for purchase.
 {% endhint %}
 
-## Fetching the domain records
+## Fetching domain records
 
-After we verified that domain has owner address and got it's resolver contract address we are going to query the second one again for it's records.
+After we verify that a domain has an owner address and we can query its resolver contract address for its records.
 
-Make use of fetchZilliqa again, only this time change params to contain the **resolver address** and for the state keys we will pass an empty array
+Use our `fetchZilliqa` function again, only this time change the parameters to contain the **resolver address**. For the state keys we can pass an empty array.
 
 ```typescript
 // index.ts resolve function
@@ -310,41 +327,45 @@ const records = await fetchZilliqa([
 ```
 
 {% hint style="danger" %}
-**It is very important to remove the leading 0x from the contract address, requirement of Zilliqa Blockchain API**
+**It is very important to remove the leading 0x from the contract address, this is a requirement of the Zilliqa Blockchain API**
 {% endhint %}
 
-We should get an object printed on our console with all the keys registered under the domain. Let's test it out with domain _**brad.zil**_**.** As the result, you should get something similar to the following 
+We should get an object printed to our console with all the keys registered under that domain. Let's test it out with domain `brad.zil`. As the result, you should get something similar to the following.
 
 ```javascript
 {
-"crypto.BCH.address": "qrq4sk49ayvepqz7j7ep8x4km2qp8lauvcnzhveyu6",
-"crypto.BTC.address": "1EVt92qQnaLDcmVFtHivRJaunG2mf2C3mB",
-"crypto.DASH.address": "XnixreEBqFuSLnDSLNbfqMH1GsZk7cgW4j",
-"crypto.ETH.address": "0x45b31e01AA6f42F0549aD482BE81635ED3149abb",
-"crypto.LTC.address": "LetmswTW3b7dgJ46mXuiXMUY17XbK29UmL",
-"crypto.XMR.address": "447d7TVFkoQ57k3jm3wGKoEAkfEym59mK96Xw5yWamDNFGaLKW5wL2qK5RMTDKGSvYfQYVN7dLSrLdkwtKH3hwbSCQCu26d",
-"crypto.ZEC.address": "t1h7ttmQvWCSH1wfrcmvT4mZJfGw2DgCSqV",
-"crypto.ZIL.address": "zil1yu5u4hegy9v3xgluweg4en54zm8f8auwxu0xxj",
-"ipfs.html.value": "QmVaAtQbi3EtsfpKoLzALm6vXphdi2KjMgxEDKeGg6wHuK",
-"ipfs.redirect_domain.value": "www.unstoppabledomains.com",
+  "crypto.BCH.address": "qrq4sk49ayvepqz7j7ep8x4km2qp8lauvcnzhveyu6",
+  "crypto.BTC.address": "1EVt92qQnaLDcmVFtHivRJaunG2mf2C3mB",
+  "crypto.DASH.address": "XnixreEBqFuSLnDSLNbfqMH1GsZk7cgW4j",
+  "crypto.ETH.address": "0x45b31e01AA6f42F0549aD482BE81635ED3149abb",
+  "crypto.LTC.address": "LetmswTW3b7dgJ46mXuiXMUY17XbK29UmL",
+  "crypto.XMR.address": "447d7TVFkoQ57k3jm3wGKoEAkfEym59mK96Xw5yWamDNFGaLKW5wL2qK5RMTDKGSvYfQYVN7dLSrLdkwtKH3hwbSCQCu26d",
+  "crypto.ZEC.address": "t1h7ttmQvWCSH1wfrcmvT4mZJfGw2DgCSqV",
+  "crypto.ZIL.address": "zil1yu5u4hegy9v3xgluweg4en54zm8f8auwxu0xxj",
+  "ipfs.html.value": "QmVaAtQbi3EtsfpKoLzALm6vXphdi2KjMgxEDKeGg6wHuK",
+  "ipfs.redirect_domain.value": "www.unstoppabledomains.com",
 }
 ```
 
-## Displaying result
+## Displaying the result
 
-We are not going to do anything fancy, only create a span element for each of the records containing key and value as well as owner address and resolver address. 
+Since this is a simple example we won't get too fancy. We'll just create a span element for each record containing its key and value, its owner address, and its resolver address. 
 
-#### index.js
+#### Displaying the domain records
 ```javascript
+// index.js
 function cleanDOM(parent) {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   }
 }
 
-
 function displayResolution(resolution) {
-  const {ownerAddress, resolverAddress, records} = resolution;
+  const {
+    ownerAddress,
+    resolverAddress,
+    records
+  } = resolution;
   const mainContainer = document.getElementById('records');
   cleanDOM(mainContainer);
 
@@ -365,16 +386,17 @@ function displayResolution(resolution) {
 }
 ```
 
-We should see something like following on successful resolution
+We should see something like following on successful resolution.
 
 ![Screenshot](../.gitbook/assets/screen-shot-2021-01-26-at-10.33.11-pm.png)
 
 ### Error handling
 
-Now that we have made a successful call let's deal with all possible errors that could happen during the resolution. For this purposes, we are going to create a function that will place an error in our records div
+Now that we have made a successful call let's deal with all possible errors that could happen during the resolution. For this purpose, we can create a function to place an error in our records div.
 
-#### index.js
+#### Handle errors
 ```javascript
+// index.js
 function displayError(message, cleanDom) {
   const mainContainer = document.getElementById('records');
   if (cleanDom) {
@@ -388,41 +410,45 @@ function displayError(message, cleanDom) {
 }
 ```
 
-Errors that can happen are 
+Error troubleshooting
+
 | Error | Thrown when |
 | :--- | :--- |
-| **Domain is not registered** | We couldn't get the owner address |
+| **Domain is not registered** | We couldn't find an owner address |
 | **Domain is not supported** | We are trying to resolve a domain that doesn't ends with .zil |
-| **Domain is not configured** | It is possible that owner address exists while resolver address is set to `0x00000000000000000000000000000000` |
-| **Record is not found** | This can be useful if you are querying domain for specific records like `crypto.BTC.address` and domain doesn't have it configured |
+| **Domain is not configured** | It is possible that owner address exists while the resolver address is set to `0x00000000000000000000000000000000` |
+| **Record is not found** | This is returned when you query a domain for a records like `crypto.BTC.address` which the domain owner has not set |
 
 Although any string can be stored as a key under the domain, Unstoppable domains has [standardized some of the keys](../domain-registry-essentials/records-reference.md) across many applications.   
 
-For the **record is not found** error message we are going to check if the domain has a BTC address and if not we will show the error without cleaning the entire DOM  
+For the **Record is not found** error message we can check if the domain has a BTC address and if not we will show the error without cleaning the entire DOM.
 
-#### index.js resolve function
+![Example without BTC address](../.gitbook/assets/screen-shot-2021-01-26-at-10.53.37-pm.png)
+
+#### Resolve function
+
 ```javascript
-
+// index.js
 async function resolve() {
   const userInput = (document.getElementById("input")).value;
   if (!userInput.endsWith(".zil")) {
     displayError('domain is not supported');
-    return ;
+    return;
   }
 
-  const hash = namehash(userInput);  
+  const hash = namehash(userInput);
   const contractAddresses = await fetchZilliqa([UD_REGISTRY_CONTRACT_ADDRESS, "records", [hash]]);
   console.log(contractAddresses);
   if (contractAddresses.result == null) {
     displayError('domain is not registered', true);
-    return ;
+    return;
   }
   console.log(contractAddresses);
   const [ownerAddress, resolverAddress] = await contractAddresses.result.records[hash].arguments;
 
   if (resolverAddress === "0x0000000000000000000000000000000000000000") {
     displayError('domain is not configured', true);
-    return ;
+    return;
   }
 
   const records = await fetchZilliqa([
@@ -430,14 +456,24 @@ async function resolve() {
     "records",
     []
   ]).then(data => (data.result.records));
-  
-  displayResolution({resolverAddress, ownerAddress, records});
+
+  displayResolution({
+    resolverAddress,
+    ownerAddress,
+    records
+  });
 }
 ```
-#### index.js display resolution function
+#### Display resolution function
+
 ```javascript
+// index.js
 function displayResolution(resolution) {
-  const {ownerAddress, resolverAddress, records} = resolution;
+  const {
+    ownerAddress,
+    resolverAddress,
+    records
+  } = resolution;
   const mainContainer = document.getElementById('records');
   cleanDOM(mainContainer);
 
@@ -465,15 +501,15 @@ function displayResolution(resolution) {
 {% hint style="info" %}
 If domain doesn't have a resolver address it will be set as **"0x0000000000000000000000000000000000000000"**
 
-_You  can check it with the domain: **paulalcock.zil**_
+_You can check it with the domain: **paulalcock.zil**_
 {% endhint %}
 
-By this moment you can successfully resolve any .zil domain and show an appropriate error message for your users. 
+At this point you can now resolve any .zil domain and show an appropriate error message for your users. 
 
-Use defined earlier `yarn dev` to kickstart the dev server and play with the app or build your app for future release `yarn build`
+Use `yarn dev` to kickstart the dev server and play with the app or build your app for future release with `yarn build`.
 
-You can check out the source code from [github](https://github.com/unstoppable-domains-integrations/zil-Integration)
+The full source code for this guide can be found on [github](https://github.com/unstoppable-domains-integrations/zil-Integration).
 
 [![Get help on Discord](https://img.shields.io/badge/Get%20help%20on-Discord-blueviolet)](https://discord.gg/b6ZVxSZ9Hn)
 
-![Example without BTC address](../.gitbook/assets/screen-shot-2021-01-26-at-10.53.37-pm.png)
+If you have questions, visit our Unstoppable Domains Developer Community on Discord.
