@@ -396,7 +396,7 @@ Errors that can happen are
 | **Domain is not configured** | It is possible that owner address exists while resolver address is set to `0x00000000000000000000000000000000` |
 | **Record is not found** | This can be useful if you are querying domain for specific records like `crypto.BTC.address` and domain doesn't have it configured |
 
-Although any string can be stored as a key under the domain, Unstoppable domains has [standardized some of the keys](domain-registry-essentials/records-reference.md) across many applications.   
+Although any string can be stored as a key under the domain, Unstoppable domains has [standardized some of the keys](../domain-registry-essentials/records-reference.md) across many applications.   
 
 For the **record is not found** error message we are going to check if the domain has a BTC address and if not we will show the error without cleaning the entire DOM  
 
