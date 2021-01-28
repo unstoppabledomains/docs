@@ -106,12 +106,15 @@ As our next step, let's open our HTML page and add some boilerplate code.
 
 ### Add some javascript
 
-Create file **index.js**. Let's import our hash library for future encoding and defines some constants. 
+Create file _index.js_, import our hash library for future encoding, and define some constants. 
 
-**ZILLIQA_API** is an official zilliqa endpoint which serves us an entry point to zilliqa blockchain.
-**UD_REGISTRY_CONTRACT_ADDRESS** Very self-explanatory.
+| constant | description |
+| :--- | :--- |
+| **ZILLIQA_API** | an official zilliqa endpoint which serves us an entry point to zilliqa blockchain |
+| **UD_REGISTRY_CONTRACT_ADDRESS** | Registry address of UD without _0x_ prefix |
 
-What is registry contract will be discussed later in the guide.
+
+What is registry contract is going to be discussed later in this guide.
 
 #### index.js
 ```javascript
@@ -132,6 +135,11 @@ Any domain that doesn't ends with **.zil** is out of scope of this article.
 
 #### index.js
 ```javascript
+import hash from 'hash.js';
+
+const ZILLIQA_API = "https://api.zilliqa.com/";
+const UD_REGISTRY_CONTRACT_ADDRESS = "9611c53BE6d1b32058b2747bdeCECed7e1216793";
+
 async function resolve() {
   const userInput = (document.getElementById("input")).value;
   if (!userInput.endsWith(".zil") {
@@ -192,19 +200,22 @@ Below you can find a table of some examples for namehashing
 
 ## Getting resolver address
 
-Our next step is to fetch two very important addresses attached to every unstoppable domain: **owner address** and **resolver contract address**
+Our next step is to fetch two very important addresses attached to every unstoppable domain: **owner address** and **resolver contract address**. We can get them by querying [Unstoppable domain registry contract](https://viewblock.io/zilliqa/address/zil1jcgu2wlx6xejqk9jw3aaankw6lsjzeunx2j0jz)
 
 While the owner's address is pretty self-explanatory, the resolver contract address requires some explanation. All unstoppable domains are located across 2 main smart contracts: **Registry** and **Resolver**
 
-#### **Registry contract stores owner address and resolver address if deployed.**
+| contract | explanation |
+| :--- | :--- |
+| Registry contract | Stores owner address and resolver contract address if deployed |
+| Resolver contract | Stores all records attached to the domain, such as BTC address or an IPFS website |
 
-#### **Resolver contract stores all the records attached to the domain, such as BTC address or an IPFS website**
+So in order to get the BTC address from the domain we will need to query for domain's resolver contract first and after query resolver contract for records.
 
-Bellow is the function to make a JSON-RPC POST API request to Zilliqa blockchain using their gateway.
+Let's write a function to make a JSON-RPC POST API request to Zilliqa blockchain using their gateway. The function is going to take an array of parameters that we want to send and make an post call to the zilliqa api.
 
-```typescript
-
-async function fetchZilliqa(params: [string, string, string[]]) {
+#### index.js
+```javascript
+async function fetchZilliqa(params) {
   const body = {
     method: "GetSmartContractSubState",
     id: "1",
@@ -222,20 +233,25 @@ async function fetchZilliqa(params: [string, string, string[]]) {
 }
 ```
 
-The only parameter that is going to be changed is the params field which is nothing else but a simple array with strictly 3 arguments: **contract address**, **contract field name**, **state keys**
+Parameters that we are going to be send are 
 
-Let's update our resolve function and use the **fetchZilliqa** function with the following params
+* **contract address** we want to query,
+* **contract field name** we will use string `records`,
+* **contract state keys** array of strings, in our case namehash of the domain is the only value in the array, 
 
-```typescript
+Let's update our resolve function and use the **fetchZilliqa** function
 
+#### index.js
+```javascript
 async function resolve() {
   const userInput = document.getElementById("input").value;
   if (!userInput.endsWith(".zil") {
     // placeholder for future error handeling
     return ;
   }
+
   const hash = namehash(userInput);
-  const contractAddresses = 
+  const registryState = 
     await fetchZilliqa([UD_REGISTRY_CONTRACT_ADDRESS, "records", [hash]]);
     
   if (contractAddress.result === null) {
@@ -243,9 +259,9 @@ async function resolve() {
     return ;
   }
   const [ownerAddress, resolverAddress] = 
-    contractAddresses.result.records[hash].arguments;
+    registryState.result.records[hash].arguments;
+  console.log({ownerAddress, resolverAddress});
   
-  ...
 }
 ```
 
