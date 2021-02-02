@@ -280,7 +280,7 @@ async function resolve() {
 }
 ```
 
-if we run the above code with `npm run dev` and `brad.zil` as our domain input, you should see the following in the console
+if we open the `index.html` file in the browser and type `brad.zil` as our domain input, we will see the following in the console
 
 ```javascript
 ownerAddress: "0x2d418942dce1afa02d0733a2000c71b371a6ac07"
@@ -292,7 +292,7 @@ Order is very important, as the first address in the arguments array is the owne
 {% endhint %}
 
 {% hint style="warning" %}
-Make sure to display an appropriate error to your users if an owner address is not set. This means that the domain is not registered under any user and is available for purchase.
+Make sure to display an appropriate error to your users if an owner address is not set. This means that the domain is not registered and is available for purchase.
 {% endhint %}
 
 ## Fetching domain records
@@ -391,7 +391,7 @@ We should see something like following on successful resolution.
 
 ### Error handling
 
-Now that we have made a successful call let's deal with all possible errors that could happen during the resolution. For this purpose, we can create a function to place an error in our records div.
+Now that we have made a successful call let's deal with all possible errors that could happen during the resolution. For this purpose, we can create a function to place an error in our records div. We also added a boolean argument `cleanDom` to remove everything from the records div before we put an error if needed.
 
 #### Handle errors
 
@@ -425,7 +425,7 @@ For the **Record is not found** error message we can check if the domain has a B
 
 ![Example without BTC address](../.gitbook/assets/screen-shot-2021-01-26-at-10.53.37-pm.png)
 
-We will need to display errors in 2 functions: `resolve` and `displayResolution`. For simplicity below you can find how both function should look after all the updates.
+We will need to display errors in 2 functions: `resolve` and `displayResolution`. For simplicity below you can find how both functions should look after all the updates.
 #### Resolve function
 
 ##### index.js
