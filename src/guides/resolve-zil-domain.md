@@ -17,22 +17,11 @@ description: Simplest step-by-step guide on how to resolve .zil domain
 
 ## Initialize the project folder
 
-#### Install dependencies
-
-First, install the project's two dependencies:
-
-1. [parcel.js](https://parceljs.org/) — A simple bundler for fast development
-2. [hash.js](https://www.npmjs.com/package/hash.js/v/1.1.7) — For taking sha256 hashes of a domain name
+First, create a project folder and 2 files inside: index.html, index.js
 
 ```shell
-npm install -g add parcel-bundler
-
 mkdir unstoppable-zil-resolution
 cd unstoppable-zil-resolution
-
-npm init -y
-npm install hash.js
-
 touch index.js index.html
 ```
 
@@ -42,49 +31,13 @@ Your folder structure should look like this.
 .
 ├── index.html
 ├── index.js
-├── node_modules
-├── package.json
-├── package-lock.json
 
-
-```
-
-#### Create `package.json`
-
-Next, open `package.json` to configure your build scripts.
-
-As mentioned above, this project uses `parcel.js`. One of the features of which is a built in development server. We can activate this server by calling `parcel <entry file>`
-
-Parcel also requires us to add a `browserlist` due to its [babel technology](https://flaviocopes.com/parcel-regeneratorruntime-not-defined/).
-
-The resulting `package.json` file should look like this.
-
-##### package.json
-```javascript
-{
-  "name": "unstoppable-zil-resolution",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "parcel index.html",
-    "build": "parcel build index.html"
-  },
-  "browserslist": [
-    "since 2017-06"
-  ],
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "hash.js": "^1.1.7"
-  }
-}
 ```
 
 #### Create `index.html`
 
 As our next step, let's open our HTML page and add some boilerplate code.
+We are going to use [js-sha256](https://cdnjs.com/libraries/js-sha256) cdn for encoding future domain.
 
 ##### index.html
 ```html
@@ -112,7 +65,11 @@ As our next step, let's open our HTML page and add some boilerplate code.
       </div>
 
   </div>
-
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js" 
+        integrity="sha512-szJ5FSo9hEmXXe7b5AUVtn/WnL8a5VofnFeYC2i2z03uS2LhAch7ewNLbl5flsEmTTimMN0enBZg/3sQ+YOSzQ=="
+        crossorigin="anonymous">
+    </script>
     <script src="./index.js"></script>
 </body>
 
@@ -123,7 +80,7 @@ As our next step, let's open our HTML page and add some boilerplate code.
 
 ### Add javascript to handle our button press and resolution
 
-In this section, we'll create a open our `index.js` file, import hash library for future encoding, and define two constants. 
+In this section, we'll create a open our `index.js` file and define two constants. 
 
 | constant | description |
 | :--- | :--- |
@@ -135,8 +92,6 @@ We'll discuss the registry contract address later in this guide.
 ##### `index.js`
 
 ```javascript
-import hash from 'hash.js';
-
 const ZILLIQA_API = "https://api.zilliqa.com/";
 const UD_REGISTRY_CONTRACT_ADDRESS = "9611c53BE6d1b32058b2747bdeCECed7e1216793";
 ```
@@ -153,8 +108,6 @@ Any domain that does not end with `.zil` is out of scope for this guide.
 
 ##### index.js
 ```javascript
-import hash from 'hash.js';
-
 const ZILLIQA_API = "https://api.zilliqa.com/";
 const UD_REGISTRY_CONTRACT_ADDRESS = "9611c53BE6d1b32058b2747bdeCECed7e1216793";
 
@@ -177,36 +130,31 @@ Namehashing is an algorithm that tokenizes your domain name in a way that a Zill
 It is essential to know the difference between Zilliqa namehashing and [EIP-137](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-137.md#namehash-algorithm). Zilliqa uses **sha256 from SHA-2**, instead of **keccak256** which is more commonly used in Ethereum.
 {% endhint %}
 
-To tokenize our domain we need to split it by the "." character into separate labels, reverse the array, and reduce it to a single hash using a childhash function. Childhash generates a hash of the current label, concatenates it with the parent, and hashes the result as a hex value. For our first parent, we'll take a string of **64 zeros**.
+To tokenize our domain we need to split it by the "." character into separate labels, reverse the array, and reduce it to a single hash using a childhash function. Childhash generates a hash of the current label, concatenates it with the parent, and hashes the result as a hex value.
+
+We will implement a recursive `hash function` that does all of the above, `arrayToHex function` to get the result as string and a `wrapper function namehash`
 
 #### Adding a namehash
 
 ##### index.js
 ```javascript
-function namehash(domain) {
-  const parent =
-    '0000000000000000000000000000000000000000000000000000000000000000';
-  return '0x' + [parent]
-    .concat(
-      domain
-      .split('.')
-      .reverse()
-    )
-    .reduce((parent, label) =>
-      childhash(parent, label),
-    );
+function namehash(name) {
+  const hashArray = hash(name);
+  return arrayToHex(hashArray);
 }
 
-function childhash(parentHash, label) {
-  parentHash = parentHash.replace(/^0x/, '');
-  const labelHash = sha256(label)
-  return sha256(parentHash + labelHash, "hex");
+function hash(name) {
+  if (!name) {
+      return new Uint8Array(32);
+  }
+  const [label, ...remainder] = name.split('.');
+  const labelHash = sha256.array(label);
+  const remainderHash = hash(remainder.join('.'));
+  return sha256.array(new Uint8Array([...remainderHash, ...labelHash]));
 }
 
-function sha256(message, inputEnc) {
-  return hash.sha256()
-    .update(message, inputEnc)
-    .digest('hex');
+function arrayToHex(arr) {
+  return '0x' + Array.prototype.map.call(arr, x => ('00' + x.toString(16)).slice(-2)).join('');
 }
 ```
 
@@ -228,7 +176,7 @@ async function resolve() {
     return;
   }
 
-  const hash = namehash(userInput);
+  const token = namehash(userInput);
 }
 ```
 
@@ -288,16 +236,16 @@ async function resolve() {
     return;
   }
 
-  const hash = namehash(userInput);
+  const token = namehash(userInput);
   const registryState =
-    await fetchZilliqa([UD_REGISTRY_CONTRACT_ADDRESS, "records", [hash]]);
+    await fetchZilliqa([UD_REGISTRY_CONTRACT_ADDRESS, "records", [token]]);
 
   if (registryState.result === null) {
     // placeholder for future error handling
     return;
   }
   const [ownerAddress, resolverAddress] = 
-    registryState.result.records[hash].arguments;
+    registryState.result.records[token].arguments;
 
   if (resolverAddress === "0x0000000000000000000000000000000000000000") {
     // placeholder for future error handling
@@ -477,6 +425,7 @@ For the **Record is not found** error message we can check if the domain has a B
 
 ![Example without BTC address](../.gitbook/assets/screen-shot-2021-01-26-at-10.53.37-pm.png)
 
+We will need to display errors in 2 functions: `resolve` and `displayResolution`. For simplicity below you can find how both function should look after all the updates.
 #### Resolve function
 
 ##### index.js
@@ -484,13 +433,13 @@ For the **Record is not found** error message we can check if the domain has a B
 async function resolve() {
   const userInput = document.getElementById("input").value;
   if (!userInput.endsWith(".zil")) {
-    displayError('domain is not supported');
+    displayError('domain is not supported', true);
     return;
   }
 
-  const hash = namehash(userInput);
+  const token = namehash(userInput);
   const registryState =
-    await fetchZilliqa([UD_REGISTRY_CONTRACT_ADDRESS, "records", [hash]]);
+    await fetchZilliqa([UD_REGISTRY_CONTRACT_ADDRESS, "records", [token]]);
 
   if (registryState.result == null) {
     displayError('domain is not registered', true);
@@ -498,7 +447,7 @@ async function resolve() {
   }
 
   const [ownerAddress, resolverAddress] = 
-    registryState.result.records[hash].arguments;
+    registryState.result.records[token].arguments;
   
   if (resolverAddress === "0x0000000000000000000000000000000000000000") {
     displayError('domain is not configured', true);
@@ -557,9 +506,16 @@ If domain doesn't have a resolver address it will be set as **"0x000000000000000
 _You can check it with the domain: **paulalcock.zil**_
 {% endhint %}
 
-At this point you can now resolve any .zil domain and show an appropriate error message for your users. 
+At this point you can now resolve any .zil domain and show an appropriate error message for your users. Just open `index.html` file in your browser and play a little with a results to get a taste of it. 
 
-Use `yarn dev` to kickstart the dev server and play with the app or build your app for future release with `yarn build`.
+Some domains to test:
+
+| Domain | result |
+| :--- | :--- |
+| brad.zil | should resolve without any errors |
+| johnnyjumper.zil | domain has no BTC record |
+| unregistered.zil | domain is not registered |
+| paulalcock.zil | domain is not configured |
 
 The full source code for this guide can be found on [github](https://github.com/unstoppable-domains-integrations/zil-Integration).
 
