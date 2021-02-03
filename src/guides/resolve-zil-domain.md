@@ -10,19 +10,20 @@ description: Simplest step-by-step guide on how to resolve .zil domain
 
 * [Initialize the project folder](resolve-zil-domain.md#initialize-the-project-folder)
 * [Get a namehash of a domain](resolve-zil-domain.md#taking-a-namehash)
-* [Get resolver contract address from a domain](resolve-zil-domain.md#getting-resolver-address)
-* [Query resolver contract to fetch the records](resolve-zil-domain.md#fetching-the-domain-records)
-* [Displaying results](resolve-zil-domain.md#displaying-result)
+* [Get resolver contract address from a domain](resolve-zil-domain.md#getting-the-resolver-address)
+* [Query resolver contract to fetch the records](resolve-zil-domain.md#fetching-domain-records)
+* [Displaying results](resolve-zil-domain.md#displaying-the-result)
 * [Error handling](resolve-zil-domain.md#error-handling)
+* [Links](resolve-zil-domain.md#links)
 
 ## Initialize the project folder
 
 First, create a project folder and 2 files inside: index.html, index.js
 
 ```shell
-mkdir unstoppable-zil-resolution
-cd unstoppable-zil-resolution
-touch index.js index.html
+$ mkdir unstoppable-zil-resolution
+$ cd unstoppable-zil-resolution
+$ touch index.js index.html
 ```
 
 Your folder structure should look like this.
@@ -34,7 +35,7 @@ Your folder structure should look like this.
 
 ```
 
-#### Create `index.html`
+#### Create index.html
 
 As our next step, let's open our HTML page and add some boilerplate code.
 We are going to use [js-sha256](https://cdnjs.com/libraries/js-sha256) cdn for encoding future domain.
@@ -89,7 +90,7 @@ In this section, we'll create a open our `index.js` file and define two constant
 
 We'll discuss the registry contract address later in this guide.
 
-##### `index.js`
+##### index.js
 
 ```javascript
 const ZILLIQA_API = "https://api.zilliqa.com/";
@@ -261,19 +262,19 @@ async function resolve() {
 ```
 **fetchZilliqa("brad.zil")** returns following:
 
-```javascript
+```json
 {
-  id: "1",
-  jsonrpc: "2.0",
-  result: {
-    records: {
-      0x5fc604da00f502da70bfbc618088c0ce468ec9d18d05540935ae4118e8f50787: {
-        argtypes: [],
-        arguments: [
+  "id": "1",
+  "jsonrpc": "2.0",
+  "result": {
+    "records": {
+      "0x5fc604da00f502da70bfbc618088c0ce468ec9d18d05540935ae4118e8f50787": {
+        "argtypes": [],
+        "arguments": [
           "0x2d418942dce1afa02d0733a2000c71b371a6ac07",
           "0xdac22230adfe4601f00631eae92df6d77f054891"
         ],
-        constructor: "Record"
+        "constructor": "Record"
       }
     }
   }
@@ -317,7 +318,7 @@ console.log(recordResponse.result.records);
 
 We should get an object printed to our console with all the keys registered under that domain. Let's test it out with domain `brad.zil`. As the result, you should get something similar to the following in the console.
 
-```javascript
+```json
 {
   "crypto.BCH.address": "qrq4sk49ayvepqz7j7ep8x4km2qp8lauvcnzhveyu6",
   "crypto.BTC.address": "1EVt92qQnaLDcmVFtHivRJaunG2mf2C3mB",
@@ -328,7 +329,7 @@ We should get an object printed to our console with all the keys registered unde
   "crypto.ZEC.address": "t1h7ttmQvWCSH1wfrcmvT4mZJfGw2DgCSqV",
   "crypto.ZIL.address": "zil1yu5u4hegy9v3xgluweg4en54zm8f8auwxu0xxj",
   "ipfs.html.value": "QmVaAtQbi3EtsfpKoLzALm6vXphdi2KjMgxEDKeGg6wHuK",
-  "ipfs.redirect_domain.value": "www.unstoppabledomains.com",
+  "ipfs.redirect_domain.value": "www.unstoppabledomains.com"
 }
 ```
 
@@ -517,8 +518,10 @@ Some domains to test:
 | unregistered.zil | domain is not registered |
 | paulalcock.zil | domain is not configured |
 
-The full source code for this guide can be found on [github](https://github.com/unstoppable-domains-integrations/zil-Integration).
 
-[![Get help on Discord](https://img.shields.io/badge/Get%20help%20on-Discord-blueviolet)](https://discord.gg/b6ZVxSZ9Hn)
+## Links
+- [Full source code for this guide](https://github.com/unstoppable-domains-integrations/zil-Integration)
+- [Unstoppable documentation](https://docs.unstoppabledomains.com)
+- [Discord community](https://discord.gg/b6ZVxSZ9Hn)
 
 If you have questions, visit our Unstoppable Domains Developer Community on Discord.
