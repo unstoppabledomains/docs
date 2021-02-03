@@ -27,7 +27,8 @@
 
 - [Getting started](integrations/getting-started.md)
 - [Get test domain](integrations/get-test-domain.md)
-- [Library configuration](integrations/library-configuration.md)      
+- [Library configuration](integrations/library-configuration.md)
+- [Crypto payments](integrations/crypto-payments.md)
 
 ---
 
