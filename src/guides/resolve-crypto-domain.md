@@ -12,7 +12,7 @@ In this tutorial we are going to take a look on Unstoppable domains, specificall
 * [Initialize the project folder](resolve-crypto-domain.md#initialize-the-project-folder)
 * [Get a namehash of a domain](resolve-crypto-domain.md#taking-a-namehash)
 * [Making the call to the contract](resolve-crypto-domain.md#making-the-call-to-the-contract)
-* [Displaying results](resolve-crypto-domain.md#displaying-result)
+* [Displaying results](resolve-crypto-domain.md#displaying-the-records)
 * [Error handling](resolve-crypto-domain.md#error-handling)
 
 
