@@ -4,9 +4,11 @@ description: Simplest step-by-step guide on how to resolve .crypto domain
 
 # How to resolve .crypto domain from scratch
 
-In this tutorial we are going to take a look on Unstoppable domains, specifically how one can resolve a .crypto domain using nothing but html, js, and ethers.js library.
+In this tutorial we are going to take a look on Unstoppable domains, specifically how one can resolve a .crypto domain 
+using nothing but html, js, and ethers.js library.
 
 ![Demo](../.gitbook/assets/cryptoResolution.gif)
+
 ## Table of contents
 
 * [Initialize the project folder](resolve-crypto-domain.md#initialize-the-project-folder)
@@ -14,6 +16,7 @@ In this tutorial we are going to take a look on Unstoppable domains, specificall
 * [Making the call to the contract](resolve-crypto-domain.md#making-the-call-to-the-contract)
 * [Displaying results](resolve-crypto-domain.md#displaying-the-records)
 * [Error handling](resolve-crypto-domain.md#error-handling)
+* [Links](resolve-crypto-domain.md#links)
 
 
 In order to resolve a .crypto domain, we will need to
@@ -22,16 +25,16 @@ In order to resolve a .crypto domain, we will need to
 * Configure ethers.js library to call Unstoppable contract
 * Make a call and fetch the data
 
-Let's visualize the resolution process using some of the simplest tools web developer has: knowledge of HTML and js.
+Let's visualize the resolution process using some of the simplest tools web developer has: knowledge of `HTML` and `javascript`.
 
 ### Initialize the project folder
 
 As has been said above all we need is to create a folder and three files index.html, index.js, and ethers.js respectively
 
-```text
-mkdir unstoppable-crypto-resolution
-cd unstoppable-crypto-resolution
-touch index.html index.js ethers.js
+```shell
+$ mkdir unstoppable-crypto-resolution
+$ cd unstoppable-crypto-resolution
+$ touch index.html index.js ethers.js
 ```
 
 Your project folder should look exactly like the following:
@@ -45,15 +48,15 @@ Your project folder should look exactly like the following:
 #### Index.html
 Let's open and configure our html page for the resolution.
 
-From UI perspective we are going to need an input bar, a button to trigger the resolution and a div where we are going to display our records.
+From UI perspective we are going to need an input bar, a button to trigger the resolution and a `<div>` where we are going to display our records.
 
-From dependencies perspective we are going to connect [js-sha3](https://www.npmjs.com/package/js-sha3?utm_source=cdnjs&utm_medium=cdnjs_link&utm_campaign=cdnjs_library), so we can use **keccak\_256** hash function, and
-[ethers.js](https://docs.ethers.io/v5/getting-started/) for a simple way of communication with blockchain contract.
-
-To simplify prototyping we aren't going to use any fancy bundler and connect simple cdn.
+From dependencies perspective we are going to connect [js-sha3](https://www.npmjs.com/package/js-sha3), so we can use **keccak_256** hash function, and
+[ethers.js](https://docs.ethers.io/v5/getting-started/) for a simple way of communication with blockchain contract.  
 
 {% hint style="info" %}
-We will need the keccak\_256 hash function to tokenize the .crypto domain.
+We will need the keccak_256 hash function to calculate ERC-721 token id for .crypto domain. 
+To see a full description of namehashing algorithm 
+read [namehashing article.](https://docs.unstoppabledomains.com/domain-registry-essentials/namehashing).  
 {% endhint %}
 
 ```html
@@ -97,8 +100,8 @@ We will need the keccak\_256 hash function to tokenize the .crypto domain.
 
 #### Adding some javascript
 
-We are going to start by putting some basic code to capture the text from the input field and print it in our console. We can open `index.html` in a browser to make sure everything is connected and launches 
-
+We are going to start by putting some basic code to capture the text from the input field and print it in our console. 
+We can open `index.html` in a browser to make sure everything is connected and launches. 
 
 ##### index.js
 ```javascript
@@ -113,9 +116,9 @@ Namehashing is an algorithm that tokenizes your domain name in a way that a UD s
 
 To tokenize our domain we need to split it by the "." character into separate labels, reverse the array, and reduce it to a single hash.
 
-We will implement a recursive `hash function` that does all of the above, `arrayToHex function` to get the result as string and a `wrapper function namehash`
+We will implement a recursive `hash function` that does all the above, `arrayToHex function` to get the result as string and a `wrapper function namehash`
 
-This process is described in more details over our [namehash article](../domain-registry-essentials/namehashing) 
+This process is described in more details over our [namehashing article](https://docs.unstoppabledomains.com/domain-registry-essentials/namehashing) 
 
 ##### index.js
 ```javascript
@@ -148,11 +151,11 @@ Below you can find a table of some examples for namehashing
 
 ## Configuring Ethers library
 
-In order to talk with any blockchain contract using ethers.js we need to know the following 
+In order to talk with any blockchain contract using `ethers.js` we need to know the following 
 
 * Contract address
-* Contract interface a.k.a. abi
-* Provider
+* Contract ABI
+* Ethereum provider
 
 Let's add the following information to our **ethers.js** file
 ##### ethers.js
@@ -200,7 +203,8 @@ var provider = ethers.providers.getDefaultProvider('mainnet');
 ```
 
 {% hint style="info" %}
-For the scope of this project, we are going to need only _getData_ function from our [proxy reader contract](https://etherscan.io/address/0xa6E7cEf2EDDEA66352Fd68E5915b60BDbb7309f5#code).
+For the scope of this project, we are going to need only `getData` function from 
+.crypto [proxy reader contract](https://docs.unstoppabledomains.com/domain-registry-essentials/cns-smart-contracts#proxyreader).
 {% endhint %}
 
 Next, we need to create a contract instance and create a function to query our contract
@@ -216,7 +220,7 @@ async function fetchContractData(keys, tokenId) {
 
 By inspecting the getData function interface we can see that it requires from us an **array of keys** and **tokenId**. We can get **tokenId** by calling **namehash** function from above. 
 
-Although any string can be stored as a key under the domain, Unstoppable domains has [standardized some of the keys](../domain-registry-essentials/records-reference.md) across many applications.
+Although any string can be stored as a key under the domain, Unstoppable domains has [standardized the keys](https://docs.unstoppabledomains.com/domain-registry-essentials/records-reference) across many applications.
 
 In this tutorial, we are going to be looking up for the following records:
 
@@ -252,7 +256,7 @@ async function resolve() {
 
 Trying to resolve brad.crypto with the above keys returns us the following in the console
 
-```javascript
+```json
 {
   "ownerAddress":"0x8aaD44321A86b170879d7A244c1e8d360c99DdA8",
   "resolverAddress":"0xb66DcE2DA6afAAa98F2013446dBCB0f4B0ab2842",
@@ -353,7 +357,7 @@ function displayError(message, cleanDom) {
 }
 ```
 
-Error troubleshooting
+##### Error troubleshooting
 | Error | Thrown when |
 | :--- | :--- |
 | **Domain is not registered** | Owner address is equal to  `0x00000000000000000000000000000000`|
@@ -408,7 +412,7 @@ async function resolve() {
 
 At this point you can now resolve any .crypto domain and show an appropriate error message for your users. Just open `index.html` file in your browser and play a little with a results to get a taste of it. 
 
-Some domains to test:
+##### Test domains:
 | Domain | result |
 | :--- | :--- |
 | brd.crypto | resolve without any errors |
@@ -417,9 +421,9 @@ Some domains to test:
 | unregistered.crypto | domain is not registered |
 | reseller-test-paul2.crypto | domain is not configured |
 
-The full source code for this guide can be found on [github](https://github.com/unstoppable-domains-integrations/crypto-integration).
-
-
-[![Get help on Discord](https://img.shields.io/badge/Get%20help%20on-Discord-blueviolet)](https://discord.gg/b6ZVxSZ9Hn)
+## Links
+- [Full source code for this guide](https://github.com/unstoppable-domains-integrations/crypto-integration)
+- [Unstoppable documentation](https://docs.unstoppabledomains.com)
+- [Discord community](https://discord.gg/b6ZVxSZ9Hn)
 
 If you have questions, visit our Unstoppable Domains Developer Community on Discord.
