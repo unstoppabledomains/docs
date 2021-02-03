@@ -130,7 +130,7 @@ Namehashing is an algorithm that tokenizes your domain name in a way that a Zill
 It is essential to know the difference between Zilliqa namehashing and [EIP-137](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-137.md#namehash-algorithm). Zilliqa uses **sha256 from SHA-2**, instead of **keccak256** which is more commonly used in Ethereum.
 {% endhint %}
 
-To tokenize our domain we need to split it by the "." character into separate labels, reverse the array, and reduce it to a single hash using a childhash function. Childhash generates a hash of the current label, concatenates it with the parent, and hashes the result as a hex value.
+To tokenize our domain we need to split it by the "." character into separate labels, reverse the array, and reduce it to a single hash.
 
 We will implement a recursive `hash function` that does all of the above, `arrayToHex function` to get the result as string and a `wrapper function namehash`
 
