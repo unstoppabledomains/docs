@@ -27,8 +27,9 @@
 
 - [Getting started](integrations/getting-started.md)
 - [Get test domain](integrations/get-test-domain.md)
-- [Library configuration](integrations/library-configuration.md)      
-
+- [Library configuration](integrations/library-configuration.md)       
+- [Resolve .crypto without libraries](https://medium.com/unstoppabledomains/how-to-resolve-crypto-domain-names-82046db0404a)
+- [Resolve .zil without libraries](https://medium.com/unstoppabledomains/how-to-resolve-zil-domain-names-f43da8fe37a9)
 ---
 
 - [Website API reference](https://apidocs.unstoppabledomains.com/)
