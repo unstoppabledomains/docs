@@ -29,10 +29,14 @@ see [records reference guide.](../domain-registry-essentials/records-reference.m
 ## Integrate resolution using libraries
 
 The easiest way to integrate domain resolution for crypto payments is using resolution libraries maintained by
-Unstoppable.
+Unstoppable. The libraries communicate with Ethereum and Zilliqa blockchain directly.
 
-// todo Merge import and resolution
-### Import library
+### Resolve crypto records
+
+#### Resolve `ryan.crypto` into Ethereum address
+
+In order to support crypto payment to domain - a domain name should be resolved intro blockchain address. To achieve
+this we need to resolve domain into cryptocurrency address.
 
 {% tabs %}
 
@@ -41,6 +45,13 @@ Unstoppable.
 ```javascript
 const {default: Resolution} = require('@unstoppabledomains/resolution');
 const resolution = new Resolution();
+resolution
+    .addr('ryan.crypto', 'ETH')
+    .then((receiverETHAddress) => {
+        // receiverETHAddress consists receiver ethereum address
+        // use this address as recipient of the payment
+    })
+    .catch(console.error);
 ```
 
 {% endtab %}
@@ -49,12 +60,11 @@ const resolution = new Resolution();
 
 ```java
 import com.unstoppabledomains.resolution.Resolution
-
-class Resolve {
-    public static void main(String[] args) {
-        DomainResolution resolution = new Resolution();
-    }
-}
+...
+DomainResolution resolution = new Resolution();
+String receiverETHAddress = resolution.getAddress("ryan.crypto", "ETH");
+// receiverETHAddress consists receiver ethereum address
+// use this address as recipient of the payment
 ```
 
 {% endtab %}
@@ -68,6 +78,17 @@ guard let resolution = try? Resolution() else {
   print ("Init of Resolution instance with default parameters failed...")
   return
 }
+
+resolution.addr(domain: "ryan.crypto", ticker: "ETH") { result in
+  switch result {
+  case .success(let returnValue):
+    let receiverETHAddress = returnValue
+    // receiverETHAddress consists receiver ethereum address
+    // use this address as recipient of the payment
+  case .failure(let error):
+    print("Expected eth Address, but got \(error)")
+  }
+}
 ```
 
 {% endtab %}
@@ -75,23 +96,35 @@ guard let resolution = try? Resolution() else {
 {% endtabs %}
 
 {% hint style="danger" %} To communicate with Ethereum libraries use Linkpool Ethereum public provider by default with
-low rate limit threshold. For production usage it's required to switch for suitable Ethereum provider with high
-rate-limits threshold. To configure library properly
-use [library configuration guide.](../integrations/library-configuration.md)
+low rate limit threshold. For production usage it's required to switch on Ethereum provider with high rate-limits
+threshold. To configure library properly use [library configuration guide.](../integrations/library-configuration.md)
 {% endhint %}
 
-### Resolve crypto records
+##### Records involved
 
-In order to support crypto payment to domain - a domain name should be resolved intro blockchain address. To achieve
-this we need to resolve domain into cryptocurrency address.
+`addr() / getAddr()` methods convert provided 3-letters ticker intro `crypto.<TICKER>.address` and reads this key value
+for provided domain. In case of `ryan.crypto` resolution `ETH` ticker becomes `crypto.ETH.address` when the library
+makes query to the blockchain.
 
-#### Resolve `ryan.crypto` into ETH address
+#### Resolve `udtestdev-usdt.crypto` into USDT-ERC20 address
+
+`USDT` currency exists in multiple blockchains it requires a different key format to store. Libraries provide dedicated
+method to query `USDT` address for different blockchains.
 
 {% tabs %}
 
-{% tab title="resolution" %}
+{% tab title="resolution" %} Resolution library is suitable for `javascript/typescript/react native` applications.
 
 ```javascript
+const {default: Resolution} = require('@unstoppabledomains/resolution');
+const resolution = new Resolution();
+resolution
+    .usdt('udtestdev-usdt.crypto', 'ERC20')
+    .then((receiverUSDTAddress) => {
+        // receiverUSDTAddress consists address for receiving USDT on Ethereum (ERC20 version)
+        // use this address as recipient of the payment
+    })
+    .catch(console.error);
 ```
 
 {% endtab %}
@@ -99,6 +132,13 @@ this we need to resolve domain into cryptocurrency address.
 {% tab title="resolution-java" %}
 
 ```java
+import com.unstoppabledomains.resolution.Resolution
+import com.unstoppabledomains.resolution.TickerVersion
+...
+DomainResolution resolution = new Resolution();
+String receiverUSDTAddress = resolution.getUsdt("udtestdev-usdt.crypto", TickerVersion.ERC20);
+// receiverUSDTAddress consists address for receiving USDT on Ethereum (ERC20 version)
+// use this address as recipient of the payment
 ```
 
 {% endtab %}
@@ -106,6 +146,23 @@ this we need to resolve domain into cryptocurrency address.
 {% tab title="resolution-swift" %}
 
 ```swift
+import UnstoppableDomainsResolution
+
+guard let resolution = try? Resolution() else {
+  print ("Init of Resolution instance with default parameters failed...")
+  return
+}
+
+resolution.usdt(domain: "udtestdev-usdt.crypto", version: .ERC20) { (result) in
+  switch result {
+  case .success(let returnValue):
+     receiverUSDTAddress = returnValue;
+     // receiverUSDTAddress consists address for receiving USDT on Ethereum (ERC20 version)
+     // use this address as recipient of the payment
+  case .failure(let error):
+     print("Expected USDT-ETC20 Address, but got \(error)")
+  }
+}
 ```
 
 {% endtab %}
@@ -114,15 +171,13 @@ this we need to resolve domain into cryptocurrency address.
 
 ##### Records involved
 
-#### Resolve `example.crypto` into USDT-ERC20 address
+`usdt() / getUsdt()` methods create a key from provided USDT version. The key format
+is `crypto.USDT.version.<VERSION>.address`. When getting USDT-ERC20 version the key would
+be `crypto.USDT.version.ERC20.address` when the library makes query to the blockchain.
 
-// Resolve USDT
-
-##### Records involved
-
-// Records involved //// USDT include // Crypto tickers reference
-
-#### Multi chain currencies
+{% hint style="info" %} To get detailed information about supported crypto payment tickers and USDT versions
+read [Crypto Payment Records section in Managing domain records article](../managing-domains/managing-domain-records.md#crypto-payment-records)  
+{% endhint %}
 
 ### Errors handling
 
@@ -131,4 +186,5 @@ this we need to resolve domain into cryptocurrency address.
 // flow
 
 ## Links
+ - []()
 

@@ -2,7 +2,7 @@
 
 This page contains an overview of all standardized `Resolver` records. The reference is divided into sections, grouping records by their namespaces and use-cases:
 
-- [Crypto payments](records-reference.md#crypto-payments)
+- [Crypto payments](records-reference.md#cryptocurrency-payments)
 - [Browser resolution](records-reference.md#browser-resolution)
   - [DWeb records](records-reference.md#dweb-records)
   - [DNS records](records-reference.md#dns-records)
@@ -11,7 +11,7 @@ Developers may also set custom records for the domains. Domain records are store
 
 ## Cryptocurrency payments
 
-For information about crypto payments, see [Managing Domain Records - Cryptocurrency Payment Records](../managing-domains/managing-domain-records.md#crypto-payments-records).
+For information about crypto payments, see [Managing Domain Records - Cryptocurrency Payment Records](../managing-domains/managing-domain-records.md#crypto-payment-records).
 
 #### `crypto.ETH.address`
 
