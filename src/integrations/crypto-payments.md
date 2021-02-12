@@ -2,7 +2,12 @@
 
 ## Table of contents
 
-TBD
+- [Overview](crypto-payments.md#overview)
+- [Integrate resolution using libraries](crypto-payments.md#integrate-resolution-using-libraries)
+  - [Resolve crypto records](crypto-payments.md#resolve-crypto-records)
+  - [Errors handling](crypto-payments.md#errors-handling)
+  - [Best practices](crypto-payments.md#best-practices)
+- [Links](crypto-payments.md#links)    
 
 ## Overview
 
@@ -181,10 +186,133 @@ read [Crypto Payment Records section in Managing domain records article](../mana
 
 ### Errors handling
 
-// gif
+![errors example](../.gitbook/assets/integrations/crypto-payments/errors-example.gif)  
 
-// flow
+There are 4 main error cases need to be handled by the client. 
+The libraries return errors with additional information to distinguish error types.  
+
+- Domain is not registered  
+- Crypto record is not found (or empty)  
+- Domain is not configured (empty resolver)  
+- Domain is not supported  
+
+{% tabs %}
+
+{% tab title="resolution" %} 
+```javascript
+const {default: Resolution} = require('@unstoppabledomains/resolution');
+const resolution = new Resolution();
+resolution
+    .addr('domain-with-error.crypto', 'ETH')
+    .then((ethAddress) => {
+    })
+    .catch((error) => {
+        if (error.code === 'UnregisteredDomain') {
+            console.log('Domain is not registered')
+        }
+        if (error.code === 'RecordNotFound') {
+            console.log('Crypto record is not found (or empty)')
+        }
+        if (error.code === 'UnspecifiedResolver') {
+            console.log('Domain is not configured (empty resolver)')
+        }
+        if (error.code === 'UnsupportedDomain') {
+            console.log('Domain is not supported')
+        }
+    });
+```   
+
+To see all supported error codes please check 
+[resolution library api docs](https://unstoppabledomains.github.io/resolution/v1.17.0/enums/resolutionerrorcode.html)      
+{% endtab %}
+
+{% tab title="resolution-java" %}
+```java
+import com.unstoppabledomains.resolution.Resolution
+import com.unstoppabledomains.exceptions.ns.NamingServiceException
+import com.unstoppabledomains.exceptions.ns.NSExceptionCode
+
+...
+DomainResolution resolution = new Resolution();
+try {
+    String receiverETHAddress = resolution.getAddress("domain-with-error.crypto", "ETH");
+} catch (NamingServiceException exception) {
+   if (exception.getCode() == NSExceptionCode.UnregisteredDomain) {
+        // Domain is not registered
+   }
+   if (exception.getCode() == NSExceptionCode.RecordNotFound) {
+        // Crypto record is not found (or empty)
+   }
+   if (exception.getCode() == NSExceptionCode.UnspecifiedResolver) {
+        // Domain is not configured (empty resolver)
+   }
+   if (exception.getCode() == NSExceptionCode.UnsupportedDomain) {
+        // Domain is not supported
+   }
+}
+```  
+
+
+To see all supported error codes please check
+[resolution-java readme](https://github.com/unstoppabledomains/resolution-java#errors)
+{% endtab %}
+
+{% tab title="resolution-swift" %}
+```swift
+import UnstoppableDomainsResolution
+
+guard let resolution = try? Resolution() else {
+  print ("Init of Resolution instance with default parameters failed...")
+  return
+}
+
+resolution.addr(domain: "domain-with-error.crypto", ticker: "ETH") { result in
+  switch result {
+      case .success(let returnValue):
+        // Success flow
+      case .failure(let error):
+            switch error {
+                case ResolutionError.unregisteredDomain:
+                    // Domain is not registered
+                    break;
+                
+                case ResolutionError.recordNotFound:
+                    // Crypto record is not found (or empty)
+                    break;
+                
+                case ResolutionError.unspecifiedResolver:
+                    // Domain is not configured (empty resolver)
+                    break;
+                
+                case ResolutionError.unsupportedDomain:
+                    // Domain is not supported
+                    break;
+            }
+  }
+}
+```
+
+To see all supported error codes please check
+[resolution-swift readme](https://github.com/unstoppabledomains/resolution-swift#possible-errors)
+{% endtab %}
+
+{% endtabs %}
+
+{% hint style="danger" %}
+Alert: always check address validity after receiving result from the library. 
+The user has a full control over the domain - any value could be set as crypto record.  
+{% endhint %}
+
+## Integration best practices
+
+- Always show resolved address near the domain name.
+- Don’t overwrite the input field with the cryptocurrency address.
+- Always try to resolve domain with provided currency code.
+- Always handle resolution errors according to error type.
+- Support .crypto and .zil domains.
 
 ## Links
- - []()
+- [Get test domain](./get-test-domain.md)
+- [Discord community](https://discord.com/invite/b6ZVxSZ9Hn)
+- [Resolution libraries](./libraries-list.md)
 
