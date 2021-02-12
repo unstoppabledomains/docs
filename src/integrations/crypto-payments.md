@@ -3,45 +3,39 @@
 ## Table of contents
 
 - [Overview](crypto-payments.md#overview)
-- [Integrate resolution using libraries](crypto-payments.md#integrate-resolution-using-libraries)
-    - [Resolve crypto records](crypto-payments.md#resolve-crypto-records)
-    - [Errors handling](crypto-payments.md#errors-handling)
+- [Enabling domain resolution using libraries](crypto-payments.md#enabling-domain-resolution)
+    - [Resolving crypto records](crypto-payments.md#resolving-crypto-records)
+    - [Error handling](crypto-payments.md#error-handling)
     - [Best practices](crypto-payments.md#best-practices)
 - [Links](crypto-payments.md#links)
 
 ## Overview
 
-The most common way to integrate Unstoppable Domains in the application is convert `.crypto` or `.zil` domain name to the
-cryptocurrency addresses like `BTC, ETH` and more when the user sends cryptocurrency or token. Instead of putting a
-long hash (cryptocurrency address) in the `Receiver / Send to:` field the user just typing receiver `.crypto` or `.zil`
-name.
+The most common way to integrate with Unstoppable Domains is through simple domain resolution. This process converts a human-readable name like `brad.crypto` to the cryptocurrency addresses that name stores. As long as the addresses are set, a user can send any of our 80+ supported cryptocurrencies to an Unstoppable Domain and it will end up in the right place. A user can send `BTC` to `brad.crypto` and it will go to Brad's `BTC` address. A user can send `ETH` to `brad.crypto` and will go to Brad's `ETH` address. Unstoppable Domains support 80+ cryptocurrencies and counting.
 
-![success payment example](../.gitbook/assets/integrations/crypto-payments/success-payment-example.gif)
+![A successful domain resolution and payment](../.gitbook/assets/integrations/crypto-payments/success-payment-example.gif)
 
-On a high-level, an application reads domain records from smart contracts deployed at `Ethereum` and
-`Zilliqa` blockchains (for `.crypto` and `.zil` accordingly). Records are stored in the smart contract called `Resolver` 
-responsible for storing and resolving domain records. In the example, the user need to send
-ether to a specified domain. Application reads the record attached to the domain by the reserved
-key: `crypto.ETH.address`. The value is Ethereum address attached to the receiver's domain name.
+How does this work?
+
+At a high-level, an application retrieves a domain's records through smart contracts deployed on the Ethereum and/or Zilliqa blockchains (`.crypto` and `.zil`, respectively).
+
+In the example above, we're sending 1 `ETH` to `ryan.crypto`. The application sends those two parameters to the `Resolver` contract on the Ethereum blockchain and it returns the record stored under `crypto.ETH.address` for that domain. This address can be used to complete the `ETH` transfer to Ryan.
 
 {% hint style="info" %}  
-A domain can store various types of records and key formats. To learn about all supported records
-see [records reference guide.](../domain-registry-essentials/records-reference.md)
+A domain can store many records and key formats. To learn about our supported record types, see [Records reference guide](../domain-registry-essentials/records-reference.md).
 {% endhint %}
 
-![success payment flow](../.gitbook/assets/integrations/crypto-payments/success-payment-flow.svg)
+![Data movement for a successful payment](../.gitbook/assets/integrations/crypto-payments/success-payment-flow.svg)
 
-## Integrate resolution using libraries
+## Enabling domain resolution
 
-The easiest way to integrate domain resolution for crypto payments is using resolution libraries maintained by
-Unstoppable Domains. The libraries communicate with Ethereum and Zilliqa blockchain directly.
+The easiest way to integrate domain resolution for crypto payments is by using the Unstoppable Domains resolution libraries. These libraries communicate with the Ethereum and Zilliqa blockchains directly so that you don't have to.
 
-### Resolve crypto records
+### Resolving crypto records
 
-#### Resolve `ryan.crypto` into Ethereum address
+#### Example: Resolving `ryan.crypto` into Ethereum address
 
-To resolve the domain into the crypto address libraries reads `crypto.ETH.address` record attached to the
-specified domain.
+To resolve `ryan.crypto` into its Ethereum address, the library searches for the `crypto.ETH.address` record attached to the domain.
 
 {% tabs %}
 
@@ -99,20 +93,16 @@ resolution.addr(domain: "ryan.crypto", ticker: "ETH") { result in
 
 {% endtabs %}
 
-{% hint style="info" %} Libraries can be configured to use alternative Ethereum providers.
-See [library configuration guide.](../integrations/library-configuration.md)
+{% hint style="info" %} Our libraries use Infura to interact with the Ethereum blockchain by default. To configure a custom Ethereum provider see our [Library configuration guide.](../integrations/library-configuration.md)
 {% endhint %}
 
 ##### Records involved
 
-`addr() / getAddr()` methods convert provided 3-letters ticker in `crypto.<TICKER>.address` and reads value for
-provided domain. In case of `ryan.crypto` resolution `ETH` ticker becomes `crypto.ETH.address`. With `crypto.ETH.address` 
-the library makes query to the blockchain.
+In the code above, the `addr()` and `getAddr()` methods convert the provided 3-letter ticker into the format `crypto.<TICKER>.address`. In this example, `ETH` ticker becomes `crypto.ETH.address`. The library uses `crypto.ETH.address` and the domain name to query the blockchain.
 
-#### Resolve `udtestdev-usdt.crypto` into USDT-ERC20 address
+#### Example: Resolve `udtestdev-usdt.crypto` into USDT-ERC20 address
 
-`USDT` currency exists in multiple blockchains. Libraries provide dedicated
-method to query `USDT` address for different blockchains.
+The `USDT` currency exists on multiple blockchains. Our libraries provide a dedicated method to look up `USDT` addresses for different blockchains.
 
 {% tabs %}
 
@@ -173,18 +163,19 @@ resolution.usdt(domain: "udtestdev-usdt.crypto", version: .ERC20) { (result) in
 
 ##### Records involved
 
-`usdt() / getUsdt()` methods creates a key from provided USDT version. The key format
-is `crypto.USDT.version.<VERSION>.address`. The key would be `crypto.USDT.version.ERC20.address` when the library try to find ERC20 version of address.
+The `usdt()` and `getUsdt()` methods create a key from the provided `USDT` version. The key format
+is `crypto.USDT.version.<VERSION>.address`. In the example above with the `ERC-20` version of `USDT`, the created key would be `crypto.USDT.version.ERC20.address`.
 
-{% hint style="info" %} Information about supported crypto payment tickers and USDT versions - 
-[Crypto Payment Records section in Managing domain records article](../managing-domains/managing-domain-records.md#crypto-payment-records)  
+{% hint style="info" %} Information about supported crypto payment tickers and USDT versions — 
+[Managing domain records](../managing-domains/managing-domain-records.md#crypto-payment-records)  
 {% endhint %}
 
-### Errors handling
+### Error handling
 
-![errors example](../.gitbook/assets/integrations/crypto-payments/errors-example.gif)
+![Error example](../.gitbook/assets/integrations/crypto-payments/errors-example.gif)
 
 #### Common error cases to handle:  
+
 - Domain is not registered
 - Crypto record is not found (or empty)
 - Domain is not configured (empty resolver)
@@ -294,23 +285,22 @@ resolution.addr(domain: "domain-with-error.crypto", ticker: "ETH") { result in
 
 {% endtabs %}
 
-{% hint style="danger" %} Always check address validity after receiving result from the library. The user has a
-full control over the domain and able to set any value - even invalid.  
+{% hint style="danger" %} Always check address validity after receiving a result from the library. The user has full control over the domain and is able to set any value - even values which are invalid.
 {% endhint %}
 
 ## Integration best practices
 
-- Always show resolved address near the domain name.
+- Always display the resolved address near the domain name for additional security.
 - Don’t overwrite the input field with the cryptocurrency address.
-- Always try to resolve domain with provided currency code.
+- Always try to resolve a domain with the provided currency code.
 - Always handle resolution errors according to error type.
 
-![best practices](../.gitbook/assets/integrations/crypto-payments/best-practices.png)
+![Best practices](../.gitbook/assets/integrations/crypto-payments/best-practices.png)
 
-## Links
+## Resources
 
-- [Get test domain](./get-test-domain.md)
+- [Get a test domain](./get-test-domain.md)
 - [JavaScript Resolution library](https://github.com/unstoppabledomains/resolution)
 - [Java Resolution library](https://github.com/unstoppabledomains/resolution-java)
 - [Swift Resolution library](https://github.com/unstoppabledomains/resolution-swift)  
-- [Discord community](https://discord.com/invite/b6ZVxSZ9Hn)
+- [Unstoppable Domains Developer Community](https://discord.com/invite/b6ZVxSZ9Hn) Ask questions here!
