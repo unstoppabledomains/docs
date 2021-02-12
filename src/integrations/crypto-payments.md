@@ -11,18 +11,18 @@
 
 ## Overview
 
-The most common way to integrate Unstoppable Domains in the application is to translate `.crypto` or `.zil` into the
-cryptocurrency addresses like `BTC, ETH` and more when the user is sending cryptocurrency or token. Instead of putting a
+The most common way to integrate Unstoppable Domains in the application is convert `.crypto` or `.zil` domain name to the
+cryptocurrency addresses like `BTC, ETH` and more when the user sends cryptocurrency or token. Instead of putting a
 long hash (cryptocurrency address) in the `Receiver / Send to:` field the user just typing receiver `.crypto` or `.zil`
 name.
 
 ![success payment example](../.gitbook/assets/integrations/crypto-payments/success-payment-example.gif)
 
 On a high-level, an application reads domain records from smart contracts deployed at `Ethereum` and
-`Zilliqa` blockchains (for `.crypto` and `.zil` accordingly). Records stored in the smart contract called `Resolver` -
-specified smart contract responsible for storing and resolving domain records. In the example, the user need to send
-ether to a specified domain. Application would need to read the record attached to the domain by the reserved
-key: `crypto.ETH.address`. The value will be the Ethereum address attached to the receiver's domain name.
+`Zilliqa` blockchains (for `.crypto` and `.zil` accordingly). Records are stored in the smart contract called `Resolver` 
+responsible for storing and resolving domain records. In the example, the user need to send
+ether to a specified domain. Application reads the record attached to the domain by the reserved
+key: `crypto.ETH.address`. The value is Ethereum address attached to the receiver's domain name.
 
 {% hint style="info" %}  
 A domain can store various types of records and key formats. To learn about all supported records
@@ -40,13 +40,12 @@ Unstoppable Domains. The libraries communicate with Ethereum and Zilliqa blockch
 
 #### Resolve `ryan.crypto` into Ethereum address
 
-To resolve the domain into a blockchain address libraries will read `crypto.ETH.address` record attached to the
+To resolve the domain into the crypto address libraries reads `crypto.ETH.address` record attached to the
 specified domain.
 
 {% tabs %}
 
-{% tab title="resolution" %} Resolution library is suitable for `javascript/typescript/react native` applications.
-
+{% tab title="resolution" %}
 ```javascript
 const {default: Resolution} = require('@unstoppabledomains/resolution');
 const resolution = new Resolution();
@@ -106,19 +105,18 @@ See [library configuration guide.](../integrations/library-configuration.md)
 
 ##### Records involved
 
-`addr() / getAddr()` methods convert provided 3-letters ticker intro `crypto.<TICKER>.address` and reads value for
-provided domain. In case of `ryan.crypto` resolution `ETH` ticker becomes `crypto.ETH.address` when the library makes
-query to the blockchain.
+`addr() / getAddr()` methods convert provided 3-letters ticker in `crypto.<TICKER>.address` and reads value for
+provided domain. In case of `ryan.crypto` resolution `ETH` ticker becomes `crypto.ETH.address`. With `crypto.ETH.address` 
+the library makes query to the blockchain.
 
 #### Resolve `udtestdev-usdt.crypto` into USDT-ERC20 address
 
-`USDT` currency exists in multiple blockchains it requires a different key format to store. Libraries provide dedicated
+`USDT` currency exists in multiple blockchains. Libraries provide dedicated
 method to query `USDT` address for different blockchains.
 
 {% tabs %}
 
-{% tab title="resolution" %} Resolution library is suitable for `javascript/typescript/react native` applications.
-
+{% tab title="resolution" %}
 ```javascript
 const {default: Resolution} = require('@unstoppabledomains/resolution');
 const resolution = new Resolution();
@@ -175,19 +173,18 @@ resolution.usdt(domain: "udtestdev-usdt.crypto", version: .ERC20) { (result) in
 
 ##### Records involved
 
-`usdt() / getUsdt()` methods create a key from provided USDT version. The key format
-is `crypto.USDT.version.<VERSION>.address`. The key would be `crypto.USDT.version.ERC20.address` when the library makes
-query to the blockchain.
+`usdt() / getUsdt()` methods creates a key from provided USDT version. The key format
+is `crypto.USDT.version.<VERSION>.address`. The key would be `crypto.USDT.version.ERC20.address` when the library try to find ERC20 version of address.
 
-{% hint style="info" %} To get detailed information about supported crypto payment tickers and USDT versions
-read [Crypto Payment Records section in Managing domain records article](../managing-domains/managing-domain-records.md#crypto-payment-records)  
+{% hint style="info" %} Information about supported crypto payment tickers and USDT versions - 
+[Crypto Payment Records section in Managing domain records article](../managing-domains/managing-domain-records.md#crypto-payment-records)  
 {% endhint %}
 
 ### Errors handling
 
 ![errors example](../.gitbook/assets/integrations/crypto-payments/errors-example.gif)
 
-#### Most common error cases to handle:  
+#### Common error cases to handle:  
 - Domain is not registered
 - Crypto record is not found (or empty)
 - Domain is not configured (empty resolver)
@@ -298,7 +295,7 @@ resolution.addr(domain: "domain-with-error.crypto", ticker: "ETH") { result in
 {% endtabs %}
 
 {% hint style="danger" %} Always check address validity after receiving result from the library. The user has a
-full control over the domain. The user can set any value under any key.  
+full control over the domain and able to set any value - even invalid.  
 {% endhint %}
 
 ## Integration best practices
@@ -308,9 +305,12 @@ full control over the domain. The user can set any value under any key.
 - Always try to resolve domain with provided currency code.
 - Always handle resolution errors according to error type.
 
+![best practices](../.gitbook/assets/integrations/crypto-payments/best-practices.png)
+
 ## Links
 
 - [Get test domain](./get-test-domain.md)
+- [JavaScript Resolution library](https://github.com/unstoppabledomains/resolution)
+- [Java Resolution library](https://github.com/unstoppabledomains/resolution-java)
+- [Swift Resolution library](https://github.com/unstoppabledomains/resolution-swift)  
 - [Discord community](https://discord.com/invite/b6ZVxSZ9Hn)
-- [Resolution libraries](./libraries-list.md)
-
