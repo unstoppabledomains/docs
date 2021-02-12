@@ -26,6 +26,8 @@ To make domain resolution easier, we've written libraries for web, Android, and 
 
 If you're familiar with blockchain development and would rather avoid an additional dependency in your application, you can also read domain metadata directly.
 
+- [Resolve .crypto without libraries](https://medium.com/unstoppabledomains/how-to-resolve-crypto-domain-names-82046db0404a)
+- [Resolve .zil without libraries](https://medium.com/unstoppabledomains/how-to-resolve-zil-domain-names-f43da8fe37a9)
 - [Resolving domain records](../domain-registry-essentials/resolving-domain-records.md)
 - [Smart contracts reference](../domain-registry-essentials/cns-smart-contracts.md)
 - [Records reference](../domain-registry-essentials/records-reference.md)
