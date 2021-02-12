@@ -100,9 +100,7 @@ resolution.addr(domain: "ryan.crypto", ticker: "ETH") { result in
 
 {% endtabs %}
 
-{% hint style="danger" %} To communicate with Ethereum libraries use Linkpool Ethereum public provider by default with
-low rate limit threshold. For production usage it's required to switch on Ethereum provider with high rate-limits
-threshold. To configure library properly use [library configuration guide.](../integrations/library-configuration.md)
+{% hint style="info" %} Libraries can be configured to use alternative Ethereum providers. See [library configuration guide.](../integrations/library-configuration.md)
 {% endhint %}
 
 ##### Records involved
