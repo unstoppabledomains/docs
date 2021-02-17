@@ -9,16 +9,15 @@
 - [Getting started](integrations/getting-started.md)
 - [Crypto payments](integrations/crypto-payments.md)
 - [Library configuration](integrations/library-configuration.md)
-
-### Integrate from scratch
-  - [Resolve .crypto without libraries](https://medium.com/unstoppabledomains/how-to-resolve-crypto-domain-names-82046db0404a)
-  - [Resolve .zil without libraries](https://medium.com/unstoppabledomains/how-to-resolve-zil-domain-names-f43da8fe37a9)
-### Libraries
-  - [JavaScript Resolution library](https://github.com/unstoppabledomains/resolution)
-  - [Java Resolution library](https://github.com/unstoppabledomains/resolution-java)
-  - [Swift Resolution library](https://github.com/unstoppabledomains/resolution-swift)
-### Resellers
-  - [Website API reference](https://apidocs.unstoppabledomains.com/)
+-------
+- [Resolve .crypto without libraries](https://medium.com/unstoppabledomains/how-to-resolve-crypto-domain-names-82046db0404a)
+- [Resolve .zil without libraries](https://medium.com/unstoppabledomains/how-to-resolve-zil-domain-names-f43da8fe37a9)
+-------  
+- [JavaScript Resolution library](https://github.com/unstoppabledomains/resolution)
+- [Java Resolution library](https://github.com/unstoppabledomains/resolution-java)
+- [Swift Resolution library](https://github.com/unstoppabledomains/resolution-swift)
+-------  
+- [Website API reference](https://apidocs.unstoppabledomains.com/)
 
 ## Browser resolution
 
