@@ -24,12 +24,15 @@ Most of our code examples are written in JavaScript and, of course, Solidity. If
 
 ### Quick reference
 
-- **How Unstoppable Domains work** — [Architecture overview](domain-registry-essentials/architecture-overview.md).
-- **How to resolve records for payments** — [Resolving domain records](domain-registry-essentials/resolving-domain-records.md)
-- **How to resolve domains in a browser** — [Resolving domains in a browser](browser-resolution/resolving-domains-in-a-browser.md).
-- **How to integrate your product with Unstoppable** — [Getting started with an integration](integrations/getting-started.md)
+#### Essentials
+
+- [How Unstoppable Domains work](domain-registry-essentials/architecture-overview.md)
+- [Resolving domain records](domain-registry-essentials/resolving-domain-records.md)
+- [Namehashing algorithm](domain-registry-essentials/namehashing.md)
+- [CNS smart contracts](domain-registry-essentials/cns-smart-contracts.md)
 
 #### Wallets / Exchanges / Applications
+
 - [Getting started](integrations/getting-started.md)
 - [Crypto payments](integrations/crypto-payments.md)
 - [Library configuration](integrations/library-configuration.md)
@@ -37,6 +40,7 @@ Most of our code examples are written in JavaScript and, of course, Solidity. If
 - [Resolve .zil without libraries](https://medium.com/unstoppabledomains/how-to-resolve-zil-domain-names-f43da8fe37a9)
 
 #### Browsers
+
 - [Resolving domains in a browser](browser-resolution/resolving-domains-in-a-browser.md)
 - [Browser resolution algorithm](browser-resolution/browser-resolution-algorithm.md)
 - [Browser resolution test domains](browser-resolution/test-domains.md)
@@ -44,10 +48,11 @@ Most of our code examples are written in JavaScript and, of course, Solidity. If
 ### Technical specifications
 
 - [Records reference](domain-registry-essentials/records-reference.md)
-- [Browser resolution algorithm](browser-resolution/browser-resolution-algorithm.md)
+- [Browser resolution algorithm](browser-resolution/browser-resolution-algorithm.md)  
 
 ### Other resources
 
+- [Get test domain](integrations/get-test-domain.md)
 - [Website API reference](https://apidocs.unstoppabledomains.com/)
 - Resolution Libraries
   - JavaScript [\[library\]](https://www.npmjs.com/package/@unstoppabledomains/resolution), [\[github\]](https://github.com/unstoppabledomains/resolution)
