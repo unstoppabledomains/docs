@@ -6,9 +6,9 @@ Unstoppable Domains has introduced a major documentation update. The old Website
 
 Unstoppable Domains is a San Francisco-based company building blockchain-based domains. These domains replace cryptocurrency addresses with human-readable names and are powered by the Ethereum and Zilliqa blockchains.
 
-Unstoppable Domains are decentralized. This makes them, in a word, unstoppable. Once a user purchases a domain, they have absolute control over that domain. Domains can be transferred, updated, and linked to other services completely without Unstoppable Domains' involvement. Unstoppable Domains cannot deactivate, change, or transfer a domain's records without a user's permission.
-
-This approach stands in stark contrast to traditional domain systems where takedowns and seizures are a fact of life. This is a bold approach, but we believe complete decentralization is the only way to guarantee censorship resistance, irrevocable access, and permanent ownership for our users.
+Unstoppable Domains are decentralized. This makes them, in a word, unstoppable. Once a user claims a domain to a wallet, they have absolute control over that domain. 
+Domains can be transferred, updated, and linked to other services without any involvement from Unstoppable Domains. 
+Unstoppable Domains cannot deactivate, change, or transfer a domain's records without a user's permission.
 
 See the [Architecture overview](domain-registry-essentials/architecture-overview.md) for more detail on our Crypto and Zilliqa Name Services (CNS and ZNS, respectively).
 
@@ -28,6 +28,18 @@ Most of our code examples are written in JavaScript and, of course, Solidity. If
 - **How to resolve records for payments** — [Resolving domain records](domain-registry-essentials/resolving-domain-records.md)
 - **How to resolve domains in a browser** — [Resolving domains in a browser](browser-resolution/resolving-domains-in-a-browser.md).
 - **How to integrate your product with Unstoppable** — [Getting started with an integration](integrations/getting-started.md)
+
+#### Wallets / Exchanges / Applications
+- [Getting started](integrations/getting-started.md)
+- [Crypto payments](integrations/crypto-payments.md)
+- [Library configuration](integrations/library-configuration.md)
+- [Resolve .crypto without libraries](https://medium.com/unstoppabledomains/how-to-resolve-crypto-domain-names-82046db0404a)
+- [Resolve .zil without libraries](https://medium.com/unstoppabledomains/how-to-resolve-zil-domain-names-f43da8fe37a9)
+
+#### Browsers
+- [Resolving domains in a browser](browser-resolution/resolving-domains-in-a-browser.md)
+- [Browser resolution algorithm](browser-resolution/browser-resolution-algorithm.md)
+- [Browser resolution test domains](browser-resolution/test-domains.md)
 
 ### Technical specifications
 
