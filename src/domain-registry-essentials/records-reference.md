@@ -9,6 +9,10 @@ This page contains an overview of all standardized `Resolver` records. The refer
 
 Developers may also set custom records for the domains. Domain records are stored as a key-value dictionary by `Resolvers` and are not validated on the smart-contract level. For more details, read [Architecture Overview](architecture-overview.md#resolver) and [Managing Domain Records](../managing-domains/managing-domain-records.md).
 
+{% hint style="info" %}
+A list of keys supported by Unstoppable Domains can be found in [reference json file](https://github.com/unstoppabledomains/dot-crypto/blob/master/src/supported-keys/supported-keys.json)
+{% endhint %}
+
 ## Cryptocurrency payments
 
 For information about crypto payments, see [Managing Domain Records - Cryptocurrency Payment Records](../managing-domains/managing-domain-records.md#crypto-payment-records).

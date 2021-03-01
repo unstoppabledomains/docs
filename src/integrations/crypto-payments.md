@@ -6,8 +6,8 @@
 - [Enabling domain resolution using libraries](crypto-payments.md#enabling-domain-resolution)
     - [Resolving crypto records](crypto-payments.md#resolving-crypto-records)
     - [Error handling](crypto-payments.md#error-handling)
-    - [Best practices](crypto-payments.md#best-practices)
-- [Links](crypto-payments.md#links)
+    - [Best practices](crypto-payments.md#integration-best-practices)
+- [Resources](crypto-payments.md#resources)
 
 ## Overview
 
@@ -102,7 +102,7 @@ In the code above, the `addr()` and `getAddr()` methods convert the provided 3-l
 
 #### Example: Resolve `udtestdev-usdt.crypto` into USDT-ERC20 address
 
-The `USDT` currency exists on multiple blockchains. Our libraries provide a dedicated method to look up `USDT` addresses for different blockchains.
+The `USDT` currency exists on multiple blockchains. Our libraries provide a dedicated method to look up cryptocurrency addresses for different blockchains.
 
 {% tabs %}
 
@@ -111,7 +111,7 @@ The `USDT` currency exists on multiple blockchains. Our libraries provide a dedi
 const {default: Resolution} = require('@unstoppabledomains/resolution');
 const resolution = new Resolution();
 resolution
-    .usdt('udtestdev-usdt.crypto', 'ERC20')
+    .multiChainAddr('udtestdev-usdt.crypto', 'USDT', 'ERC20')
     .then((receiverUSDTAddress) => {
         // receiverUSDTAddress consists address for receiving USDT on Ethereum (ERC20 version)
         // use this address as recipient of the payment
@@ -125,10 +125,9 @@ resolution
 
 ```java
 import com.unstoppabledomains.resolution.Resolution
-import com.unstoppabledomains.resolution.TickerVersion
 ...
 DomainResolution resolution = new Resolution();
-String receiverUSDTAddress = resolution.getUsdt("udtestdev-usdt.crypto", TickerVersion.ERC20);
+String receiverUSDTAddress = resolution.getMultiChainAddress("udtestdev-usdt.crypto", "USDT", "ERC20");
 // receiverUSDTAddress consists address for receiving USDT on Ethereum (ERC20 version)
 // use this address as recipient of the payment
 ```
@@ -145,7 +144,7 @@ guard let resolution = try? Resolution() else {
   return
 }
 
-resolution.usdt(domain: "udtestdev-usdt.crypto", version: .ERC20) { (result) in
+resolution.multiChainAddress(domain: "udtestdev-usdt.crypto", ticker: "USDT", chain: "ERC20") { (result) in
   switch result {
   case .success(let returnValue):
      receiverUSDTAddress = returnValue;
@@ -163,7 +162,7 @@ resolution.usdt(domain: "udtestdev-usdt.crypto", version: .ERC20) { (result) in
 
 ##### Records involved
 
-The `usdt()` and `getUsdt()` methods create a key from the provided `USDT` version. The key format
+The `multiChainAddress()` and `getMultiChainAddress()` methods create a key from the provided `USDT` ticker and `ERC20` version. The key format
 is `crypto.USDT.version.<VERSION>.address`. In the example above with the `ERC-20` version of `USDT`, the created key would be `crypto.USDT.version.ERC20.address`.
 
 {% hint style="info" %} Information about supported crypto payment tickers and USDT versions — 
