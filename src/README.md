@@ -58,3 +58,4 @@ Most of our code examples are written in JavaScript and, of course, Solidity. If
   - JavaScript [\[library\]](https://www.npmjs.com/package/@unstoppabledomains/resolution), [\[github\]](https://github.com/unstoppabledomains/resolution)
   - Java [\[library\]](https://search.maven.org/artifact/com.unstoppabledomains.resolution/resolution/1.1.0/jar), [\[github\]](https://github.com/unstoppabledomains/resolution-java)
   - Swift [\[library\]](https://cocoapods.org/pods/UnstoppableDomainsResolution), [\[github\]](https://github.com/unstoppabledomains/resolution-swift)
+  - Golang [github](https://github.com/unstoppabledomains/resolution-go)
