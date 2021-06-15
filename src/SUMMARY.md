@@ -5,9 +5,6 @@
 - [Discord community](https://discord.com/invite/b6ZVxSZ9Hn)
 
 ## Wallets / exchanges / applications
-
-- [Getting started](integrations/getting-started.md)
-- [Crypto payments](integrations/crypto-payments.md)
 - [Library configuration](integrations/library-configuration.md)
 - [Domains configuration GUI](integrations/domains-configuration.md)
 -------  

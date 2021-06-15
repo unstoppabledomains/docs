@@ -14,7 +14,9 @@ There are five basic operations that affect domain ownership:
 - **Transferring.** There are two possible ways to transfer a domain: one that keeps resolution settings, and one that resets them.
 - **Setting an operator.** Operators are other Ethereum addresses, which can control all domains owned by a caller.
 - **Setting an approved address.** Crypto Name Service (CNS) allows setting one approved address per domain, which has equal privileges with a domain owner.
-- **Burning.** Burns a domain, clearing all associated metadata and `Resolver` settings.
+- **Burn.** Burns a domain, clearing all associated metadata and `Resolver` settings.
+
+Some new text
 
 This article covers all the `Registry` methods that can be used for managing domain ownership.
 
