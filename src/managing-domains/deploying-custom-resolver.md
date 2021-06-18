@@ -1,6 +1,6 @@
-# Deploying custom resolver
+# Delegating Domain Management
 
-Deploying a custom resolver is a way to implement a flexible permission model over domain records. This may include:
+Deploying a custom resolver is a way to implement a flexible permission model over domain records, which allows you to delegate the domain management to someone else. This may include:
 
 - **Community-owned domains** — where individual members of a community decide on a domain website content.
 - **Domain leasing** — where a domain is temporarily managed by a different authority and then comes back to the original authority.

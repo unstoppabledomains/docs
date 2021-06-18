@@ -1,6 +1,6 @@
-# Meta transactions
+# Delegating Transactions
 
-Most `Registry` and `Resolver` methods have meta-transaction support. Generally, meta-transactions allow users to sign messages to control their domains that are then submitted to the registry by a different party. This enables Unstoppable to submit transactions on behalf of users so that the user can still manage their domains in a self-custodial capacity without any gas.
+Most `Registry` and `Resolver` methods have meta-transaction support, which allows you to delegate transactions to another party. Generally, meta-transactions allow users to sign messages to control their domains that are then submitted to the registry by a different party. This enables Unstoppable to submit transactions on behalf of users so that the user can still manage their domains in a self-custodial capacity without any gas.
 
 Meta-transactions work by having users sign function calls along with a nonce. They then send that signed function call over to a different party. That party calls the meta-transaction-enabled function on the `Registry` or `Resolver`. For most management methods, there is a method with meta-transaction support that has a `For` suffix at the end. The meta-transaction method then checks the permission for a domain against the address recovered from the signed message sent to the function, unlike the base method that checks it against the submitter of the transaction e.g. `msg.sender`.
 
@@ -80,4 +80,3 @@ Functions Reference:
 * `ethCallRpc` — Ethereum `eth_call` JSON RPC implementation
 * `encodeContractInterface` — [Solidity ABI](https://solidity.readthedocs.io/en/v0.7.0/abi-spec.html#argument-encoding) interface parameters encoder
 * `solidityKeccak256` — [Solidity ABI](https://solidity.readthedocs.io/en/v0.7.0/abi-spec.html#argument-encoding) parameters encoder
-

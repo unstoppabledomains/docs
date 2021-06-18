@@ -1,4 +1,4 @@
-# Managing domain ownership
+# Managing Domain Ownership
 
 Management of second-level domains is performed via the [Registry smart contract](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/Registry.sol). The smart contract is built upon [OpenZeppelin's implementation](https://docs.openzeppelin.com/contracts/2.x/api/token/erc721#ERC721Burnable) of the [ERC-721](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md) token standard.
 

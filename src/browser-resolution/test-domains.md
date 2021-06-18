@@ -1,4 +1,4 @@
-# Test domains prefilled with DNS and DWEB records
+# Test Domains Prefilled with DNS and DWEB records
 
 | Domain name                                           |
 |-------------------------------------------------------|

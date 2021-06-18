@@ -1,4 +1,4 @@
-# Browser resolution algorithm
+# Browser Resolution Algorithm
 
 ![](../.gitbook/assets/resolve_dweb_website_by_direct_reading_from_ethereum_and_decentralized_network.png)
 
@@ -15,7 +15,7 @@ If none of the `dweb` or legacy `ipfs.html.value` records are set, a browser sho
 If none of the `dns.*` records are set, a browser should fall back to the `browser.redirect_url` or legacy `ipfs.redirect_domain.value` keys. `browser.redirect_url` key has a priority over `ipfs.redirect_domain.value` if both are set.       
 
 Generally, browsers automatically add `http://` prefix for any domain in the address bar if the protocol is not specified explicitly by a user. For blockchain domain names (assuming a browser supports many protocols), it is preferred to determine a protocol only after resolving domain records.
-   
+
 `browser.redirect_url` and `ipfs.redirect_domain.value` contains full URL according to RFC-1738 and no additional actions required to provide redirect.  
 
 ![](../.gitbook/assets/browser_resolution_algorithm.svg)

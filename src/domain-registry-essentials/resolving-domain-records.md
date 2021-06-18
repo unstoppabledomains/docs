@@ -1,4 +1,4 @@
-# Resolving domain records
+# Resolving Domain Records
 
 Resolving a domain is a process of retrieving a domain's records when the domain name and required record names are given. There are no limits to who can read domain records on the `Registry` side. Anyone with access to a mainnet Ethereum Node can resolve a domain.
 
