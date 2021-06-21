@@ -1,4 +1,4 @@
-# Records reference
+# Records Reference
 
 This page contains an overview of all standardized `Resolver` records. The reference is divided into sections, grouping records by their namespaces and use-cases:
 

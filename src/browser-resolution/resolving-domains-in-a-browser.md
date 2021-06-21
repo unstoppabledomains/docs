@@ -1,8 +1,30 @@
-# Resolving domains in a browser
+# Resolving Domains in a Browser
 
-This document describes how to resolve blockchain domains using a traditional HTTP Web Browser or a Dapp Browser. The document assumes that a reader has a basic understanding of Unstoppable domains resolution. See [Resolving domain records](../domain-registry-essentials/resolving-domain-records.md).
+This page describes how to resolve blockchain domains using a traditional HTTP Web Browser or a Dapp Browser and assumes that a reader has a basic understanding of Unstoppable Domains resolution. See [Resolving domain records](../domain-registry-essentials/resolving-domain-records.md).
 
-## End-user features
+## General Domain Resolution Information
+
+Domain Resolution allows developers to translate a `.crypto` or `.zil` domain name into addresses for BTC, ETH, IPFS, and more. Domain Resolution can (and we believe, should) be used anywhere your application has a "Send to: " field.
+
+To make domain resolution easier, we've written libraries for web, Android, and iOS.
+
+### Domain Resolution Libraries
+
+- [JavaScript resolution library](https://github.com/unstoppabledomains/resolution)
+- [Java resolution library](https://github.com/unstoppabledomains/resolution-java)
+- [Swift resolution library](https://github.com/unstoppabledomains/resolution-swift)
+
+### Access Domain Metadata Directly
+
+If you're familiar with blockchain development and would rather avoid an additional dependency in your application, you can also read domain metadata directly.
+
+- [Resolve .crypto without libraries](https://medium.com/unstoppabledomains/how-to-resolve-crypto-domain-names-82046db0404a)
+- [Resolve .zil without libraries](https://medium.com/unstoppabledomains/how-to-resolve-zil-domain-names-f43da8fe37a9)
+- [Resolving domain records](../domain-registry-essentials/resolving-domain-records.md)
+- [Smart contracts reference](../domain-registry-essentials/cns-smart-contracts.md)
+- [Records reference](../domain-registry-essentials/records-reference.md)
+
+## End-User Features (For Resolving Domains in a Browser)
 
 ### HTTP website browsing
 
@@ -50,7 +72,7 @@ Then the browser uses new settings to make requests to Ethereum blockchain
 
 ![](../.gitbook/assets/configure_dns_gateway.png)
 
-## Hypermedia protocol
+## Hypermedia Protocol
 
 In addition to base browser hypermedia protocols like `http`, blockchain domains can also be configured for distributed content protocols like `ipfs`. These hypermedia protocols can be associated with a crypto domain:
 
@@ -64,7 +86,7 @@ In addition to base browser hypermedia protocols like `http`, blockchain domains
 
 A browser may support any subset of traditional or distributed protocols that still make crypto domain websites displayable.
 
-## Gateway to simplify the integration
+## Gateway to Simplify the Integration
 
 While it is possible to resolve a domain via a call to ETH RPC and support distributed content protocols in a browser, it might be easier to make those calls via gateways using protocols already supported by all browsers: HTTP and DNS. A gateway may simplify the integration to a browser but comes at the downside of decreased decentralization (if the gateway is hosted by a third party) or a more complex user experience (if the gateway is hosted by the user).
 
