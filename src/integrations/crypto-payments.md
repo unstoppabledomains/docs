@@ -165,8 +165,7 @@ resolution.multiChainAddress(domain: "udtestdev-usdt.crypto", ticker: "USDT", ch
 The `multiChainAddress()` and `getMultiChainAddress()` methods create a key from the provided `USDT` ticker and `ERC20` version. The key format
 is `crypto.USDT.version.<VERSION>.address`. In the example above with the `ERC-20` version of `USDT`, the created key would be `crypto.USDT.version.ERC20.address`.
 
-{% hint style="info" %} Information about supported crypto payment tickers and USDT versions — 
-[Managing domain records](../managing-domains/managing-domain-records.md#crypto-payment-records)  
+{% hint style="info" %} See [Managing domain records](../managing-domains/managing-domain-records.md) for information about supported crypto payment tickers and USDT versions.
 {% endhint %}
 
 ### Error handling
@@ -261,15 +260,15 @@ resolution.addr(domain: "domain-with-error.crypto", ticker: "ETH") { result in
                 case ResolutionError.unregisteredDomain:
                     // Domain is not registered
                     break;
-                
+
                 case ResolutionError.recordNotFound:
                     // Crypto record is not found (or empty)
                     break;
-                
+
                 case ResolutionError.unspecifiedResolver:
                     // Domain is not configured (empty resolver)
                     break;
-                
+
                 case ResolutionError.unsupportedDomain:
                     // Domain is not supported
                     break;
