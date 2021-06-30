@@ -6,16 +6,16 @@ Domain records can be managed via the default public resolver, or one can develo
 
 ## Resolver record types
 
-Records on the top-level are stored in a simple key-value pair mapping string to string. CNS (Crypto Name Service) doesn't prohibit a user from assigning any record to any value. However, there is a list of standard records that have a defined standard interpretation by clients. A full list of standardized records can be found in the [Records reference](../domain-registry-essentials/records-reference.md).
+Records on the top-level are stored in a simple key-value pair mapping string to string. CNS \(Crypto Name Service\) doesn't prohibit a user from assigning any record to any value. However, there is a list of standard records that have a defined standard interpretation by clients. A full list of standardized records can be found in the [Records reference](../domain-registry-essentials/records-reference.md).
 
 Standard record keys are split by namespaces with a `.` used as a separator.
 
 The main namespaces are:
 
-- `crypto.*` — Records related to crypto payments
-- `dns.*` — DNS records
-- `dweb.*` — Records related to distributed content network protocols
-- `browser.*` — Hint records for web browsers
+* `crypto.*` — Records related to crypto payments
+* `dns.*` — DNS records
+* `dweb.*` — Records related to distributed content network protocols
+* `browser.*` — Hint records for web browsers
 
 ### Crypto payment records
 
@@ -37,13 +37,13 @@ Example crypto records setup:
 
 | Key | Value |
 | :--- | :--- |
-| `crypto.ETH.address`                | `0xD1E5b0FF1287aA9f9A268759062E4Ab08b9Dacbe` |
-| `crypto.BTC.address`                | `bc1qkd4um2nn2uyzmsch5y86wsa2pfh8xl445lg9nv` |
-| `crypto.ZIL.address`                | `zil1yu5u4hegy9v3xgluweg4en54zm8f8auwxu0xxc` |
+| `crypto.ETH.address` | `0xD1E5b0FF1287aA9f9A268759062E4Ab08b9Dacbe` |
+| `crypto.BTC.address` | `bc1qkd4um2nn2uyzmsch5y86wsa2pfh8xl445lg9nv` |
+| `crypto.ZIL.address` | `zil1yu5u4hegy9v3xgluweg4en54zm8f8auwxu0xxc` |
 | `crypto.USDT.version.ERC20.address` | `0x8aaD44321A86b170879d7A244c1e8d360c99DdA8` |
-| `crypto.USDT.version.TRON.address`  | `THG9jVSMfKEbg4vYTYWjmLRyga3CKZdDsk`         |
+| `crypto.USDT.version.TRON.address` | `THG9jVSMfKEbg4vYTYWjmLRyga3CKZdDsk` |
 
-`USDT` presents on multiple chains and key format is slightly different. More details can be found in the [Records Reference section](../domain-registry-essentials/records-reference.md)    
+`USDT` presents on multiple chains and key format is slightly different. More details can be found in the [Records Reference section](../domain-registry-essentials/records-reference.md)
 
 ## Resolver administrative patterns
 
@@ -51,9 +51,9 @@ Example crypto records setup:
 
 The default Unstoppable resolver allows users to manage all domain records for any address given a permission over domain with the [ERC721 "Transfer Mechanism"](https://eips.ethereum.org/EIPS/eip-721). This enables a subset of addresses to manage the domain on your behalf. By default we give the permission to do this to every address that can already transfer ownership of the domain. These include:
 
-- Owner address of a domain
-- Approved address for a domain
-- Owner's operator addresses
+* Owner address of a domain
+* Approved address for a domain
+* Owner's operator addresses
 
 This allows users to domain management while still retaining primary ownership of their domain. These smart contracts can be programed in such a way that they only change specified records. An Oracle Integration works in this way. For example:
 
@@ -69,7 +69,7 @@ This enables users to interact with applications that could store keys and other
 
 Resolvers can be made with custom logic. For example, users with a large amount of domains might want to deploy a custom `Owned` resolver contract. See [EIP-173](https://eips.ethereum.org/EIPS/eip-173). Where there is only one set of records, and only the owner can set them.
 
-```solidity
+```text
 pragma solidity ^0.7.0;
 
 import "./Owned.sol";
@@ -103,9 +103,10 @@ This nested structure allows users to configure domains on the un-enumerable Eth
 
 Currently `reset` and `reconfigure` are the only methods exposed on this version of resolver.
 
-- The `reset` method clears the domain's records by setting the preset on the domain to the timestamp when the transaction was mined e.g. `blockchain.timestamp`.
-- The `reconfigure` method first `reset`s the domain then configures a new set of records.
+* The `reset` method clears the domain's records by setting the preset on the domain to the timestamp when the transaction was mined e.g. `blockchain.timestamp`.
+* The `reconfigure` method first `reset`s the domain then configures a new set of records.
 
 ### Pre-configuring Records
 
 The default resolver allows the Unstoppable Minting EOAs to mint and preconfigure domains in one step. This `preconfigure` method only lets the Minting EOAs configure unowned domains not names already minted to the CNS Registry.
+

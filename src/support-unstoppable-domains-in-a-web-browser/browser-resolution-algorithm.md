@@ -8,15 +8,15 @@ A browser can select a protocol it has support for. If a domain is configured fo
 
 If `browser.preferred_protocols` is not set, a browser should use the following value as a default `["bzz", "ipfs", "https", "http", "ftp"]`. If `browser.preferred_protocols` is set but is not complete, a browser should append the absent protocols in the default order specified above. A domain can have a single content identifier for each distributed protocol stored in `dweb.<protocol>.hash`. Ex: `dweb.bzz.hash` for Swarm's `bzz` protocol. See [Dweb records](browser-resolution-algorithm.md#distributed-web-records) for more information.
 
-If none of the `dweb` hash records are set, a browser should fall back to legacy ipfs record that is set as `ipfs.html.value`.  
+If none of the `dweb` hash records are set, a browser should fall back to legacy ipfs record that is set as `ipfs.html.value`.
 
-If none of the `dweb` or legacy `ipfs.html.value` records are set, a browser should fall back to DNS resolution that is set within `dns.*` namespace.  
+If none of the `dweb` or legacy `ipfs.html.value` records are set, a browser should fall back to DNS resolution that is set within `dns.*` namespace.
 
-If none of the `dns.*` records are set, a browser should fall back to the `browser.redirect_url` or legacy `ipfs.redirect_domain.value` keys. `browser.redirect_url` key has a priority over `ipfs.redirect_domain.value` if both are set.       
+If none of the `dns.*` records are set, a browser should fall back to the `browser.redirect_url` or legacy `ipfs.redirect_domain.value` keys. `browser.redirect_url` key has a priority over `ipfs.redirect_domain.value` if both are set.
 
-Generally, browsers automatically add `http://` prefix for any domain in the address bar if the protocol is not specified explicitly by a user. For blockchain domain names (assuming a browser supports many protocols), it is preferred to determine a protocol only after resolving domain records.
+Generally, browsers automatically add `http://` prefix for any domain in the address bar if the protocol is not specified explicitly by a user. For blockchain domain names \(assuming a browser supports many protocols\), it is preferred to determine a protocol only after resolving domain records.
 
-`browser.redirect_url` and `ipfs.redirect_domain.value` contains full URL according to RFC-1738 and no additional actions required to provide redirect.  
+`browser.redirect_url` and `ipfs.redirect_domain.value` contains full URL according to RFC-1738 and no additional actions required to provide redirect.
 
 ![](../.gitbook/assets/browser_resolution_algorithm.svg)
 
@@ -24,20 +24,20 @@ Generally, browsers automatically add `http://` prefix for any domain in the add
 
 All records related to browser resolution are stored within these namespaces:
 
-- `dns.*` — For traditional DNS records
-- `dweb.*` — For distributed content records
-- `browser.*` — Hint records to help a browser determine a preferred hypermedia protocol
+* `dns.*` — For traditional DNS records
+* `dweb.*` — For distributed content records
+* `browser.*` — Hint records to help a browser determine a preferred hypermedia protocol
 
 To retrieve records associated with a domain, see [Resolving domain records](../domain-registry-essentials/resolving-domain-records.md).
 
 ### DNS records
 
-`Resolver` records may contain classical DNS records along with other records. To distinguish those from other CNS (Crypto Name Service) records, the `dns.*` namespace is used. So DNS `A` corresponds to the `dns.A` CNS record. Any [listed DNS record](https://en.wikipedia.org/wiki/List_of_DNS_record_types) described in RFC standards is supported. All record names must follow the uppercase naming convention.
+`Resolver` records may contain classical DNS records along with other records. To distinguish those from other CNS \(Crypto Name Service\) records, the `dns.*` namespace is used. So DNS `A` corresponds to the `dns.A` CNS record. Any [listed DNS record](https://en.wikipedia.org/wiki/List_of_DNS_record_types) described in RFC standards is supported. All record names must follow the uppercase naming convention.
 
 Unlike DNS, the CNS `Resolver` doesn't support multiple records with the same key. Therefore, DNS record values must be stored as a [JSON](http://json.org/) serialized array of strings.
 
-- **Example 1:** A domain that needs one `CNAME` record set to `example.com.` must be configured as one crypto record `dns.CNAME` set to `["example.com."]`.
-- **Example 2:** A domain that needs two `A` records set to `10.0.0.1` and `10.0.0.2` must be configured as one crypto record `dns.A` set to `["10.0.0.1","10.0.0.2"]`.
+* **Example 1:** A domain that needs one `CNAME` record set to `example.com.` must be configured as one crypto record `dns.CNAME` set to `["example.com."]`.
+* **Example 2:** A domain that needs two `A` records set to `10.0.0.1` and `10.0.0.2` must be configured as one crypto record `dns.A` set to `["10.0.0.1","10.0.0.2"]`.
 
 This serialization is the only data transformation required when converting a traditional DNS record into a CNS record.
 
@@ -47,7 +47,7 @@ A recommended way to display content in a browser for crypto domains is explaine
 
 #### TTL records
 
-TTL records can be set for all records or individual types of records. TTL for all records can be set in `dns.ttl`. TTL for an individual record type can be set in `dns.<RECORD>.ttl`. If `ttl` for individual an record type is not set, a default `dns.ttl` must be applied. If a `dns.ttl` record is not set, the client recommends using `300` (5 minutes) as a default value.
+TTL records can be set for all records or individual types of records. TTL for all records can be set in `dns.ttl`. TTL for an individual record type can be set in `dns.<RECORD>.ttl`. If `ttl` for individual an record type is not set, a default `dns.ttl` must be applied. If a `dns.ttl` record is not set, the client recommends using `300` \(5 minutes\) as a default value.
 
 Example CNS records setup:
 
@@ -78,7 +78,7 @@ Therefore, authority configurations are not supported by blockchain domains at t
 
 ### Distributed web records
 
-Distributed Web (Dweb) records allow configuring a domain for distributed website protocols like IPFS or Swarm. These records are stored in the `dweb.*` namespace. Each protocol has its own sub-namespace for its data using a canonical name. Example: Swarm's protocol canonic name is `bzz` so its records are stored at `dweb.bzz.*` namespace.
+Distributed Web \(Dweb\) records allow configuring a domain for distributed website protocols like IPFS or Swarm. These records are stored in the `dweb.*` namespace. Each protocol has its own sub-namespace for its data using a canonical name. Example: Swarm's protocol canonic name is `bzz` so its records are stored at `dweb.bzz.*` namespace.
 
 Record structure can be different based on the protocol. However, all protocols have a common `.hash` record used to reference content in the distributed network. Example: `dweb.ipfs.hash` for IPFS protocol.
 
@@ -92,3 +92,4 @@ As of Q3 2020, most .crypto domains are configured using legacy record names for
 2. `ipfs.redirect_domain.value` deprecated in favor of `browser.redirect_url`
 
 Browsers are strongly recommended to support those records as a fallback when corresponding replacement records are not set.
+
