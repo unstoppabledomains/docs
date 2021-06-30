@@ -14,8 +14,6 @@ To learn more about the company, please browse our [general website](https://uns
 
 To learn more about how the product works under the hood, see the [Architecture Overview](domain-registry-essentials/architecture-overview.md) page and the [Smart Contracts Reference](domain-registry-essentials/cns-smart-contracts.md). Also visit the [List of Integrated Apps](https://unstoppabledomains.com/apps) to draw inspiration from other apps that have successfully integrated Unstoppable Domains.
 
-
-
 Test test TEST
 
 ## I want to add Unstoppable Domains to my app to send and receive crypto
