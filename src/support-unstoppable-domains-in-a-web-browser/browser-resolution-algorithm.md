@@ -2,6 +2,12 @@
 
 ![](../.gitbook/assets/resolve_dweb_website_by_direct_reading_from_ethereum_and_decentralized_network.png)
 
+--- Test image duplications
+
+--- Test image duplications
+
+--- Test image duplications
+
 This section explains how different domain record configurations should be interpreted by browsers.
 
 A browser can select a protocol it has support for. If a domain is configured for multiple protocols, it should prioritize a protocol based on `browser.preferred_protocols` record that can be set to a list of the defined protocols.![](https://unstoppabledomains.slack.com/files/UKN3V261H/F01B42CJXJN/screen_shot_2020-09-21_at_2.34.07_pm.png)
