@@ -1,4 +1,10 @@
-# Unstoppable Domains Documentation
+# Repository was migrated into live-docs repostitory. 
+You can find a new repository by the following link: https://github.com/unstoppabledomains/live-docs
+
+<details>
+<summary>Legacy README</summary>
+
+# Unstoppable Domains Documentation.  
 
 [![Unstoppable Domains Documentation](https://img.shields.io/badge/docs-unstoppabledomains.com-blue)](https://docs.unstoppabledomains.com/)
 
@@ -38,3 +44,4 @@ space and link your fork when setting up [GitHub integration](https://docs.gitbo
 **Tips for Unstoppable team:**
 
 Branch previews are available at the [development GitBook space](https://app.gitbook.com/@unstoppable-domains/s/unstoppable-docs-dev/).
+</details>
