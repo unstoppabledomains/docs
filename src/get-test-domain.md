@@ -1,4 +1,4 @@
-# Get A Test Domain
+# Get test domain
 
 To make integrations easier, Unstoppable Domains allows developers to request a free `.crypto` domain. To distinguish these test domains from paid domains, all test domains are prefixed with `udtestdev-`. For example:
 

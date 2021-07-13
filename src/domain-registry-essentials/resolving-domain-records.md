@@ -1,4 +1,4 @@
-# Resolving Domain Records
+# Resolving domain records
 
 Resolving a domain is a process of retrieving a domain's records when the domain name and required record names are given. There are no limits to who can read domain records on the `Registry` side. Anyone with access to a mainnet Ethereum Node can resolve a domain.
 
@@ -38,7 +38,7 @@ Reference:
 
 * `namehash` - namehashing algorithm implementation. See [Namehashing](namehashing.md).
 
-![](../.gitbook/assets/provide_domain_records_via_proxy_reader_smart_contract.png)
+![](../.gitbook/assets/provide_domain_records_via_proxy_reader_smart_contract%20%284%29.png)
 
 See [Records reference](records-reference.md) for more information about the standardized records.
 
