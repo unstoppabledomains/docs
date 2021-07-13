@@ -6,13 +6,9 @@ description: >-
 
 # Getting Started
 
-{% hint style="info" %}
-Unstoppable Domains has introduced a major documentation update. The old Website API documentation is available at [apidocs.unstoppabledomains.com](https://apidocs.unstoppabledomains.com/).
-{% endhint %}
-
 ## I want to learn more about Unstoppable Domains
 
-Unstoppable Domains are decentralized. This makes them, in a word, unstoppable. Once a user claims a domain to a wallet, they have absolute control over that domain. Domains can be transferred, updated, and linked to other services without any involvement from Unstoppable Domains. Unstoppable Domains cannot deactivate, change, or transfer a domain's records without a user's permission.
+Unstoppable Domains are decentralized. This makes them, in a word, unstoppable. Once a user claims a domain to a wallet, they have absolute control over that domain. Domains can be transferred, updated, and linked to other services without any involvement from Unstoppable Domains. Unstoppable Domains cannot deactivate, change, or transfer a domain's records without a user's permission. 
 
 To learn more about the company, please browse our [general website](https://unstoppabledomains.com), watch the learning materials and videos from our [Youtube Channel](https://www.youtube.com/c/UnstoppableDomains/videos), and listen to our popular, educational [UD Podcast Channel](https://open.spotify.com/show/2ZlyOpkkprGKS5KODk1PSS).
 
@@ -41,7 +37,7 @@ Popular open-source crypto wallet, MyEtherWallet, has implemented domain managem
 
 ## I want to sell domains to users in my app
 
-If you want to resell domains, use our [Website API reference](https://apidocs.unstoppabledomains.com/) for the Reseller API.
+If you want to resell domains, you must first [Register as A Reseller](sell-domains-to-users-in-my-app/register-as-reseller.md) with Unstoppable Domains and configure your reseller account to accept [Stripe and/or CoinBase payments](sell-domains-to-users-in-my-app/setup-payment-methods.md). You may also visit the [Buy Domain: Reseller Demo](https://unstoppabledomains.github.io/reseller-demo/#/reseller-demo) to test out the platform before integration. See the  [Reseller API Endpoints](https://apidocs.unstoppabledomains.com/) for interactive guides and detailed parameters.
 
 ## I want to promote my UD integration
 

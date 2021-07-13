@@ -37,7 +37,11 @@
 
 ## Sell Domains to Users in My App
 
-* [API for Reselling Domains](https://apidocs.unstoppabledomains.com/#tag/reseller)
+* [Register As Reseller](sell-domains-to-users-in-my-app/register-as-reseller.md)
+* [Setup Payment Methods](sell-domains-to-users-in-my-app/setup-payment-methods.md)
+* [Reseller API Endpoints](https://apidocs.unstoppabledomains.com/)
+* [Receive Your Payouts](sell-domains-to-users-in-my-app/receive-your-payouts.md)
+* [Error Codes for Troubleshooting](sell-domains-to-users-in-my-app/error-codes-for-troubleshooting.md)
 
 ## Domain Registry Essentials
 

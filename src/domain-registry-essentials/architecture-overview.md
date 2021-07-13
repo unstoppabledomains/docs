@@ -1,6 +1,11 @@
-# Architecture Overview
+---
+description: >-
+  This section provides a high-level overview of CNS — Crypto Name Service.
+  Readers should have a basic understanding of Ethereum smart contracts and the
+  ERC-721 token standard.
+---
 
-This section introduces the basic principles of CNS — Crypto Name Service. This is not a deep technical explanation of CNS, but rather a high-level overview of how CNS works. Readers should have a basic understanding of Ethereum smart contracts and the [ERC-721 token standard](https://eips.ethereum.org/EIPS/eip-721).
+# Architecture Overview
 
 This page covers the following topics:
 
@@ -16,7 +21,7 @@ Every CNS domain is issued as an [ERC-721](https://eips.ethereum.org/EIPS/eip-72
 
 The two central components of CNS are its `Registry` and `Resolver` smart contracts. `Registry` is a _map_ \(or _dictionary_\) from domain names to an owner address and a `Resolver` address. And `Resolver` is a _map_ from domain names to the records associated with that domain \(cryptocurrency addresses, etc.\).
 
-![A simplified illustration of the relation between Registry and Resolver smart contracts](../.gitbook/assets/registry_resolver_relation.svg)
+![A simplified illustration of the relation between Registry and Resolver smart contracts](../.gitbook/assets/registry_resolver_relation%20%282%29.svg)
 
 There is only one `Registry` smart contract deployed in the Ethereum Mainnet, but there are many versions of `Resolver` smart contracts. In theory, every domain could use a different `Resolver` contract but in practice the majority of domains are managed by the same `Resolver` smart contract instance \(like Resolver 1 in the example above\).
 
@@ -32,7 +37,7 @@ For instance, `example.crypto`'s namehash: `0xd584c5509c6788ad9d9491be8ba8b4422d
 
 This flow describes how the CNS `Registry` and `Resolvers` interact.
 
-![](../.gitbook/assets/Smart-Contract-Architecture-Administration.svg)
+![](../.gitbook/assets/Smart-Contract-Architecture-Administration%20%284%29.svg)
 
 ### Registry
 

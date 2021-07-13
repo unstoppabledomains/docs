@@ -2,7 +2,7 @@
 
 Domain records can be managed via the default public resolver, or one can develop a custom resolver with any management permissions defined.
 
-![](../.gitbook/assets/Record-Architecture.svg)
+![](../.gitbook/assets/Record-Architecture%20%284%29.svg)
 
 ## Resolver record types
 

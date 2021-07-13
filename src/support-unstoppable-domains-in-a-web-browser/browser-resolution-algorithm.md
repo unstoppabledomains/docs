@@ -1,6 +1,6 @@
 # Browser Resolution Algorithm
 
-![](../.gitbook/assets/resolve_dweb_website_by_direct_reading_from_ethereum_and_decentralized_network.png)
+![](../.gitbook/assets/resolve_dweb_website_by_direct_reading_from_ethereum_and_decentralized_network%20%284%29.png)
 
 This section explains how different domain record configurations should be interpreted by browsers.
 
