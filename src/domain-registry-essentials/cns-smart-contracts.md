@@ -1,4 +1,4 @@
-# CNS Smart Contracts
+# CNS smart contracts
 
 Crypto Name Service \(CNS\) is built on Ethereum and is effectively a bundle of Solidity smart contracts. Their source code is hosted in the [dot-crypto repository](https://github.com/unstoppabledomains/dot-crypto) and maintained by the Unstoppable Domains team. This page lists the smart contracts from that repository and gives a brief description of each along with links to the source code and deployment addresses. For high-level details about how CNS works, see [Architecture overview](architecture-overview.md).
 
@@ -81,16 +81,11 @@ This section lists all the smart contracts that users can directly interact with
 
 `FreeMinter` is a contract that can be used for allowing any user to freely mint a test domain with `udtestdev-` prefix.
 
-**Source code:** [contracts/controllers/FreeMinter.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/util/FreeMinter.sol)
-
-| Network | Contract address |
-| :--- | :--- |
-| Mainnet | [0x1fC985cAc641ED5846b631f96F35d9b48Bc3b834](https://etherscan.io/address/0x1fC985cAc641ED5846b631f96F35d9b48Bc3b834) |
-| Rinkeby | [0x84214215904cDEbA9044ECf95F3eBF009185AAf4](https://rinkeby.etherscan.io/address/0x84214215904cDEbA9044ECf95F3eBF009185AAf4) |
+**Source code:** [contracts/controllers/FreeRegistrar.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/util/FreeMinter.sol)
 
 ### WhitelistedMinter
 
-`WhitelistedMinter` defines an interface for minting second-level domains. This smart contract is primarily used by the Unstoppable Domains team, but its interface also supports delegating minting process to other parties via [Meta Transactions](). All calls to `WhitelistedMinter` are proxied to the `Registry` via the [MintingController](cns-smart-contracts.md#mintingcontroller) smart contract.
+`WhitelistedMinter` defines an interface for minting second-level domains. This smart contract is primarily used by the Unstoppable Domains team, but its interface also supports delegating minting process to other parties via [Meta Transactions](../managing-domains/meta-transactions.md). All calls to `WhitelistedMinter` are proxied to the `Registry` via the [MintingController](cns-smart-contracts.md#mintingcontroller) smart contract.
 
 | Network | Contract address |
 | :--- | :--- |
@@ -205,7 +200,7 @@ The `IMintingController` interface declares a set of methods for minting, which 
 
 ### ISignatureController
 
-The `ISignatureController` interface declares the functions that are implemented by `SignatureController` to enable [Meta transactions]() for the `Registry` smart contract.
+The `ISignatureController` interface declares the functions that are implemented by `SignatureController` to enable [Meta transactions](../managing-domains/meta-transactions.md) for the `Registry` smart contract.
 
 **Source code:** [contracts/controllers/ISignatureController.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/controllers/ISignatureController.sol)
 
@@ -265,7 +260,7 @@ The `MultiSend` smart contract is used internally by the Unstoppable Domains tea
 
 ### SignatureUtil
 
-`SignatureUtil` is a helper smart contract. Its implementation is used to extend smart contracts that require [Meta Transactions]().
+`SignatureUtil` is a helper smart contract. Its implementation is used to extend smart contracts that require [Meta Transactions](../managing-domains/meta-transactions.md).
 
 **Source code:** [contracts/util/SignatureUtil.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/util/SignatureUtil.sol)
 
@@ -292,7 +287,7 @@ The `LinkTokenMock` smart contract is used for testing [TwitterValidationOperato
 
 ### RelayTest
 
-`RelayTest` is used for testing relaying functionality for [Meta Transactions]().
+`RelayTest` is used for testing relaying functionality for [Meta Transactions](../managing-domains/meta-transactions.md).
 
 **Source code:** [contracts/test-helpers/RelayTest.sol](https://github.com/unstoppabledomains/dot-crypto/blob/master/contracts/test-helpers/RelayTest.sol)
 
