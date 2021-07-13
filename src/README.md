@@ -6,7 +6,7 @@ description: >-
 
 # Getting Started
 
-## I want to learn more about Unstoppable Domains
+## I want to learn more about Unstoppable Domains 
 
 Unstoppable Domains are decentralized. This makes them, in a word, unstoppable. Once a user claims a domain to a wallet, they have absolute control over that domain. Domains can be transferred, updated, and linked to other services without any involvement from Unstoppable Domains. Unstoppable Domains cannot deactivate, change, or transfer a domain's records without a user's permission. 
 
