@@ -1,23 +1,25 @@
-# Test domains prefilled with DNS and DWEB records
+# Browser resolution test domains
 
-| Domain name                                           |
-|-------------------------------------------------------|
-| udtestdev-dns-ipfs.crypto                             |
-| udtestdev-dns.crypto                                  |
-| udtestdev-dns-a-record.crypto                         |
-| udtestdev-ipfs.crypto                                 |
-| udtestdev-dns-global-ttl.crypto                       |
-| udtestdev-dns-ipfs-no-preffered-records.crypto        |
-| udtestdev-dns-cname.crypto                            |
-| udtestdev-dns-ipfs-redirect.crypto                    |
-| udtestdev-redirect.crypto                             |
+| Domain name |
+| :--- |
+| udtestdev-dns-ipfs.crypto |
+| udtestdev-dns.crypto |
+| udtestdev-dns-a-record.crypto |
+| udtestdev-ipfs.crypto |
+| udtestdev-dns-global-ttl.crypto |
+| udtestdev-dns-ipfs-no-preffered-records.crypto |
+| udtestdev-dns-cname.crypto |
+| udtestdev-dns-ipfs-redirect.crypto |
+| udtestdev-redirect.crypto |
 | udtestdev-dns-ipfs-redirect-legacy-ipfs-legacy.crypto |
-| udtestdev-ipfs-legacy.crypto                          |
-| udtestdev-ipfs-legacy-redirect-legacy.crypto          |
-| udtestdev-redirect-legacy.crypto                      |
+| udtestdev-ipfs-legacy.crypto |
+| udtestdev-ipfs-legacy-redirect-legacy.crypto |
+| udtestdev-redirect-legacy.crypto |
 
-## Getting test records  
+## Getting test records
+
 Check records with [resolution-js](https://github.com/unstoppabledomains/resolution) library:
+
 ```typescript
 import Resolution from '@unstoppabledomains/resolution/build/Resolution';
 
@@ -38,9 +40,10 @@ resolution.allRecords('udtestdev-dns-ipfs.crypto').then((records) => {
   //   'ipfs.redirect_domain.value': ''
   // }
 });
-```  
+```
 
-Check records with [resolution-js CLI](https://github.com/unstoppabledomains/resolution#command-line-interface):  
+Check records with [resolution-js CLI](https://github.com/unstoppabledomains/resolution#command-line-interface):
+
 ```bash
 $ resolution -d udtestdev-dns-ipfs.crypto -a
 {
@@ -53,3 +56,4 @@ $ resolution -d udtestdev-dns-ipfs.crypto -a
     }
 }
 ```
+
