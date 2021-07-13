@@ -1,6 +1,6 @@
 # Browser resolution algorithm
 
-![](../.gitbook/assets/resolve_dweb_website_by_direct_reading_from_ethereum_and_decentralized_network.png)
+![](../.gitbook/assets/resolve_dweb_website_by_direct_reading_from_ethereum_and_decentralized_network%20%284%29%20%281%29.png)
 
 This section explains how different domain record configurations should be interpreted by browsers.
 
@@ -12,7 +12,7 @@ If none of the `dweb` hash records are set, a browser should fall back to DNS re
 
 Generally, browsers automatically add `http://` prefix for any domain in the address bar if the protocol is not specified explicitly by a user. In the case of blockchain domain names \(assuming a browser supports many protocols\), it is preferred to determine a protocol only after resolving domain records.
 
-![](../.gitbook/assets/browser_resolution_algorithm.png)
+![](../.gitbook/assets/browser_resolution_algorithm%20%284%29%20%284%29.png)
 
 ## Records related to browser resolution
 

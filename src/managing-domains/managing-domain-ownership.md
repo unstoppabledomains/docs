@@ -6,7 +6,7 @@ Entities that can control domains are defined by the ERC-721 standard:
 
 * **Owner.** This is a direct owner of a domain, which has full control in managing domain ownership and records.
 * **Operator.** Registry allows any user to set their operators, that can control all domains owned by a user. There can be multiple operators per user.
-* **Approved address.** A domain owner can set an approved address, that can control one particular domain. ERC-721 allows only one approved address per token (domain).
+* **Approved address.** A domain owner can set an approved address, that can control one particular domain. ERC-721 allows only one approved address per token \(domain\).
 
 There are five basic operations that affect domain ownership:
 
@@ -24,7 +24,7 @@ Methods that change a direct owner of a domain can be called by either a domain 
 
 Registry smart contract supports the following ERC-721 functions for transferring:
 
-```sol
+```text
 transferFrom(address from, address to, uint256 tokenId)
 
 safeTransferFrom(address from, address to, uint256 tokenId)
@@ -42,7 +42,7 @@ After receiving a domain, along with setting a Resolver address, [`reconfigure`]
 
 Registry smart contract also implements `setOwner` function, which is not a part of the ERC-721 standard:
 
-```sol
+```text
 setOwner(address to, uint256 tokenId)
 ```
 
@@ -52,7 +52,7 @@ setOwner(address to, uint256 tokenId)
 
 Any Ethereum address can set multiple operators, allowing them to manage domains that a caller owns directly. This is an operation defined by ERC-721:
 
-```sol
+```text
 setApprovalForAll(address to, bool approved)
 ```
 
@@ -60,7 +60,7 @@ setApprovalForAll(address to, bool approved)
 
 An approved address can be set by either a domain owner or an operator. This method is defined by ERC-721 as well:
 
-```sol
+```text
 approve(address to, uint256 tokenId)
 ```
 
@@ -70,6 +70,7 @@ Approved addresses have equal rights as domain owners and operators, being able 
 
 Registry smart contract supports "burning" operation. After burning, a domain becomes available for minting again.
 
-```sol
+```text
 burn(tokenId)
 ```
+

@@ -20,7 +20,7 @@ Here are some of the end-user scenarios that should give an idea which features 
 3. Then the browser resolves the domain and gets the content hash of a domain.
 4. Then the browser retrieves the content by the hash using a related protocol and displays the content.
 
-![](../.gitbook/assets/overview_read_dweb_website_from_ethereum_and_decentralized_network.png)
+![](../.gitbook/assets/overview_read_dweb_website_from_ethereum_and_decentralized_network%20%284%29.png)
 
 ### Domain-level redirect
 
@@ -42,7 +42,7 @@ Here are some of the end-user scenarios that should give an idea which features 
    * If the network is not specified explicitly, it can be retrieved from the Ethereum node URL.
    * If the Registry Address is not specified, it can use a default for the specified network
 
-![](../.gitbook/assets/configure_dns_gateway.png)
+![](../.gitbook/assets/configure_dns_gateway%20%284%29%20%283%29.png)
 
 ## Hypermedia protocol
 
@@ -69,7 +69,7 @@ There are 2 possible gateways for each of the problem:
 
 See a description of how they work below
 
-![](../.gitbook/assets/overview_dweb_website_via_dns_dweb_gateways.png)
+![](../.gitbook/assets/overview_dweb_website_via_dns_dweb_gateways%20%284%29%20%282%29.png)
 
 ### Distributed content gateway
 
@@ -93,5 +93,5 @@ A gateway is a DNS Server that resolves not just traditional domains but also `.
      * If the client requests a `TXT` record, resolve to all crypto records in JSON encoded key-value format
 4. Send resolution to client
 
-![](../.gitbook/assets/resolve_dweb_website_via_dns_gateway_and_dweb_gateway.png)
+![](../.gitbook/assets/resolve_dweb_website_via_dns_gateway_and_dweb_gateway%20%284%29%20%281%29.png)
 

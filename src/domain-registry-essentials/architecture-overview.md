@@ -16,7 +16,7 @@ Every CNS domain represents an [ERC-721](https://eips.ethereum.org/EIPS/eip-721)
 
 The two central components of CNS are Registry and Resolver smart contracts. Resolver can be thought of as a _map_ \(or _dictionary_\) of domain names to a set of records, and Registry - as a _map_ of domain names to an owner address and a Resolver address.
 
-![A simplified illustration of the relation between Registry and Resolver smart contracts](../.gitbook/assets/registry_resolver_relation.svg)
+![A simplified illustration of the relation between Registry and Resolver smart contracts](../.gitbook/assets/registry_resolver_relation%20%282%29.svg)
 
 There's only one official instance of the Registry smart contract deployed in the Ethereum Mainnet, but there are many versions of Resolver smart contracts. The relationship between Registry and Resolver can be described as follows: Registry stores many domains, and each domain has a Resolver address record. This assumes that every domain might have a different resolver, though in practice majority of domains is managed by the same instance \(having the same address\) of the latest version of Resolver smart contract.
 
@@ -32,7 +32,7 @@ Here's an example of "example.crypto" namehash: `0xd584c5509c6788ad9d9491be8ba8b
 
 Here is a map to help visualize how the CNS Registry and Resolvers interact.
 
-![](../.gitbook/assets/Smart-Contract-Architecture-Administration.svg)
+![](../.gitbook/assets/Smart-Contract-Architecture-Administration%20%284%29%20%284%29.svg)
 
 ### Registry
 
@@ -53,7 +53,7 @@ Registry smart contract implements a set of methods allowing to mint new domains
 
 Accounts that are allowed to mint second-level domains \(like 'alice.crypto'\) are called whitelisted minters. Whitelisted minters are limited to only minting new domains. They can't control domain ownership \(e.g. approve or transfer a domain to another owner\) and they can't control domain records. Whitelisted minters are operated by Unstoppable Domains.
 
-Registry smart contract doesn't have an admin, which means that no entity can transfer or manage user domains without their permission. 
+Registry smart contract doesn't have an admin, which means that no entity can transfer or manage user domains without their permission.
 
 A domain owner may perform the following operations with their domains:
 
