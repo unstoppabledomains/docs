@@ -1,6 +1,11 @@
-# Architecture Overview
+---
+description: >-
+  This section provides a high-level overview of CNS — Crypto Name Service.
+  Readers should have a basic understanding of Ethereum smart contracts and the
+  ERC-721 token standard.
+---
 
-This section introduces the basic principles of CNS — Crypto Name Service. This is not a deep technical explanation of CNS, but rather a high-level overview of how CNS works. Readers should have a basic understanding of Ethereum smart contracts and the [ERC-721 token standard](https://eips.ethereum.org/EIPS/eip-721).
+# Architecture Overview
 
 This page covers the following topics:
 

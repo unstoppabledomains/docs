@@ -1,6 +1,13 @@
+---
+description: >-
+  This page lists the smart contracts from the dot-crypto repository and gives a
+  brief description of each along with links to the source code and deployment
+  addresses.
+---
+
 # CNS Smart Contracts
 
-Crypto Name Service \(CNS\) is built on Ethereum and is effectively a bundle of Solidity smart contracts. Their source code is hosted in the [dot-crypto repository](https://github.com/unstoppabledomains/dot-crypto) and maintained by the Unstoppable Domains team. This page lists the smart contracts from that repository and gives a brief description of each along with links to the source code and deployment addresses. For high-level details about how CNS works, see [Architecture overview](architecture-overview.md).
+Crypto Name Service \(CNS\) is built on Ethereum and is effectively a bundle of Solidity smart contracts. Their source code is hosted in the [dot-crypto repository](https://github.com/unstoppabledomains/dot-crypto) and maintained by the Unstoppable Domains team. For high-level details about how CNS works, see [Architecture overview](architecture-overview.md).
 
 This page is divided into sections, grouping contracts by the following categories:
 
