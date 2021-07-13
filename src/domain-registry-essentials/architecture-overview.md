@@ -1,4 +1,4 @@
-# Architecture Overview
+# Architecture overview
 
 This section introduces the basic principles of CNS — Crypto Name Service. This is not a deep technical explanation of CNS, but rather a high-level overview of how CNS works. Readers should have a basic understanding of Ethereum smart contracts and the [ERC-721 token standard](https://eips.ethereum.org/EIPS/eip-721).
 
@@ -16,7 +16,7 @@ Every CNS domain is issued as an [ERC-721](https://eips.ethereum.org/EIPS/eip-72
 
 The two central components of CNS are its `Registry` and `Resolver` smart contracts. `Registry` is a _map_ \(or _dictionary_\) from domain names to an owner address and a `Resolver` address. And `Resolver` is a _map_ from domain names to the records associated with that domain \(cryptocurrency addresses, etc.\).
 
-![A simplified illustration of the relation between Registry and Resolver smart contracts](../.gitbook/assets/registry_resolver_relation.svg)
+![A simplified illustration of the relation between Registry and Resolver smart contracts](../.gitbook/assets/registry_resolver_relation%20%282%29.svg)
 
 There is only one `Registry` smart contract deployed in the Ethereum Mainnet, but there are many versions of `Resolver` smart contracts. In theory, every domain could use a different `Resolver` contract but in practice the majority of domains are managed by the same `Resolver` smart contract instance \(like Resolver 1 in the example above\).
 
@@ -32,7 +32,7 @@ For instance, `example.crypto`'s namehash: `0xd584c5509c6788ad9d9491be8ba8b4422d
 
 This flow describes how the CNS `Registry` and `Resolvers` interact.
 
-![](../.gitbook/assets/Smart-Contract-Architecture-Administration.svg)
+![](../.gitbook/assets/Smart-Contract-Architecture-Administration%20%284%29.svg)
 
 ### Registry
 
@@ -62,7 +62,7 @@ Domain owners can:
 * Mint a new subdomain
 * Burn a domain
 
-Domain owners can set one _Approved address_ per domain and many _Operator_ addresses. These roles can manage a domain on a user's behalf. For more details, see [Managing domain ownership](../allow-my-users-to-manage-existing-domains/managing-domain-ownership.md).
+Domain owners can set one _Approved address_ per domain and many _Operator_ addresses. These roles can manage a domain on a user's behalf. For more details, see [Managing domain ownership](../managing-domains/managing-domain-ownership.md).
 
 ### Resolver
 
@@ -115,7 +115,7 @@ Internal addresses can't be accessed directly by a wallet. Meaning domains owned
 
 CNS allows users to delegate transaction execution to accounts that aren't domain owners.
 
-`Registry` and `Resolver` smart contracts implement methods that use [Meta Transactions](../allow-my-users-to-manage-existing-domains/meta-transactions.md). One use-case for meta transactions is delegating \(gas-using\) blockchain calls to other accounts. This allows domain owners to keep their domains and funds on separate accounts or even have someone else pay their transaction fees.
+`Registry` and `Resolver` smart contracts implement methods that use [Meta Transactions](../managing-domains/meta-transactions.md). One use-case for meta transactions is delegating \(gas-using\) blockchain calls to other accounts. This allows domain owners to keep their domains and funds on separate accounts or even have someone else pay their transaction fees.
 
 Unstoppable Domains uses this delegation feature to operate an internal transaction processor. Our transaction processor makes it possible for users to mint and manage their domains without having to worry about their wallet's balance. Under the hood, the transaction processor is a queue-based job processor that sends transactions from Unstoppable Domains-owned accounts.
 
@@ -130,5 +130,5 @@ On behalf of our users, our transaction processor generally handles:
 
 CNS transaction delegation does not depend on Unstoppable Domains' transaction processor. As long as the domain owner provides a valid signature, write operations can be performed by any Ethereum account.
 
-To learn more about the technical details of delegating transactions in CNS, read our [Meta Transactions](../allow-my-users-to-manage-existing-domains/meta-transactions.md) page.
+To learn more about the technical details of delegating transactions in CNS, read our [Meta Transactions](../managing-domains/meta-transactions.md) page.
 

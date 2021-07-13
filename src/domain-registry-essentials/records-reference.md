@@ -1,21 +1,17 @@
-# Records Reference
+# Records reference
 
 This page contains an overview of all standardized `Resolver` records. The reference is divided into sections, grouping records by their namespaces and use-cases:
 
-* [Crypto payments](records-reference.md#cryptocurrency-payments)
+* [Crypto payments](records-reference.md#crypto-payments)
 * [Browser resolution](records-reference.md#browser-resolution)
   * [DWeb records](records-reference.md#dweb-records)
   * [DNS records](records-reference.md#dns-records)
 
-Developers may also set custom records for the domains. Domain records are stored as a key-value dictionary by `Resolvers` and are not validated on the smart-contract level. For more details, read [Architecture Overview](architecture-overview.md#resolver) and [Managing Domain Records](../allow-my-users-to-manage-existing-domains/managing-domain-records.md).
-
-{% hint style="info" %}
-A list of keys supported by Unstoppable Domains can be found in [reference json file](https://github.com/unstoppabledomains/dot-crypto/blob/master/src/supported-keys/supported-keys.json)
-{% endhint %}
+Developers may also set custom records for the domains. Domain records are stored as a key-value dictionary by `Resolvers` and are not validated on the smart-contract level. For more details, read [Architecture Overview](architecture-overview.md#resolver) and [Managing Domain Records](../managing-domains/managing-domain-records.md).
 
 ## Cryptocurrency payments
 
-For information about crypto payments, see [Managing Domain Records - Cryptocurrency Payment Records](../allow-my-users-to-manage-existing-domains/managing-domain-records.md#crypto-payment-records).
+For information about crypto payments, see [Managing Domain Records - Cryptocurrency Payment Records](../managing-domains/managing-domain-records.md#crypto-payments-records).
 
 #### `crypto.ETH.address`
 
@@ -71,7 +67,7 @@ Cryptocurrency address of ticker version
 
 ## Browser resolution
 
-Browser resolution is described in the [Browser Resolution Algorithm](../support-unstoppable-domains-in-a-web-browser/browser-resolution-algorithm.md) page.
+Browser resolution is described in the [Browser Resolution Algorithm](../browser-resolution/browser-resolution-algorithm.md) page.
 
 #### `browser.preferred_protocols`
 
@@ -91,7 +87,7 @@ A fallback URL, to which a user will be redirected if no other resolution method
 
 ### DWeb records
 
-For more details, read [Browser Resolution Algorithm - DWeb Records](../support-unstoppable-domains-in-a-web-browser/browser-resolution-algorithm.md#distributed-web-records).
+For more details, read [Browser Resolution Algorithm - DWeb Records](../browser-resolution/browser-resolution-algorithm.md#distributed-web-records).
 
 #### `dweb.ipfs.hash`
 
@@ -111,7 +107,7 @@ Swarm network content hash.
 
 ### DNS records
 
-For more details, see [Browser Resolution Algorithm - DNS Records](../support-unstoppable-domains-in-a-web-browser/browser-resolution-algorithm.md#dns-records).
+For more details, see [Browser Resolution Algorithm - DNS Records](../browser-resolution/browser-resolution-algorithm.md#dns-records).
 
 #### `dns.ttl`
 
